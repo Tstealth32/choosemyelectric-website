@@ -72,19 +72,25 @@
                 Enter a Pennsylvania, Texas, or Ohio ZIP code to check rates in a supported market.
               </p>
 
-              <label class="field">
-                <span>Service ZIP code</span>
-                <input
-                  id="zip-code"
-                  class="text-input"
-                  name="zipCode"
-                  inputmode="numeric"
-                  maxlength="5"
-                  autocomplete="postal-code"
-                  placeholder="17111"
-                  required
-                >
-              </label>
+              <div class="zip-search-row">
+                <label class="field zip-search-field">
+                  <span>Service ZIP code</span>
+                  <input
+                    id="zip-code"
+                    class="text-input"
+                    name="zipCode"
+                    inputmode="numeric"
+                    maxlength="5"
+                    autocomplete="postal-code"
+                    placeholder="17111"
+                    required
+                  >
+                </label>
+
+                <button class="button button-primary zip-search-button" type="submit">
+                  Search Rates
+                </button>
+              </div>
 
               <div class="field" id="commodity-field" hidden>
                 <span>Ohio commodity</span>
@@ -107,7 +113,6 @@
             </p>
 
             <div class="button-row">
-              <button class="button button-primary" type="submit">Check My Savings</button>
               <a class="button button-secondary" href="./index.html">Back to Home</a>
             </div>
           </form>
@@ -115,6 +120,24 @@
           <div class="status-panel" id="estimate-status" aria-live="polite">
             Enter your ZIP code to see if we support your area.
           </div>
+
+          <section class="quick-win-panel" id="quick-win-panel" hidden aria-live="polite">
+            <div class="quick-win-copy">
+              <p class="quick-win-kicker">Lower rate found</p>
+              <h3 id="quick-win-headline">We found a lower live rate for your ZIP.</h3>
+              <p class="quick-win-detail" id="quick-win-detail">
+                Enter your ZIP code to see if there is a cheaper plan available.
+              </p>
+            </div>
+
+            <div class="quick-win-rate-wrap">
+              <div class="quick-win-rate-ring">
+                <strong class="quick-win-rate" id="quick-win-rate">--</strong>
+                <span class="quick-win-rate-label">lowest live rate</span>
+              </div>
+              <p class="quick-win-savings" id="quick-win-savings">--</p>
+            </div>
+          </section>
         </div>
 
         <aside class="control-card control-card-accent reveal reveal-delay-1">
