@@ -44,6 +44,12 @@ function cacheEstimateElements() {
   estimateElements.commodityInputs = Array.from(
     document.querySelectorAll('input[name="commodity"]'),
   );
+  estimateElements.quickWinPanel = document.getElementById("quick-win-panel");
+  estimateElements.quickWinHeadline = document.getElementById("quick-win-headline");
+  estimateElements.quickWinMeta = document.getElementById("quick-win-meta");
+  estimateElements.quickWinDetail = document.getElementById("quick-win-detail");
+  estimateElements.quickWinRate = document.getElementById("quick-win-rate");
+  estimateElements.quickWinSavings = document.getElementById("quick-win-savings");
 }
 
 function bindEstimateEvents() {
@@ -280,6 +286,8 @@ function renderResults({ currentRateBasis = "" } = {}) {
       ? `${formatMoney(bestOffer.annualSavings)} per year before taxes and utility delivery charges.`
       : "Enter your current rate to personalize this number, or use the app to scan a bill.";
 
+  renderQuickWin(bestOffer, market, currentRateBasis);
+
   if (!market) {
     estimateElements.resultsSubtitle.textContent =
       "We will compare offers after we know your ZIP code.";
@@ -308,6 +316,47 @@ function renderResults({ currentRateBasis = "" } = {}) {
     .slice(0, 8)
     .map((offer, index) => renderOfferCard(offer, index === 0))
     .join("");
+}
+
+function renderQuickWin(bestOffer, market, currentRateBasis) {
+  if (!estimateElements.quickWinPanel) return;
+
+  if (!market || !bestOffer || bestOffer.estimatedMonthlySavings <= 0) {
+    estimateElements.quickWinPanel.hidden = true;
+    estimateElements.quickWinPanel.classList.remove("is-active");
+    estimateElements.quickWinHeadline.textContent = "We found a lower live rate for your ZIP.";
+    estimateElements.quickWinMeta.textContent =
+      "Compare your area's best live plan before you scroll into the full list.";
+    estimateElements.quickWinDetail.textContent =
+      "Enter your ZIP code to see if there is a cheaper electric supplier plan available.";
+    estimateElements.quickWinRate.textContent = "--";
+    estimateElements.quickWinSavings.textContent = "--";
+    return;
+  }
+
+  const planLabel = [bestOffer.supplierName, bestOffer.planName]
+    .filter(Boolean)
+    .join(" • ");
+  const metaParts = [
+    bestOffer.termMonths ? `${bestOffer.termMonths} month term` : "",
+    bestOffer.rateType || "",
+    market.utilityName ? `${market.utilityName} area` : "",
+  ].filter(Boolean);
+  const comparisonDetail = currentRateBasis
+    ? `Estimated savings compared with the rate you entered. Scroll lower for more options, or use the app for bill scans and alerts.`
+    : `Estimated savings compared with the current utility or market benchmark for this ZIP. Scroll lower for more options, or use the app for bill scans and alerts.`;
+
+  estimateElements.quickWinPanel.hidden = false;
+  estimateElements.quickWinPanel.classList.remove("is-active");
+  void estimateElements.quickWinPanel.offsetWidth;
+  estimateElements.quickWinPanel.classList.add("is-active");
+  estimateElements.quickWinHeadline.textContent = planLabel || "We found a lower live rate for your ZIP.";
+  estimateElements.quickWinMeta.textContent =
+    metaParts.join(" • ") || "Recommended electric supplier plan for your ZIP.";
+  estimateElements.quickWinDetail.textContent = comparisonDetail;
+  estimateElements.quickWinRate.textContent = formatRate(bestOffer.rateCentsPerKwh, market.region);
+  estimateElements.quickWinSavings.textContent =
+    `${formatMoney(bestOffer.estimatedMonthlySavings)}/mo less • ${formatMoney(bestOffer.annualSavings)}/year`;
 }
 
 function renderOfferCard(offer, isBestOffer) {
@@ -633,17 +682,24 @@ function detectRegion(zipCode, commodity) {
   const zip = normalizeZip(zipCode);
   if (/^1[5-9]\d{3}$/.test(zip)) return "PA";
   if (/^(?:733\d{2}|7[5-9]\d{3}|885\d{2})$/.test(zip)) return "TX";
-  if (/^(?:43|44|45)\d{3}$/.test(zip)) {
+  if (isOhioZip(zip)) {
     return commodity === "gas" ? "OH_G" : "OH_E";
   }
   return null;
 }
 
 function syncCommodityVisibility() {
-  const region = detectRegion(estimateElements.zipCode.value, estimateState.commodity);
-  const isOhioZip = region === "OH_E" || region === "OH_G";
-  estimateElements.commodityField.hidden = !isOhioZip;
-  if (!isOhioZip) {
+  const showOhioCommodityChoice = isOhioZip(estimateElements.zipCode?.value);
+  if (estimateElements.commodityField) {
+    estimateElements.commodityField.hidden = !showOhioCommodityChoice;
+    estimateElements.commodityField.setAttribute("aria-hidden", String(!showOhioCommodityChoice));
+  }
+
+  estimateElements.commodityInputs.forEach((input) => {
+    input.disabled = !showOhioCommodityChoice;
+  });
+
+  if (!showOhioCommodityChoice) {
     estimateState.commodity = "electric";
     const electricInput = estimateElements.commodityInputs.find((input) => input.value === "electric");
     if (electricInput) electricInput.checked = true;
@@ -701,6 +757,10 @@ function toNumber(value) {
 function parseWholeNumber(value) {
   const match = String(value ?? "").match(/(\d+)/);
   return match ? Number(match[1]) : null;
+}
+
+function isOhioZip(zipCode) {
+  return /^(?:43|44|45)\d{3}$/.test(normalizeZip(zipCode));
 }
 
 function parseDollarAmount(value, cue = "") {
