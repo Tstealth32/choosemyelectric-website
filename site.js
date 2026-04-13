@@ -25,16 +25,16 @@ function updateStoreStatus(iosReady, androidReady) {
   if (!statusElement) return;
 
   if (iosReady && androidReady) {
-    statusElement.textContent = "Your live App Store and Google Play links are connected.";
+    statusElement.textContent = "Available on iPhone and Android, with a web estimate for desktop shoppers.";
     return;
   }
 
   if (iosReady || androidReady) {
-    statusElement.textContent = "One live store link is connected. The other button still falls back to contact until you update site.js.";
+    statusElement.textContent = "Download the app on your device, or start with the web estimate on desktop.";
     return;
   }
 
-  statusElement.innerHTML = 'Add your final App Store and Google Play links in <code>site.js</code> and these buttons will update automatically.';
+  statusElement.textContent = "App links are coming soon. You can still start with the web estimate or tap a button and we will help you get access.";
 }
 
 function startRevealObserver() {

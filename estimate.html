@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Choose My Electric Web Estimate | ZIP Code + Bill Upload</title>
+  <meta
+    name="description"
+    content="Enter your ZIP code, upload a bill photo or PDF, and estimate what you could save with Choose My Electric on the web."
+  >
+  <meta name="theme-color" content="#0f172a">
+  <meta property="og:title" content="Choose My Electric Web Estimate">
+  <meta property="og:description" content="Check your ZIP code, upload a bill photo or PDF, and compare live electric offers.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.choosemyelectric.com/estimate">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./site.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="Choose My Electric home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 108 108" role="img" aria-hidden="true">
+            <rect x="12" y="12" width="84" height="84" rx="6" fill="#0F172A"></rect>
+            <path d="M60.8 25L36 59.5h15.4L47.2 83 72 48.4H56.6z" fill="#1DD6A2"></path>
+          </svg>
+        </span>
+        <span class="brand-copy">
+          <strong>Choose My Electric</strong>
+          <span>Web estimate + mobile app</span>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="./index.html">Home</a>
+        <a href="#estimate-tool">Web Estimate</a>
+        <a href="#results">Results</a>
+        <a href="#download">Get the App</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="section estimate-hero">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Start on the web</p>
+          <h1 class="estimate-title">Enter your ZIP code, upload a bill photo or PDF, and see what you could save.</h1>
+          <p class="hero-text">
+            This web estimate is built for Pennsylvania, Texas, and Ohio shoppers who want a faster first look.
+            If you have a recent bill photo or PDF, we can pull in your current rate and usage. If not, you can still
+            start with your ZIP code and review the estimate manually.
+          </p>
+        </div>
+      </section>
+
+      <section class="section estimate-grid" id="estimate-tool">
+        <div class="control-card reveal">
+          <div class="card-head">
+            <div>
+              <p class="eyebrow">Step 1</p>
+              <h2>Tell us where you are shopping</h2>
+            </div>
+            <p class="card-subtext">Bill upload is optional, but it usually makes the estimate much more personal.</p>
+          </div>
+
+          <form id="estimate-form" class="stack-large" novalidate>
+            <div class="input-grid">
+              <label class="field">
+                <span>Service ZIP code</span>
+                <input
+                  id="zip-code"
+                  class="text-input"
+                  name="zipCode"
+                  inputmode="numeric"
+                  maxlength="5"
+                  autocomplete="postal-code"
+                  placeholder="17111"
+                  required
+                >
+              </label>
+
+              <div class="field" id="commodity-field" hidden>
+                <span>Ohio commodity</span>
+                <div class="pill-toggle" role="radiogroup" aria-label="Ohio commodity">
+                  <label class="pill-option">
+                    <input type="radio" name="commodity" value="electric" checked>
+                    <span>Electric</span>
+                  </label>
+                  <label class="pill-option">
+                    <input type="radio" name="commodity" value="gas">
+                    <span>Gas</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <label class="field">
+              <span>Bill upload</span>
+              <input
+                id="bill-upload"
+                class="file-input"
+                type="file"
+                name="bill"
+                accept="image/*,application/pdf"
+                multiple
+              >
+              <small class="helper-text">Use a phone photo, screenshot, or PDF bill. PDFs are converted into bill images automatically.</small>
+            </label>
+
+            <div class="button-row">
+              <button class="button button-primary" type="submit">Check My Savings</button>
+              <a class="button button-secondary" href="./index.html">Back to Home</a>
+            </div>
+          </form>
+
+          <div class="status-panel" id="estimate-status" aria-live="polite">
+            Enter your ZIP code to see if we support your area.
+          </div>
+
+          <div class="scan-summary" id="scan-summary" hidden></div>
+        </div>
+
+        <aside class="control-card control-card-accent reveal reveal-delay-1">
+          <p class="eyebrow">Best on your phone</p>
+          <h2>Use the web estimate now, then keep the full experience in the app.</h2>
+          <p>
+            The website is great for a first pass. The app is still the best place to keep bill history,
+            come back later, and keep rate-checking simple.
+          </p>
+          <div class="cta-row" id="download">
+            <a class="button button-primary" data-store-link="ios" href="mailto:contact@choosemyelectric.com?subject=Choose%20My%20Electric%20for%20iPhone">
+              Download for iPhone
+            </a>
+            <a class="button button-secondary" data-store-link="android" href="mailto:contact@choosemyelectric.com?subject=Choose%20My%20Electric%20for%20Android">
+              Get it on Android
+            </a>
+          </div>
+          <p class="supporting-note" data-store-status>Available on iPhone and Android.</p>
+        </aside>
+      </section>
+
+      <section class="section estimate-grid" id="results">
+        <div class="control-card reveal">
+          <div class="card-head">
+            <div>
+              <p class="eyebrow">Step 2</p>
+              <h2>Review the numbers we are using</h2>
+            </div>
+            <p class="card-subtext">If the bill scan missed something, fix it here before you compare plans.</p>
+          </div>
+
+          <div class="utility-choice-panel" id="utility-choice-panel" hidden>
+            <label class="field">
+              <span>Utility choice for this ZIP</span>
+              <select id="utility-choice" class="text-input"></select>
+            </label>
+          </div>
+
+          <div class="manual-grid" id="manual-fields">
+            <label class="field">
+              <span>Utility</span>
+              <input id="utility-name" class="text-input" type="text" autocomplete="organization">
+            </label>
+
+            <label class="field">
+              <span>Current supplier</span>
+              <input id="supplier-name" class="text-input" type="text">
+            </label>
+
+            <label class="field">
+              <span>Current rate (cents)</span>
+              <input id="current-rate" class="text-input" type="number" inputmode="decimal" step="0.01" min="0">
+            </label>
+
+            <label class="field">
+              <span>Benchmark rate (cents)</span>
+              <input id="benchmark-rate" class="text-input" type="number" inputmode="decimal" step="0.01" min="0">
+            </label>
+
+            <label class="field">
+              <span>Monthly usage</span>
+              <input id="monthly-usage" class="text-input" type="number" inputmode="decimal" step="1" min="0">
+            </label>
+          </div>
+
+          <div class="summary-strip" id="summary-strip">
+            <article class="metric-card">
+              <p>Current monthly cost</p>
+              <strong id="current-cost-value">--</strong>
+              <span id="current-cost-note">Waiting for your estimate.</span>
+            </article>
+
+            <article class="metric-card">
+              <p>Best plan we found</p>
+              <strong id="best-offer-value">--</strong>
+              <span id="best-offer-note">Live offers will show here.</span>
+            </article>
+
+            <article class="metric-card metric-card-accent">
+              <p>Estimated monthly savings</p>
+              <strong id="savings-value">--</strong>
+              <span id="savings-note">Upload a bill or PDF for a more personal number.</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="control-card reveal reveal-delay-1">
+          <div class="card-head">
+            <div>
+              <p class="eyebrow">Step 3</p>
+              <h2>Compare live plan options</h2>
+            </div>
+            <p class="card-subtext" id="results-subtitle">We will compare offers after we know your ZIP code.</p>
+          </div>
+
+          <div class="source-note" id="source-note">
+            Choose My Electric compares live market data when it is available.
+          </div>
+
+          <div class="offer-results" id="offer-results">
+            <p class="empty-state">Enter your ZIP code to start your first estimate.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Choose My Electric</strong>
+        <p>Bill scanning and supplier comparison for Pennsylvania, Texas, and Ohio households.</p>
+      </div>
+      <div class="footer-links">
+        <a href="./privacy.html">Privacy</a>
+        <a href="mailto:contact@choosemyelectric.com">contact@choosemyelectric.com</a>
+      </div>
+      <p class="copyright">Copyright <span data-current-year></span> Choose My Electric LLC</p>
+    </footer>
+  </div>
+
+  <script src="./site.js"></script>
+  <script type="module" src="./estimate.js"></script>
+</body>
+</html>
