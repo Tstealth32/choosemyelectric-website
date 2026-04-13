@@ -3,7 +3,7 @@
 This folder is now both:
 
 - a marketing website for Choose My Electric
-- a lightweight web estimate that lets people enter a ZIP code, upload a bill photo or PDF, and compare live offers before moving into the apps
+- a lightweight ZIP-based web estimate that lets people enter a ZIP code, compare live offers, and then move into the apps for bill scanning
 
 ## Files
 
@@ -12,9 +12,9 @@ This folder is now both:
 - `privacy.html`: privacy page
 - `site.css`: styling
 - `site.js`: app-store links and light interactions
-- `estimate.js`: ZIP code, PDF/image bill upload, utility selection, and savings results
+- `estimate.js`: ZIP code estimate flow, utility selection, and savings results
 - `api/market.mjs`: Vercel Function that safely loads live market data from the backend
-- `api/scan-bill.mjs`: Vercel Function that safely scans uploaded bill photos and converted PDF pages through the backend
+- `api/scan-bill.mjs`: intentionally disabled on the public website so bill upload stays app-only
 - `api/_backend.mjs`: shared backend helper functions
 
 ## First thing to edit
@@ -38,30 +38,21 @@ The web estimate needs the backend to stay server-side. In Vercel, add:
 - `CHOOSE_BACKEND_URL`
 - `CHOOSE_BACKEND_TOKEN`
 
-Optional:
-
-- `CHOOSE_WEB_APP_ID`
-- `CHOOSE_OPENAI_BILL_MODEL`
-
 Recommended values:
 
 - `CHOOSE_BACKEND_URL=https://api.choosemyelectric.com`
-- `CHOOSE_WEB_APP_ID=com.choosemyelectric.web`
-- `CHOOSE_OPENAI_BILL_MODEL=gpt-4o-mini`
 
 Do not put the backend token in browser code.
 
-## PDF support
+## Bill upload policy
 
-The web estimate now supports PDF bills by converting the first two PDF pages into bill images in the browser, then sending those images through the same scan flow.
+The public website is ZIP-only by design.
 
 That means:
 
 - no backend token is exposed in the browser
-- no server-side PDF rendering package is required
-- image uploads and PDF uploads share the same bill scan pipeline
-
-The current browser-side PDF conversion uses Mozilla PDF.js from a versioned CDN build.
+- the public web flow is lighter and safer to scale
+- bill upload, PDF parsing, and saved bill history stay in the iPhone and Android apps
 
 ## Fastest launch
 
@@ -99,8 +90,8 @@ Phase 1:
 
 - launch this static site
 - point traffic to the mobile apps
-- give desktop visitors a real ZIP code + bill upload estimate path
-- keep the message focused on bill upload, supplier review, and plan comparison
+- give desktop visitors a real ZIP code estimate path
+- keep the message focused on fast market discovery on the web and deeper bill-based value in the app
 
 Phase 2:
 
@@ -112,10 +103,11 @@ Phase 2:
 Phase 3:
 
 - decide whether you want a deeper web app, or if the current estimate + stronger app install conversion is enough
-- if the estimate gets traction, add user accounts and saved-history features on the web side
+- if the estimate gets traction, decide whether bill upload should ever come back to the web behind stronger rate limits and bot protection
 
 ## Notes
 
 - The privacy page here is based on the current app privacy policy dated April 8, 2026.
-- The current web estimate supports bill photo, screenshot, and PDF upload.
+- The current web estimate supports ZIP-based market estimates only.
+- Bill upload and PDF parsing are intentionally app-only right now.
 - If you want, the next step can be a second pass that adds screenshots, better SEO copy, state-specific landing pages, analytics, and a stronger install funnel after results.

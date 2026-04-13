@@ -1,35 +1,22 @@
 const estimateState = {
   commodity: "electric",
-  conversionNotes: [],
   currentCost: null,
-  deviceId: "",
   detectedRegion: null,
-  installId: "",
   market: null,
   manualInputs: {
     benchmarkRateCents: "",
     currentRateCents: "",
     monthlyUsage: "",
-    supplierName: "",
     utilityName: "",
   },
   recommendations: [],
-  scan: null,
-  session: null,
   zipCode: "",
 };
 
 const estimateElements = {};
-const PDFJS_VERSION = "5.4.624";
-const PDFJS_BASE_URL = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${PDFJS_VERSION}/build`;
-const MAX_PDF_PAGES = 2;
-const MAX_SCAN_IMAGES = 4;
-let pdfJsPromise = null;
 
 document.addEventListener("DOMContentLoaded", () => {
   cacheEstimateElements();
-  initializeEstimateIdentity();
-  hydrateStoredSession();
   bindEstimateEvents();
   syncCommodityVisibility();
 });
@@ -37,14 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
 function cacheEstimateElements() {
   estimateElements.form = document.getElementById("estimate-form");
   estimateElements.zipCode = document.getElementById("zip-code");
-  estimateElements.billUpload = document.getElementById("bill-upload");
   estimateElements.commodityField = document.getElementById("commodity-field");
   estimateElements.utilityChoicePanel = document.getElementById("utility-choice-panel");
   estimateElements.utilityChoice = document.getElementById("utility-choice");
   estimateElements.status = document.getElementById("estimate-status");
-  estimateElements.scanSummary = document.getElementById("scan-summary");
   estimateElements.utilityName = document.getElementById("utility-name");
-  estimateElements.supplierName = document.getElementById("supplier-name");
   estimateElements.currentRate = document.getElementById("current-rate");
   estimateElements.benchmarkRate = document.getElementById("benchmark-rate");
   estimateElements.monthlyUsage = document.getElementById("monthly-usage");
@@ -60,11 +44,6 @@ function cacheEstimateElements() {
   estimateElements.commodityInputs = Array.from(
     document.querySelectorAll('input[name="commodity"]'),
   );
-}
-
-function initializeEstimateIdentity() {
-  estimateState.deviceId = ensureStableId("choose-electric-web-device-id");
-  estimateState.installId = ensureStableId("choose-electric-web-install-id");
 }
 
 function bindEstimateEvents() {
@@ -88,7 +67,6 @@ function bindEstimateEvents() {
     });
   });
   bindManualField("utilityName", estimateElements.utilityName);
-  bindManualField("supplierName", estimateElements.supplierName);
   bindManualField("currentRateCents", estimateElements.currentRate);
   bindManualField("benchmarkRateCents", estimateElements.benchmarkRate);
   bindManualField("monthlyUsage", estimateElements.monthlyUsage);
@@ -110,84 +88,15 @@ async function handleEstimateSubmit(event) {
   estimateState.zipCode = normalizedZip;
   resetManualInputs();
 
-  const billFiles = Array.from(estimateElements.billUpload.files || []);
-  if (!normalizedZip && billFiles.length === 0) {
-    setStatus("Enter your ZIP code or upload a bill photo or PDF to continue.", "error");
-    return;
-  }
-
-  let scanResult = null;
-  if (billFiles.length > 0) {
-    scanResult = await scanBillFiles(billFiles, normalizedZip);
-    if (scanResult?.scan) {
-      estimateState.scan = scanResult.scan;
-      estimateState.detectedRegion = scanResult.detectedRegion || estimateState.detectedRegion;
-      if (scanResult.session) {
-        estimateState.session = scanResult.session;
-        persistSession(scanResult.session);
-      }
-      const scannedZip = normalizeZip(fieldValue(scanResult.scan, "service_zip"));
-      if (!normalizedZip && scannedZip) {
-        estimateState.zipCode = scannedZip;
-        estimateElements.zipCode.value = scannedZip;
-      }
-    }
-  } else {
-    estimateState.scan = null;
-  }
-
-  if (!estimateState.zipCode) {
-    setStatus("We could not find a service ZIP code yet. Add it manually and try again.", "error");
+  if (!normalizedZip) {
+    setStatus("Enter your ZIP code to continue.", "error");
     return;
   }
 
   syncCommodityVisibility();
   await refreshMarket({
-    preferredUtilityName:
-      fieldValue(estimateState.scan, "utility_name") || estimateState.manualInputs.utilityName,
+    preferredUtilityName: estimateState.manualInputs.utilityName,
   });
-}
-
-async function scanBillFiles(files, zipCode) {
-  setStatus("Scanning your bill and pulling out your current rate...", "info");
-  estimateElements.scanSummary.hidden = true;
-  estimateState.conversionNotes = [];
-
-  const preparedFiles = await prepareUploadFiles(files);
-  if (!preparedFiles.length) {
-    setStatus("We could not turn that PDF into bill images. Try a different PDF or upload screenshots instead.", "error");
-    return null;
-  }
-
-  const formData = new FormData();
-  formData.set("zipCode", zipCode || "");
-  formData.set("commodity", estimateState.commodity);
-  formData.set("deviceId", estimateState.deviceId);
-  formData.set("installId", estimateState.installId);
-
-  if (estimateState.session?.customerId) {
-    formData.set("customerId", estimateState.session.customerId);
-    formData.set("customerToken", estimateState.session.customerToken);
-  }
-
-  preparedFiles.forEach((file) => formData.append("bill", file));
-
-  const response = await fetch("/api/scan-bill", {
-    method: "POST",
-    body: formData,
-  });
-  const payload = await response.json();
-
-  if (!response.ok) {
-    setStatus(
-      payload.error || "The bill scan could not finish right now. You can still use ZIP code only.",
-      "warning",
-    );
-    return null;
-  }
-
-  renderScanSummary(payload.scan);
-  return payload;
 }
 
 async function refreshMarket({ preferredUtilityName = "", utilityChoiceKey = "" } = {}) {
@@ -264,39 +173,23 @@ function normalizeMarketPayload(payload) {
 }
 
 function autofillManualInputs() {
-  const scan = estimateState.scan;
   const market = estimateState.market;
-
-  const supplierName = fieldValue(scan, "current_supplier_name");
-  const utilityName = fieldValue(scan, "utility_name") || market?.utilityName || "";
-  const currentRateCents = toCents(fieldValue(scan, "current_supplier_rate_per_kwh"));
-  const scanBenchmarkCents = toCents(fieldValue(scan, "utility_price_to_compare_per_kwh"));
-  const usage = deriveMonthlyUsage(scan) || defaultMonthlyUsage(market?.region);
+  const utilityName = market?.utilityName || "";
+  const usage = defaultMonthlyUsage(market?.region);
 
   estimateState.manualInputs.utilityName =
     estimateState.manualInputs.utilityName || utilityName;
-  estimateState.manualInputs.supplierName =
-    estimateState.manualInputs.supplierName || supplierName;
   estimateState.manualInputs.currentRateCents =
     estimateState.manualInputs.currentRateCents ||
-    (
-      currentRateCents !== null
-        ? formatEditableNumber(currentRateCents)
-        : formatEditableNumber(market?.benchmarkRateCentsPerKwh)
-    );
+    "";
   estimateState.manualInputs.benchmarkRateCents =
     estimateState.manualInputs.benchmarkRateCents ||
-    (
-      scanBenchmarkCents !== null
-        ? formatEditableNumber(scanBenchmarkCents)
-        : formatEditableNumber(market?.benchmarkRateCentsPerKwh)
-    );
+    formatEditableNumber(market?.benchmarkRateCentsPerKwh);
   estimateState.manualInputs.monthlyUsage =
     estimateState.manualInputs.monthlyUsage ||
     (usage ? String(Math.round(usage)) : String(defaultMonthlyUsage(market?.region)));
 
   estimateElements.utilityName.value = estimateState.manualInputs.utilityName;
-  estimateElements.supplierName.value = estimateState.manualInputs.supplierName;
   estimateElements.currentRate.value = estimateState.manualInputs.currentRateCents;
   estimateElements.benchmarkRate.value = estimateState.manualInputs.benchmarkRateCents;
   estimateElements.monthlyUsage.value = estimateState.manualInputs.monthlyUsage;
@@ -333,7 +226,7 @@ function recomputeRecommendations() {
 
   renderResults({
     currentRateBasis: useCurrentRate
-      ? "Savings compared with the current rate from your bill or manual entry."
+      ? "Savings compared with the current rate you entered."
       : "Savings compared with the utility or market benchmark for this ZIP.",
   });
 }
@@ -385,7 +278,7 @@ function renderResults({ currentRateBasis = "" } = {}) {
   estimateElements.savingsNote.textContent =
     bestOffer
       ? `${formatMoney(bestOffer.annualSavings)} per year before taxes and utility delivery charges.`
-      : "Upload a bill or PDF, or enter your current rate to personalize this number.";
+      : "Enter your current rate to personalize this number, or use the app to scan a bill.";
 
   if (!market) {
     estimateElements.resultsSubtitle.textContent =
@@ -482,33 +375,6 @@ function renderOfferCard(offer, isBestOffer) {
         }
       </div>
     </article>
-  `;
-}
-
-function renderScanSummary(scan) {
-  if (!scan) {
-    estimateElements.scanSummary.hidden = true;
-    return;
-  }
-
-  const foundBits = [
-    fieldValue(scan, "utility_name") ? `Utility: ${fieldValue(scan, "utility_name")}` : "",
-    fieldValue(scan, "current_supplier_name") ? `Supplier: ${fieldValue(scan, "current_supplier_name")}` : "",
-    toCents(fieldValue(scan, "current_supplier_rate_per_kwh")) !== null
-      ? `Current rate: ${formatRate(toCents(fieldValue(scan, "current_supplier_rate_per_kwh")), detectRegion(estimateState.zipCode, estimateState.commodity))}`
-      : "",
-    deriveMonthlyUsage(scan) ? `Monthly usage: ${Math.round(deriveMonthlyUsage(scan))}` : "",
-  ].filter(Boolean);
-
-  estimateElements.scanSummary.hidden = false;
-  estimateElements.scanSummary.innerHTML = `
-    <strong>Bill scan ready.</strong>
-    <p>${foundBits.length ? escapeHtml(foundBits.join(" • ")) : "We found part of your bill and prefilled what we could."}</p>
-    ${
-      estimateState.conversionNotes.length
-        ? `<p>${escapeHtml(estimateState.conversionNotes.join(" "))}</p>`
-        : ""
-    }
   `;
 }
 
@@ -787,37 +653,9 @@ function syncCommodityVisibility() {
   }
 }
 
-function deriveMonthlyUsage(scan) {
-  if (!scan?.fields) return null;
-  const avgMonthly = toNumber(fieldValue(scan, "avg_monthly_kwh"));
-  const annualUsage = toNumber(fieldValue(scan, "annual_usage_kwh"));
-  const currentUsage = toNumber(fieldValue(scan, "usage_kwh_current_period"));
-  if (avgMonthly) return avgMonthly;
-  if (annualUsage) return annualUsage / 12;
-  if (currentUsage) return currentUsage;
-  return null;
-}
-
-function fieldValue(scan, fieldKey) {
-  return String(scan?.fields?.[fieldKey]?.value ?? "").trim();
-}
-
 function setStatus(message, tone = "info") {
   estimateElements.status.textContent = message;
   estimateElements.status.dataset.tone = tone;
-}
-
-function hydrateStoredSession() {
-  try {
-    const raw = localStorage.getItem("choose-electric-web-session");
-    if (!raw) return;
-    const parsed = JSON.parse(raw);
-    if (parsed?.customerId && parsed?.customerToken) {
-      estimateState.session = parsed;
-    }
-  } catch {
-    estimateState.session = null;
-  }
 }
 
 function resetManualInputs() {
@@ -825,35 +663,13 @@ function resetManualInputs() {
     benchmarkRateCents: "",
     currentRateCents: "",
     monthlyUsage: "",
-    supplierName: "",
     utilityName: "",
   };
 
   if (estimateElements.utilityName) estimateElements.utilityName.value = "";
-  if (estimateElements.supplierName) estimateElements.supplierName.value = "";
   if (estimateElements.currentRate) estimateElements.currentRate.value = "";
   if (estimateElements.benchmarkRate) estimateElements.benchmarkRate.value = "";
   if (estimateElements.monthlyUsage) estimateElements.monthlyUsage.value = "";
-}
-
-function persistSession(session) {
-  try {
-    localStorage.setItem("choose-electric-web-session", JSON.stringify(session));
-  } catch {
-    // Ignore storage failures.
-  }
-}
-
-function ensureStableId(storageKey) {
-  try {
-    const existing = localStorage.getItem(storageKey);
-    if (existing) return existing;
-    const nextValue = crypto.randomUUID();
-    localStorage.setItem(storageKey, nextValue);
-    return nextValue;
-  } catch {
-    return crypto.randomUUID();
-  }
 }
 
 function defaultMonthlyUsage(region) {
@@ -868,95 +684,6 @@ function defaultMonthlyUsage(region) {
     default:
       return 850;
   }
-}
-
-async function prepareUploadFiles(files) {
-  const prepared = [];
-
-  for (const file of files) {
-    const isPdf = file.type === "application/pdf" || /\.pdf$/i.test(file.name);
-    if (!isPdf) {
-      prepared.push(file);
-      continue;
-    }
-
-    setStatus(`Preparing PDF pages from ${file.name}...`, "info");
-    const pdfImages = await renderPdfFileToImages(file);
-    if (!pdfImages.length) continue;
-
-    estimateState.conversionNotes.push(
-      `${file.name} converted into ${pdfImages.length} bill image${pdfImages.length === 1 ? "" : "s"}.`,
-    );
-    prepared.push(...pdfImages);
-  }
-
-  return prepared.slice(0, MAX_SCAN_IMAGES);
-}
-
-async function renderPdfFileToImages(file) {
-  const pdfjs = await loadPdfJs();
-  const pdfBytes = new Uint8Array(await file.arrayBuffer());
-  const loadingTask = pdfjs.getDocument({ data: pdfBytes });
-  const pdf = await loadingTask.promise;
-  const totalPages = Math.min(pdf.numPages, MAX_PDF_PAGES);
-  const pageImages = [];
-
-  for (let pageNumber = 1; pageNumber <= totalPages; pageNumber += 1) {
-    const page = await pdf.getPage(pageNumber);
-    const baseViewport = page.getViewport({ scale: 1 });
-    const longestSide = Math.max(baseViewport.width, baseViewport.height);
-    const scale = Math.max(1, Math.min(2.4, 1800 / longestSide));
-    const viewport = page.getViewport({ scale });
-    const canvas = document.createElement("canvas");
-    const context = canvas.getContext("2d", { alpha: false });
-
-    canvas.width = Math.round(viewport.width);
-    canvas.height = Math.round(viewport.height);
-
-    if (!context) {
-      throw new Error("The browser could not create a canvas for PDF rendering.");
-    }
-
-    await page.render({
-      canvasContext: context,
-      viewport,
-    }).promise;
-
-    const blob = await canvasToBlob(canvas, "image/jpeg", 0.88);
-    pageImages.push(
-      new File(
-        [blob],
-        `${file.name.replace(/\.pdf$/i, "")}-page-${pageNumber}.jpg`,
-        { type: "image/jpeg" },
-      ),
-    );
-    page.cleanup();
-  }
-
-  return pageImages;
-}
-
-async function loadPdfJs() {
-  if (!pdfJsPromise) {
-    pdfJsPromise = import(`${PDFJS_BASE_URL}/pdf.mjs`)
-      .then((module) => {
-        module.GlobalWorkerOptions.workerSrc = `${PDFJS_BASE_URL}/pdf.worker.mjs`;
-        return module;
-      });
-  }
-  return pdfJsPromise;
-}
-
-function canvasToBlob(canvas, type, quality) {
-  return new Promise((resolve, reject) => {
-    canvas.toBlob((blob) => {
-      if (blob) {
-        resolve(blob);
-      } else {
-        reject(new Error("PDF page rendering did not produce an image blob."));
-      }
-    }, type, quality);
-  });
 }
 
 function toCents(rawRate) {

@@ -25,16 +25,16 @@ function updateStoreStatus(iosReady, androidReady) {
   if (!statusElement) return;
 
   if (iosReady && androidReady) {
-    statusElement.textContent = "Available on iPhone and Android, with a web estimate for desktop shoppers.";
+    statusElement.textContent = "Available on iPhone and Android, with a ZIP code web estimate for desktop shoppers.";
     return;
   }
 
   if (iosReady || androidReady) {
-    statusElement.textContent = "Download the app on your device, or start with the web estimate on desktop.";
+    statusElement.textContent = "Download the app for bill scanning, or start with the ZIP code web estimate on desktop.";
     return;
   }
 
-  statusElement.textContent = "App links are coming soon. You can still start with the web estimate or tap a button and we will help you get access.";
+  statusElement.textContent = "App links are coming soon. You can still start with the ZIP code web estimate or tap a button and we will help you get access.";
 }
 
 function startRevealObserver() {
