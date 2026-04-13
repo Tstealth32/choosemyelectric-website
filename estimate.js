@@ -57,6 +57,7 @@ function bindEstimateEvents() {
   estimateElements.zipCode?.addEventListener("input", () => {
     estimateState.zipCode = normalizeZip(estimateElements.zipCode.value);
     estimateElements.zipCode.value = estimateState.zipCode;
+    clearUtilityChoices();
     syncCommodityVisibility();
   });
   estimateElements.commodityInputs.forEach((input) => {
@@ -136,6 +137,19 @@ async function refreshMarket({ preferredUtilityName = "", utilityChoiceKey = "" 
   estimateState.market = normalizeMarketPayload(payload);
   estimateState.detectedRegion = estimateState.market.region;
   populateUtilityChoices(estimateState.market.utilityChoices, estimateState.market.selectedUtilityChoiceKey);
+
+  if (requiresOhioUtilitySelection(estimateState.market)) {
+    estimateState.currentCost = null;
+    estimateState.recommendations = [];
+    renderResults();
+    setStatus(
+      "Choose your Ohio utility company to load accurate supplier rates for this ZIP code.",
+      "warning",
+    );
+    estimateElements.utilityChoice?.focus();
+    return;
+  }
+
   autofillManualInputs();
   recomputeRecommendations();
   setStatus("Estimate ready. Review the numbers and compare the live plan list below.", "success");
@@ -306,6 +320,16 @@ function renderResults({ currentRateBasis = "" } = {}) {
     market.priceToCompareLastUpdated ? `Benchmark updated: ${market.priceToCompareLastUpdated}` : "",
   ].filter(Boolean).join(" • ");
 
+  if (requiresOhioUtilitySelection(market)) {
+    estimateElements.resultsSubtitle.textContent =
+      "Choose your Ohio utility company to see accurate supplier rates.";
+    estimateElements.sourceNote.textContent =
+      "Ohio ZIP codes can map to more than one utility area, so we wait for your selection before showing plans.";
+    estimateElements.offerResults.innerHTML =
+      '<p class="empty-state">Select your Ohio utility company above, then we will load the correct supplier plans and savings.</p>';
+    return;
+  }
+
   if (!recommendations.length) {
     estimateElements.offerResults.innerHTML =
       '<p class="empty-state">We found your market, but we do not have live offers to show yet for this exact setup.</p>';
@@ -429,14 +453,13 @@ function renderOfferCard(offer, isBestOffer) {
 
 function populateUtilityChoices(choices, selectedKey) {
   if (!choices || choices.length <= 1) {
-    estimateElements.utilityChoicePanel.hidden = true;
-    estimateElements.utilityChoice.innerHTML = "";
+    clearUtilityChoices();
     return;
   }
 
   estimateElements.utilityChoicePanel.hidden = false;
-  estimateElements.utilityChoice.innerHTML = choices
-    .map((choice) => {
+  const requiresSelection = !selectedKey;
+  const options = choices.map((choice) => {
       const labelBits = [choice.utilityName];
       if (choice.rateSchedule) labelBits.push(choice.rateSchedule);
       return `
@@ -444,8 +467,29 @@ function populateUtilityChoices(choices, selectedKey) {
           ${escapeHtml(labelBits.join(" • "))}
         </option>
       `;
-    })
-    .join("");
+    });
+
+  estimateElements.utilityChoice.innerHTML = [
+    requiresSelection
+      ? '<option value="" selected disabled>Choose your Ohio utility company</option>'
+      : "",
+    ...options,
+  ].join("");
+}
+
+function clearUtilityChoices() {
+  if (estimateElements.utilityChoicePanel) estimateElements.utilityChoicePanel.hidden = true;
+  if (estimateElements.utilityChoice) estimateElements.utilityChoice.innerHTML = "";
+}
+
+function requiresOhioUtilitySelection(market) {
+  return (
+    Boolean(market) &&
+    (market.region === "OH_E" || market.region === "OH_G") &&
+    Array.isArray(market.utilityChoices) &&
+    market.utilityChoices.length > 1 &&
+    !market.selectedUtilityChoiceKey
+  );
 }
 
 function parsePennsylvaniaOffers(html, sourceUrl) {

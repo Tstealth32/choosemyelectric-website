@@ -146,6 +146,13 @@
           <div class="status-panel" id="estimate-status" aria-live="polite">
             Enter your ZIP code to see if we support your area.
           </div>
+
+          <div class="utility-choice-panel" id="utility-choice-panel" hidden>
+            <label class="field">
+              <span>Ohio utility company</span>
+              <select id="utility-choice" class="text-input"></select>
+            </label>
+          </div>
         </div>
 
         <aside class="control-card control-card-accent reveal reveal-delay-1">
@@ -175,13 +182,6 @@
               <h2>Review the numbers we are using</h2>
             </div>
             <p class="card-subtext">We will prefill what we can from your ZIP. You can still adjust the numbers if you know your usage or current rate.</p>
-          </div>
-
-          <div class="utility-choice-panel" id="utility-choice-panel" hidden>
-            <label class="field">
-              <span>Utility choice for this ZIP</span>
-              <select id="utility-choice" class="text-input"></select>
-            </label>
           </div>
 
           <div class="manual-grid" id="manual-fields">
