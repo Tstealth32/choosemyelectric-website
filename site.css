@@ -605,6 +605,10 @@ p {
   min-width: 12rem;
 }
 
+.utility-choice-panel {
+  grid-column: 1 / -1;
+}
+
 .manual-grid {
   margin-top: 0.75rem;
 }

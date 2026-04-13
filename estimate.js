@@ -27,6 +27,7 @@ function cacheEstimateElements() {
   estimateElements.commodityField = document.getElementById("commodity-field");
   estimateElements.utilityChoicePanel = document.getElementById("utility-choice-panel");
   estimateElements.utilityChoice = document.getElementById("utility-choice");
+  estimateElements.utilityChoiceLabel = document.getElementById("utility-choice-label");
   estimateElements.status = document.getElementById("estimate-status");
   estimateElements.utilityName = document.getElementById("utility-name");
   estimateElements.currentRate = document.getElementById("current-rate");
@@ -63,6 +64,7 @@ function bindEstimateEvents() {
   estimateElements.commodityInputs.forEach((input) => {
     input.addEventListener("change", () => {
       estimateState.commodity = input.value === "gas" ? "gas" : "electric";
+      clearUtilityChoices();
       syncCommodityVisibility();
     });
   });
@@ -452,6 +454,8 @@ function renderOfferCard(offer, isBestOffer) {
 }
 
 function populateUtilityChoices(choices, selectedKey) {
+  updateUtilityChoiceLabel();
+
   if (!choices || choices.length <= 1) {
     clearUtilityChoices();
     return;
@@ -480,6 +484,7 @@ function populateUtilityChoices(choices, selectedKey) {
 function clearUtilityChoices() {
   if (estimateElements.utilityChoicePanel) estimateElements.utilityChoicePanel.hidden = true;
   if (estimateElements.utilityChoice) estimateElements.utilityChoice.innerHTML = "";
+  updateUtilityChoiceLabel();
 }
 
 function requiresOhioUtilitySelection(market) {
@@ -751,6 +756,8 @@ function syncCommodityVisibility() {
     const checked = estimateElements.commodityInputs.find((input) => input.checked);
     estimateState.commodity = checked?.value === "gas" ? "gas" : "electric";
   }
+
+  updateUtilityChoiceLabel();
 }
 
 function setStatus(message, tone = "info") {
@@ -805,6 +812,19 @@ function parseWholeNumber(value) {
 
 function isOhioZip(zipCode) {
   return /^(?:43|44|45)\d{3}$/.test(normalizeZip(zipCode));
+}
+
+function updateUtilityChoiceLabel() {
+  if (!estimateElements.utilityChoiceLabel) return;
+  if (!isOhioZip(estimateState.zipCode || estimateElements.zipCode?.value)) {
+    estimateElements.utilityChoiceLabel.textContent = "Ohio utility company";
+    return;
+  }
+
+  estimateElements.utilityChoiceLabel.textContent =
+    estimateState.commodity === "gas"
+      ? "Ohio gas utility company"
+      : "Ohio electric utility company";
 }
 
 function parseDollarAmount(value, cue = "") {
