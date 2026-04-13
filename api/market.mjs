@@ -217,12 +217,19 @@ async function fetchOhioMarket({
   });
 
   const utilityChoices = parseOhioUtilityChoices(categoryHtml, categoryValue);
-  const selectedChoice = pickChoice(utilityChoices, requestedUtilityChoiceKey, preferredUtilityName);
+  const hasExplicitUtilitySelection =
+    Boolean(String(requestedUtilityChoiceKey ?? "").trim()) ||
+    Boolean(String(preferredUtilityName ?? "").trim());
+  const selectedChoice =
+    hasExplicitUtilitySelection || utilityChoices.length === 1
+      ? pickChoice(utilityChoices, requestedUtilityChoiceKey, preferredUtilityName)
+      : null;
 
   if (!selectedChoice) {
     return {
       commodity,
       region: commodity === "gas" ? "OH_G" : "OH_E",
+      selectionRequired: utilityChoices.length > 1,
       utilityChoices,
       zipCode,
       sourceLabel: "Live Energy Choice Ohio utility list",
