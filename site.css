@@ -1,17 +1,17 @@
 :root {
   --midnight: #0f172a;
   --slate: #1e293b;
-  --teal: #18c29c;
-  --teal-bright: #1dd6a2;
-  --mint: #87f2d1;
-  --mint-soft: #dffcf2;
-  --mist: #eff8f4;
-  --mist-strong: #d9f7eb;
+  --teal: #3e8e68;
+  --teal-bright: #62c49a;
+  --mint: #95c8ae;
+  --mint-soft: #e4f7ea;
+  --mist: #edf7f0;
+  --mist-strong: #dcefe4;
   --white: #ffffff;
   --ink: #102634;
   --ink-soft: #39556a;
   --line: rgba(15, 23, 42, 0.12);
-  --line-bright: rgba(135, 242, 209, 0.22);
+  --line-bright: rgba(98, 196, 154, 0.24);
   --shadow: 0 24px 80px rgba(7, 15, 28, 0.2);
   --radius-xl: 32px;
   --radius-lg: 24px;
@@ -34,9 +34,9 @@ body {
   margin: 0;
   color: var(--ink);
   background:
-    radial-gradient(circle at top left, rgba(135, 242, 209, 0.48), transparent 32%),
-    radial-gradient(circle at 90% 10%, rgba(29, 214, 162, 0.16), transparent 24%),
-    linear-gradient(180deg, #f6fdf9 0%, #edf8f3 56%, #f9fcff 100%);
+    radial-gradient(circle at top left, rgba(98, 196, 154, 0.34), transparent 32%),
+    radial-gradient(circle at 90% 10%, rgba(62, 142, 104, 0.14), transparent 24%),
+    linear-gradient(180deg, #f6fcf8 0%, #edf6f0 56%, #f9fcff 100%);
   font-family: "IBM Plex Sans", sans-serif;
 }
 
@@ -291,8 +291,8 @@ p {
 
 .mini-card-accent {
   color: var(--white);
-  background: linear-gradient(160deg, var(--midnight), #17314b 70%, #1f5373);
-  border-color: rgba(135, 242, 209, 0.26);
+  background: linear-gradient(160deg, var(--midnight), #183a34 70%, #2c6b53);
+  border-color: rgba(149, 200, 174, 0.3);
 }
 
 .mini-label,
@@ -341,7 +341,7 @@ p {
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 999px;
-  background: rgba(24, 194, 156, 0.12);
+  background: rgba(62, 142, 104, 0.12);
   color: var(--teal);
   font-weight: 700;
 }
@@ -363,7 +363,7 @@ p {
   height: 16rem;
   top: 0.5rem;
   right: 1rem;
-  background: radial-gradient(circle, rgba(24, 194, 156, 0.38), rgba(24, 194, 156, 0));
+  background: radial-gradient(circle, rgba(98, 196, 154, 0.34), rgba(98, 196, 154, 0));
   animation: float 8s ease-in-out infinite;
 }
 
@@ -427,7 +427,7 @@ p {
 .market-card {
   min-height: 100%;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(223, 252, 242, 0.8));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(228, 247, 234, 0.84));
 }
 
 .split-section {
@@ -441,8 +441,8 @@ p {
 .split-card-accent {
   color: var(--white);
   background:
-    radial-gradient(circle at top right, rgba(135, 242, 209, 0.18), transparent 30%),
-    linear-gradient(155deg, var(--midnight), #17314b 68%, #1d4969);
+    radial-gradient(circle at top right, rgba(98, 196, 154, 0.18), transparent 30%),
+    linear-gradient(155deg, var(--midnight), #183a34 68%, #2c6b53);
   border-color: var(--line-bright);
 }
 
@@ -482,8 +482,8 @@ p {
   padding: 2rem;
   border-radius: var(--radius-xl);
   background:
-    radial-gradient(circle at top left, rgba(135, 242, 209, 0.28), transparent 32%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(223, 252, 242, 0.82));
+    radial-gradient(circle at top left, rgba(98, 196, 154, 0.22), transparent 32%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(228, 247, 234, 0.86));
 }
 
 .site-footer {
@@ -554,8 +554,8 @@ p {
 .control-card-accent {
   color: var(--white);
   background:
-    radial-gradient(circle at top right, rgba(135, 242, 209, 0.16), transparent 30%),
-    linear-gradient(155deg, var(--midnight), #17314b 68%, #1d4969);
+    radial-gradient(circle at top right, rgba(98, 196, 154, 0.16), transparent 30%),
+    linear-gradient(155deg, var(--midnight), #183a34 68%, #2c6b53);
   border-color: var(--line-bright);
 }
 
@@ -624,12 +624,17 @@ p {
 
 .text-input:focus,
 .file-input:focus {
-  outline: 2px solid rgba(24, 194, 156, 0.22);
-  border-color: rgba(24, 194, 156, 0.55);
+  outline: 2px solid rgba(62, 142, 104, 0.22);
+  border-color: rgba(62, 142, 104, 0.55);
 }
 
 .helper-text {
   color: var(--ink-soft);
+}
+
+.input-grid-note {
+  grid-column: 1 / -1;
+  margin: 0;
 }
 
 .pill-toggle {
@@ -658,8 +663,8 @@ p {
 
 .pill-option input:checked + span {
   color: var(--white);
-  border-color: rgba(24, 194, 156, 0.6);
-  background: linear-gradient(135deg, var(--midnight), #17314b 70%, #1d4969);
+  border-color: rgba(62, 142, 104, 0.6);
+  background: linear-gradient(135deg, var(--midnight), #183a34 70%, #2c6b53);
 }
 
 .pill-option span:hover {
@@ -750,8 +755,8 @@ p {
 
 .metric-card-accent {
   background:
-    radial-gradient(circle at top left, rgba(135, 242, 209, 0.36), transparent 35%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(223, 252, 242, 0.92));
+    radial-gradient(circle at top left, rgba(149, 200, 174, 0.34), transparent 35%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(228, 247, 234, 0.94));
 }
 
 .offer-results {
@@ -764,9 +769,9 @@ p {
 }
 
 .offer-card-featured {
-  border-color: rgba(24, 194, 156, 0.34);
+  border-color: rgba(62, 142, 104, 0.32);
   background:
-    radial-gradient(circle at top left, rgba(135, 242, 209, 0.22), transparent 32%),
+    radial-gradient(circle at top left, rgba(149, 200, 174, 0.2), transparent 32%),
     rgba(255, 255, 255, 0.95);
 }
 
@@ -842,7 +847,7 @@ p {
 
 .badge-accent {
   color: var(--white);
-  background: linear-gradient(135deg, var(--teal), #149e83);
+  background: linear-gradient(135deg, var(--teal-bright), var(--teal));
 }
 
 .offer-details,

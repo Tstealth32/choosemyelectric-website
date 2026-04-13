@@ -641,7 +641,7 @@ function detectRegion(zipCode, commodity) {
 
 function syncCommodityVisibility() {
   const region = detectRegion(estimateElements.zipCode.value, estimateState.commodity);
-  const isOhioZip = region === "OH_E" || region === "OH_G" || /^(?:43|44|45)/.test(estimateElements.zipCode.value);
+  const isOhioZip = region === "OH_E" || region === "OH_G";
   estimateElements.commodityField.hidden = !isOhioZip;
   if (!isOhioZip) {
     estimateState.commodity = "electric";
