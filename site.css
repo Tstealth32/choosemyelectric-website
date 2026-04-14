@@ -227,6 +227,20 @@ p {
   box-shadow: 0 12px 26px rgba(15, 23, 42, 0.08);
 }
 
+.button[data-link-mode="coming-soon"] {
+  color: rgba(15, 23, 42, 0.62);
+  background: rgba(255, 255, 255, 0.58);
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: none;
+  cursor: default;
+  pointer-events: none;
+}
+
+.button[data-link-mode="coming-soon"]:hover,
+.button[data-link-mode="coming-soon"]:focus-visible {
+  transform: none;
+}
+
 .supporting-note {
   margin: 0;
   color: var(--ink-soft);
