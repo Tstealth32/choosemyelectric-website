@@ -3,8 +3,64 @@
   "cleanUrls": true,
   "rewrites": [
     {
+      "source": "/compare-electric-rates-by-zip",
+      "destination": "/compare-electric-rates-by-zip.html"
+    },
+    {
       "source": "/estimate",
       "destination": "/estimate.html"
+    },
+    {
+      "source": "/pennsylvania-electric-rates",
+      "destination": "/pennsylvania-electric-rates.html"
+    },
+    {
+      "source": "/ohio-electric-rates",
+      "destination": "/ohio-electric-rates.html"
+    },
+    {
+      "source": "/texas-electricity-plans",
+      "destination": "/texas-electricity-plans.html"
+    },
+    {
+      "source": "/rate-expiration-alerts",
+      "destination": "/rate-expiration-alerts.html"
+    },
+    {
+      "source": "/how-to-switch-electric-suppliers",
+      "destination": "/how-to-switch-electric-suppliers.html"
+    },
+    {
+      "source": "/upload-your-bill-to-compare-rates",
+      "destination": "/upload-your-bill-to-compare-rates.html"
+    },
+    {
+      "source": "/electricity-supplier-faq",
+      "destination": "/electricity-supplier-faq.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog/index.html"
+    },
+    {
+      "source": "/blog/how-to-compare-electric-rates",
+      "destination": "/blog/how-to-compare-electric-rates.html"
+    },
+    {
+      "source": "/blog/when-to-switch-electric-suppliers",
+      "destination": "/blog/when-to-switch-electric-suppliers.html"
+    },
+    {
+      "source": "/blog/fixed-vs-variable-electric-rates",
+      "destination": "/blog/fixed-vs-variable-electric-rates.html"
+    },
+    {
+      "source": "/blog/how-electricity-plans-work",
+      "destination": "/blog/how-electricity-plans-work.html"
+    },
+    {
+      "source": "/blog/how-to-avoid-high-electric-bills",
+      "destination": "/blog/how-to-avoid-high-electric-bills.html"
     },
     {
       "source": "/privacy-policy",
