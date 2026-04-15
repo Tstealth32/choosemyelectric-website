@@ -18,6 +18,7 @@ const estimateElements = {};
 document.addEventListener("DOMContentLoaded", () => {
   cacheEstimateElements();
   bindEstimateEvents();
+  restoreQueryState();
   syncCommodityVisibility();
 });
 
@@ -87,6 +88,32 @@ function bindManualField(key, element) {
     estimateState.manualInputs[key] = element.value.trim();
     recomputeRecommendations();
   });
+}
+
+async function restoreQueryState() {
+  const query = new URLSearchParams(window.location.search);
+  const zipCode = normalizeZip(query.get("zip") || "");
+  if (!zipCode) return;
+
+  estimateState.zipCode = zipCode;
+  if (estimateElements.zipCode) {
+    estimateElements.zipCode.value = zipCode;
+  }
+
+  const commodity = query.get("commodity");
+  if (commodity === "gas") {
+    estimateState.commodity = "gas";
+    const gasInput = estimateElements.commodityInputs.find((input) => input.value === "gas");
+    if (gasInput) gasInput.checked = true;
+  }
+
+  syncCommodityVisibility();
+
+  if (zipCode.length === 5) {
+    await refreshMarket({
+      preferredUtilityName: estimateState.manualInputs.utilityName,
+    });
+  }
 }
 
 async function handleEstimateSubmit(event) {

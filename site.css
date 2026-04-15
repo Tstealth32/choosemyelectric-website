@@ -1098,6 +1098,218 @@ p {
   }
 }
 
+.zip-start-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.9rem;
+  align-items: end;
+  max-width: 42rem;
+  margin-top: 1.5rem;
+}
+
+.zip-start-form .field {
+  margin: 0;
+}
+
+.bullet-grid,
+.link-card-grid,
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.bullet-card,
+.link-card,
+.blog-card,
+.content-card,
+.sidebar-card {
+  border: 1px solid rgba(15, 23, 42, 0.09);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 16px 44px rgba(15, 23, 42, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.bullet-card h3,
+.link-card h3,
+.blog-card h3,
+.content-card h2,
+.sidebar-card h3 {
+  margin-bottom: 0.75rem;
+}
+
+.bullet-card p,
+.link-card p,
+.blog-card p,
+.content-card p,
+.sidebar-card p,
+.content-card li,
+.sidebar-card li {
+  color: var(--ink-soft);
+}
+
+.content-hero {
+  padding-top: 2rem;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.breadcrumb a {
+  color: var(--midnight);
+  font-weight: 600;
+}
+
+.breadcrumb span[aria-hidden="true"] {
+  opacity: 0.46;
+}
+
+.content-hero h1,
+.content-hero h2 {
+  max-width: 14ch;
+}
+
+.content-intro {
+  max-width: 68ch;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+
+.content-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+  gap: 1.4rem;
+  align-items: start;
+}
+
+.content-main,
+.content-sidebar {
+  display: grid;
+  gap: 1rem;
+}
+
+.content-card ul,
+.content-card ol,
+.sidebar-card ul {
+  margin: 0.85rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.content-card li + li,
+.sidebar-card li + li {
+  margin-top: 0.6rem;
+}
+
+.section-heading p + h2,
+.content-card p + h2,
+.content-card ul + h2,
+.content-card ol + h2,
+.content-card p + h3,
+.content-card ul + h3,
+.content-card ol + h3 {
+  margin-top: 1.3rem;
+}
+
+.article-body {
+  display: grid;
+  gap: 1rem;
+}
+
+.article-body p,
+.article-body li {
+  color: var(--ink-soft);
+}
+
+.article-body ul,
+.article-body ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.eyebrow-link {
+  margin: 0 0 0.65rem;
+  color: var(--teal);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.link-card p + .text-link,
+.blog-card p + .text-link,
+.content-card p + .text-link,
+.sidebar-card p + .text-link {
+  margin-top: 0.95rem;
+}
+
+.footer-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem 1.5rem;
+  align-items: start;
+}
+
+.footer-group {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.footer-group strong {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.98rem;
+  letter-spacing: -0.03em;
+}
+
+.footer-group a {
+  color: var(--ink-soft);
+}
+
+.faq-support-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.app-funnel-card {
+  color: var(--white);
+  background:
+    radial-gradient(circle at top right, rgba(98, 196, 154, 0.16), transparent 30%),
+    linear-gradient(155deg, var(--midnight), #183a34 68%, #2c6b53);
+  border: 1px solid var(--line-bright);
+  box-shadow: 0 16px 44px rgba(15, 23, 42, 0.16);
+}
+
+.app-funnel-card p,
+.app-funnel-card li,
+.app-funnel-card .eyebrow {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.app-funnel-card ul {
+  padding-left: 1.2rem;
+}
+
+.app-funnel-card li + li {
+  margin-top: 0.55rem;
+}
+
 @media (max-width: 980px) {
   .site-header,
   .site-footer {
@@ -1114,7 +1326,12 @@ p {
   .steps-grid,
   .card-grid,
   .market-grid,
+  .bullet-grid,
+  .link-card-grid,
+  .blog-grid,
   .estimate-grid,
+  .content-layout,
+  .footer-nav-grid,
   .summary-strip,
   .offer-meta,
   .quick-win-panel {
@@ -1168,6 +1385,10 @@ p {
 
   .quick-win-actions {
     flex-direction: column;
+  }
+
+  .zip-start-form {
+    grid-template-columns: 1fr;
   }
 
   .offer-money {
