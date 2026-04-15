@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Compare Electric Rates in PA, Ohio &amp; Texas | Choose My Electric</title>
+  <title>Compare Electric Rates in PA, Ohio &amp; Texas | ChooseMyElectric</title>
   <meta
     name="description"
     content="Compare electric rates, switch suppliers, and get alerts before your low rate expires. Available in Pennsylvania, Ohio, and Texas. Enter your ZIP code or upload your bill."
   >
   <meta name="theme-color" content="#0f172a">
   <link rel="canonical" href="https://choosemyelectric.com/">
-  <meta property="og:title" content="Compare Electric Rates in PA, Ohio &amp; Texas | Choose My Electric">
+  <meta property="og:title" content="Compare Electric Rates in PA, Ohio &amp; Texas | ChooseMyElectric">
   <meta property="og:description" content="Compare electric rates, switch suppliers, and get alerts before your low rate expires in Pennsylvania, Ohio, and Texas. Start with your ZIP code on the web, then use the app for the full experience.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://choosemyelectric.com/">
   <meta property="og:site_name" content="Choose My Electric">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Compare Electric Rates in PA, Ohio &amp; Texas | Choose My Electric">
+  <meta name="twitter:title" content="Compare Electric Rates in PA, Ohio &amp; Texas | ChooseMyElectric">
   <meta name="twitter:description" content="Compare electricity plans by ZIP code, switch suppliers, and use the app for alerts before your rate expires.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,25 +71,42 @@
     <main id="top">
       <section class="hero section">
         <div class="hero-copy reveal">
-          <p class="eyebrow">Website for search. App for full switching support.</p>
+          <p class="eyebrow">Mobile-first comparison + app alerts</p>
           <h1>Compare Electric Rates and Switch Suppliers in PA, Ohio, and Texas</h1>
           <p class="hero-text">
-            Enter your ZIP code online or upload your electric bill in the app to compare real electricity plans.
-            Switch providers, avoid high renewal rates, and stay ahead of expiring promotional offers with Choose My Electric.
+            Save money by switching before rates expire. Start with your ZIP code to compare electric suppliers online,
+            then use the app for plan tracking, bill uploads, and alerts before a low rate changes.
           </p>
 
+          <form class="hero-form" action="/estimate" method="get" data-zip-form>
+            <label class="field">
+              <span>Enter your ZIP code</span>
+              <input
+                class="text-input"
+                type="text"
+                name="zip"
+                inputmode="numeric"
+                maxlength="5"
+                autocomplete="postal-code"
+                placeholder="17111"
+                data-zip-input
+                required
+              >
+            </label>
+            <button class="button button-primary" type="submit">Compare Rates</button>
+          </form>
+
           <div class="cta-row">
-            <a class="button button-secondary" href="#zip-search">Compare Rates by ZIP Code</a>
-            <a class="button button-primary" data-store-link="ios" href="https://apps.apple.com/us/app/choose-my-electric/id6762017797">
+            <a class="button button-secondary" data-store-link="ios" href="https://apps.apple.com/us/app/choose-my-electric/id6762017797">
               Download the App
             </a>
           </div>
+          <p class="hero-subtext">The website handles light comparison. The app handles alerts, tracking, and smarter switching support.</p>
 
           <div class="proof-strip">
-            <span>Compare electricity suppliers in minutes</span>
-            <span>Upload your bill for personalized rate matching</span>
-            <span>Get alerts before promotional rates expire</span>
-            <span>Available in Pennsylvania, Ohio, and Texas</span>
+            <span>Pennsylvania, Ohio, and Texas coverage</span>
+            <span>Fast ZIP-based comparison</span>
+            <span>App alerts before rates expire</span>
           </div>
         </div>
 
@@ -157,7 +174,7 @@
             Enter your ZIP code to see available electricity suppliers and rates near you. The web version is designed
             for a light comparison, while the app handles alerts, tracking, and bill-based matching.
           </p>
-          <form class="zip-start-form" action="/estimate" method="get">
+          <form class="zip-start-form" action="/estimate" method="get" data-zip-form>
             <label class="field">
               <span>Service ZIP code</span>
               <input
@@ -168,6 +185,7 @@
                 maxlength="5"
                 autocomplete="postal-code"
                 placeholder="17111"
+                data-zip-input
                 required
               >
             </label>

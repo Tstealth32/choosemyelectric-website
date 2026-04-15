@@ -1,6 +1,53 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/site.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/site.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/estimate.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    }
+  ],
   "rewrites": [
     {
       "source": "/compare-electric-rates-by-zip",
@@ -23,6 +70,22 @@
       "destination": "/texas-electricity-plans.html"
     },
     {
+      "source": "/pennsylvania/philadelphia-electric-rates",
+      "destination": "/pennsylvania/philadelphia-electric-rates.html"
+    },
+    {
+      "source": "/pennsylvania/pittsburgh-electric-rates",
+      "destination": "/pennsylvania/pittsburgh-electric-rates.html"
+    },
+    {
+      "source": "/ohio/columbus-electric-rates",
+      "destination": "/ohio/columbus-electric-rates.html"
+    },
+    {
+      "source": "/texas/dallas-electricity-rates",
+      "destination": "/texas/dallas-electricity-rates.html"
+    },
+    {
       "source": "/rate-expiration-alerts",
       "destination": "/rate-expiration-alerts.html"
     },
@@ -41,6 +104,14 @@
     {
       "source": "/blog",
       "destination": "/blog/index.html"
+    },
+    {
+      "source": "/blog/best-electric-suppliers-pennsylvania",
+      "destination": "/blog/best-electric-suppliers-pennsylvania.html"
+    },
+    {
+      "source": "/blog/how-to-avoid-early-termination-fees",
+      "destination": "/blog/how-to-avoid-early-termination-fees.html"
     },
     {
       "source": "/blog/how-to-compare-electric-rates",

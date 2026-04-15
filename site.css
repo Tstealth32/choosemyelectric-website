@@ -32,6 +32,7 @@ html {
 
 body {
   margin: 0;
+  font-size: 16px;
   color: var(--ink);
   background:
     radial-gradient(circle at top left, rgba(98, 196, 154, 0.34), transparent 32%),
@@ -66,8 +67,9 @@ code {
 .site-header,
 .section,
 .site-footer {
-  width: min(calc(100% - 2rem), var(--max-width));
+  width: min(100%, var(--max-width));
   margin: 0 auto;
+  padding-inline: 1rem;
 }
 
 .site-header {
@@ -133,7 +135,7 @@ code {
 }
 
 .section {
-  padding: 4rem 0;
+  padding: 3.5rem 0;
 }
 
 .hero {
@@ -142,7 +144,7 @@ code {
   gap: 2.5rem;
   align-items: center;
   min-height: calc(100vh - 5rem);
-  padding-top: 3rem;
+  padding-top: 2rem;
 }
 
 .eyebrow {
@@ -188,6 +190,25 @@ p {
   font-size: 1.08rem;
 }
 
+.hero-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.85rem;
+  align-items: end;
+  max-width: 42rem;
+  margin-top: 1.6rem;
+}
+
+.hero-form .field {
+  margin: 0;
+}
+
+.hero-subtext {
+  margin: 0.75rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.96rem;
+}
+
 .cta-row {
   display: flex;
   flex-wrap: wrap;
@@ -199,7 +220,7 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 3.45rem;
+  min-height: 3.55rem;
   padding: 0 1.4rem;
   border-radius: 999px;
   border: 1px solid transparent;
@@ -1204,6 +1225,79 @@ p {
   padding-left: 1.2rem;
 }
 
+.city-links {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.city-link-card {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: var(--radius-md);
+  background: rgba(247, 251, 249, 0.88);
+  padding: 1rem;
+}
+
+.city-link-card h3 {
+  margin-bottom: 0.45rem;
+}
+
+.rate-snapshot-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.rate-snapshot-card {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: var(--radius-md);
+  background: rgba(247, 251, 249, 0.88);
+  padding: 1rem;
+}
+
+.rate-snapshot-card p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.rate-snapshot-card strong {
+  display: block;
+  margin-top: 0.45rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: -0.04em;
+}
+
+.sticky-zip-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  display: none;
+  padding: 0.8rem 1rem calc(0.8rem + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.96);
+  border-top: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: 0 -12px 28px rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(14px);
+}
+
+.sticky-zip-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  width: min(100%, var(--max-width));
+  margin: 0 auto;
+}
+
+.sticky-zip-form .text-input {
+  min-height: 3.5rem;
+}
+
+.sticky-zip-button {
+  min-width: 10rem;
+}
+
 .content-card li + li,
 .sidebar-card li + li {
   margin-top: 0.6rem;
@@ -1340,7 +1434,7 @@ p {
 
   .hero {
     min-height: auto;
-    padding-top: 2rem;
+    padding-top: 1rem;
   }
 
   h1 {
@@ -1358,24 +1452,39 @@ p {
   .footer-links {
     justify-content: flex-start;
   }
+
+  .city-links,
+  .rate-snapshot-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 720px) {
   .site-nav {
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
     gap: 0.75rem;
   }
 
   .section {
-    padding: 3rem 0;
+    padding: 1.5rem 0;
   }
 
   .button {
     width: 100%;
   }
 
+  .hero {
+    gap: 1.2rem;
+  }
+
+  .hero-visual,
+  .proof-strip {
+    display: none;
+  }
+
+  .hero-form,
   .zip-search-row,
   .input-grid,
   .manual-grid,
@@ -1389,6 +1498,20 @@ p {
 
   .zip-start-form {
     grid-template-columns: 1fr;
+  }
+
+  .hero-form .button,
+  .zip-start-form .button,
+  .sticky-zip-button {
+    width: 100%;
+  }
+
+  .sticky-zip-bar {
+    display: block;
+  }
+
+  .page-shell {
+    padding-bottom: 6.5rem;
   }
 
   .offer-money {

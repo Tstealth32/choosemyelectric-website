@@ -5,6 +5,10 @@ const chooseSiteConfig = {
   contactEmail: "contact@choosemyelectric.com",
 };
 
+function normalizeZip(value) {
+  return String(value ?? "").replace(/\D/g, "").slice(0, 5);
+}
+
 function configureStoreLink(platform, fallbackSubject) {
   const elements = document.querySelectorAll(`[data-store-link="${platform}"]`);
   const configuredUrl = platform === "ios" ? chooseSiteConfig.iosAppUrl : chooseSiteConfig.androidAppUrl;
@@ -85,10 +89,60 @@ function updateCurrentYear() {
   if (yearNode) yearNode.textContent = String(new Date().getFullYear());
 }
 
+function wireZipForms() {
+  const forms = document.querySelectorAll("form[data-zip-form], .zip-start-form, .hero-form, .sticky-zip-form");
+  forms.forEach((form) => {
+    const input = form.querySelector('input[name="zip"], input[data-zip-input]');
+    if (!input) return;
+
+    input.addEventListener("input", () => {
+      input.value = normalizeZip(input.value);
+      input.setCustomValidity("");
+    });
+
+    form.addEventListener("submit", (event) => {
+      input.value = normalizeZip(input.value);
+      if (input.value.length !== 5) {
+        event.preventDefault();
+        input.setCustomValidity("Enter a 5-digit ZIP code.");
+        input.reportValidity();
+      }
+    });
+  });
+}
+
+function injectStickyZipBar() {
+  if (document.querySelector(".sticky-zip-bar")) return;
+
+  const wrapper = document.createElement("div");
+  wrapper.className = "sticky-zip-bar";
+  wrapper.innerHTML = `
+    <form class="sticky-zip-form" action="/estimate" method="get" data-zip-form>
+      <input
+        class="text-input"
+        type="text"
+        name="zip"
+        inputmode="numeric"
+        maxlength="5"
+        autocomplete="postal-code"
+        placeholder="Enter ZIP"
+        aria-label="Enter ZIP code"
+        data-zip-input
+        required
+      >
+      <button class="button button-primary sticky-zip-button" type="submit">Compare Rates</button>
+    </form>
+  `;
+
+  document.body.appendChild(wrapper);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const iosReady = configureStoreLink("ios", "Choose My Electric for iPhone");
   const androidReady = configureStoreLink("android", "Choose My Electric for Android");
   updateStoreStatus(iosReady, androidReady);
   updateCurrentYear();
+  injectStickyZipBar();
+  wireZipForms();
   startRevealObserver();
 });
