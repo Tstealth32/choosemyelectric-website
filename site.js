@@ -44,6 +44,17 @@ function configureStoreLink(platform, fallbackSubject) {
   return hasLiveUrl;
 }
 
+function createStoreLinkElement(platform, templateLink) {
+  const link = document.createElement("a");
+  if (templateLink.className) {
+    link.className = templateLink.className;
+  }
+  link.setAttribute("data-store-link", platform);
+  link.href = platform === "ios" ? chooseSiteConfig.iosAppUrl : chooseSiteConfig.androidAppUrl;
+  link.textContent = platform === "ios" ? "Apple App Store" : "Google Play Store";
+  return link;
+}
+
 function addAndroidButtonsToStoreOnlyRows() {
   if (!chooseSiteConfig.androidAppUrl.trim()) return;
 
@@ -67,9 +78,42 @@ function addAndroidButtonsToStoreOnlyRows() {
       : "button button-primary";
     androidButton.setAttribute("data-store-link", "android");
     androidButton.href = chooseSiteConfig.androidAppUrl;
-    androidButton.textContent = "Get it on Google Play";
+    androidButton.textContent = "Google Play Store";
 
     row.appendChild(androidButton);
+  });
+}
+
+function addMissingAndroidLinksNearIosLinks() {
+  if (!chooseSiteConfig.androidAppUrl.trim()) return;
+
+  const processedParents = new Set();
+  const iosLinks = document.querySelectorAll('[data-store-link="ios"]');
+  iosLinks.forEach((iosLink) => {
+    const parent = iosLink.parentElement;
+    if (!parent || processedParents.has(parent) || parent.querySelector('[data-store-link="android"]')) return;
+    processedParents.add(parent);
+
+    if (iosLink.closest(".cta-row")) return;
+
+    const androidLink = createStoreLinkElement("android", iosLink);
+    if (iosLink.classList.contains("button")) {
+      parent.appendChild(androidLink);
+      return;
+    }
+
+    parent.insertBefore(document.createTextNode(" · "), iosLink.nextSibling);
+    parent.insertBefore(androidLink, iosLink.nextSibling.nextSibling);
+  });
+}
+
+function standardizeStoreLinkLabels() {
+  document.querySelectorAll('[data-store-link="ios"]').forEach((link) => {
+    link.textContent = "Apple App Store";
+  });
+
+  document.querySelectorAll('[data-store-link="android"]').forEach((link) => {
+    link.textContent = "Google Play Store";
   });
 }
 
@@ -188,6 +232,8 @@ function injectStickyZipBar() {
 
 document.addEventListener("DOMContentLoaded", () => {
   addAndroidButtonsToStoreOnlyRows();
+  addMissingAndroidLinksNearIosLinks();
+  standardizeStoreLinkLabels();
   retargetGenericDownloadLinksForAndroid();
   const iosReady = configureStoreLink("ios", "Choose My Electric for iPhone");
   const androidReady = configureStoreLink("android", "Choose My Electric for Android");
