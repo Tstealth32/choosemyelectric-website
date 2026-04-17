@@ -5,6 +5,10 @@ const chooseSiteConfig = {
   contactEmail: "contact@choosemyelectric.com",
 };
 
+function isAndroidDevice() {
+  return /Android/i.test(window.navigator.userAgent || "");
+}
+
 function normalizeZip(value) {
   return String(value ?? "").replace(/\D/g, "").slice(0, 5);
 }
@@ -38,6 +42,51 @@ function configureStoreLink(platform, fallbackSubject) {
   });
 
   return hasLiveUrl;
+}
+
+function addAndroidButtonsToStoreOnlyRows() {
+  if (!chooseSiteConfig.androidAppUrl.trim()) return;
+
+  const rows = document.querySelectorAll(".cta-row");
+  rows.forEach((row) => {
+    const buttonLinks = Array.from(row.querySelectorAll("a.button"));
+    if (!buttonLinks.length) return;
+
+    const hasAndroidButton = buttonLinks.some((link) => link.getAttribute("data-store-link") === "android");
+    if (hasAndroidButton) return;
+
+    const nonStoreButtons = buttonLinks.filter((link) => !link.hasAttribute("data-store-link"));
+    if (nonStoreButtons.length > 0) return;
+
+    const iosButton = buttonLinks.find((link) => link.getAttribute("data-store-link") === "ios");
+    if (!iosButton) return;
+
+    const androidButton = document.createElement("a");
+    androidButton.className = iosButton.classList.contains("button-primary")
+      ? "button button-secondary"
+      : "button button-primary";
+    androidButton.setAttribute("data-store-link", "android");
+    androidButton.href = chooseSiteConfig.androidAppUrl;
+    androidButton.textContent = "Get it on Google Play";
+
+    row.appendChild(androidButton);
+  });
+}
+
+function retargetGenericDownloadLinksForAndroid() {
+  if (!isAndroidDevice() || !chooseSiteConfig.androidAppUrl.trim()) return;
+
+  const links = document.querySelectorAll('[data-store-link="ios"]');
+  links.forEach((link) => {
+    const label = (link.textContent || "").trim();
+    const isExplicitIosLabel = /app store/i.test(label);
+    const isGenericDownloadLabel = /download/i.test(label);
+
+    if (isExplicitIosLabel || !isGenericDownloadLabel) return;
+
+    link.setAttribute("href", chooseSiteConfig.androidAppUrl);
+    link.setAttribute("data-link-mode", "platform-smart");
+  });
 }
 
 function updateStoreStatus(iosReady, androidReady) {
@@ -138,6 +187,8 @@ function injectStickyZipBar() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  addAndroidButtonsToStoreOnlyRows();
+  retargetGenericDownloadLinksForAndroid();
   const iosReady = configureStoreLink("ios", "Choose My Electric for iPhone");
   const androidReady = configureStoreLink("android", "Choose My Electric for Android");
   updateStoreStatus(iosReady, androidReady);
