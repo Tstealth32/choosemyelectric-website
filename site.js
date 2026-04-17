@@ -1,6 +1,6 @@
 const chooseSiteConfig = {
   iosAppUrl: "https://apps.apple.com/us/app/choose-my-electric/id6762017797",
-  androidAppUrl: "",
+  androidAppUrl: "https://play.google.com/store/apps/details?id=com.choosemyelectric.app&pcampaignid=web_share",
   androidComingSoonLabel: "Android Coming April 2026",
   contactEmail: "contact@choosemyelectric.com",
 };
