@@ -1,0 +1,145 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/site.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/site.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/estimate.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/compare-electric-rates-by-zip",
+      "destination": "/compare-electric-rates-by-zip.html"
+    },
+    {
+      "source": "/estimate",
+      "destination": "/estimate.html"
+    },
+    {
+      "source": "/pennsylvania-electric-rates",
+      "destination": "/pennsylvania-electric-rates.html"
+    },
+    {
+      "source": "/ohio-electric-rates",
+      "destination": "/ohio-electric-rates.html"
+    },
+    {
+      "source": "/texas-electricity-plans",
+      "destination": "/texas-electricity-plans.html"
+    },
+    {
+      "source": "/pennsylvania/philadelphia-electric-rates",
+      "destination": "/pennsylvania/philadelphia-electric-rates.html"
+    },
+    {
+      "source": "/pennsylvania/pittsburgh-electric-rates",
+      "destination": "/pennsylvania/pittsburgh-electric-rates.html"
+    },
+    {
+      "source": "/ohio/columbus-electric-rates",
+      "destination": "/ohio/columbus-electric-rates.html"
+    },
+    {
+      "source": "/texas/dallas-electricity-rates",
+      "destination": "/texas/dallas-electricity-rates.html"
+    },
+    {
+      "source": "/rate-expiration-alerts",
+      "destination": "/rate-expiration-alerts.html"
+    },
+    {
+      "source": "/how-to-switch-electric-suppliers",
+      "destination": "/how-to-switch-electric-suppliers.html"
+    },
+    {
+      "source": "/upload-your-bill-to-compare-rates",
+      "destination": "/upload-your-bill-to-compare-rates.html"
+    },
+    {
+      "source": "/electricity-supplier-faq",
+      "destination": "/electricity-supplier-faq.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog/index.html"
+    },
+    {
+      "source": "/blog/best-electric-suppliers-pennsylvania",
+      "destination": "/blog/best-electric-suppliers-pennsylvania.html"
+    },
+    {
+      "source": "/blog/how-to-avoid-early-termination-fees",
+      "destination": "/blog/how-to-avoid-early-termination-fees.html"
+    },
+    {
+      "source": "/blog/how-to-compare-electric-rates",
+      "destination": "/blog/how-to-compare-electric-rates.html"
+    },
+    {
+      "source": "/blog/when-to-switch-electric-suppliers",
+      "destination": "/blog/when-to-switch-electric-suppliers.html"
+    },
+    {
+      "source": "/blog/fixed-vs-variable-electric-rates",
+      "destination": "/blog/fixed-vs-variable-electric-rates.html"
+    },
+    {
+      "source": "/blog/how-electricity-plans-work",
+      "destination": "/blog/how-electricity-plans-work.html"
+    },
+    {
+      "source": "/blog/how-to-avoid-high-electric-bills",
+      "destination": "/blog/how-to-avoid-high-electric-bills.html"
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy-policy.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    }
+  ]
+}
