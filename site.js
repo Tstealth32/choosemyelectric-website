@@ -19,6 +19,10 @@ function isAppleMobileDevice() {
   return /iPhone|iPad|iPod/i.test(userAgent) || (/Mac/i.test(platform) && maxTouchPoints > 1);
 }
 
+function isTikTokInAppBrowser() {
+  return /TikTok|musical_ly/i.test(window.navigator.userAgent || "");
+}
+
 function detectAppStorePlatform() {
   if (isAppleMobileDevice()) return "ios";
   if (isAndroidDevice()) return "android";
@@ -32,6 +36,7 @@ function getAppStoreDestination(platform) {
       label: "iPhone or iPad",
       primaryUrl: chooseSiteConfig.iosAppDeepLink,
       fallbackUrl: chooseSiteConfig.iosAppUrl,
+      autoRedirectUrl: chooseSiteConfig.iosAppUrl,
       storeLabel: "Apple App Store",
       helperText: "Opening the Apple App Store for Choose My Electric.",
     };
@@ -43,6 +48,7 @@ function getAppStoreDestination(platform) {
       label: "Android",
       primaryUrl: chooseSiteConfig.androidAppDeepLink,
       fallbackUrl: chooseSiteConfig.androidAppUrl,
+      autoRedirectUrl: chooseSiteConfig.androidAppUrl,
       storeLabel: "Google Play Store",
       helperText: "Opening Google Play for Choose My Electric.",
     };
@@ -53,6 +59,7 @@ function getAppStoreDestination(platform) {
     label: "desktop or unsupported device",
     primaryUrl: "",
     fallbackUrl: "",
+    autoRedirectUrl: "",
     storeLabel: "app store",
     helperText: "Choose your store below to open the app listing.",
   };
@@ -291,6 +298,7 @@ function configureSmartAppPage() {
   const primaryLink = appPage.querySelector("[data-app-primary-link]");
   const secondaryLink = appPage.querySelector("[data-app-secondary-link]");
   const autoNode = appPage.querySelector("[data-app-auto-note]");
+  const isTikTok = isTikTokInAppBrowser();
 
   if (deviceNode) {
     deviceNode.textContent = destination.label;
@@ -303,13 +311,15 @@ function configureSmartAppPage() {
   }
 
   if (helperNode) {
-    helperNode.textContent = destination.helperText;
+    helperNode.textContent = isTikTok && destination.platform !== "desktop"
+      ? `${destination.helperText} TikTok sometimes keeps people inside its browser, so we will send you to the store listing first.`
+      : destination.helperText;
   }
 
   if (primaryLink) {
     if (destination.platform === "ios" || destination.platform === "android") {
       primaryLink.href = destination.primaryUrl;
-      primaryLink.textContent = `Open ${destination.storeLabel}`;
+      primaryLink.textContent = `Open ${destination.storeLabel} app`;
     } else {
       primaryLink.href = chooseSiteConfig.iosAppUrl;
       primaryLink.textContent = "Open Apple App Store";
@@ -336,30 +346,14 @@ function configureSmartAppPage() {
 
   appPage.setAttribute("data-app-platform", destination.platform);
   if (autoNode) {
-    autoNode.textContent = "If nothing happens in a second or two, use one of the buttons below.";
+    autoNode.textContent = isTikTok
+      ? "If TikTok keeps you on this page, tap one of the buttons below."
+      : "If nothing happens in a second or two, use one of the buttons below.";
   }
 
-  let fallbackTriggered = false;
-  const cancelFallback = () => {
-    fallbackTriggered = true;
-  };
-
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-      cancelFallback();
-    }
-  });
-
-  window.addEventListener("pagehide", cancelFallback, { once: true });
-
   window.setTimeout(() => {
-    window.location.href = destination.primaryUrl;
-  }, 160);
-
-  window.setTimeout(() => {
-    if (fallbackTriggered || document.hidden) return;
-    window.location.href = destination.fallbackUrl;
-  }, 1400);
+    window.location.replace(destination.autoRedirectUrl || destination.fallbackUrl);
+  }, 180);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
