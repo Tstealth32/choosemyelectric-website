@@ -58,6 +58,10 @@
       "destination": "/estimate.html"
     },
     {
+      "source": "/app",
+      "destination": "/app.html"
+    },
+    {
       "source": "/pennsylvania-electric-rates",
       "destination": "/pennsylvania-electric-rates.html"
     },

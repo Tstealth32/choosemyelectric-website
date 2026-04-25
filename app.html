@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open the Choose My Electric App</title>
+  <meta
+    name="description"
+    content="Open the Choose My Electric app listing for your device. iPhone and iPad visitors go to the Apple App Store, and Android visitors go to Google Play."
+  >
+  <meta name="theme-color" content="#0f172a">
+  <link rel="canonical" href="https://www.choosemyelectric.com/app">
+  <meta property="og:title" content="Open the Choose My Electric App">
+  <meta property="og:description" content="Use one link to open Choose My Electric in the Apple App Store or Google Play based on your device.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.choosemyelectric.com/app">
+  <meta property="og:site_name" content="Choose My Electric">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Open the Choose My Electric App">
+  <meta name="twitter:description" content="A smart handoff page that sends iPhone, iPad, and Android visitors to the right app store.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./site.css">
+</head>
+<body data-no-sticky-bar>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Choose My Electric home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 108 108" role="img" aria-hidden="true">
+            <rect x="12" y="12" width="84" height="84" rx="6" fill="#0F172A"></rect>
+            <path d="M60.8 25L36 59.5h15.4L47.2 83 72 48.4H56.6z" fill="#62C49A"></path>
+          </svg>
+        </span>
+        <span class="brand-copy">
+          <strong>Choose My Electric</strong>
+          <span>Smart app store handoff</span>
+        </span>
+      </a>
+    </header>
+
+    <main class="section app-handoff" data-app-redirect-page>
+      <section class="app-handoff-card reveal is-visible">
+        <p class="eyebrow">One link for every phone</p>
+        <h1>Opening the right app store for <span data-app-device-label>your device</span></h1>
+        <p class="content-intro" data-app-redirect-status>Checking your device now.</p>
+        <p class="app-handoff-helper" data-app-redirect-helper>
+          We will send you to the correct Choose My Electric app listing in a moment.
+        </p>
+
+        <div class="app-handoff-actions">
+          <a class="button button-primary" href="https://apps.apple.com/us/app/choose-my-electric/id6762017797" data-app-primary-link>
+            Open Apple App Store
+          </a>
+          <a class="button button-secondary" href="https://play.google.com/store/apps/details?id=com.choosemyelectric.app&amp;pcampaignid=web_share" data-app-secondary-link>
+            Open Google Play Store
+          </a>
+        </div>
+
+        <p class="app-handoff-note" data-app-auto-note>
+          If the store does not open automatically, use one of the buttons below.
+        </p>
+
+        <div class="app-handoff-store-grid">
+          <a class="button button-secondary" data-store-link="ios" href="https://apps.apple.com/us/app/choose-my-electric/id6762017797">
+            Apple App Store
+          </a>
+          <a class="button button-secondary" data-store-link="android" href="https://play.google.com/store/apps/details?id=com.choosemyelectric.app&amp;pcampaignid=web_share">
+            Google Play Store
+          </a>
+        </div>
+
+        <p class="supporting-note">
+          This page is built for TikTok, social, text, and email links so people on iPhone, iPad, and Android can jump
+          straight into the correct store listing with one URL.
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <script src="./site.js"></script>
+</body>
+</html>

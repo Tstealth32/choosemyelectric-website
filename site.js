@@ -1,12 +1,61 @@
 const chooseSiteConfig = {
   iosAppUrl: "https://apps.apple.com/us/app/choose-my-electric/id6762017797",
+  iosAppDeepLink: "itms-apps://apps.apple.com/us/app/choose-my-electric/id6762017797",
   androidAppUrl: "https://play.google.com/store/apps/details?id=com.choosemyelectric.app&pcampaignid=web_share",
+  androidAppDeepLink: "market://details?id=com.choosemyelectric.app",
   androidComingSoonLabel: "Android Coming April 2026",
   contactEmail: "contact@choosemyelectric.com",
 };
 
 function isAndroidDevice() {
   return /Android/i.test(window.navigator.userAgent || "");
+}
+
+function isAppleMobileDevice() {
+  const userAgent = window.navigator.userAgent || "";
+  const platform = window.navigator.platform || "";
+  const maxTouchPoints = window.navigator.maxTouchPoints || 0;
+
+  return /iPhone|iPad|iPod/i.test(userAgent) || (/Mac/i.test(platform) && maxTouchPoints > 1);
+}
+
+function detectAppStorePlatform() {
+  if (isAppleMobileDevice()) return "ios";
+  if (isAndroidDevice()) return "android";
+  return "desktop";
+}
+
+function getAppStoreDestination(platform) {
+  if (platform === "ios") {
+    return {
+      platform,
+      label: "iPhone or iPad",
+      primaryUrl: chooseSiteConfig.iosAppDeepLink,
+      fallbackUrl: chooseSiteConfig.iosAppUrl,
+      storeLabel: "Apple App Store",
+      helperText: "Opening the Apple App Store for Choose My Electric.",
+    };
+  }
+
+  if (platform === "android") {
+    return {
+      platform,
+      label: "Android",
+      primaryUrl: chooseSiteConfig.androidAppDeepLink,
+      fallbackUrl: chooseSiteConfig.androidAppUrl,
+      storeLabel: "Google Play Store",
+      helperText: "Opening Google Play for Choose My Electric.",
+    };
+  }
+
+  return {
+    platform,
+    label: "desktop or unsupported device",
+    primaryUrl: "",
+    fallbackUrl: "",
+    storeLabel: "app store",
+    helperText: "Choose your store below to open the app listing.",
+  };
 }
 
 function normalizeZip(value) {
@@ -205,6 +254,7 @@ function wireZipForms() {
 }
 
 function injectStickyZipBar() {
+  if (document.body.hasAttribute("data-no-sticky-bar")) return;
   if (document.querySelector(".sticky-zip-bar")) return;
 
   const wrapper = document.createElement("div");
@@ -230,6 +280,88 @@ function injectStickyZipBar() {
   document.body.appendChild(wrapper);
 }
 
+function configureSmartAppPage() {
+  const appPage = document.querySelector("[data-app-redirect-page]");
+  if (!appPage) return;
+
+  const destination = getAppStoreDestination(detectAppStorePlatform());
+  const statusNode = appPage.querySelector("[data-app-redirect-status]");
+  const helperNode = appPage.querySelector("[data-app-redirect-helper]");
+  const deviceNode = appPage.querySelector("[data-app-device-label]");
+  const primaryLink = appPage.querySelector("[data-app-primary-link]");
+  const secondaryLink = appPage.querySelector("[data-app-secondary-link]");
+  const autoNode = appPage.querySelector("[data-app-auto-note]");
+
+  if (deviceNode) {
+    deviceNode.textContent = destination.label;
+  }
+
+  if (statusNode) {
+    statusNode.textContent = destination.platform === "desktop"
+      ? "Pick your app store below."
+      : `Detected ${destination.label}.`;
+  }
+
+  if (helperNode) {
+    helperNode.textContent = destination.helperText;
+  }
+
+  if (primaryLink) {
+    if (destination.platform === "ios" || destination.platform === "android") {
+      primaryLink.href = destination.primaryUrl;
+      primaryLink.textContent = `Open ${destination.storeLabel}`;
+    } else {
+      primaryLink.href = chooseSiteConfig.iosAppUrl;
+      primaryLink.textContent = "Open Apple App Store";
+    }
+  }
+
+  if (secondaryLink) {
+    if (destination.platform === "ios" || destination.platform === "android") {
+      secondaryLink.href = destination.fallbackUrl;
+      secondaryLink.textContent = `Use ${destination.storeLabel} website`;
+    } else {
+      secondaryLink.href = chooseSiteConfig.androidAppUrl;
+      secondaryLink.textContent = "Open Google Play Store";
+    }
+  }
+
+  if (destination.platform === "desktop") {
+    appPage.setAttribute("data-app-platform", "desktop");
+    if (autoNode) {
+      autoNode.textContent = "This page only auto-opens the app store on iPhone, iPad, and Android devices.";
+    }
+    return;
+  }
+
+  appPage.setAttribute("data-app-platform", destination.platform);
+  if (autoNode) {
+    autoNode.textContent = "If nothing happens in a second or two, use one of the buttons below.";
+  }
+
+  let fallbackTriggered = false;
+  const cancelFallback = () => {
+    fallbackTriggered = true;
+  };
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      cancelFallback();
+    }
+  });
+
+  window.addEventListener("pagehide", cancelFallback, { once: true });
+
+  window.setTimeout(() => {
+    window.location.href = destination.primaryUrl;
+  }, 160);
+
+  window.setTimeout(() => {
+    if (fallbackTriggered || document.hidden) return;
+    window.location.href = destination.fallbackUrl;
+  }, 1400);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   addAndroidButtonsToStoreOnlyRows();
   addMissingAndroidLinksNearIosLinks();
@@ -242,4 +374,5 @@ document.addEventListener("DOMContentLoaded", () => {
   injectStickyZipBar();
   wireZipForms();
   startRevealObserver();
+  configureSmartAppPage();
 });
