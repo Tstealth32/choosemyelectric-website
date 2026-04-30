@@ -118,7 +118,7 @@ async function restoreQueryState() {
 
 async function handleEstimateSubmit(event) {
   event.preventDefault();
-  setStatus("Checking your ZIP code and live market offers...", "info");
+  setStatus("Checking your ZIP code and loading official market data...", "info");
 
   const normalizedZip = normalizeZip(estimateElements.zipCode.value);
   estimateState.zipCode = normalizedZip;
@@ -144,7 +144,7 @@ async function refreshMarket({ preferredUtilityName = "", utilityChoiceKey = "" 
     zipCode: estimateState.zipCode,
   };
 
-  setStatus("Loading live offers for your ZIP code...", "info");
+  setStatus("Loading market data for your ZIP code...", "info");
 
   const response = await fetch("/api/market", {
     method: "POST",
@@ -167,12 +167,13 @@ async function refreshMarket({ preferredUtilityName = "", utilityChoiceKey = "" 
   estimateState.detectedRegion = estimateState.market.region;
   populateUtilityChoices(estimateState.market.utilityChoices, estimateState.market.selectedUtilityChoiceKey);
 
-  if (requiresOhioUtilitySelection(estimateState.market)) {
+  if (requiresUtilitySelection(estimateState.market)) {
     estimateState.currentCost = null;
     estimateState.recommendations = [];
     renderResults();
     setStatus(
-      "Choose your Ohio utility company to load accurate supplier rates for this ZIP code.",
+      estimateState.market.errorMessage ||
+        `Choose ${activeUtilityChoiceLabel().toLowerCase()} to load accurate supplier rates for this ZIP code.`,
       "warning",
     );
     estimateElements.utilityChoice?.focus();
@@ -181,6 +182,28 @@ async function refreshMarket({ preferredUtilityName = "", utilityChoiceKey = "" 
 
   autofillManualInputs();
   recomputeRecommendations();
+
+  if (estimateState.market.errorMessage) {
+    setStatus(estimateState.market.errorMessage, "warning");
+    return;
+  }
+
+  if (!estimateState.market.offers.length && estimateState.market.additionalSupplierContacts?.length) {
+    setStatus(
+      "We loaded the official benchmark and supplier directory for this ZIP code. Use the links below to review current supplier details.",
+      "warning",
+    );
+    return;
+  }
+
+  if (!estimateState.market.offers.length) {
+    setStatus(
+      "We found the market for this ZIP code, but there are no live comparable offers showing right now.",
+      "warning",
+    );
+    return;
+  }
+
   setStatus("Estimate ready. Review the numbers and compare the live plan list below.", "success");
 }
 
@@ -191,30 +214,73 @@ function normalizeMarketPayload(payload) {
   );
 
   let offers = [];
+  let additionalSupplierContacts = normalizeSupplierContacts(
+    payload.additionalSupplierContacts,
+    payload.sourceUrl,
+  );
   if (region === "PA") {
     offers = parsePennsylvaniaOffers(payload.resultsHtml, payload.sourceUrl);
   } else if (region === "TX") {
     offers = parseTexasOffers(payload.offers);
   } else if (region === "OH_E" || region === "OH_G") {
     offers = parseOhioOffers(payload.comparisonHtml, region);
+  } else if (region === "MD") {
+    offers = parseMarylandOffers(payload.resultsHtml, payload.sourceUrl);
+  } else if (region === "CT" || region === "DC" || region === "ME" || region === "NJ" || region === "NY") {
+    offers = normalizeOfferRecords(payload.offers, payload.sourceUrl);
+  } else if (region === "MA") {
+    offers = parseMassachusettsOffers(payload.compareRows);
+  } else if (region === "RI") {
+    offers = parseRhodeIslandOffers(payload.rateCardHtml, payload.sourceUrl);
+  } else if (region === "IL") {
+    offers = parseIllinoisOffers(payload.resultsHtml, payload.sourceUrl);
   }
 
   const ohioBenchmark = region === "OH_E" || region === "OH_G"
     ? parseOhioBenchmark(payload.comparisonHtml, region)
     : null;
+  const marylandBenchmark = region === "MD"
+    ? parseMarylandBenchmark(payload.resultsHtml)
+    : null;
+  const massachusettsBenchmark = region === "MA"
+    ? parseMassachusettsBenchmark(payload.compareRows)
+    : null;
+  const rhodeIslandBenchmark = region === "RI"
+    ? parseRhodeIslandBenchmark(payload.rateCardHtml)
+    : null;
+  const illinoisBenchmark = region === "IL"
+    ? parseIllinoisBenchmark(payload.resultsHtml, payload.utilityName)
+    : null;
+  const resolvedBenchmark =
+    ohioBenchmark ||
+    marylandBenchmark ||
+    massachusettsBenchmark ||
+    rhodeIslandBenchmark ||
+    illinoisBenchmark;
 
   return {
     benchmarkMonthlyAdjustment: toNumber(payload.benchmarkMonthlyAdjustment) || 0,
     benchmarkRateCentsPerKwh:
-      benchmarkRateCentsPerKwh ?? ohioBenchmark?.rateCents ?? null,
+      benchmarkRateCentsPerKwh ?? resolvedBenchmark?.rateCents ?? null,
+    additionalSupplierContacts,
+    errorMessage: payload.errorMessage || "",
     offers,
     priceToCompareLastUpdated:
-      payload.priceToCompareLastUpdated || ohioBenchmark?.updatedText || null,
+      payload.priceToCompareLastUpdated || resolvedBenchmark?.updatedText || null,
     raw: payload,
     region,
     selectedUtilityChoiceKey: payload.selectedUtilityChoiceKey || "",
+    selectionRequired:
+      Boolean(payload.selectionRequired) ||
+      (
+        (region === "OH_E" || region === "OH_G") &&
+        Array.isArray(payload.utilityChoices) &&
+        payload.utilityChoices.length > 1 &&
+        !payload.selectedUtilityChoiceKey
+      ),
     sourceLabel: payload.sourceLabel || "",
     sourceUrl: payload.sourceUrl || "",
+    utilityChoiceLabel: payload.utilityChoiceLabel || "",
     utilityChoices: Array.isArray(payload.utilityChoices) ? payload.utilityChoices : [],
     utilityName: payload.utilityName || "",
     zipCode: payload.zipCode || estimateState.zipCode,
@@ -224,7 +290,7 @@ function normalizeMarketPayload(payload) {
 function autofillManualInputs() {
   const market = estimateState.market;
   const utilityName = market?.utilityName || "";
-  const usage = defaultMonthlyUsage(market?.region);
+  const usage = defaultMonthlyUsage(market?.region, utilityName, market?.zipCode);
 
   estimateState.manualInputs.utilityName =
     estimateState.manualInputs.utilityName || utilityName;
@@ -236,7 +302,7 @@ function autofillManualInputs() {
     formatEditableNumber(market?.benchmarkRateCentsPerKwh);
   estimateState.manualInputs.monthlyUsage =
     estimateState.manualInputs.monthlyUsage ||
-    (usage ? String(Math.round(usage)) : String(defaultMonthlyUsage(market?.region)));
+    (usage ? String(Math.round(usage)) : String(defaultMonthlyUsage(market?.region, utilityName, market?.zipCode)));
 
   estimateElements.utilityName.value = estimateState.manualInputs.utilityName;
   estimateElements.currentRate.value = estimateState.manualInputs.currentRateCents;
@@ -309,6 +375,9 @@ function renderResults({ currentRateBasis = "" } = {}) {
   const market = estimateState.market;
   const recommendations = estimateState.recommendations;
   const bestOffer = recommendations[0];
+  const additionalSupplierContacts = Array.isArray(market?.additionalSupplierContacts)
+    ? market.additionalSupplierContacts
+    : [];
 
   estimateElements.currentCostValue.textContent =
     estimateState.currentCost !== null ? formatMoney(estimateState.currentCost) : "--";
@@ -320,14 +389,18 @@ function renderResults({ currentRateBasis = "" } = {}) {
   estimateElements.bestOfferNote.textContent =
     bestOffer
       ? `${bestOffer.supplierName} ${bestOffer.planName ? `• ${bestOffer.planName}` : ""}`
-      : "Live offers will show here.";
+      : additionalSupplierContacts.length
+        ? "Official supplier directory loaded for this ZIP."
+        : "Live offers will show here.";
 
   estimateElements.savingsValue.textContent =
     bestOffer ? formatMoney(bestOffer.estimatedMonthlySavings) : "--";
   estimateElements.savingsNote.textContent =
     bestOffer
       ? `${formatMoney(bestOffer.annualSavings)} per year before taxes and utility delivery charges.`
-      : "Enter your current rate to personalize this number, or use the app to scan a bill.";
+      : additionalSupplierContacts.length
+        ? "We loaded the official utility benchmark and supplier directory, even though no live comparable rate cards are published here."
+        : "Enter your current rate to personalize this number, or use the app to scan a bill.";
 
   renderQuickWin(bestOffer, market, currentRateBasis);
 
@@ -349,26 +422,54 @@ function renderResults({ currentRateBasis = "" } = {}) {
     market.priceToCompareLastUpdated ? `Benchmark updated: ${market.priceToCompareLastUpdated}` : "",
   ].filter(Boolean).join(" • ");
 
-  if (requiresOhioUtilitySelection(market)) {
+  if (requiresUtilitySelection(market)) {
+    const selectionLabel = activeUtilityChoiceLabel().toLowerCase();
     estimateElements.resultsSubtitle.textContent =
-      "Choose your Ohio utility company to see accurate supplier rates.";
+      `Choose ${selectionLabel} to see accurate supplier rates.`;
     estimateElements.sourceNote.textContent =
-      "Ohio ZIP codes can map to more than one utility area, so we wait for your selection before showing plans.";
+      market.errorMessage ||
+      "This ZIP can map to more than one utility area, so we wait for your selection before showing plans.";
     estimateElements.offerResults.innerHTML =
-      '<p class="empty-state">Select your Ohio utility company above, then we will load the correct supplier plans and savings.</p>';
+      `<p class="empty-state">${escapeHtml(
+        market.errorMessage ||
+          `Select ${selectionLabel} above, then we will load the correct supplier plans and savings.`,
+      )}</p>`;
     return;
   }
 
-  if (!recommendations.length) {
-    estimateElements.offerResults.innerHTML =
-      '<p class="empty-state">We found your market, but we do not have live offers to show yet for this exact setup.</p>';
-    return;
+  const sections = [];
+
+  if (market.errorMessage) {
+    sections.push(`<p class="empty-state">${escapeHtml(market.errorMessage)}</p>`);
   }
 
-  estimateElements.offerResults.innerHTML = recommendations
-    .slice(0, 8)
-    .map((offer, index) => renderOfferCard(offer, index === 0))
-    .join("");
+  if (recommendations.length) {
+    sections.push(
+      recommendations
+        .slice(0, 8)
+        .map((offer, index) => renderOfferCard(offer, index === 0))
+        .join(""),
+    );
+  }
+
+  if (additionalSupplierContacts.length) {
+    sections.push(
+      `<p class="empty-state">We loaded the official supplier directory for this market. Use these links to review current enrollment details and public rate information.</p>`,
+    );
+    sections.push(
+      additionalSupplierContacts
+        .map((contact) => renderSupplierContactCard(contact))
+        .join(""),
+    );
+  }
+
+  if (!recommendations.length && !additionalSupplierContacts.length && !market.errorMessage) {
+    sections.push(
+      '<p class="empty-state">We found your market, but we do not have live offers to show yet for this exact setup.</p>',
+    );
+  }
+
+  estimateElements.offerResults.innerHTML = sections.join("");
 }
 
 function renderQuickWin(bestOffer, market, currentRateBasis) {
@@ -480,6 +581,28 @@ function renderOfferCard(offer, isBestOffer) {
   `;
 }
 
+function renderSupplierContactCard(contact) {
+  return `
+    <article class="offer-card">
+      <div class="offer-head">
+        <div>
+          <p class="offer-kicker">Official supplier directory</p>
+          <h3>${escapeHtml(contact.supplierName)}</h3>
+          <p class="offer-plan">${escapeHtml(contact.note || "Supplier website and enrollment details")}</p>
+        </div>
+      </div>
+
+      <p class="offer-copy">
+        Use the supplier site to review current availability, pricing details, and enrollment terms for this market.
+      </p>
+
+      <div class="button-row">
+        <a class="button button-primary" href="${escapeAttribute(contact.websiteUrl)}" target="_blank" rel="noreferrer">Visit Supplier</a>
+      </div>
+    </article>
+  `;
+}
+
 function populateUtilityChoices(choices, selectedKey) {
   updateUtilityChoiceLabel();
 
@@ -490,6 +613,7 @@ function populateUtilityChoices(choices, selectedKey) {
 
   estimateElements.utilityChoicePanel.hidden = false;
   const requiresSelection = !selectedKey;
+  const promptLabel = activeUtilityChoiceLabel().toLowerCase();
   const options = choices.map((choice) => {
       const labelBits = [choice.utilityName];
       if (choice.rateSchedule) labelBits.push(choice.rateSchedule);
@@ -502,7 +626,7 @@ function populateUtilityChoices(choices, selectedKey) {
 
   estimateElements.utilityChoice.innerHTML = [
     requiresSelection
-      ? '<option value="" selected disabled>Choose your Ohio utility company</option>'
+      ? `<option value="" selected disabled>${escapeHtml(`Choose ${promptLabel}`)}</option>`
       : "",
     ...options,
   ].join("");
@@ -514,14 +638,112 @@ function clearUtilityChoices() {
   updateUtilityChoiceLabel();
 }
 
-function requiresOhioUtilitySelection(market) {
+function requiresUtilitySelection(market) {
   return (
     Boolean(market) &&
-    (market.region === "OH_E" || market.region === "OH_G") &&
     Array.isArray(market.utilityChoices) &&
     market.utilityChoices.length > 1 &&
-    !market.selectedUtilityChoiceKey
+    !market.selectedUtilityChoiceKey &&
+    Boolean(market.selectionRequired)
   );
+}
+
+function activeUtilityChoiceLabel() {
+  if (estimateState.market?.utilityChoiceLabel) {
+    return estimateState.market.utilityChoiceLabel;
+  }
+
+  switch (detectRegion(estimateState.zipCode || estimateElements.zipCode?.value, estimateState.commodity)) {
+    case "OH_G":
+      return "Ohio gas utility company";
+    case "OH_E":
+      return "Ohio electric utility company";
+    case "PA":
+      return "Pennsylvania utility company";
+    case "TX":
+      return "Texas delivery utility";
+    case "MD":
+      return "Maryland utility company";
+    case "MA":
+      return "Massachusetts utility company";
+    case "ME":
+      return "Maine utility district";
+    case "NJ":
+      return "New Jersey utility company";
+    case "RI":
+      return "Rhode Island utility company";
+    case "IL":
+      return "Illinois utility service area";
+    case "NY":
+      return "New York utility or load zone";
+    default:
+      return "Utility company";
+  }
+}
+
+function normalizeOfferRecords(rawOffers, sourceUrl) {
+  if (!Array.isArray(rawOffers)) return [];
+  return rawOffers
+    .map((offer) => normalizeOfferRecord(offer, sourceUrl))
+    .filter((offer) => offer.supplierName && offer.rateCentsPerKwh > 0);
+}
+
+function normalizeOfferRecord(offer, sourceUrl) {
+  const signupUrl = normalizeOfferUrl(
+    offer?.signupUrl || offer?.supplierEnrollmentUrl || offer?.supplierWebsiteUrl || "",
+    sourceUrl,
+  );
+  const detailsUrl = normalizeOfferUrl(
+    offer?.offerDetailsUrl || offer?.detailsSourceUrl || offer?.supplierWebsiteUrl || signupUrl,
+    sourceUrl,
+  );
+  const websiteUrl = normalizeOfferUrl(offer?.supplierWebsiteUrl || signupUrl || detailsUrl, sourceUrl);
+  const rateType = typeof offer?.rateType === "string"
+    ? offer.rateType
+    : offer?.rateType?.displayName || offer?.rateType?.name || "";
+
+  return {
+    cancellationFeeText: String(offer?.cancellationFeeText || "").trim(),
+    detailsUrl,
+    earlyTerminationFee: toNumber(offer?.earlyTerminationFee) || 0,
+    enrollmentFeeAmount: toNumber(offer?.enrollmentFeeAmount) || 0,
+    enrollmentFeeText: String(offer?.enrollmentFeeText || "").trim(),
+    introductoryPrice: Boolean(offer?.introductoryPrice),
+    monthlyFee: toNumber(offer?.monthlyFee) || 0,
+    monthlyFeeText: String(offer?.monthlyFeeText || "").trim(),
+    newCustomerOffer: Boolean(offer?.newCustomerOffer),
+    offerDetailsText: String(offer?.offerDetailsText || "").trim(),
+    planName: String(offer?.planName || "").trim(),
+    rateCentsPerKwh: toNumber(offer?.rateCentsPerKwh) || 0,
+    rateType: normalizeRateType(rateType),
+    renewablePercent: parseWholeNumber(offer?.renewablePercent) || 0,
+    signupUrl,
+    supplierName: String(offer?.supplierName || "").trim(),
+    supplierPhone: String(offer?.supplierPhone || "").trim(),
+    supplierWebsiteUrl: websiteUrl,
+    termMonths: Math.max(1, parseWholeNumber(offer?.termMonths) || 1),
+  };
+}
+
+function normalizeSupplierContacts(rawContacts, sourceUrl) {
+  if (!Array.isArray(rawContacts)) return [];
+  return rawContacts
+    .map((contact) => ({
+      note: String(contact?.note || "").trim(),
+      supplierName: String(contact?.supplierName || "").trim(),
+      websiteUrl: normalizeOfferUrl(contact?.websiteUrl || "", sourceUrl),
+    }))
+    .filter((contact) => contact.supplierName && contact.websiteUrl);
+}
+
+function normalizeOfferUrl(rawUrl, sourceUrl) {
+  const value = String(rawUrl || "").trim();
+  if (!value) return "";
+  try {
+    return new URL(value, sourceUrl || window.location.origin).toString();
+  } catch {
+    return value;
+  }
 }
 
 function parsePennsylvaniaOffers(html, sourceUrl) {
@@ -617,6 +839,119 @@ function parseTexasOffers(rawOffers) {
       };
     })
     .filter((offer) => offer.supplierName && offer.rateCentsPerKwh > 0);
+}
+
+function parseMarylandOffers(html, sourceUrl) {
+  if (!html) return [];
+  const document = new DOMParser().parseFromString(html, "text/html");
+  return Array.from(document.querySelectorAll("div.offer"))
+    .map((card) => {
+      if (card.textContent?.includes("Sorry, no current offers matched your search.")) return null;
+      const supplierName = card.querySelector("h3, h4")?.textContent?.trim() || "";
+      const offerText = String(card.textContent || "").replace(/\s+/g, " ").trim();
+      const rateMatch = offerText.match(/\$(\d+(?:\.\d+)?)\s*(?:\/|\s+per\s+)?kwh/i);
+      if (!supplierName || !rateMatch) return null;
+
+      const links = extractLinks(card, sourceUrl);
+      const signupUrl = links.find((url) => looksLikeEnrollmentUrl(url)) || links[0] || "";
+      const detailsUrl = links.find((url) => looksLikeDetailsUrl(url)) || signupUrl;
+      const monthlyFee = extractLabeledNumber(offerText, "monthly fee");
+      const earlyTerminationFee =
+        extractLabeledNumber(offerText, "cancellation fee") ||
+        extractLabeledNumber(offerText, "termination fee") ||
+        0;
+
+      return {
+        cancellationFeeText: earlyTerminationFee ? formatMoney(earlyTerminationFee) : "",
+        detailsUrl,
+        earlyTerminationFee,
+        enrollmentFeeAmount: 0,
+        enrollmentFeeText: "",
+        introductoryPrice: /intro/i.test(offerText),
+        monthlyFee,
+        monthlyFeeText: monthlyFee ? formatMoney(monthlyFee) : "",
+        newCustomerOffer: /new customer/i.test(offerText),
+        offerDetailsText: offerText,
+        planName: "",
+        rateCentsPerKwh: roundToTwo(Number(rateMatch[1]) * 100),
+        rateType: /variable/i.test(offerText) ? "Variable" : /fixed/i.test(offerText) ? "Fixed" : "Unknown",
+        renewablePercent: extractLabeledPercent(offerText, "renewable") || 0,
+        signupUrl,
+        supplierName,
+        termMonths: Math.max(1, extractTermMonths(offerText) || 1),
+      };
+    })
+    .filter(Boolean);
+}
+
+function parseMarylandBenchmark(html) {
+  if (!html) return null;
+  const document = new DOMParser().parseFromString(html, "text/html");
+  const rateText = document.querySelector("div.current-rate span")?.textContent || "";
+  const updatedText = document.querySelector("p.future-rate")?.textContent?.trim() || "";
+  const rate = extractFirstDecimal(rateText);
+  if (!rate) return null;
+  return {
+    rateCents: roundToTwo(rate * 100),
+    updatedText: updatedText || null,
+  };
+}
+
+function parseMassachusettsOffers(compareRows) {
+  if (!Array.isArray(compareRows)) return [];
+  return compareRows
+    .filter((row) => String(row?.rowType || "").toUpperCase() === "SUPPLIER")
+    .map((row) => {
+      const rawRateType = String(row?.pricingStructureDescription || "").trim();
+      const supplierWebsiteUrl = String(row?.supplierWebsiteUrl || "").trim();
+      const productWebsiteUrl = String(row?.productWebsiteUrl || "").trim();
+      const signupUrl = productWebsiteUrl || supplierWebsiteUrl;
+      return {
+        cancellationFeeText: String(row?.earlyTerminationDetail || "").trim(),
+        detailsUrl: productWebsiteUrl || supplierWebsiteUrl,
+        earlyTerminationFee:
+          toNumber(row?.earlyTerminationDetailExport) ||
+          toNumber(row?.earlyTerminationDetail) ||
+          toNumber(row?.earlyTermination) ||
+          0,
+        enrollmentFeeAmount: toNumber(row?.enrollmentFeeExport) || 0,
+        enrollmentFeeText: String(row?.enrollmentFeeExport || "").trim(),
+        introductoryPrice: String(row?.introductoryPrice || "").trim().length > 0,
+        monthlyFee: toNumber(row?.pricePerMonth) || 0,
+        monthlyFeeText: String(row?.pricePerMonthExport || "").trim(),
+        newCustomerOffer: Boolean(row?.isNewCustomerOnly),
+        offerDetailsText: [
+          row?.supplierDescription,
+          row?.automaticRenewalDetailExpanded,
+          row?.renewableEnergyProductDetailExpanded,
+          row?.otherProductServicesDetail,
+        ].filter(Boolean).join("\n\n"),
+        planName: String(row?.productName || row?.planName || "").trim(),
+        rateCentsPerKwh: toNumber(row?.fixedPrice) || toNumber(row?.pricePerUnit) || 0,
+        rateType: rawRateType.toLowerCase().includes("fixed")
+          ? "Fixed"
+          : rawRateType.toLowerCase().includes("variable")
+            ? "Variable"
+            : rawRateType || "Unknown",
+        renewablePercent: Math.round(toNumber(row?.renewableEnergyProductPercentage) || 0),
+        signupUrl,
+        supplierName: String(row?.supplierName || "Unknown supplier").trim(),
+        termMonths: Math.max(1, parseWholeNumber(row?.contractTermFilter) || 1),
+      };
+    })
+    .filter((offer) => offer.supplierName && offer.rateCentsPerKwh > 0);
+}
+
+function parseMassachusettsBenchmark(compareRows) {
+  if (!Array.isArray(compareRows)) return null;
+  const row = compareRows.find((item) => String(item?.rowType || "").toUpperCase() === "DISTRIBUTIONCOMPANY");
+  const rate = toNumber(row?.fixedPrice) || toNumber(row?.pricePerUnit);
+  return rate
+    ? {
+        rateCents: rate,
+        updatedText: null,
+      }
+    : null;
 }
 
 function parseOhioOffers(html, region) {
@@ -718,6 +1053,187 @@ function parseOhioBenchmark(html, region) {
   };
 }
 
+function parseRhodeIslandOffers(html, sourceUrl) {
+  if (!html) return [];
+  const document = new DOMParser().parseFromString(html, "text/html");
+  const supplierTable = document.querySelectorAll("table")[1];
+  if (!supplierTable) return [];
+
+  return Array.from(supplierTable.querySelectorAll("tr.offer-data"))
+    .map((row) => {
+      const cells = Array.from(row.querySelectorAll("td"));
+      const supplierName = cells[0]?.querySelector("img[alt]")?.getAttribute("alt")?.trim() || "";
+      const rateMatch = String(cells[2]?.textContent || "").match(/(\d+(?:\.\d+)?)¢/);
+      if (!supplierName || !rateMatch) return null;
+
+      const termText = String(cells[1]?.textContent || "").replace(/\s+/g, " ").trim();
+      const renewableText = String(cells[5]?.textContent || "").replace(/\s+/g, " ").trim();
+      const savingsText = String(cells[4]?.textContent || "").replace(/\s+/g, " ").trim();
+
+      let sibling = row.nextElementSibling;
+      let offerLinksRow = null;
+      while (sibling && !sibling.classList.contains("offer-data")) {
+        if (sibling.matches("tr.offer-links")) {
+          offerLinksRow = sibling;
+          break;
+        }
+        sibling = sibling.nextElementSibling;
+      }
+
+      const revealIds = offerLinksRow
+        ? Array.from(offerLinksRow.querySelectorAll("a[data-reveal-id]")).map((link) =>
+            link.getAttribute("data-reveal-id") || "",
+          )
+        : [];
+      const companyInfoRevealId = revealIds.find((id) => id.startsWith("company-info"));
+      const planDetailsRevealId = revealIds.find((id) => id.startsWith("plan-details"));
+      const companyInfoModal = companyInfoRevealId ? document.getElementById(companyInfoRevealId) : null;
+      const planDetailsModal = planDetailsRevealId ? document.getElementById(planDetailsRevealId) : null;
+
+      const supplierPhone = Array.from(companyInfoModal?.querySelectorAll("p") || [])
+        .map((item) => item.textContent?.trim() || "")
+        .find((value) => /\d{3}[-)\s]\d{3}[-\s]\d{4}/.test(value) || value.startsWith("1-")) || "";
+      const supplierWebsiteUrl = companyInfoModal?.querySelector("a[href]")?.href || "";
+      const signupUrl =
+        planDetailsModal?.querySelector("a.positive[href]")?.href ||
+        supplierWebsiteUrl ||
+        sourceUrl ||
+        "";
+      const detailLead = planDetailsModal?.querySelector("p.lead")?.textContent?.replace(/\s+/g, " ").trim() || "";
+      const offerDetailsText = [
+        detailLead,
+        savingsText ? `Estimated monthly result: ${savingsText.replace(/\.$/, "")}.` : "",
+      ].filter(Boolean).join(" ");
+
+      return {
+        cancellationFeeText: "Check official supplier terms",
+        detailsUrl: signupUrl,
+        earlyTerminationFee: 0,
+        enrollmentFeeAmount: 0,
+        enrollmentFeeText: "",
+        introductoryPrice: /intro/i.test(offerDetailsText),
+        monthlyFee: 0,
+        monthlyFeeText: "Not listed on Empower RI",
+        newCustomerOffer: /new customer/i.test(offerDetailsText),
+        offerDetailsText,
+        planName: "",
+        rateCentsPerKwh: Number(rateMatch[1]),
+        rateType: "Fixed",
+        renewablePercent: parseWholeNumber(renewableText) || 0,
+        signupUrl,
+        supplierName,
+        supplierPhone,
+        supplierWebsiteUrl,
+        termMonths: Math.max(1, extractTermMonths(termText) || 1),
+      };
+    })
+    .filter(Boolean);
+}
+
+function parseRhodeIslandBenchmark(html) {
+  if (!html) return null;
+  const document = new DOMParser().parseFromString(html, "text/html");
+  const standardTable = document.querySelector("table");
+  const row = standardTable?.querySelector("tr.offer-data");
+  const cells = Array.from(row?.querySelectorAll("td") || []);
+  const rateMatch = String(cells[2]?.textContent || "").match(/(\d+(?:\.\d+)?)¢/);
+  const termText = String(cells[1]?.textContent || "").replace(/\s+/g, " ").trim();
+  const asOfText = document.querySelector("h4.printonly")?.textContent
+    ?.replace(/^As of:\s*/i, "")
+    ?.replace(/\s+/g, " ")
+    ?.trim() || "";
+  if (!rateMatch) return null;
+  return {
+    rateCents: Number(rateMatch[1]),
+    updatedText: [termText, asOfText ? `As of ${asOfText}` : ""].filter(Boolean).join(" • ") || null,
+  };
+}
+
+function parseIllinoisOffers(html, sourceUrl) {
+  if (!html) return [];
+  const document = new DOMParser().parseFromString(html, "text/html");
+  return Array.from(document.querySelectorAll("div.selectProduct"))
+    .map((card) => {
+      const supplierName = card.getAttribute("data-supplier")?.trim() || "";
+      const productName = card.getAttribute("data-id")?.trim() || "";
+      if (!supplierName || !productName) return null;
+
+      const fixedPrice = toNumber(card.getAttribute("data-fixed-price"));
+      const variablePrice = toNumber(card.getAttribute("data-variable-price"));
+      const resolvedRate = fixedPrice || variablePrice || 0;
+      if (!resolvedRate) return null;
+
+      const description = card.getAttribute("data-description")?.trim() || "";
+      const monthlyFeeText = card.getAttribute("data-monthly-fees")?.trim() || "";
+      const cancellationFeeText = card.getAttribute("data-termination-fee")?.trim() || "";
+      const declaredOfferUrl = card.getAttribute("data-website-url")?.trim() || "";
+      const websiteUrl = card.querySelector("a.productLink")?.href || declaredOfferUrl;
+      const signupUrl = card.querySelector("a.link-primary")?.href || declaredOfferUrl || websiteUrl || sourceUrl;
+      const customPrice = card.getAttribute("data-custom-price")?.trim() || "";
+
+      return {
+        cancellationFeeText,
+        detailsUrl: signupUrl,
+        earlyTerminationFee: toNumber(cancellationFeeText) || 0,
+        enrollmentFeeAmount: 0,
+        enrollmentFeeText: "",
+        introductoryPrice: /intro/i.test(productName) || /intro/i.test(description),
+        monthlyFee: toNumber(monthlyFeeText) || 0,
+        monthlyFeeText,
+        newCustomerOffer: /new customer/i.test(description),
+        offerDetailsText: [
+          productName,
+          description,
+          customPrice ? `Custom price details: ${customPrice}` : "",
+        ].filter(Boolean).join(" — "),
+        planName: productName,
+        rateCentsPerKwh: resolvedRate,
+        rateType: fixedPrice ? "Fixed" : variablePrice ? "Variable" : "Unknown",
+        renewablePercent:
+          /100%\s*(?:clean|renewable)/i.test(description) || /100%\s*green/i.test(productName)
+            ? 100
+            : 0,
+        signupUrl,
+        supplierName,
+        supplierPhone: card.getAttribute("data-phone-number")?.trim() || "",
+        supplierWebsiteUrl: websiteUrl,
+        termMonths: Math.max(1, parseWholeNumber(card.getAttribute("data-term")) || 1),
+      };
+    })
+    .filter(Boolean);
+}
+
+function parseIllinoisBenchmark(html, utilityName = "") {
+  if (!html) return null;
+  const document = new DOMParser().parseFromString(html, "text/html");
+  const cells = Array.from(document.getElementById("utility-row")?.querySelectorAll("td") || []);
+  const rateText = String(cells[1]?.textContent || "").replace(/\s+/g, " ").trim();
+  const updatedText = String(cells[7]?.textContent || "").trim() || null;
+  if (!rateText) return null;
+
+  const tierMatch = rateText.match(/Fixed Price\s+(\d+(?:\.\d+)?)\s+0-800kWH\s+(\d+(?:\.\d+)?)\s+>\s*800kWH/i);
+  if (tierMatch) {
+    const firstTierRate = Number(tierMatch[1]);
+    const secondTierRate = Number(tierMatch[2]);
+    const usage = defaultMonthlyUsage("IL", utilityName);
+    const effectiveMonthlyCost = usage <= 800
+      ? (usage * firstTierRate) / 100
+      : ((800 * firstTierRate) / 100) + (((usage - 800) * secondTierRate) / 100);
+    return {
+      rateCents: roundToTwo((effectiveMonthlyCost / usage) * 100),
+      updatedText,
+    };
+  }
+
+  const rate = extractFirstDecimal(rateText);
+  return rate
+    ? {
+        rateCents: rate,
+        updatedText,
+      }
+    : null;
+}
+
 function approximateTexasPlanPricing(offer) {
   const samples = [
     offer?.price_kwh500 ? [500, (toNumber(offer.price_kwh500) * 500) / 100] : null,
@@ -758,6 +1274,15 @@ function detectRegion(zipCode, commodity) {
   const zip = normalizeZip(zipCode);
   if (/^1[5-9]\d{3}$/.test(zip)) return "PA";
   if (/^(?:733\d{2}|7[5-9]\d{3}|885\d{2})$/.test(zip)) return "TX";
+  if (/^(?:206|207|208|209|210|211|212|214|215|216|217|218|219)\d{2}$/.test(zip)) return "MD";
+  if (/^(?:005(?:01|44)|06390|1\d{4})$/.test(zip)) return "NY";
+  if (/^06\d{3}$/.test(zip)) return "CT";
+  if (/^(?:200|202|203|204|205)\d{2}$/.test(zip)) return "DC";
+  if (/^(?:0(?:1\d{3}|2[0-7]\d{2}|55\d{2}))$/.test(zip)) return "MA";
+  if (/^(?:039\d{2}|04\d{3})$/.test(zip)) return "ME";
+  if (/^0[78]\d{3}$/.test(zip)) return "NJ";
+  if (/^(?:028|029)\d{2}$/.test(zip)) return "RI";
+  if (/^6\d{4}$/.test(zip)) return "IL";
   if (isOhioZip(zip)) {
     return commodity === "gas" ? "OH_G" : "OH_E";
   }
@@ -806,8 +1331,77 @@ function resetManualInputs() {
   if (estimateElements.monthlyUsage) estimateElements.monthlyUsage.value = "";
 }
 
-function defaultMonthlyUsage(region) {
+function defaultMonthlyUsage(region, utilityName = "", zipCode = "") {
+  const normalizedUtilityName = String(utilityName || "").toLowerCase();
+  const prefix3 = parseWholeNumber(String(zipCode || "").slice(0, 3));
   switch (region) {
+    case "MD":
+      if (
+        normalizedUtilityName.includes("bge") ||
+        normalizedUtilityName.includes("pepco") ||
+        normalizedUtilityName.includes("smeco") ||
+        [206, 207, 208, 209, 210, 211, 212, 214].includes(prefix3)
+      ) {
+        return 920;
+      }
+      return 980;
+    case "CT":
+      if (
+        normalizedUtilityName.includes("illuminating") ||
+        normalizedUtilityName.includes("united illuminating") ||
+        [64, 65, 66].includes(prefix3)
+      ) {
+        return 760;
+      }
+      return 790;
+    case "DC":
+      return 920;
+    case "MA":
+      return 700;
+    case "ME":
+      return 720;
+    case "NJ":
+      return 840;
+    case "RI":
+      return 750;
+    case "IL":
+      if (
+        normalizedUtilityName.includes("comed") ||
+        [600, 601, 602, 603, 604, 605, 606, 607, 608, 609].includes(prefix3)
+      ) {
+        return 760;
+      }
+      return 860;
+    case "NY":
+      if (
+        normalizedUtilityName.includes("con edison") ||
+        normalizedUtilityName.includes("coned") ||
+        normalizedUtilityName.includes("orange & rockland") ||
+        normalizedUtilityName.includes("oru") ||
+        normalizedUtilityName.includes("lower hudson") ||
+        [100, 101, 102, 103, 104, 105, 106, 107, 108, 109].includes(prefix3)
+      ) {
+        return 760;
+      }
+      if (
+        normalizedUtilityName.includes("pseg long island") ||
+        normalizedUtilityName.includes("long island") ||
+        normalizedUtilityName.includes("lipa") ||
+        [5, 117, 118, 119].includes(prefix3)
+      ) {
+        return 900;
+      }
+      if (
+        normalizedUtilityName.includes("national grid") ||
+        normalizedUtilityName.includes("central hudson") ||
+        normalizedUtilityName.includes("nyseg") ||
+        normalizedUtilityName.includes("rg&e") ||
+        normalizedUtilityName.includes("rge") ||
+        (prefix3 >= 110 && prefix3 <= 149)
+      ) {
+        return 820;
+      }
+      return 800;
     case "TX":
       return 1200;
     case "OH_G":
@@ -843,15 +1437,7 @@ function isOhioZip(zipCode) {
 
 function updateUtilityChoiceLabel() {
   if (!estimateElements.utilityChoiceLabel) return;
-  if (!isOhioZip(estimateState.zipCode || estimateElements.zipCode?.value)) {
-    estimateElements.utilityChoiceLabel.textContent = "Ohio utility company";
-    return;
-  }
-
-  estimateElements.utilityChoiceLabel.textContent =
-    estimateState.commodity === "gas"
-      ? "Ohio gas utility company"
-      : "Ohio electric utility company";
+  estimateElements.utilityChoiceLabel.textContent = activeUtilityChoiceLabel();
 }
 
 function parseDollarAmount(value, cue = "") {
@@ -947,6 +1533,26 @@ function looksLikeEnrollmentUrl(url) {
   const lowered = String(url ?? "").toLowerCase();
   return ["enroll", "enrollment", "signup", "sign-up", "switch", "cart/", "checkout", "plan="]
     .some((cue) => lowered.includes(cue));
+}
+
+function looksLikeDetailsUrl(url) {
+  const lowered = String(url ?? "").toLowerCase();
+  return ["details", "terms", "disclosure", "fact", "info"].some((cue) => lowered.includes(cue));
+}
+
+function extractLabeledNumber(source, label) {
+  const match = String(source ?? "").match(new RegExp(`${label}[^$\\d]*\\$?(\\d+(?:\\.\\d+)?)`, "i"));
+  return match ? Number(match[1]) : 0;
+}
+
+function extractLabeledPercent(source, label) {
+  const match = String(source ?? "").match(new RegExp(`${label}[^\\d]*(\\d{1,3})%`, "i"));
+  return match ? Number(match[1]) : 0;
+}
+
+function extractTermMonths(source) {
+  const match = String(source ?? "").match(/(\d{1,3})\s*months?/i);
+  return match ? Number(match[1]) : 1;
 }
 
 function ownText(element) {

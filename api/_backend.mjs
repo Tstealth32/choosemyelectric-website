@@ -4,6 +4,15 @@ const DEFAULT_BILL_MODEL = "gpt-4o-mini";
 const PA_REGEX = /^1[5-9]\d{3}$/;
 const TX_REGEX = /^(?:733\d{2}|7[5-9]\d{3}|885\d{2})$/;
 const OH_REGEX = /^(?:43|44|45)\d{3}$/;
+const MD_REGEX = /^(?:206|207|208|209|210|211|212|214|215|216|217|218|219)\d{2}$/;
+const CT_REGEX = /^06\d{3}$/;
+const DC_REGEX = /^(?:200|202|203|204|205)\d{2}$/;
+const MA_REGEX = /^(?:0(?:1\d{3}|2[0-7]\d{2}|55\d{2}))$/;
+const ME_REGEX = /^(?:039\d{2}|04\d{3})$/;
+const NJ_REGEX = /^0[78]\d{3}$/;
+const RI_REGEX = /^(?:028|029)\d{2}$/;
+const IL_REGEX = /^6\d{4}$/;
+const NY_REGEX = /^(?:005(?:01|44)|06390|1\d{4})$/;
 
 export function jsonResponse(body, status = 200, extraHeaders = {}) {
   return new Response(JSON.stringify(body), {
@@ -29,6 +38,15 @@ export function detectRegion(zipCode, commodity = "electric") {
   if (OH_REGEX.test(normalizedZip)) {
     return commodity === "gas" ? "OH_G" : "OH_E";
   }
+  if (MD_REGEX.test(normalizedZip)) return "MD";
+  if (NY_REGEX.test(normalizedZip)) return "NY";
+  if (CT_REGEX.test(normalizedZip)) return "CT";
+  if (DC_REGEX.test(normalizedZip)) return "DC";
+  if (MA_REGEX.test(normalizedZip)) return "MA";
+  if (ME_REGEX.test(normalizedZip)) return "ME";
+  if (NJ_REGEX.test(normalizedZip)) return "NJ";
+  if (RI_REGEX.test(normalizedZip)) return "RI";
+  if (IL_REGEX.test(normalizedZip)) return "IL";
   return null;
 }
 
@@ -44,6 +62,24 @@ export function regionPromptDescriptor(region) {
       return "Ohio electricity bill";
     case "OH_G":
       return "Ohio natural gas bill";
+    case "MD":
+      return "Maryland electric bill";
+    case "CT":
+      return "Connecticut electric bill";
+    case "DC":
+      return "District of Columbia electric bill";
+    case "MA":
+      return "Massachusetts electric bill";
+    case "ME":
+      return "Maine electric bill";
+    case "NJ":
+      return "New Jersey electric bill";
+    case "RI":
+      return "Rhode Island electric bill";
+    case "IL":
+      return "Illinois electric bill";
+    case "NY":
+      return "New York electric bill";
     case "PA":
     default:
       return "Pennsylvania utility bill";
