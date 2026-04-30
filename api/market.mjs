@@ -21,7 +21,7 @@ export async function POST(request) {
       return jsonResponse(
         {
           error:
-            "Choose My Electric is currently available for Pennsylvania, Texas, and Ohio deregulated utility markets.",
+            "Instant web ZIP comparison is currently available for Pennsylvania, Texas, and Ohio. Expanded state guides and app market support now also cover Maryland, Connecticut, District of Columbia, Massachusetts, Maine, New Jersey, Rhode Island, Illinois, and New York.",
         },
         400,
       );

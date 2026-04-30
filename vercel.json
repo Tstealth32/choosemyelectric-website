@@ -105,8 +105,48 @@
       "destination": "/estimate.html"
     },
     {
+      "source": "/electric-rates-by-state",
+      "destination": "/electric-rates-by-state.html"
+    },
+    {
       "source": "/app",
       "destination": "/app.html"
+    },
+    {
+      "source": "/maryland-electric-rates",
+      "destination": "/maryland-electric-rates.html"
+    },
+    {
+      "source": "/connecticut-electric-rates",
+      "destination": "/connecticut-electric-rates.html"
+    },
+    {
+      "source": "/district-of-columbia-electric-rates",
+      "destination": "/district-of-columbia-electric-rates.html"
+    },
+    {
+      "source": "/massachusetts-electric-rates",
+      "destination": "/massachusetts-electric-rates.html"
+    },
+    {
+      "source": "/maine-electric-rates",
+      "destination": "/maine-electric-rates.html"
+    },
+    {
+      "source": "/new-jersey-electric-rates",
+      "destination": "/new-jersey-electric-rates.html"
+    },
+    {
+      "source": "/rhode-island-electric-rates",
+      "destination": "/rhode-island-electric-rates.html"
+    },
+    {
+      "source": "/illinois-electric-rates",
+      "destination": "/illinois-electric-rates.html"
+    },
+    {
+      "source": "/new-york-electric-rates",
+      "destination": "/new-york-electric-rates.html"
     },
     {
       "source": "/pennsylvania-electric-rates",
