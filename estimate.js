@@ -73,6 +73,7 @@ function bindEstimateEvents() {
     if (!estimateElements.utilityChoice.value || !estimateState.zipCode) return;
     await refreshMarket({
       preferredUtilityName: estimateState.manualInputs.utilityName,
+      triggeredByUtilityChoice: true,
       utilityChoiceKey: estimateElements.utilityChoice.value,
     });
   });
@@ -135,7 +136,11 @@ async function handleEstimateSubmit(event) {
   });
 }
 
-async function refreshMarket({ preferredUtilityName = "", utilityChoiceKey = "" } = {}) {
+async function refreshMarket({
+  preferredUtilityName = "",
+  triggeredByUtilityChoice = false,
+  utilityChoiceKey = "",
+} = {}) {
   const requestBody = {
     commodity: estimateState.commodity,
     preferredUtilityName,
@@ -204,7 +209,20 @@ async function refreshMarket({ preferredUtilityName = "", utilityChoiceKey = "" 
     return;
   }
 
-  setStatus("Estimate ready. Review the numbers and compare the live plan list below.", "success");
+  const offerCount = estimateState.market.offers.length;
+  const utilityLabel = estimateState.market.utilityName || "this utility area";
+  const offerLabel = offerCount === 1 ? "offer" : "offers";
+  const savingsReady = estimateState.recommendations.length > 0;
+  setStatus(
+    savingsReady
+      ? `Loaded ${offerCount} live supplier ${offerLabel} for ${utilityLabel}. Review the recommended lower-rate plan right below, then scroll for the full list.`
+      : `Loaded ${offerCount} live supplier ${offerLabel} for ${utilityLabel}. Add or confirm the rate details below if you want personalized savings math.`,
+    "success",
+  );
+
+  if (triggeredByUtilityChoice) {
+    revealLoadedMarket();
+  }
 }
 
 function normalizeMarketPayload(payload) {
@@ -375,9 +393,14 @@ function renderResults({ currentRateBasis = "" } = {}) {
   const market = estimateState.market;
   const recommendations = estimateState.recommendations;
   const bestOffer = recommendations[0];
+  const rawBestOffer = getLowestRateOffer(market?.offers || []);
+  const featuredOffer = bestOffer || rawBestOffer;
   const additionalSupplierContacts = Array.isArray(market?.additionalSupplierContacts)
     ? market.additionalSupplierContacts
     : [];
+  const visibleOffers = recommendations.length
+    ? recommendations.slice(0, 8)
+    : getVisibleMarketOffers(market);
 
   estimateElements.currentCostValue.textContent =
     estimateState.currentCost !== null ? formatMoney(estimateState.currentCost) : "--";
@@ -385,10 +408,14 @@ function renderResults({ currentRateBasis = "" } = {}) {
     currentRateBasis || "Add a current rate and monthly usage to estimate your baseline.";
 
   estimateElements.bestOfferValue.textContent =
-    bestOffer ? formatMoney(bestOffer.estimatedMonthlyCost) : "--";
-  estimateElements.bestOfferNote.textContent =
     bestOffer
-      ? `${bestOffer.supplierName} ${bestOffer.planName ? `• ${bestOffer.planName}` : ""}`
+      ? formatMoney(bestOffer.estimatedMonthlyCost)
+      : rawBestOffer
+        ? formatRate(rawBestOffer.rateCentsPerKwh, market?.region)
+        : "--";
+  estimateElements.bestOfferNote.textContent =
+    featuredOffer
+      ? `${featuredOffer.supplierName} ${featuredOffer.planName ? `• ${featuredOffer.planName}` : ""}`
       : additionalSupplierContacts.length
         ? "Official supplier directory loaded for this ZIP."
         : "Live offers will show here.";
@@ -398,11 +425,13 @@ function renderResults({ currentRateBasis = "" } = {}) {
   estimateElements.savingsNote.textContent =
     bestOffer
       ? `${formatMoney(bestOffer.annualSavings)} per year before taxes and utility delivery charges.`
+      : rawBestOffer
+        ? "Live rates are loaded. Add or confirm usage and benchmark details for personalized savings math."
       : additionalSupplierContacts.length
         ? "We loaded the official utility benchmark and supplier directory, even though no live comparable rate cards are published here."
         : "Enter your current rate to personalize this number, or use the app to scan a bill.";
 
-  renderQuickWin(bestOffer, market, currentRateBasis);
+  renderQuickWin(bestOffer, rawBestOffer, market, currentRateBasis);
 
   if (!market) {
     estimateElements.resultsSubtitle.textContent =
@@ -443,10 +472,9 @@ function renderResults({ currentRateBasis = "" } = {}) {
     sections.push(`<p class="empty-state">${escapeHtml(market.errorMessage)}</p>`);
   }
 
-  if (recommendations.length) {
+  if (visibleOffers.length) {
     sections.push(
-      recommendations
-        .slice(0, 8)
+      visibleOffers
         .map((offer, index) => renderOfferCard(offer, index === 0))
         .join(""),
     );
@@ -463,7 +491,7 @@ function renderResults({ currentRateBasis = "" } = {}) {
     );
   }
 
-  if (!recommendations.length && !additionalSupplierContacts.length && !market.errorMessage) {
+  if (!visibleOffers.length && !additionalSupplierContacts.length && !market.errorMessage) {
     sections.push(
       '<p class="empty-state">We found your market, but we do not have live offers to show yet for this exact setup.</p>',
     );
@@ -472,10 +500,10 @@ function renderResults({ currentRateBasis = "" } = {}) {
   estimateElements.offerResults.innerHTML = sections.join("");
 }
 
-function renderQuickWin(bestOffer, market, currentRateBasis) {
+function renderQuickWin(bestOffer, rawBestOffer, market, currentRateBasis) {
   if (!estimateElements.quickWinPanel) return;
 
-  if (!market || !bestOffer || bestOffer.estimatedMonthlySavings <= 0) {
+  if (!market) {
     estimateElements.quickWinPanel.hidden = true;
     estimateElements.quickWinPanel.classList.remove("is-active");
     estimateElements.quickWinHeadline.textContent = "We found a lower live rate for your ZIP.";
@@ -488,32 +516,76 @@ function renderQuickWin(bestOffer, market, currentRateBasis) {
     return;
   }
 
-  const planLabel = [bestOffer.supplierName, bestOffer.planName]
+  if (bestOffer && bestOffer.estimatedMonthlySavings > 0) {
+    const planLabel = [bestOffer.supplierName, bestOffer.planName]
+      .filter(Boolean)
+      .join(" • ");
+    const metaParts = [
+      bestOffer.termMonths ? `${bestOffer.termMonths} month term` : "",
+      bestOffer.rateType || "",
+      market.utilityName ? `${market.utilityName} area` : "",
+    ].filter(Boolean);
+    const comparisonDetail = currentRateBasis
+      ? `Estimated savings compared with the rate you entered. Scroll lower for more options, or use the app for bill scans and alerts.`
+      : `Estimated savings compared with the current utility or market benchmark for this ZIP. Scroll lower for more options, or use the app for bill scans and alerts.`;
+
+    estimateElements.quickWinPanel.hidden = false;
+    estimateElements.quickWinPanel.classList.remove("is-active");
+    void estimateElements.quickWinPanel.offsetWidth;
+    estimateElements.quickWinPanel.classList.add("is-active");
+    estimateElements.quickWinHeadline.textContent = planLabel || "We found a lower live rate for your ZIP.";
+    estimateElements.quickWinMeta.textContent =
+      metaParts.join(" • ") || "Recommended electric supplier plan for your ZIP.";
+    estimateElements.quickWinDetail.textContent = comparisonDetail;
+    estimateElements.quickWinRate.textContent = formatRate(bestOffer.rateCentsPerKwh, market.region);
+    estimateElements.quickWinSavings.textContent =
+      `${formatMoney(bestOffer.estimatedMonthlySavings)}/mo less • ${formatMoney(bestOffer.annualSavings)}/year`;
+    return;
+  }
+
+  if (!rawBestOffer) {
+    estimateElements.quickWinPanel.hidden = true;
+    estimateElements.quickWinPanel.classList.remove("is-active");
+    estimateElements.quickWinHeadline.textContent = "We found a lower live rate for your ZIP.";
+    estimateElements.quickWinMeta.textContent =
+      "Compare your area's best live plan before you scroll into the full list.";
+    estimateElements.quickWinDetail.textContent =
+      "Enter your ZIP code to see if there is a cheaper electric supplier plan available.";
+    estimateElements.quickWinRate.textContent = "--";
+    estimateElements.quickWinSavings.textContent = "--";
+    return;
+  }
+
+  const rawPlanLabel = [rawBestOffer.supplierName, rawBestOffer.planName]
     .filter(Boolean)
     .join(" • ");
-  const metaParts = [
-    bestOffer.termMonths ? `${bestOffer.termMonths} month term` : "",
-    bestOffer.rateType || "",
+  const rawMetaParts = [
+    rawBestOffer.termMonths ? `${rawBestOffer.termMonths} month term` : "",
+    rawBestOffer.rateType || "",
     market.utilityName ? `${market.utilityName} area` : "",
   ].filter(Boolean);
-  const comparisonDetail = currentRateBasis
-    ? `Estimated savings compared with the rate you entered. Scroll lower for more options, or use the app for bill scans and alerts.`
-    : `Estimated savings compared with the current utility or market benchmark for this ZIP. Scroll lower for more options, or use the app for bill scans and alerts.`;
 
   estimateElements.quickWinPanel.hidden = false;
   estimateElements.quickWinPanel.classList.remove("is-active");
   void estimateElements.quickWinPanel.offsetWidth;
   estimateElements.quickWinPanel.classList.add("is-active");
-  estimateElements.quickWinHeadline.textContent = planLabel || "We found a lower live rate for your ZIP.";
+  estimateElements.quickWinHeadline.textContent = rawPlanLabel || "We found a live rate for your ZIP.";
   estimateElements.quickWinMeta.textContent =
-    metaParts.join(" • ") || "Recommended electric supplier plan for your ZIP.";
-  estimateElements.quickWinDetail.textContent = comparisonDetail;
-  estimateElements.quickWinRate.textContent = formatRate(bestOffer.rateCentsPerKwh, market.region);
+    rawMetaParts.join(" • ") || "Lowest live electric supplier rate loaded for your ZIP.";
+  estimateElements.quickWinDetail.textContent =
+    "We loaded live supplier rates for this utility area. Scroll lower for the full list, or use the app for bill scans and alerts.";
+  estimateElements.quickWinRate.textContent = formatRate(rawBestOffer.rateCentsPerKwh, market.region);
   estimateElements.quickWinSavings.textContent =
-    `${formatMoney(bestOffer.estimatedMonthlySavings)}/mo less • ${formatMoney(bestOffer.annualSavings)}/year`;
+    rawBestOffer.monthlyFee
+      ? `${formatMoney(rawBestOffer.monthlyFee)} monthly fee`
+      : rawBestOffer.cancellationFeeText || "Add usage details below for personalized savings.";
 }
 
 function renderOfferCard(offer, isBestOffer) {
+  const hasSavings =
+    Number.isFinite(offer.estimatedMonthlySavings) &&
+    Number.isFinite(offer.estimatedMonthlyCost) &&
+    Number.isFinite(offer.annualSavings);
   const badges = [
     offer.rateType ? `<span class="badge">${escapeHtml(offer.rateType)}</span>` : "",
     offer.introductoryPrice ? '<span class="badge badge-accent">Intro price</span>' : "",
@@ -537,8 +609,8 @@ function renderOfferCard(offer, isBestOffer) {
           <p class="offer-plan">${escapeHtml(offer.planName || "")}</p>
         </div>
         <div class="offer-money">
-          <strong>${formatMoney(offer.estimatedMonthlySavings)}</strong>
-          <span>estimated monthly savings</span>
+          <strong>${hasSavings ? formatMoney(offer.estimatedMonthlySavings) : formatRate(offer.rateCentsPerKwh, estimateState.market?.region)}</strong>
+          <span>${hasSavings ? "estimated monthly savings" : "live supplier rate"}</span>
         </div>
       </div>
 
@@ -548,12 +620,12 @@ function renderOfferCard(offer, isBestOffer) {
           <strong>${formatRate(offer.rateCentsPerKwh, estimateState.market?.region)}</strong>
         </div>
         <div>
-          <span class="offer-label">Monthly cost</span>
-          <strong>${formatMoney(offer.estimatedMonthlyCost)}</strong>
+          <span class="offer-label">${hasSavings ? "Monthly cost" : "Term"}</span>
+          <strong>${hasSavings ? formatMoney(offer.estimatedMonthlyCost) : `${offer.termMonths || 1} months`}</strong>
         </div>
         <div>
-          <span class="offer-label">Annual savings</span>
-          <strong>${formatMoney(offer.annualSavings)}</strong>
+          <span class="offer-label">${hasSavings ? "Annual savings" : "Rate type"}</span>
+          <strong>${hasSavings ? formatMoney(offer.annualSavings) : escapeHtml(offer.rateType || "Unknown")}</strong>
         </div>
       </div>
 
@@ -579,6 +651,30 @@ function renderOfferCard(offer, isBestOffer) {
       </div>
     </article>
   `;
+}
+
+function getVisibleMarketOffers(market) {
+  if (!market || !Array.isArray(market.offers)) return [];
+  return [...market.offers]
+    .filter((offer) => offer.rateCentsPerKwh > 0)
+    .sort((left, right) => {
+      if (left.rateCentsPerKwh !== right.rateCentsPerKwh) {
+        return left.rateCentsPerKwh - right.rateCentsPerKwh;
+      }
+      return (left.termMonths || 0) - (right.termMonths || 0);
+    })
+    .slice(0, 8);
+}
+
+function getLowestRateOffer(offers) {
+  return getVisibleMarketOffers({ offers })[0] || null;
+}
+
+function revealLoadedMarket() {
+  const target = !estimateElements.quickWinPanel?.hidden
+    ? estimateElements.quickWinPanel
+    : document.getElementById("results");
+  target?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function renderSupplierContactCard(contact) {
