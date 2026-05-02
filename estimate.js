@@ -152,6 +152,7 @@ async function refreshMarket({
   setStatus("Loading market data for your ZIP code...", "info");
 
   const response = await fetch("/api/market", {
+    cache: "no-store",
     method: "POST",
     headers: {
       "content-type": "application/json; charset=utf-8",
