@@ -1,0 +1,157 @@
+{
+  "finishedAtUtc": "2026-04-28T00:00:00Z",
+  "sourceUrl": "https://www.energizect.com/rate-board-residential-standard-service-generation-rates",
+  "sourceLabel": "Official Connecticut billed supplier rates",
+  "utilities": {
+    "ct-eversource": {
+      "key": "ct-eversource",
+      "utilityName": "Eversource Energy",
+      "utilityPhone": null,
+      "standardServiceRateCentsPerKwh": 12.641,
+      "standardServiceUpdatedText": "Jan-Jun 2026 standard service",
+      "billedRateUpdatedText": "March 2026 billed rate board",
+      "billedRateWorkbookUrl": "https://www.energizect.com/sites/default/files/documents/Supplier%20Billed%20Rates%20-%20March%20ER.xlsx",
+      "planSummaries": [
+        {
+          "supplierName": "Constellation New Energy",
+          "averageBilledRateCentsPerKwh": 11.7493,
+          "billedCustomerCount": 68764,
+          "billedUsageKwh": 56751658.6,
+          "supplierWebsiteUrl": "https://connecticut.constellationnewenergy.com",
+          "supplierPhone": "866-237-7693"
+        },
+        {
+          "supplierName": "Direct Energy",
+          "averageBilledRateCentsPerKwh": 12.8755,
+          "billedCustomerCount": 33255,
+          "billedUsageKwh": 27996848.3,
+          "supplierWebsiteUrl": "https://www.directenergy.com/ct",
+          "supplierPhone": "(888) 548-7540"
+        },
+        {
+          "supplierName": "Energy Plus",
+          "averageBilledRateCentsPerKwh": 8.0818,
+          "billedCustomerCount": 22,
+          "billedUsageKwh": 23433.0,
+          "supplierWebsiteUrl": "https://www.energypluscompany.com",
+          "supplierPhone": "888-766-3509"
+        },
+        {
+          "supplierName": "Major Energy",
+          "averageBilledRateCentsPerKwh": 13.2613,
+          "billedCustomerCount": 4732,
+          "billedUsageKwh": 4117118.0,
+          "supplierWebsiteUrl": "https://majorenergy.com",
+          "supplierPhone": "(888) 625-6760"
+        },
+        {
+          "supplierName": "North American Power & Gas",
+          "averageBilledRateCentsPerKwh": 17.4863,
+          "billedCustomerCount": 2013,
+          "billedUsageKwh": 1327754.1,
+          "supplierWebsiteUrl": "https://www.napower.com",
+          "supplierPhone": "888-313-9086"
+        },
+        {
+          "supplierName": "Think Energy",
+          "averageBilledRateCentsPerKwh": 12.8417,
+          "billedCustomerCount": 15603,
+          "billedUsageKwh": 13651809.5,
+          "supplierWebsiteUrl": "https://www.mythinkenergy.com",
+          "supplierPhone": "(713) 636-0000"
+        },
+        {
+          "supplierName": "Town Square Energy",
+          "averageBilledRateCentsPerKwh": 13.4304,
+          "billedCustomerCount": 28651,
+          "billedUsageKwh": 25962309.0,
+          "supplierWebsiteUrl": "https://www.townsquareenergy.com",
+          "supplierPhone": "(877) 430-0093"
+        },
+        {
+          "supplierName": "XOOM Energy",
+          "averageBilledRateCentsPerKwh": 13.3916,
+          "billedCustomerCount": 4264,
+          "billedUsageKwh": 3243510.6,
+          "supplierWebsiteUrl": "https://www.xoomenergy.com",
+          "supplierPhone": "(877) 815-1531"
+        }
+      ]
+    },
+    "ct-ui": {
+      "key": "ct-ui",
+      "utilityName": "United Illuminating",
+      "utilityPhone": null,
+      "standardServiceRateCentsPerKwh": 13.096,
+      "standardServiceUpdatedText": "Jan-Jun 2026 standard service",
+      "billedRateUpdatedText": "March 2026 billed rate board",
+      "billedRateWorkbookUrl": "https://www.energizect.com/sites/default/files/documents/March%202026%20UR.xlsx",
+      "planSummaries": [
+        {
+          "supplierName": "Constellation New Energy",
+          "averageBilledRateCentsPerKwh": 12.6138,
+          "billedCustomerCount": 15515,
+          "billedUsageKwh": 9609581.0,
+          "supplierWebsiteUrl": "https://connecticut.constellationnewenergy.com",
+          "supplierPhone": "866-237-7693"
+        },
+        {
+          "supplierName": "Direct Energy",
+          "averageBilledRateCentsPerKwh": 13.2215,
+          "billedCustomerCount": 7150,
+          "billedUsageKwh": 4438064.0,
+          "supplierWebsiteUrl": "https://www.directenergy.com/ct",
+          "supplierPhone": "(888) 548-7540"
+        },
+        {
+          "supplierName": "Energy Plus",
+          "averageBilledRateCentsPerKwh": 8.3191,
+          "billedCustomerCount": 2,
+          "billedUsageKwh": 575.0,
+          "supplierWebsiteUrl": "https://www.energypluscompany.com",
+          "supplierPhone": "888-766-3509"
+        },
+        {
+          "supplierName": "Major Energy",
+          "averageBilledRateCentsPerKwh": 13.2095,
+          "billedCustomerCount": 2727,
+          "billedUsageKwh": 1812066.0,
+          "supplierWebsiteUrl": "https://majorenergy.com",
+          "supplierPhone": "(888) 625-6760"
+        },
+        {
+          "supplierName": "North American Power & Gas",
+          "averageBilledRateCentsPerKwh": 16.7272,
+          "billedCustomerCount": 859,
+          "billedUsageKwh": 434295.0,
+          "supplierWebsiteUrl": "https://www.napower.com",
+          "supplierPhone": "888-313-9086"
+        },
+        {
+          "supplierName": "Think Energy",
+          "averageBilledRateCentsPerKwh": 12.8865,
+          "billedCustomerCount": 5320,
+          "billedUsageKwh": 3594602.0,
+          "supplierWebsiteUrl": "https://www.mythinkenergy.com",
+          "supplierPhone": "(713) 636-0000"
+        },
+        {
+          "supplierName": "Town Square Energy",
+          "averageBilledRateCentsPerKwh": 13.1948,
+          "billedCustomerCount": 9996,
+          "billedUsageKwh": 6793578.0,
+          "supplierWebsiteUrl": "https://www.townsquareenergy.com",
+          "supplierPhone": "(877) 430-0093"
+        },
+        {
+          "supplierName": "XOOM Energy",
+          "averageBilledRateCentsPerKwh": 13.3839,
+          "billedCustomerCount": 2916,
+          "billedUsageKwh": 1579153.0,
+          "supplierWebsiteUrl": "https://www.xoomenergy.com",
+          "supplierPhone": "(877) 815-1531"
+        }
+      ]
+    }
+  }
+}

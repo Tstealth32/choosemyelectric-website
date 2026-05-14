@@ -1,22 +1,27 @@
 import { readFile } from "node:fs/promises";
+import { backendJson } from "./_backend.mjs";
 
 const DATA_BASE_URL = new URL("./data/", import.meta.url);
 
 const catalogCache = new Map();
 
 export async function loadMaineMarketCatalog() {
-  return loadCatalog("maine_market_snapshot.json");
+  return loadCatalog("maine_market_snapshot.json", "maine");
 }
 
 export async function loadNewJerseyMarketCatalog() {
-  return loadCatalog("new_jersey_market_snapshot.json");
+  return loadCatalog("new_jersey_market_snapshot.json", "new-jersey");
 }
 
 export async function loadNewYorkMarketCatalog() {
-  return loadCatalog("new_york_market_snapshot.json");
+  return loadCatalog("new_york_market_snapshot.json", "new-york");
 }
 
-export function getConnecticutUtilityMarket(zipCode) {
+export async function loadConnecticutMarketCatalog() {
+  return loadCatalog("connecticut_market_snapshot.json", "connecticut", () => CONNECTICUT_FALLBACK_CATALOG);
+}
+
+export async function getConnecticutUtilityMarket(zipCode) {
   const normalizedZip = normalizeFiveDigitZip(zipCode);
   if (!CONNECTICUT_VALID_ZIPS.has(normalizedZip)) return null;
   if (CONNECTICUT_MUNICIPAL_ZIPS.has(normalizedZip)) {
@@ -24,9 +29,14 @@ export function getConnecticutUtilityMarket(zipCode) {
       type: "municipal",
     };
   }
-  return CONNECTICUT_UI_ZIPS.has(normalizedZip)
+  const catalog = await loadConnecticutMarketCatalog();
+  const utilities = catalog?.utilities || {};
+  const fallbackUtility = CONNECTICUT_UI_ZIPS.has(normalizedZip)
     ? CONNECTICUT_UNITED_ILLUMINATING
     : CONNECTICUT_EVERSOURCE;
+  return CONNECTICUT_UI_ZIPS.has(normalizedZip)
+    ? (utilities["ct-ui"] || fallbackUtility)
+    : (utilities["ct-eversource"] || fallbackUtility);
 }
 
 export function isValidConnecticutZip(zipCode) {
@@ -37,13 +47,32 @@ function normalizeFiveDigitZip(zipCode) {
   return String(zipCode ?? "").replace(/\D/g, "").slice(0, 5);
 }
 
-async function loadCatalog(fileName) {
+async function loadCatalog(fileName, backendSlug, fallbackFactory = null) {
+  if (backendSlug) {
+    try {
+      const remoteCatalog = await backendJson(`/market/catalog/${backendSlug}`, { method: "GET" });
+      if (remoteCatalog) {
+        return remoteCatalog;
+      }
+    } catch {
+      // Fall back to the local bundled catalog when the backend is unavailable.
+    }
+  }
+
   if (catalogCache.has(fileName)) {
     return catalogCache.get(fileName);
   }
 
-  const raw = await readFile(new URL(fileName, DATA_BASE_URL), "utf8");
-  const parsed = JSON.parse(raw);
+  let parsed;
+  try {
+    const raw = await readFile(new URL(fileName, DATA_BASE_URL), "utf8");
+    parsed = JSON.parse(raw);
+  } catch (error) {
+    if (!fallbackFactory) {
+      throw error;
+    }
+    parsed = fallbackFactory();
+  }
   catalogCache.set(fileName, parsed);
   return parsed;
 }
@@ -107,6 +136,16 @@ const CONNECTICUT_UNITED_ILLUMINATING = createConnecticutUtility({
     { supplierName: "XOOM Energy", averageBilledRateCentsPerKwh: 13.3839, billedCustomerCount: 2916, billedUsageKwh: 1579153.0, supplierWebsiteUrl: "https://www.xoomenergy.com", supplierPhone: "(877) 815-1531" },
   ],
 });
+
+const CONNECTICUT_FALLBACK_CATALOG = {
+  finishedAtUtc: "2026-04-28T00:00:00Z",
+  sourceLabel: "Official Connecticut billed supplier rates",
+  sourceUrl: "https://www.energizect.com/rate-board-residential-standard-service-generation-rates",
+  utilities: {
+    "ct-eversource": CONNECTICUT_EVERSOURCE,
+    "ct-ui": CONNECTICUT_UNITED_ILLUMINATING,
+  },
+};
 
 const CONNECTICUT_VALID_ZIPS = new Set(
   `

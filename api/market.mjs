@@ -8,6 +8,7 @@ import {
 import {
   getConnecticutUtilityMarket,
   isValidConnecticutZip,
+  loadConnecticutMarketCatalog,
   loadMaineMarketCatalog,
   loadNewJerseyMarketCatalog,
   loadNewYorkMarketCatalog,
@@ -397,7 +398,11 @@ async function fetchConnecticutMarket({ zipCode }) {
     throw invalidZipError("Enter a valid Connecticut ZIP code.");
   }
 
-  const utility = getConnecticutUtilityMarket(zipCode);
+  const catalog = await loadConnecticutMarketCatalog();
+  const sourceUrl = String(catalog?.sourceUrl ?? CONNECTICUT_STANDARD_SERVICE_URL).trim() || CONNECTICUT_STANDARD_SERVICE_URL;
+  const sourceLabel = String(catalog?.sourceLabel ?? "Official Connecticut billed supplier rates").trim() || "Official Connecticut billed supplier rates";
+  const refreshedAt = String(catalog?.finishedAtUtc ?? CONNECTICUT_DATA_REFRESHED_AT).trim() || CONNECTICUT_DATA_REFRESHED_AT;
+  const utility = await getConnecticutUtilityMarket(zipCode);
   if (!utility) {
     throw invalidZipError("Enter a valid Connecticut ZIP code.");
   }
@@ -408,7 +413,7 @@ async function fetchConnecticutMarket({ zipCode }) {
         "This ZIP maps to a Connecticut municipal electric system or a non-choice carve-out area. EnergizeCT does not list statewide competitive supplier rates here, so check the utility on the customer's bill before comparing offers.",
       region: "CT",
       sourceLabel: "Official Connecticut utility guidance",
-      sourceUrl: CONNECTICUT_STANDARD_SERVICE_URL,
+      sourceUrl,
       utilityName: "Connecticut municipal electric system",
       zipCode,
     };
@@ -426,7 +431,7 @@ async function fetchConnecticutMarket({ zipCode }) {
     rateLastUpdated: utility.billedRateUpdatedText,
     rateType: "Unknown",
     renewablePercent: 0,
-    scrapedAt: CONNECTICUT_DATA_REFRESHED_AT,
+    scrapedAt: refreshedAt,
     signupUrl: summary.supplierWebsiteUrl,
     sourceZipCode: zipCode,
     supplierEnrollmentUrl: summary.supplierWebsiteUrl,
@@ -444,7 +449,7 @@ async function fetchConnecticutMarket({ zipCode }) {
     region: "CT",
     selectedUtilityChoiceKey: utility.key,
     selectionRequired: false,
-    sourceLabel: `Official Connecticut billed supplier rates for ${utility.utilityName}`,
+    sourceLabel: `${sourceLabel} for ${utility.utilityName}`,
     sourceUrl: utility.billedRateWorkbookUrl,
     utilityChoices: [
       {

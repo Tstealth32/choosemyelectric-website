@@ -1,13 +1,13 @@
 {
-  "finishedAtUtc": "2026-04-29T02:07:48Z",
+  "finishedAtUtc": "2026-04-30T21:44:54Z",
   "sourceUrl": "https://www.nj.gov/njpowerswitch/suppliers/electric/",
   "summary": {
     "utilityCount": 4,
     "residentialSupplierCount": 237,
     "residentialPricingLinkCount": 154,
-    "parsedPlanCount": 100,
-    "parsedSupplierCount": 17,
-    "additionalContactCount": 204,
+    "parsedPlanCount": 114,
+    "parsedSupplierCount": 19,
+    "additionalContactCount": 203,
     "utilityChoiceRequired": true
   },
   "coverageWarnings": {
@@ -26,8 +26,8 @@
       "priceToCompareLastUpdated": "2025-10-01",
       "defaultUtilityRateSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
       "defaultUtilityRateNote": "Verified as the customer-facing New Jersey comparison benchmark shown consistently across five live supplier quote pages for Atlantic City Electric. This benchmark is higher than the raw utility energy-only sheet because supplier quote flows compare against the full utility supply benchmark they present to customers.",
-      "rateSchedule": "64 residential suppliers listed \u00b7 24 verified offers",
-      "coverageNote": "Showing 24 verified live offers for Atlantic City Electric. 56 additional NJ Power Switch supplier links still require interactive quote flows or non-standard rate pages.",
+      "rateSchedule": "64 residential suppliers listed \u00b7 28 verified offers",
+      "coverageNote": "Showing 28 verified live offers for Atlantic City Electric. 55 additional NJ Power Switch supplier links still require interactive quote flows or non-standard rate pages.",
       "supplierCount": 81,
       "residentialSupplierCount": 64,
       "plans": [
@@ -43,18 +43,40 @@
           "detailsSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
           "supplierWebsiteUrl": "https://xoomenergy.com/",
           "supplierEnrollmentUrl": "https://xoomenergy.com/en/residential/new-jersey",
-          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385367-en.pdf?_val=142fa7f",
+          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385367-en.pdf?_val=59d40e9",
           "cancellationFeeText": "No long-term commitment or cost recovery fee.",
           "monthlyFeeText": "No monthly fee shown on the public XOOM product card.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "SimpleFlex\nSimpleFlex combines the freedom and flexibility you want in an energy plan with the added bonus of Cash Back*. With XOOM Energy's Cash Back program, you earn a 5% rebate for your everyday energy use. \u2022 No long-term commitment or cost recovery fee \u2022 5% Annual Cash Back on supply charges \u2022 Rate may vary monthly Rate above is only available to customers enrolling with XOOM Energy for the first time.\nAtlantic City Electric Customers Charges & Rates Monthly kWh Usage 250 500 1000 2000 Atlantic City Electric Supply Charges $46.82 $93.65 $187.30 $374.60 Price to Compare $0.1873 $0.1873 $0.1873 $0.1873 XOOM Energy Supply Charges $39.23 $78.45 $156.90 $313.80 Price to Compare $0.1569 $0.1569 $0.1569 $0.1569 Our current and historical prices are not an indicator of our future prices and we do not guarantee any savings. Our prices may be higher than your utility's supply rate. You can call us to determine what your maximum supply price will be for your upcoming bill. Any electricity supply price comparisons we make are based on our promotional supply price and Atlantic City Electric's supply rate. Quoted utility supply rates are calculated from the utility tariff in effect 2025-10-01 for the RS",
           "rawLinkTargets": [
             "https://xoomenergy.com/en/residential/new-jersey",
-            "https://xoomenergy.com/uploads/rates/terms/385367-en.pdf?_val=6e88466",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385367-en.pdf?_val=142fa7f",
-            "https://xoomenergy.com/uploads/rates/optional-1/17-rate-en.pdf?_val=a3c72e5"
+            "https://xoomenergy.com/uploads/rates/terms/385367-en.pdf?_val=42b9246",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385367-en.pdf?_val=59d40e9",
+            "https://xoomenergy.com/uploads/rates/optional-1/17-rate-en.pdf?_val=6f8e637"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "MPower Energy NJ LLC",
+          "rateCentsPerKwh": 16.9,
+          "termMonths": 12,
+          "earlyTerminationFee": 0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Unknown",
+          "signupUrl": "https://rates.mpowerenergy.com/old-home-2",
+          "detailsSourceUrl": "https://rates.mpowerenergy.com/old-home-2",
+          "supplierWebsiteUrl": "https://mpowerenergy.com/",
+          "supplierEnrollmentUrl": "https://mpowerenergy.com/",
+          "offerDetailsUrl": "https://rates.mpowerenergy.com/old-home-2",
+          "cancellationFeeText": "Not listed on MPower's public New Jersey rate board.",
+          "monthlyFeeText": "Not listed on MPower's public New Jersey rate board.",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
+          "offerDetailsText": "Public MPower New Jersey rate board\n12 Month Term\nUtility: ACE",
+          "rawLinkTargets": [
+            "https://rates.mpowerenergy.com/old-home-2"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Alpha Gas and Electric, LLC",
@@ -71,13 +93,13 @@
           "offerDetailsUrl": "https://alphagasandelectric.com/new-jersey/",
           "cancellationFeeText": "No early termination fee for residential customers.",
           "monthlyFeeText": "$4.95 monthly Service Benefit Charge",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "Atlantic City Electric Fixed Rate 24 Months 0.1699\nOfficial Alpha Gas and Electric NJ rate endpoint.",
           "rawLinkTargets": [
             "https://alphagasandelectric.com/new-jersey/",
             "https://alphagasandelectric.com/wp-admin/admin-ajax.php"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Clearview Electric, Inc.",
@@ -94,13 +116,13 @@
           "offerDetailsUrl": "https://www.clearviewenergy.com/documents/tos/?productNum=410074",
           "cancellationFeeText": "$150",
           "monthlyFeeText": "$0.00",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "ClearGuarantee6\nRewards: 25 Monthly\nPlan code: 410074",
           "rawLinkTargets": [
             "https://www.clearviewenergy.com/ZipcodeLookup?zip=08234",
             "https://www.clearviewenergy.com/documents/tos/?productNum=410074"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "XOOM Energy New Jersey, LLC",
@@ -114,64 +136,18 @@
           "detailsSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
           "supplierWebsiteUrl": "https://xoomenergy.com/",
           "supplierEnrollmentUrl": "https://xoomenergy.com/en/residential/new-jersey",
-          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385369-en.pdf?_val=7fc7379",
+          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385369-en.pdf?_val=b71126d",
           "cancellationFeeText": "cost recovery fee of $115",
           "monthlyFeeText": "No monthly fee shown on the public XOOM product card.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "SureLock 12\nGet the peace of mind you deserve with our SureLock 12 fixed rate plan! \u2022 Lock in your rate for 12 full months \u2022 Get stability for the duration of your term \u2022 Protect yourself from the uncertainty that you've come to expect with energy bills Rate above is available to customers enrolling with XOOM Energy for the first time.\nAtlantic City Electric Customers Charges & Rates Monthly kWh Usage 250 500 1000 2000 Atlantic City Electric Supply Charges $46.82 $93.65 $187.30 $374.60 Price to Compare $0.1873 $0.1873 $0.1873 $0.1873 XOOM Energy Supply Charges $39.23 $78.45 $156.90 $313.80 Price to Compare $0.1569 $0.1569 $0.1569 $0.1569 Our current and historical prices are not an indicator of our future prices and we do not guarantee any savings. Our prices may be higher than your utility's supply rate. You can call us to determine what your maximum supply price will be for your upcoming bill. Any electricity supply price comparisons we make are based on our promotional supply price and Atlantic City Electric's supply rate. Quoted utility supply rates are calculated from the utility tariff in effect 2025-10-01 for the RS",
           "rawLinkTargets": [
             "https://xoomenergy.com/en/residential/new-jersey",
-            "https://xoomenergy.com/uploads/rates/terms/385369-en.pdf?_val=1e9074a",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385369-en.pdf?_val=7fc7379",
-            "https://xoomenergy.com/uploads/rates/optional-1/17-rate-en.pdf?_val=c0ae5ba"
+            "https://xoomenergy.com/uploads/rates/terms/385369-en.pdf?_val=0fcad02",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385369-en.pdf?_val=b71126d",
+            "https://xoomenergy.com/uploads/rates/optional-1/17-rate-en.pdf?_val=c7593ae"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
-        },
-        {
-          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
-          "rateCentsPerKwh": 17.8,
-          "termMonths": 3,
-          "earlyTerminationFee": 0.0,
-          "monthlyFee": 0.0,
-          "renewablePercent": 0,
-          "rateType": "Variable",
-          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
-          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
-          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
-          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
-          "rateLastUpdated": "2026-01-07T12:00:00Z",
-          "offerDetailsText": "Get a variable electricity price and earn Southwest Rapid Rewards\u00ae Points\n10,000 Southwest Rapid Rewards \u00ae bonus points after 2 months on this plan 2 points for every $1 spent on the supply portion of your electric bill Introductory supply price for 3 months and variable price after 3 months",
-          "rawLinkTargets": [
-            "https://www.picknrg.com/en/zipCode/08234",
-            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
-          ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
-        },
-        {
-          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
-          "rateCentsPerKwh": 17.8,
-          "termMonths": 3,
-          "earlyTerminationFee": 0.0,
-          "monthlyFee": 0.0,
-          "renewablePercent": 0,
-          "rateType": "Variable",
-          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
-          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
-          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
-          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
-          "rateLastUpdated": "2026-01-07T12:00:00Z",
-          "offerDetailsText": "Get a variable electricity price and earn United Airlines MileagePlus\u00ae miles\n10,000 MileagePlus \u00ae bonus miles after 2 months on this plan 2 miles for every $1 spent on the supply portion of your electric bill Introductory supply price for 3 months and variable price after 3 months",
-          "rawLinkTargets": [
-            "https://www.picknrg.com/en/zipCode/08234",
-            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
-          ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -194,7 +170,53 @@
             "https://www.picknrg.com/en/zipCode/08234",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 17.8,
+          "termMonths": 3,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Variable",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-01-07T12:00:00Z",
+          "offerDetailsText": "Get a variable electricity price and earn Southwest Rapid Rewards\u00ae Points\n10,000 Southwest Rapid Rewards \u00ae bonus points after 2 months on this plan 2 points for every $1 spent on the supply portion of your electric bill Introductory supply price for 3 months and variable price after 3 months",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/08234",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 17.8,
+          "termMonths": 3,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Variable",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-01-07T12:00:00Z",
+          "offerDetailsText": "Get a variable electricity price and earn United Airlines MileagePlus\u00ae miles\n10,000 MileagePlus \u00ae bonus miles after 2 months on this plan 2 miles for every $1 spent on the supply portion of your electric bill Introductory supply price for 3 months and variable price after 3 months",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/08234",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -217,7 +239,7 @@
             "https://www.picknrg.com/en/zipCode/08234",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -240,53 +262,7 @@
             "https://www.picknrg.com/en/zipCode/08234",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
-        },
-        {
-          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
-          "rateCentsPerKwh": 17.8,
-          "termMonths": 3,
-          "earlyTerminationFee": 0.0,
-          "monthlyFee": 0.0,
-          "renewablePercent": 0,
-          "rateType": "Variable",
-          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
-          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
-          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
-          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
-          "rateLastUpdated": "2026-01-07T12:00:00Z",
-          "offerDetailsText": "Supporting Philabundance and get a variable electricity price\n$50 contribution to Philabundance after 1 month on this plan Annual contribution equal to 1% of the supply portion of your bill Introductory supply price for 3 months and variable price after 3 months",
-          "rawLinkTargets": [
-            "https://www.picknrg.com/en/zipCode/08234",
-            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
-          ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
-        },
-        {
-          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
-          "rateCentsPerKwh": 17.8,
-          "termMonths": 3,
-          "earlyTerminationFee": 0.0,
-          "monthlyFee": 0.0,
-          "renewablePercent": 0,
-          "rateType": "Variable",
-          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
-          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
-          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
-          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
-          "rateLastUpdated": "2026-01-07T12:00:00Z",
-          "offerDetailsText": "Supporting Nemours Children\u2019s Health and get a variable electricity price\n$50 contribution to Nemours Children\u2019s Health after 1 month on this plan Annual contribution equal to 1% of the supply portion of your bill Introductory supply price for 3 months and variable price after 3 months",
-          "rawLinkTargets": [
-            "https://www.picknrg.com/en/zipCode/08234",
-            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
-          ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -309,7 +285,53 @@
             "https://www.picknrg.com/en/zipCode/08234",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 17.8,
+          "termMonths": 3,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Variable",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-01-07T12:00:00Z",
+          "offerDetailsText": "Supporting Nemours Children\u2019s Health and get a variable electricity price\n$50 contribution to Nemours Children\u2019s Health after 1 month on this plan Annual contribution equal to 1% of the supply portion of your bill Introductory supply price for 3 months and variable price after 3 months",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/08234",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 17.8,
+          "termMonths": 3,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Variable",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-01-07T12:00:00Z",
+          "offerDetailsText": "Supporting Philabundance and get a variable electricity price\n$50 contribution to Philabundance after 1 month on this plan Annual contribution equal to 1% of the supply portion of your bill Introductory supply price for 3 months and variable price after 3 months",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/08234",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -332,7 +354,7 @@
             "https://www.picknrg.com/en/zipCode/08234",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "XOOM Energy New Jersey, LLC",
@@ -346,21 +368,21 @@
           "detailsSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
           "supplierWebsiteUrl": "https://xoomenergy.com/",
           "supplierEnrollmentUrl": "https://xoomenergy.com/en/residential/new-jersey",
-          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385373-en.pdf?_val=27039c6",
+          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385373-en.pdf?_val=7225d69",
           "cancellationFeeText": "cost recovery fee of $115",
           "monthlyFeeText": "No monthly fee shown on the public XOOM product card.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "SimpleClean 12\nWith our fixed rate SimpleClean 12 Plan, lock in your green energy rate for 12 full months, guaranteed! This plan offers electricity price stability for the duration of your term. With SimpleClean 12, you protect yourself from the uncertainty that comes with energy bills. Rate above is only available to customers enrolling with XOOM Energy for the first time.\nAtlantic City Electric Customers Charges & Rates Monthly kWh Usage 250 500 1000 2000 Atlantic City Electric Supply Charges $46.82 $93.65 $187.30 $374.60 Price to Compare $0.1873 $0.1873 $0.1873 $0.1873 XOOM Energy Supply Charges $39.23 $78.45 $156.90 $313.80 Price to Compare $0.1569 $0.1569 $0.1569 $0.1569 Our current and historical prices are not an indicator of our future prices and we do not guarantee any savings. Our prices may be higher than your utility's supply rate. You can call us to determine what your maximum supply price will be for your upcoming bill. Any electricity supply price comparisons we make are based on our promotional supply price and Atlantic City Electric's supply rate. Quoted utility supply rates are calculated from the utility tariff in effect 2025-10-01 for the RS",
           "rawLinkTargets": [
             "https://xoomenergy.com/en/residential/new-jersey",
-            "https://xoomenergy.com/uploads/rates/terms/385373-en.pdf?_val=fdd2728",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385373-en.pdf?_val=27039c6",
-            "https://xoomenergy.com/uploads/rates/optional-1/17-rate-en.pdf?_val=61be718",
-            "https://xoomenergy.com/uploads/rates/terms/385373-en.pdf?_val=a8bdefa",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385373-en.pdf?_val=df33627",
-            "https://xoomenergy.com/uploads/rates/optional-1/17-rate-en.pdf?_val=5c95284"
+            "https://xoomenergy.com/uploads/rates/terms/385373-en.pdf?_val=d9d98c8",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385373-en.pdf?_val=7225d69",
+            "https://xoomenergy.com/uploads/rates/optional-1/17-rate-en.pdf?_val=4c67ab8",
+            "https://xoomenergy.com/uploads/rates/terms/385373-en.pdf?_val=b342f76",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385373-en.pdf?_val=2909f82",
+            "https://xoomenergy.com/uploads/rates/optional-1/17-rate-en.pdf?_val=019b26f"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "XOOM Energy New Jersey, LLC",
@@ -374,18 +396,18 @@
           "detailsSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
           "supplierWebsiteUrl": "https://xoomenergy.com/",
           "supplierEnrollmentUrl": "https://xoomenergy.com/en/residential/new-jersey",
-          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385378-en.pdf?_val=4b0fc34",
+          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385378-en.pdf?_val=64bc442",
           "cancellationFeeText": "cost recovery fee of $200",
           "monthlyFeeText": "No monthly fee shown on the public XOOM product card.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "SureLock 24\nTake the uncertainty out of your energy bills with our SureLock 24 fixed rate plan! \u2022 Guaranteed rate for 24 months \u2022 Peace of mind knowing what your rate will be \u2022 Protection from the uncertainty that you've come to expect with energy bills Rate above is only available to customers enrolling with XOOM Energy for the first time.\nAtlantic City Electric Customers Charges & Rates Monthly kWh Usage 250 500 1000 2000 Atlantic City Electric Supply Charges $46.82 $93.65 $187.30 $374.60 Price to Compare $0.1873 $0.1873 $0.1873 $0.1873 XOOM Energy Supply Charges $39.23 $78.45 $156.90 $313.80 Price to Compare $0.1569 $0.1569 $0.1569 $0.1569 Our current and historical prices are not an indicator of our future prices and we do not guarantee any savings. Our prices may be higher than your utility's supply rate. You can call us to determine what your maximum supply price will be for your upcoming bill. Any electricity supply price comparisons we make are based on our promotional supply price and Atlantic City Electric's supply rate. Quoted utility supply rates are calculated from the utility tariff in effect 2025-10-01 for the RS",
           "rawLinkTargets": [
             "https://xoomenergy.com/en/residential/new-jersey",
-            "https://xoomenergy.com/uploads/rates/terms/385378-en.pdf?_val=55e6aa3",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385378-en.pdf?_val=4b0fc34",
-            "https://xoomenergy.com/uploads/rates/optional-1/17-rate-en.pdf?_val=ce25030"
+            "https://xoomenergy.com/uploads/rates/terms/385378-en.pdf?_val=b7fbe72",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385378-en.pdf?_val=64bc442",
+            "https://xoomenergy.com/uploads/rates/optional-1/17-rate-en.pdf?_val=04b05cf"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -408,7 +430,7 @@
             "https://www.picknrg.com/en/zipCode/08234",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -431,7 +453,53 @@
             "https://www.picknrg.com/en/zipCode/08234",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 18.4,
+          "termMonths": 6,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Fixed",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-04-01T12:00:00Z",
+          "offerDetailsText": "Electricity Plan with United MileagePlus Mile\n10,000 United MileagePlus \u00ae bonus miles after 2 months on this plan 2 miles for every $1 spent on the supply portion of your natural gas bill",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/08234",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 18.4,
+          "termMonths": 6,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Fixed",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-04-01T12:00:00Z",
+          "offerDetailsText": "Electric Plan with Southwest Rapid Rewards bonus points\n10,000 Southwest Rapid Rewards \u00ae bonus points after 2 months on this plan 2 miles for every $1 spent on the supply portion of your electricity bill",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/08234",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Clearview Electric, Inc.",
@@ -448,13 +516,13 @@
           "offerDetailsUrl": "https://www.clearviewenergy.com/documents/tos/?productNum=410070",
           "cancellationFeeText": "$150",
           "monthlyFeeText": "$0.00",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "ClearGuarantee12\nRewards: 25 Monthly\nPlan code: 410070",
           "rawLinkTargets": [
             "https://www.clearviewenergy.com/ZipcodeLookup?zip=08234",
             "https://www.clearviewenergy.com/documents/tos/?productNum=410070"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Clearview Electric, Inc.",
@@ -471,13 +539,13 @@
           "offerDetailsUrl": "https://www.clearviewenergy.com/documents/tos/?productNum=410068",
           "cancellationFeeText": "$150",
           "monthlyFeeText": "$9.99",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "ClearCharge12Plus\nRewards: 25 Monthly\nPlan code: 410068",
           "rawLinkTargets": [
             "https://www.clearviewenergy.com/ZipcodeLookup?zip=08234",
             "https://www.clearviewenergy.com/documents/tos/?productNum=410068"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "XOOM Energy New Jersey, LLC",
@@ -491,18 +559,18 @@
           "detailsSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
           "supplierWebsiteUrl": "https://xoomenergy.com/",
           "supplierEnrollmentUrl": "https://xoomenergy.com/en/residential/new-jersey",
-          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385375-en.pdf?_val=cf6ad5b",
+          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385375-en.pdf?_val=9e0efd4",
           "cancellationFeeText": "cost recovery fee of $115",
           "monthlyFeeText": "No monthly fee shown on the public XOOM product card.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "RescueLock 12\nGet the peace of mind you deserve with our RescueLock 12 fixed rate plan! \u2022 Enroll on RescueLock 12 and 5% of your monthly energy charges will be donated to PetSmart Charities!* \u2022 Lock in your rate for 12 full months \u2022 Get stability for the duration of your term \u2022 Protect yourself from the uncertainty that you've come to expect with energy bills. Rate above is available to customers enrolling with XOOM Energy for the first time.\nAtlantic City Electric Customers Charges & Rates Monthly kWh Usage 250 500 1000 2000 Atlantic City Electric Supply Charges $46.82 $93.65 $187.30 $374.60 Price to Compare $0.1873 $0.1873 $0.1873 $0.1873 XOOM Energy Supply Charges $39.23 $78.45 $156.90 $313.80 Price to Compare $0.1569 $0.1569 $0.1569 $0.1569 Our current and historical prices are not an indicator of our future prices and we do not guarantee any savings. Our prices may be higher than your utility's supply rate. You can call us to determine what your maximum supply price will be for your upcoming bill. Any electricity supply price comparisons we make are based on our promotional supply price and Atlantic City Electric's supply rate. Quoted utility supply rates are calculated from the utility tariff in effect 2025-10-01 for the RS",
           "rawLinkTargets": [
             "https://xoomenergy.com/en/residential/new-jersey",
-            "https://xoomenergy.com/uploads/rates/terms/385375-en.pdf?_val=f13aa7d",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385375-en.pdf?_val=cf6ad5b",
-            "https://xoomenergy.com/uploads/rates/optional-1/17-rate-en.pdf?_val=de3780a"
+            "https://xoomenergy.com/uploads/rates/terms/385375-en.pdf?_val=008bc36",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385375-en.pdf?_val=9e0efd4",
+            "https://xoomenergy.com/uploads/rates/optional-1/17-rate-en.pdf?_val=3069633"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Clearview Electric, Inc.",
@@ -519,13 +587,36 @@
           "offerDetailsUrl": "https://www.clearviewenergy.com/documents/tos/?productNum=410072",
           "cancellationFeeText": "$150",
           "monthlyFeeText": "$0.00",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "ClearGuarantee24\nRewards: 25 Monthly\nPlan code: 410072",
           "rawLinkTargets": [
             "https://www.clearviewenergy.com/ZipcodeLookup?zip=08234",
             "https://www.clearviewenergy.com/documents/tos/?productNum=410072"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 19.2,
+          "termMonths": 6,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 100,
+          "rateType": "Fixed",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-04-01T12:00:00Z",
+          "offerDetailsText": "Electric Plan with Renewable Energy\n6-month plan with renewable energy",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/08234",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -548,7 +639,7 @@
             "https://www.picknrg.com/en/zipCode/08234",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -571,7 +662,7 @@
             "https://www.picknrg.com/en/zipCode/08234",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -594,7 +685,7 @@
             "https://www.picknrg.com/en/zipCode/08234",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         }
       ],
       "contacts": [
@@ -636,7 +727,7 @@
         {
           "supplierName": "Choice Energy, LLC d/b/a 4 Choice Energy",
           "websiteUrl": "https://www.4choiceenergy.net/sign-up.html?utility_state=NJ",
-          "note": "The supplier pricing page for Atlantic City Electric could not be fetched reliably during this audit. Verify directly with the supplier before switching."
+          "note": "Verified supplier pricing page for Atlantic City Electric, but no machine-readable public residential rate was exposed."
         },
         {
           "supplierName": "CleanChoice Energy, Inc. d/b/a CleanChoice Energy; Ethical Electric; Clean Energy Option",
@@ -661,12 +752,12 @@
         {
           "supplierName": "Discount Power Inc",
           "websiteUrl": "https://discountpowerinc.com/",
-          "note": "The supplier pricing page for Atlantic City Electric could not be fetched reliably during this audit. Verify directly with the supplier before switching."
+          "note": "Verified supplier pricing page for Atlantic City Electric, but no machine-readable public residential rate was exposed."
         },
         {
           "supplierName": "EcoPlus Power, LLC",
           "websiteUrl": "https://www.ecopluspower.com/newjersey",
-          "note": "Verified supplier pricing page for Atlantic City Electric. This supplier uses an interactive ZIP or utility quote flow, so a safe comparable public rate could not be normalized yet."
+          "note": "Verified supplier pricing page for Atlantic City Electric, but no machine-readable public residential rate was exposed."
         },
         {
           "supplierName": "Eligo Energy NJ, LLC",
@@ -741,11 +832,6 @@
         {
           "supplierName": "MP2 Energy NE LLC d/b/a Shell Energy Solutions",
           "websiteUrl": "http://www.mp2energy.com/",
-          "note": "Listed for Atlantic City Electric on NJ Power Switch, but no utility-specific pricing link was published there."
-        },
-        {
-          "supplierName": "MPower Energy NJ LLC",
-          "websiteUrl": "http://www.mpowerenergy.com/",
           "note": "Listed for Atlantic City Electric on NJ Power Switch, but no utility-specific pricing link was published there."
         },
         {
@@ -1424,11 +1510,34 @@
       "priceToCompareLastUpdated": "2026-03-01",
       "defaultUtilityRateSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
       "defaultUtilityRateNote": "Verified as the customer-facing New Jersey comparison benchmark shown consistently across five live supplier quote pages for JCP&L. This is the comparable supply benchmark used in the quote flows, not just the raw energy-only utility sheet entry.",
-      "rateSchedule": "62 residential suppliers listed \u00b7 28 verified offers",
-      "coverageNote": "Showing 28 verified live offers for JCP&L. 53 additional NJ Power Switch supplier links still require interactive quote flows or non-standard rate pages.",
+      "rateSchedule": "62 residential suppliers listed \u00b7 32 verified offers",
+      "coverageNote": "Showing 32 verified live offers for JCP&L. 53 additional NJ Power Switch supplier links still require interactive quote flows or non-standard rate pages.",
       "supplierCount": 78,
       "residentialSupplierCount": 62,
       "plans": [
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 14.6,
+          "termMonths": 3,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Variable",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-03-04T12:00:00Z",
+          "offerDetailsText": "Get a variable electricity price and earn United Airlines MileagePlus\u00ae miles\n10,000 MileagePlus \u00ae bonus miles after 2 months on this plan 2 miles for every $1 spent on the supply portion of your electric bill Introductory supply price for 3 months and variable price after 3 months",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/07728",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
           "rateCentsPerKwh": 14.6,
@@ -1450,7 +1559,7 @@
             "https://www.picknrg.com/en/zipCode/07728",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -1473,30 +1582,7 @@
             "https://www.picknrg.com/en/zipCode/07728",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
-        },
-        {
-          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
-          "rateCentsPerKwh": 14.6,
-          "termMonths": 3,
-          "earlyTerminationFee": 0.0,
-          "monthlyFee": 0.0,
-          "renewablePercent": 0,
-          "rateType": "Variable",
-          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
-          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
-          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
-          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
-          "rateLastUpdated": "2026-03-04T12:00:00Z",
-          "offerDetailsText": "Get a variable electricity price and earn United Airlines MileagePlus\u00ae miles\n10,000 MileagePlus \u00ae bonus miles after 2 months on this plan 2 miles for every $1 spent on the supply portion of your electric bill Introductory supply price for 3 months and variable price after 3 months",
-          "rawLinkTargets": [
-            "https://www.picknrg.com/en/zipCode/07728",
-            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
-          ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -1519,7 +1605,7 @@
             "https://www.picknrg.com/en/zipCode/07728",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -1542,30 +1628,7 @@
             "https://www.picknrg.com/en/zipCode/07728",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
-        },
-        {
-          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
-          "rateCentsPerKwh": 14.6,
-          "termMonths": 3,
-          "earlyTerminationFee": 0.0,
-          "monthlyFee": 0.0,
-          "renewablePercent": 0,
-          "rateType": "Variable",
-          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
-          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
-          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
-          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
-          "rateLastUpdated": "2026-03-04T12:00:00Z",
-          "offerDetailsText": "Supporting Big Brothers Big Sisters and get a variable electricity price\n$50 contribution to Big Brothers Big Sisters Independence after 1 month on this plan Annual contribution equal to 1% of the supply portion of your bill Introductory supply price for 3 months and variable price after 3 months",
-          "rawLinkTargets": [
-            "https://www.picknrg.com/en/zipCode/07728",
-            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
-          ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -1588,7 +1651,30 @@
             "https://www.picknrg.com/en/zipCode/07728",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 14.6,
+          "termMonths": 3,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Variable",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-03-04T12:00:00Z",
+          "offerDetailsText": "Supporting Big Brothers Big Sisters and get a variable electricity price\n$50 contribution to Big Brothers Big Sisters Independence after 1 month on this plan Annual contribution equal to 1% of the supply portion of your bill Introductory supply price for 3 months and variable price after 3 months",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/07728",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -1611,7 +1697,7 @@
             "https://www.picknrg.com/en/zipCode/07728",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -1634,7 +1720,7 @@
             "https://www.picknrg.com/en/zipCode/07728",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "XOOM Energy New Jersey, LLC",
@@ -1648,18 +1734,18 @@
           "detailsSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
           "supplierWebsiteUrl": "https://xoomenergy.com/",
           "supplierEnrollmentUrl": "https://xoomenergy.com/en/residential/new-jersey",
-          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385393-en.pdf?_val=029ed23",
+          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385393-en.pdf?_val=992d865",
           "cancellationFeeText": "No long-term commitment or cost recovery fee.",
           "monthlyFeeText": "No monthly fee shown on the public XOOM product card.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "SimpleFlex\nSimpleFlex combines the freedom and flexibility you want in an energy plan with the added bonus of Cash Back*. With XOOM Energy's Cash Back program, you earn a 5% rebate for your everyday energy use. \u2022 No long-term commitment or cost recovery fee \u2022 5% Annual Cash Back on supply charges \u2022 Rate may vary monthly Rate above is only available to customers enrolling with XOOM Energy for the first time.\nJersey Central Pwr & Light Customers Charges & Rates Monthly kWh Usage 250 500 1000 2000 Jersey Central Pwr & Light Supply Charges $38.60 $77.20 $154.40 $308.80 Price to Compare $0.1544 $0.1544 $0.1544 $0.1544 XOOM Energy Supply Charges $37.23 $74.45 $148.90 $297.80 Price to Compare $0.1489 $0.1489 $0.1489 $0.1489 Our current and historical prices are not an indicator of our future prices and we do not guarantee any savings. Our prices may be higher than your utility's supply rate. You can call us to determine what your maximum supply price will be for your upcoming bill. Any electricity supply price comparisons we make are based on our promotional supply price and JCP&L's supply rate. Quoted utility supply rates are calculated from the utility tariff in effect 2026-03-01 for the RS-first 600 kWh rate class, including BGS-FP Charges (inclusive of Energy, Transmission and Reconciliation Charges) so we cannot guarantee their accuracy and they may change after the dates in which any price comparison is made.",
           "rawLinkTargets": [
             "https://xoomenergy.com/en/residential/new-jersey",
-            "https://xoomenergy.com/uploads/rates/terms/385393-en.pdf?_val=90e8dd6",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385393-en.pdf?_val=029ed23",
-            "https://xoomenergy.com/uploads/rates/optional-1/18-rate-en.pdf?_val=f42ac4d"
+            "https://xoomenergy.com/uploads/rates/terms/385393-en.pdf?_val=d2ff938",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385393-en.pdf?_val=992d865",
+            "https://xoomenergy.com/uploads/rates/optional-1/18-rate-en.pdf?_val=2fcef3a"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Alpha Gas and Electric, LLC",
@@ -1676,13 +1762,13 @@
           "offerDetailsUrl": "https://alphagasandelectric.com/new-jersey/",
           "cancellationFeeText": "No early termination fee for residential customers.",
           "monthlyFeeText": "$4.95 monthly Service Benefit Charge",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "Jersey Central Power Light Fixed Rate 24 Months 0.1499\nOfficial Alpha Gas and Electric NJ rate endpoint.",
           "rawLinkTargets": [
             "https://alphagasandelectric.com/new-jersey/",
             "https://alphagasandelectric.com/wp-admin/admin-ajax.php"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -1705,7 +1791,7 @@
             "https://www.picknrg.com/en/zipCode/07728",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -1728,7 +1814,53 @@
             "https://www.picknrg.com/en/zipCode/07728",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 16.2,
+          "termMonths": 6,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Fixed",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-03-04T12:00:00Z",
+          "offerDetailsText": "Electricity Plan with United MileagePlus Mile\n10,000 United MileagePlus \u00ae bonus miles after 2 months on this plan 2 miles for every $1 spent on the supply portion of your natural gas bill",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/07728",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 16.2,
+          "termMonths": 6,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Fixed",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-03-04T12:00:00Z",
+          "offerDetailsText": "Electric Plan with Southwest Rapid Rewards bonus points\n10,000 Southwest Rapid Rewards \u00ae bonus points after 2 months on this plan 2 miles for every $1 spent on the supply portion of your electricity bill",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/07728",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Clearview Electric, Inc.",
@@ -1745,13 +1877,13 @@
           "offerDetailsUrl": "https://www.clearviewenergy.com/documents/tos/?productNum=410086",
           "cancellationFeeText": "$150",
           "monthlyFeeText": "$0.00",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "ClearGuarantee6\nRewards: 25 Monthly\nPlan code: 410086",
           "rawLinkTargets": [
             "https://www.clearviewenergy.com/ZipcodeLookup?zip=07728",
             "https://www.clearviewenergy.com/documents/tos/?productNum=410086"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "XOOM Energy New Jersey, LLC",
@@ -1765,18 +1897,40 @@
           "detailsSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
           "supplierWebsiteUrl": "https://xoomenergy.com/",
           "supplierEnrollmentUrl": "https://xoomenergy.com/en/residential/new-jersey",
-          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385395-en.pdf?_val=6066448",
+          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385395-en.pdf?_val=3b0851d",
           "cancellationFeeText": "cost recovery fee of $110",
           "monthlyFeeText": "No monthly fee shown on the public XOOM product card.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "SureLock 12\nGet the peace of mind you deserve with our SureLock 12 fixed rate plan! \u2022 Lock in your rate for 12 full months \u2022 Get stability for the duration of your term \u2022 Protect yourself from the uncertainty that you've come to expect with energy bills Rate above is available to customers enrolling with XOOM Energy for the first time.\nJersey Central Pwr & Light Customers Charges & Rates Monthly kWh Usage 250 500 1000 2000 Jersey Central Pwr & Light Supply Charges $38.60 $77.20 $154.40 $308.80 Price to Compare $0.1544 $0.1544 $0.1544 $0.1544 XOOM Energy Supply Charges $37.23 $74.45 $148.90 $297.80 Price to Compare $0.1489 $0.1489 $0.1489 $0.1489 Our current and historical prices are not an indicator of our future prices and we do not guarantee any savings. Our prices may be higher than your utility's supply rate. You can call us to determine what your maximum supply price will be for your upcoming bill. Any electricity supply price comparisons we make are based on our promotional supply price and JCP&L's supply rate. Quoted utility supply rates are calculated from the utility tariff in effect 2026-03-01 for the RS-first 600 kWh rate class, including BGS-FP Charges (inclusive of Energy, Transmission and Reconciliation Charges) so we cannot guarantee their accuracy and they may change after the dates in which any price comparison is made.",
           "rawLinkTargets": [
             "https://xoomenergy.com/en/residential/new-jersey",
-            "https://xoomenergy.com/uploads/rates/terms/385395-en.pdf?_val=a96b522",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385395-en.pdf?_val=6066448",
-            "https://xoomenergy.com/uploads/rates/optional-1/18-rate-en.pdf?_val=e259017"
+            "https://xoomenergy.com/uploads/rates/terms/385395-en.pdf?_val=0500de0",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385395-en.pdf?_val=3b0851d",
+            "https://xoomenergy.com/uploads/rates/optional-1/18-rate-en.pdf?_val=8f77c7c"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "MPower Energy NJ LLC",
+          "rateCentsPerKwh": 16.9,
+          "termMonths": 12,
+          "earlyTerminationFee": 0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Unknown",
+          "signupUrl": "https://rates.mpowerenergy.com/old-home-2",
+          "detailsSourceUrl": "https://rates.mpowerenergy.com/old-home-2",
+          "supplierWebsiteUrl": "https://mpowerenergy.com/",
+          "supplierEnrollmentUrl": "https://mpowerenergy.com/",
+          "offerDetailsUrl": "https://rates.mpowerenergy.com/old-home-2",
+          "cancellationFeeText": "Not listed on MPower's public New Jersey rate board.",
+          "monthlyFeeText": "Not listed on MPower's public New Jersey rate board.",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
+          "offerDetailsText": "Public MPower New Jersey rate board\n12 Month Term\nUtility: JCP&L",
+          "rawLinkTargets": [
+            "https://rates.mpowerenergy.com/old-home-2"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "XOOM Energy New Jersey, LLC",
@@ -1790,21 +1944,21 @@
           "detailsSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
           "supplierWebsiteUrl": "https://xoomenergy.com/",
           "supplierEnrollmentUrl": "https://xoomenergy.com/en/residential/new-jersey",
-          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385399-en.pdf?_val=c328dc0",
+          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385399-en.pdf?_val=cd6ed0e",
           "cancellationFeeText": "cost recovery fee of $110",
           "monthlyFeeText": "No monthly fee shown on the public XOOM product card.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "SimpleClean 12\nWith our fixed rate SimpleClean 12 Plan, lock in your green energy rate for 12 full months, guaranteed! This plan offers electricity price stability for the duration of your term. With SimpleClean 12, you protect yourself from the uncertainty that comes with energy bills. Rate above is only available to customers enrolling with XOOM Energy for the first time.\nJersey Central Pwr & Light Customers Charges & Rates Monthly kWh Usage 250 500 1000 2000 Jersey Central Pwr & Light Supply Charges $38.60 $77.20 $154.40 $308.80 Price to Compare $0.1544 $0.1544 $0.1544 $0.1544 XOOM Energy Supply Charges $37.23 $74.45 $148.90 $297.80 Price to Compare $0.1489 $0.1489 $0.1489 $0.1489 Our current and historical prices are not an indicator of our future prices and we do not guarantee any savings. Our prices may be higher than your utility's supply rate. You can call us to determine what your maximum supply price will be for your upcoming bill. Any electricity supply price comparisons we make are based on our promotional supply price and JCP&L's supply rate. Quoted utility supply rates are calculated from the utility tariff in effect 2026-03-01 for the RS-first 600 kWh rate class, including BGS-FP Charges (inclusive of Energy, Transmission and Reconciliation Charges) so we cannot guarantee their accuracy and they may change after the dates in which any price comparison is made.",
           "rawLinkTargets": [
             "https://xoomenergy.com/en/residential/new-jersey",
-            "https://xoomenergy.com/uploads/rates/terms/385399-en.pdf?_val=6bd0fc1",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385399-en.pdf?_val=c328dc0",
-            "https://xoomenergy.com/uploads/rates/optional-1/18-rate-en.pdf?_val=e721ff5",
-            "https://xoomenergy.com/uploads/rates/terms/385399-en.pdf?_val=a4b5657",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385399-en.pdf?_val=c69e531",
-            "https://xoomenergy.com/uploads/rates/optional-1/18-rate-en.pdf?_val=36b53be"
+            "https://xoomenergy.com/uploads/rates/terms/385399-en.pdf?_val=e291d2a",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385399-en.pdf?_val=cd6ed0e",
+            "https://xoomenergy.com/uploads/rates/optional-1/18-rate-en.pdf?_val=701f0b1",
+            "https://xoomenergy.com/uploads/rates/terms/385399-en.pdf?_val=b6520a0",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385399-en.pdf?_val=9199d22",
+            "https://xoomenergy.com/uploads/rates/optional-1/18-rate-en.pdf?_val=17cd9ca"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "XOOM Energy New Jersey, LLC",
@@ -1818,18 +1972,18 @@
           "detailsSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
           "supplierWebsiteUrl": "https://xoomenergy.com/",
           "supplierEnrollmentUrl": "https://xoomenergy.com/en/residential/new-jersey",
-          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385404-en.pdf?_val=482c68b",
+          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385404-en.pdf?_val=9526fb1",
           "cancellationFeeText": "cost recovery fee of $200",
           "monthlyFeeText": "No monthly fee shown on the public XOOM product card.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "SureLock 24\nGet the peace of mind you deserve with our SureLock 24 fixed rate plan! \u2022 Lock in your rate for 24 full months \u2022 Get stability for the duration of your term \u2022 Protect yourself from the uncertainty that you've come to expect with energy bills Rate above is only available to customers enrolling with XOOM Energy for the first time.\nJersey Central Pwr & Light Customers Charges & Rates Monthly kWh Usage 250 500 1000 2000 Jersey Central Pwr & Light Supply Charges $38.60 $77.20 $154.40 $308.80 Price to Compare $0.1544 $0.1544 $0.1544 $0.1544 XOOM Energy Supply Charges $37.23 $74.45 $148.90 $297.80 Price to Compare $0.1489 $0.1489 $0.1489 $0.1489 Our current and historical prices are not an indicator of our future prices and we do not guarantee any savings. Our prices may be higher than your utility's supply rate. You can call us to determine what your maximum supply price will be for your upcoming bill. Any electricity supply price comparisons we make are based on our promotional supply price and JCP&L's supply rate. Quoted utility supply rates are calculated from the utility tariff in effect 2026-03-01 for the RS-first 600 kWh rate class, including BGS-FP Charges (inclusive of Energy, Transmission and Reconciliation Charges) so we cannot guarantee their accuracy and they may change after the dates in which any price comparison is made.",
           "rawLinkTargets": [
             "https://xoomenergy.com/en/residential/new-jersey",
-            "https://xoomenergy.com/uploads/rates/terms/385404-en.pdf?_val=3b057c2",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385404-en.pdf?_val=482c68b",
-            "https://xoomenergy.com/uploads/rates/optional-1/18-rate-en.pdf?_val=afc2927"
+            "https://xoomenergy.com/uploads/rates/terms/385404-en.pdf?_val=e080b1e",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385404-en.pdf?_val=9526fb1",
+            "https://xoomenergy.com/uploads/rates/optional-1/18-rate-en.pdf?_val=4ff913c"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Clearview Electric, Inc.",
@@ -1846,13 +2000,36 @@
           "offerDetailsUrl": "https://www.clearviewenergy.com/documents/tos/?productNum=410082",
           "cancellationFeeText": "$150",
           "monthlyFeeText": "$0.00",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "ClearGuarantee12\nRewards: 25 Monthly\nPlan code: 410082",
           "rawLinkTargets": [
             "https://www.clearviewenergy.com/ZipcodeLookup?zip=07728",
             "https://www.clearviewenergy.com/documents/tos/?productNum=410082"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 17.2,
+          "termMonths": 6,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 100,
+          "rateType": "Fixed",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-04-01T12:00:00Z",
+          "offerDetailsText": "Electric Plan with Renewable Energy\n6-month plan with renewable energy",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/07728",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Clearview Electric, Inc.",
@@ -1869,13 +2046,13 @@
           "offerDetailsUrl": "https://www.clearviewenergy.com/documents/tos/?productNum=410084",
           "cancellationFeeText": "$150",
           "monthlyFeeText": "$0.00",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "ClearGuarantee24\nRewards: 25 Monthly\nPlan code: 410084",
           "rawLinkTargets": [
             "https://www.clearviewenergy.com/ZipcodeLookup?zip=07728",
             "https://www.clearviewenergy.com/documents/tos/?productNum=410084"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Clearview Electric, Inc.",
@@ -1892,13 +2069,13 @@
           "offerDetailsUrl": "https://www.clearviewenergy.com/documents/tos/?productNum=410080",
           "cancellationFeeText": "$150",
           "monthlyFeeText": "$9.99",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "ClearCharge12Plus\nRewards: 25 Monthly\nPlan code: 410080",
           "rawLinkTargets": [
             "https://www.clearviewenergy.com/ZipcodeLookup?zip=07728",
             "https://www.clearviewenergy.com/documents/tos/?productNum=410080"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "XOOM Energy New Jersey, LLC",
@@ -1912,18 +2089,18 @@
           "detailsSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
           "supplierWebsiteUrl": "https://xoomenergy.com/",
           "supplierEnrollmentUrl": "https://xoomenergy.com/en/residential/new-jersey",
-          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385401-en.pdf?_val=3b92533",
+          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385401-en.pdf?_val=5fd4c2a",
           "cancellationFeeText": "cost recovery fee of $110",
           "monthlyFeeText": "No monthly fee shown on the public XOOM product card.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "RescueLock 12\nGet the peace of mind you deserve with our RescueLock 12 fixed rate plan! \u2022 Enroll on RescueLock 12 and 5% of your monthly energy charges will be donated to PetSmart Charities!* \u2022 Lock in your rate for 12 full months \u2022 Get stability for the duration of your term \u2022 Protect yourself from the uncertainty that you've come to expect with energy bills. Rate above is available to customers enrolling with XOOM Energy for the first time.\nJersey Central Pwr & Light Customers Charges & Rates Monthly kWh Usage 250 500 1000 2000 Jersey Central Pwr & Light Supply Charges $38.60 $77.20 $154.40 $308.80 Price to Compare $0.1544 $0.1544 $0.1544 $0.1544 XOOM Energy Supply Charges $37.23 $74.45 $148.90 $297.80 Price to Compare $0.1489 $0.1489 $0.1489 $0.1489 Our current and historical prices are not an indicator of our future prices and we do not guarantee any savings. Our prices may be higher than your utility's supply rate. You can call us to determine what your maximum supply price will be for your upcoming bill. Any electricity supply price comparisons we make are based on our promotional supply price and JCP&L's supply rate. Quoted utility supply rates are calculated from the utility tariff in effect 2026-03-01 for the RS-first 600 kWh rate class, including BGS-FP Charges (inclusive of Energy, Transmission and Reconciliation Charges) so we cannot guarantee their accuracy and they may change after the dates in which any price comparison is made.",
           "rawLinkTargets": [
             "https://xoomenergy.com/en/residential/new-jersey",
-            "https://xoomenergy.com/uploads/rates/terms/385401-en.pdf?_val=427eb7c",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385401-en.pdf?_val=3b92533",
-            "https://xoomenergy.com/uploads/rates/optional-1/18-rate-en.pdf?_val=c82c01b"
+            "https://xoomenergy.com/uploads/rates/terms/385401-en.pdf?_val=fe54635",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385401-en.pdf?_val=5fd4c2a",
+            "https://xoomenergy.com/uploads/rates/optional-1/18-rate-en.pdf?_val=3997a74"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -1946,7 +2123,7 @@
             "https://www.picknrg.com/en/zipCode/07728",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -1969,7 +2146,7 @@
             "https://www.picknrg.com/en/zipCode/07728",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -1992,7 +2169,7 @@
             "https://www.picknrg.com/en/zipCode/07728",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Eligo Energy NJ, LLC",
@@ -2009,13 +2186,13 @@
           "offerDetailsUrl": "https://eligoenergy.com/rates/utilities/fejc_nj",
           "cancellationFeeText": "Verify cancellation terms on Eligo's enrollment page before switching.",
           "monthlyFeeText": "$0 monthly fee shown on the public Eligo utility page.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "3 Month Fixed Rate\nPublic Eligo utility-specific New Jersey rate page.",
           "rawLinkTargets": [
             "https://eligoenergy.com/rates/utilities/fejc_nj",
             "https://eligoenergy.com/signup/standard_residential?lead%5Butility%5D=fejc_nj&lead%5Bzip%5D=&c=e&g=0&m=0&p=17980&s=NJ&t=3&z=fejc_nj"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Eligo Energy NJ, LLC",
@@ -2032,13 +2209,13 @@
           "offerDetailsUrl": "https://eligoenergy.com/rates/utilities/fejc_nj",
           "cancellationFeeText": "Verify cancellation terms on Eligo's enrollment page before switching.",
           "monthlyFeeText": "$0 monthly fee shown on the public Eligo utility page.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "3 Month Fixed Rate 100% Green\nPublic Eligo utility-specific New Jersey rate page.",
           "rawLinkTargets": [
             "https://eligoenergy.com/rates/utilities/fejc_nj",
             "https://eligoenergy.com/signup/standard_residential?lead%5Butility%5D=fejc_nj&lead%5Bzip%5D=&c=e&g=100&m=0&p=18380&s=NJ&t=3&z=fejc_nj"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Eligo Energy NJ, LLC",
@@ -2055,13 +2232,13 @@
           "offerDetailsUrl": "https://eligoenergy.com/rates/utilities/fejc_nj",
           "cancellationFeeText": "Verify cancellation terms on Eligo's enrollment page before switching.",
           "monthlyFeeText": "$0 monthly fee shown on the public Eligo utility page.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "6 Month Fixed Rate\nPublic Eligo utility-specific New Jersey rate page.",
           "rawLinkTargets": [
             "https://eligoenergy.com/rates/utilities/fejc_nj",
             "https://eligoenergy.com/signup/standard_residential?lead%5Butility%5D=fejc_nj&lead%5Bzip%5D=&c=e&g=0&m=0&p=21540&s=NJ&t=6&z=fejc_nj"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Eligo Energy NJ, LLC",
@@ -2078,13 +2255,13 @@
           "offerDetailsUrl": "https://eligoenergy.com/rates/utilities/fejc_nj",
           "cancellationFeeText": "Verify cancellation terms on Eligo's enrollment page before switching.",
           "monthlyFeeText": "$0 monthly fee shown on the public Eligo utility page.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "6 Month Fixed Rate 100% Green\nPublic Eligo utility-specific New Jersey rate page.",
           "rawLinkTargets": [
             "https://eligoenergy.com/rates/utilities/fejc_nj",
             "https://eligoenergy.com/signup/standard_residential?lead%5Butility%5D=fejc_nj&lead%5Bzip%5D=&c=e&g=100&m=0&p=21940&s=NJ&t=6&z=fejc_nj"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         }
       ],
       "contacts": [
@@ -2126,7 +2303,7 @@
         {
           "supplierName": "Choice Energy, LLC d/b/a 4 Choice Energy",
           "websiteUrl": "https://www.4choiceenergy.net/sign-up.html?utility_state=NJ",
-          "note": "The supplier pricing page for JCP&L could not be fetched reliably during this audit. Verify directly with the supplier before switching."
+          "note": "Verified supplier pricing page for JCP&L, but no machine-readable public residential rate was exposed."
         },
         {
           "supplierName": "CleanChoice Energy, Inc. d/b/a CleanChoice Energy; Ethical Electric; Clean Energy Option",
@@ -2151,12 +2328,12 @@
         {
           "supplierName": "Discount Power Inc",
           "websiteUrl": "https://discountpowerinc.com/",
-          "note": "The supplier pricing page for JCP&L could not be fetched reliably during this audit. Verify directly with the supplier before switching."
+          "note": "Verified supplier pricing page for JCP&L, but no machine-readable public residential rate was exposed."
         },
         {
           "supplierName": "EcoPlus Power, LLC",
           "websiteUrl": "https://www.ecopluspower.com/newjersey",
-          "note": "Verified supplier pricing page for JCP&L. This supplier uses an interactive ZIP or utility quote flow, so a safe comparable public rate could not be normalized yet."
+          "note": "Verified supplier pricing page for JCP&L, but no machine-readable public residential rate was exposed."
         },
         {
           "supplierName": "Energy Plus Holdings LLC",
@@ -2889,37 +3066,15 @@
       "utilityCode": "PSE&G",
       "utilityWebsite": "https://www.pseg.com/",
       "utilityPriceLink": "https://nj.pseg.com/aboutpseg/regulatorypage/pricetocompare",
-      "defaultUtilityRateCentsPerKwh": 19.86,
-      "priceToCompareLastUpdated": "2026-03-01",
-      "defaultUtilityRateSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
-      "defaultUtilityRateNote": "Verified as the customer-facing New Jersey comparison benchmark shown consistently across five live supplier quote pages for PSE&G. PSE&G's own PTC sheet lists a lower raw energy-only line item, but the supplier quote flows consistently compare against a full utility supply benchmark of 19.86 cents/kWh for this class.",
-      "rateSchedule": "65 residential suppliers listed \u00b7 29 verified offers",
-      "coverageNote": "Showing 29 verified live offers for PSE&G. 55 additional NJ Power Switch supplier links still require interactive quote flows or non-standard rate pages.",
+      "defaultUtilityRateCentsPerKwh": 12.6236,
+      "priceToCompareLastUpdated": "December 8, 2025",
+      "defaultUtilityRateSourceUrl": "https://nj.pseg.com/-/media/pseg/public-site/documents/current-electric-tariff/electric-ptc-website--2025-12-08.ashx",
+      "defaultUtilityRateNote": "Parsed from the official PSE&G electric Price to Compare PDF.",
+      "rateSchedule": "65 residential suppliers listed \u00b7 32 verified offers",
+      "coverageNote": "Showing 32 verified live offers for PSE&G. 55 additional NJ Power Switch supplier links still require interactive quote flows or non-standard rate pages.",
       "supplierCount": 85,
       "residentialSupplierCount": 65,
       "plans": [
-        {
-          "supplierName": "MPower Energy NJ LLC",
-          "rateCentsPerKwh": 13.9,
-          "termMonths": 12,
-          "earlyTerminationFee": 0,
-          "monthlyFee": 0.0,
-          "renewablePercent": 100,
-          "rateType": "Fixed",
-          "signupUrl": "https://admin.mpowerenergy.com/information/psegelectric",
-          "detailsSourceUrl": "https://admin.mpowerenergy.com/information/psegelectric",
-          "supplierWebsiteUrl": "https://admin.mpowerenergy.com/",
-          "supplierEnrollmentUrl": "https://admin.mpowerenergy.com/information/psegelectric",
-          "offerDetailsUrl": "https://admin.mpowerenergy.com/information/psegelectric",
-          "cancellationFeeText": "No Early Termination Fee",
-          "monthlyFeeText": "No monthly fee was listed on the public MPower NJ page.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
-          "offerDetailsText": "100% Renewable Energy Price Protected\n12 Months\nNo Early Termination Fee",
-          "rawLinkTargets": [
-            "https://admin.mpowerenergy.com/information/psegelectric"
-          ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
-        },
         {
           "supplierName": "XOOM Energy New Jersey, LLC",
           "rateCentsPerKwh": 17.29,
@@ -2932,18 +3087,18 @@
           "detailsSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
           "supplierWebsiteUrl": "https://xoomenergy.com/",
           "supplierEnrollmentUrl": "https://xoomenergy.com/en/residential/new-jersey",
-          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385419-en.pdf?_val=7831ebc",
+          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385419-en.pdf?_val=a1af066",
           "cancellationFeeText": "No long-term commitment or cost recovery fee.",
           "monthlyFeeText": "No monthly fee shown on the public XOOM product card.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "SimpleFlex\nSimpleFlex combines the freedom and flexibility you want in an energy plan with the added bonus of Cash Back*. With XOOM Energy's Cash Back program, you earn a 5% rebate for your everyday energy use. \u2022 No long-term commitment or cost recovery fee \u2022 5% Annual Cash Back on supply charges \u2022 Rate may vary monthly Rate above is only available to customers enrolling with XOOM Energy for the first time.\nPSE&G - Electric Customers Charges & Rates Monthly kWh Usage 250 500 1000 2000 PSE&G - Electric Supply Charges $49.65 $99.30 $198.60 $397.20 Price to Compare $0.1986 $0.1986 $0.1986 $0.1986 XOOM Energy Supply Charges $43.23 $86.45 $172.90 $345.80 Price to Compare $0.1729 $0.1729 $0.1729 $0.1729 Our current and historical prices are not an indicator of our future prices and we do not guarantee any savings. Our prices may be higher than your utility's supply rate. You can call us to determine what your maximum supply price will be for your upcoming bill. Any electricity supply price comparisons we make are based on our promotional supply price and PSE&G's supply rate. Quoted utility supply rates are calculated from the utility tariff in effect 2026-03-01 for the RS-first 600 kWh rate class, including BGS-FP Charges (inclusive of Energy and Reconciliation Charges) so we cannot guarantee their accuracy and they may change after the dates in which any price comparison is made.",
           "rawLinkTargets": [
             "https://xoomenergy.com/en/residential/new-jersey",
-            "https://xoomenergy.com/uploads/rates/terms/385419-en.pdf?_val=ec6a70f",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385419-en.pdf?_val=7831ebc",
-            "https://xoomenergy.com/uploads/rates/optional-1/19-rate-en.pdf?_val=328ffbb"
+            "https://xoomenergy.com/uploads/rates/terms/385419-en.pdf?_val=7f26058",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385419-en.pdf?_val=a1af066",
+            "https://xoomenergy.com/uploads/rates/optional-1/19-rate-en.pdf?_val=748d669"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Alpha Gas and Electric, LLC",
@@ -2960,13 +3115,13 @@
           "offerDetailsUrl": "https://alphagasandelectric.com/new-jersey/",
           "cancellationFeeText": "No early termination fee for residential customers.",
           "monthlyFeeText": "$4.95 monthly Service Benefit Charge",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "PSE&G Electric Fixed Rate 24 Months 0.1799\nOfficial Alpha Gas and Electric NJ rate endpoint.",
           "rawLinkTargets": [
             "https://alphagasandelectric.com/new-jersey/",
             "https://alphagasandelectric.com/wp-admin/admin-ajax.php"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Clearview Electric, Inc.",
@@ -2983,13 +3138,35 @@
           "offerDetailsUrl": "https://www.clearviewenergy.com/documents/tos/?productNum=410098",
           "cancellationFeeText": "$150",
           "monthlyFeeText": "$0.00",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "ClearGuarantee6\nRewards: 25 Monthly\nPlan code: 410098",
           "rawLinkTargets": [
             "https://www.clearviewenergy.com/ZipcodeLookup?zip=07001",
             "https://www.clearviewenergy.com/documents/tos/?productNum=410098"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "MPower Energy NJ LLC",
+          "rateCentsPerKwh": 18.1,
+          "termMonths": 12,
+          "earlyTerminationFee": 0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Unknown",
+          "signupUrl": "https://rates.mpowerenergy.com/old-home-2",
+          "detailsSourceUrl": "https://rates.mpowerenergy.com/old-home-2",
+          "supplierWebsiteUrl": "https://mpowerenergy.com/",
+          "supplierEnrollmentUrl": "https://mpowerenergy.com/",
+          "offerDetailsUrl": "https://rates.mpowerenergy.com/old-home-2",
+          "cancellationFeeText": "Not listed on MPower's public New Jersey rate board.",
+          "monthlyFeeText": "Not listed on MPower's public New Jersey rate board.",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
+          "offerDetailsText": "Public MPower New Jersey rate board\n12 Month Term\nUtility: PSE&G",
+          "rawLinkTargets": [
+            "https://rates.mpowerenergy.com/old-home-2"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "XOOM Energy New Jersey, LLC",
@@ -3003,18 +3180,18 @@
           "detailsSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
           "supplierWebsiteUrl": "https://xoomenergy.com/",
           "supplierEnrollmentUrl": "https://xoomenergy.com/en/residential/new-jersey",
-          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385424-en.pdf?_val=8cf7aa8",
+          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385424-en.pdf?_val=db759df",
           "cancellationFeeText": "cost recovery fee of $110",
           "monthlyFeeText": "No monthly fee shown on the public XOOM product card.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "SureLock 12\nGet the peace of mind you deserve with our SureLock 12 fixed rate plan! \u2022 Lock in your rate for 12 full months \u2022 Get stability for the duration of your term \u2022 Protect yourself from the uncertainty that you've come to expect with energy bills Rate above is available to customers enrolling with XOOM Energy for the first time.\nPSE&G - Electric Customers Charges & Rates Monthly kWh Usage 250 500 1000 2000 PSE&G - Electric Supply Charges $49.65 $99.30 $198.60 $397.20 Price to Compare $0.1986 $0.1986 $0.1986 $0.1986 XOOM Energy Supply Charges $43.23 $86.45 $172.90 $345.80 Price to Compare $0.1729 $0.1729 $0.1729 $0.1729 Our current and historical prices are not an indicator of our future prices and we do not guarantee any savings. Our prices may be higher than your utility's supply rate. You can call us to determine what your maximum supply price will be for your upcoming bill. Any electricity supply price comparisons we make are based on our promotional supply price and PSE&G's supply rate. Quoted utility supply rates are calculated from the utility tariff in effect 2026-03-01 for the RS-first 600 kWh rate class, including BGS-FP Charges (inclusive of Energy and Reconciliation Charges) so we cannot guarantee their accuracy and they may change after the dates in which any price comparison is made.",
           "rawLinkTargets": [
             "https://xoomenergy.com/en/residential/new-jersey",
-            "https://xoomenergy.com/uploads/rates/terms/385424-en.pdf?_val=e92f5ce",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385424-en.pdf?_val=8cf7aa8",
-            "https://xoomenergy.com/uploads/rates/optional-1/19-rate-en.pdf?_val=e652508"
+            "https://xoomenergy.com/uploads/rates/terms/385424-en.pdf?_val=7af46a4",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385424-en.pdf?_val=db759df",
+            "https://xoomenergy.com/uploads/rates/optional-1/19-rate-en.pdf?_val=fc64592"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Clearview Electric, Inc.",
@@ -3031,13 +3208,13 @@
           "offerDetailsUrl": "https://www.clearviewenergy.com/documents/tos/?productNum=410094",
           "cancellationFeeText": "$150",
           "monthlyFeeText": "$0.00",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "ClearGuarantee12\nRewards: 25 Monthly\nPlan code: 410094",
           "rawLinkTargets": [
             "https://www.clearviewenergy.com/ZipcodeLookup?zip=07001",
             "https://www.clearviewenergy.com/documents/tos/?productNum=410094"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Clearview Electric, Inc.",
@@ -3054,13 +3231,13 @@
           "offerDetailsUrl": "https://www.clearviewenergy.com/documents/tos/?productNum=410096",
           "cancellationFeeText": "$150",
           "monthlyFeeText": "$0.00",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "ClearGuarantee24\nRewards: 25 Monthly\nPlan code: 410096",
           "rawLinkTargets": [
             "https://www.clearviewenergy.com/ZipcodeLookup?zip=07001",
             "https://www.clearviewenergy.com/documents/tos/?productNum=410096"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "XOOM Energy New Jersey, LLC",
@@ -3074,21 +3251,21 @@
           "detailsSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
           "supplierWebsiteUrl": "https://xoomenergy.com/",
           "supplierEnrollmentUrl": "https://xoomenergy.com/en/residential/new-jersey",
-          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385425-en.pdf?_val=c8dbc35",
+          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385425-en.pdf?_val=88bc48e",
           "cancellationFeeText": "cost recovery fee of $110",
           "monthlyFeeText": "No monthly fee shown on the public XOOM product card.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "SimpleClean 12\nWith our fixed rate SimpleClean 12 Plan, lock in your green energy rate for 12 full months, guaranteed! This plan offers electricity price stability for the duration of your term. With SimpleClean 12, you protect yourself from the uncertainty that comes with energy bills. Rate above is only available to customers enrolling with XOOM Energy for the first time.\nPSE&G - Electric Customers Charges & Rates Monthly kWh Usage 250 500 1000 2000 PSE&G - Electric Supply Charges $49.65 $99.30 $198.60 $397.20 Price to Compare $0.1986 $0.1986 $0.1986 $0.1986 XOOM Energy Supply Charges $43.23 $86.45 $172.90 $345.80 Price to Compare $0.1729 $0.1729 $0.1729 $0.1729 Our current and historical prices are not an indicator of our future prices and we do not guarantee any savings. Our prices may be higher than your utility's supply rate. You can call us to determine what your maximum supply price will be for your upcoming bill. Any electricity supply price comparisons we make are based on our promotional supply price and PSE&G's supply rate. Quoted utility supply rates are calculated from the utility tariff in effect 2026-03-01 for the RS-first 600 kWh rate class, including BGS-FP Charges (inclusive of Energy and Reconciliation Charges) so we cannot guarantee their accuracy and they may change after the dates in which any price comparison is made.",
           "rawLinkTargets": [
             "https://xoomenergy.com/en/residential/new-jersey",
-            "https://xoomenergy.com/uploads/rates/terms/385425-en.pdf?_val=8b5d062",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385425-en.pdf?_val=c8dbc35",
-            "https://xoomenergy.com/uploads/rates/optional-1/19-rate-en.pdf?_val=1623819",
-            "https://xoomenergy.com/uploads/rates/terms/385425-en.pdf?_val=242c41a",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385425-en.pdf?_val=f5365f3",
-            "https://xoomenergy.com/uploads/rates/optional-1/19-rate-en.pdf?_val=98c49d1"
+            "https://xoomenergy.com/uploads/rates/terms/385425-en.pdf?_val=5dbdfe7",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385425-en.pdf?_val=88bc48e",
+            "https://xoomenergy.com/uploads/rates/optional-1/19-rate-en.pdf?_val=3980e8f",
+            "https://xoomenergy.com/uploads/rates/terms/385425-en.pdf?_val=da1fd1c",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385425-en.pdf?_val=66dd4e6",
+            "https://xoomenergy.com/uploads/rates/optional-1/19-rate-en.pdf?_val=f88337b"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Clearview Electric, Inc.",
@@ -3105,13 +3282,13 @@
           "offerDetailsUrl": "https://www.clearviewenergy.com/documents/tos/?productNum=410092",
           "cancellationFeeText": "$150",
           "monthlyFeeText": "$9.99",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "ClearCharge12Plus\nRewards: 25 Monthly\nPlan code: 410092",
           "rawLinkTargets": [
             "https://www.clearviewenergy.com/ZipcodeLookup?zip=07001",
             "https://www.clearviewenergy.com/documents/tos/?productNum=410092"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "XOOM Energy New Jersey, LLC",
@@ -3125,18 +3302,18 @@
           "detailsSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
           "supplierWebsiteUrl": "https://xoomenergy.com/",
           "supplierEnrollmentUrl": "https://xoomenergy.com/en/residential/new-jersey",
-          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385430-en.pdf?_val=0013372",
+          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385430-en.pdf?_val=1d03904",
           "cancellationFeeText": "cost recovery fee of $200",
           "monthlyFeeText": "No monthly fee shown on the public XOOM product card.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "SureLock 24\nTake the uncertainty out of your energy bills with our SureLock 24 fixed rate plan! \u2022 Guaranteed rate for 24 months \u2022 Peace of mind knowing what your rate will be \u2022 Protection from the uncertainty that you've come to expect with energy bills Rate above is only available to customers enrolling with XOOM Energy for the first time.\nPSE&G - Electric Customers Charges & Rates Monthly kWh Usage 250 500 1000 2000 PSE&G - Electric Supply Charges $49.65 $99.30 $198.60 $397.20 Price to Compare $0.1986 $0.1986 $0.1986 $0.1986 XOOM Energy Supply Charges $43.23 $86.45 $172.90 $345.80 Price to Compare $0.1729 $0.1729 $0.1729 $0.1729 Our current and historical prices are not an indicator of our future prices and we do not guarantee any savings. Our prices may be higher than your utility's supply rate. You can call us to determine what your maximum supply price will be for your upcoming bill. Any electricity supply price comparisons we make are based on our promotional supply price and PSE&G's supply rate. Quoted utility supply rates are calculated from the utility tariff in effect 2026-03-01 for the RS-first 600 kWh rate class, including BGS-FP Charges (inclusive of Energy and Reconciliation Charges) so we cannot guarantee their accuracy and they may change after the dates in which any price comparison is made.",
           "rawLinkTargets": [
             "https://xoomenergy.com/en/residential/new-jersey",
-            "https://xoomenergy.com/uploads/rates/terms/385430-en.pdf?_val=86226ca",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385430-en.pdf?_val=0013372",
-            "https://xoomenergy.com/uploads/rates/optional-1/19-rate-en.pdf?_val=13a8ad3"
+            "https://xoomenergy.com/uploads/rates/terms/385430-en.pdf?_val=42682e0",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385430-en.pdf?_val=1d03904",
+            "https://xoomenergy.com/uploads/rates/optional-1/19-rate-en.pdf?_val=3e311e9"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -3159,7 +3336,76 @@
             "https://www.picknrg.com/en/zipCode/07001",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 21.0,
+          "termMonths": 6,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Fixed",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-02-04T12:00:00Z",
+          "offerDetailsText": "Electric Plan with Southwest Rapid Rewards bonus points\n10,000 Southwest Rapid Rewards \u00ae bonus points after 2 months on this plan 2 miles for every $1 spent on the supply portion of your electricity bill",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/07001",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 21.0,
+          "termMonths": 6,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Fixed",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-02-04T12:00:00Z",
+          "offerDetailsText": "Electricity Plan with United MileagePlus Mile\n10,000 United MileagePlus \u00ae bonus miles after 2 months on this plan 2 miles for every $1 spent on the supply portion of your natural gas bill",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/07001",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 21.2,
+          "termMonths": 6,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 100,
+          "rateType": "Fixed",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-03-04T12:00:00Z",
+          "offerDetailsText": "Electric Plan with Renewable Energy\n6-month plan with renewable energy",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/07001",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "XOOM Energy New Jersey, LLC",
@@ -3173,18 +3419,18 @@
           "detailsSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
           "supplierWebsiteUrl": "https://xoomenergy.com/",
           "supplierEnrollmentUrl": "https://xoomenergy.com/en/residential/new-jersey",
-          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385427-en.pdf?_val=6ac3341",
+          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385427-en.pdf?_val=409353b",
           "cancellationFeeText": "cost recovery fee of $110",
           "monthlyFeeText": "No monthly fee shown on the public XOOM product card.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "RescueLock 12\nGet the peace of mind you deserve with our RescueLock 12 fixed rate plan! \u2022 Enroll on RescueLock 12 and 5% of your monthly energy charges will be donated to PetSmart Charities!* \u2022 Lock in your rate for 12 full months \u2022 Get stability for the duration of your term \u2022 Protect yourself from the uncertainty that you've come to expect with energy bills. Rate above is available to customers enrolling with XOOM Energy for the first time.\nPSE&G - Electric Customers Charges & Rates Monthly kWh Usage 250 500 1000 2000 PSE&G - Electric Supply Charges $49.65 $99.30 $198.60 $397.20 Price to Compare $0.1986 $0.1986 $0.1986 $0.1986 XOOM Energy Supply Charges $43.23 $86.45 $172.90 $345.80 Price to Compare $0.1729 $0.1729 $0.1729 $0.1729 Our current and historical prices are not an indicator of our future prices and we do not guarantee any savings. Our prices may be higher than your utility's supply rate. You can call us to determine what your maximum supply price will be for your upcoming bill. Any electricity supply price comparisons we make are based on our promotional supply price and PSE&G's supply rate. Quoted utility supply rates are calculated from the utility tariff in effect 2026-03-01 for the RS-first 600 kWh rate class, including BGS-FP Charges (inclusive of Energy and Reconciliation Charges) so we cannot guarantee their accuracy and they may change after the dates in which any price comparison is made.",
           "rawLinkTargets": [
             "https://xoomenergy.com/en/residential/new-jersey",
-            "https://xoomenergy.com/uploads/rates/terms/385427-en.pdf?_val=c85ee90",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385427-en.pdf?_val=6ac3341",
-            "https://xoomenergy.com/uploads/rates/optional-1/19-rate-en.pdf?_val=e01acda"
+            "https://xoomenergy.com/uploads/rates/terms/385427-en.pdf?_val=fd12f71",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385427-en.pdf?_val=409353b",
+            "https://xoomenergy.com/uploads/rates/optional-1/19-rate-en.pdf?_val=c203d05"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -3207,30 +3453,7 @@
             "https://www.picknrg.com/en/zipCode/07001",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
-        },
-        {
-          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
-          "rateCentsPerKwh": 22.7,
-          "termMonths": 3,
-          "earlyTerminationFee": 0.0,
-          "monthlyFee": 0.0,
-          "renewablePercent": 0,
-          "rateType": "Variable",
-          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
-          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
-          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
-          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
-          "rateLastUpdated": "2026-02-04T12:00:00Z",
-          "offerDetailsText": "Get a variable electricity price and earn American Airlines AAdvantage \u00ae miles\n10,000 American Airlines AAdvantage \u00ae bonus miles after 2 months on this plan 2 miles for every $1 spent on the supply portion of your electric bill Introductory supply price for 3 months and variable price after 3 months",
-          "rawLinkTargets": [
-            "https://www.picknrg.com/en/zipCode/07001",
-            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
-          ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -3253,7 +3476,30 @@
             "https://www.picknrg.com/en/zipCode/07001",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 22.7,
+          "termMonths": 3,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Variable",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-02-04T12:00:00Z",
+          "offerDetailsText": "Get a variable electricity price and earn American Airlines AAdvantage \u00ae miles\n10,000 American Airlines AAdvantage \u00ae bonus miles after 2 months on this plan 2 miles for every $1 spent on the supply portion of your electric bill Introductory supply price for 3 months and variable price after 3 months",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/07001",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -3276,7 +3522,7 @@
             "https://www.picknrg.com/en/zipCode/07001",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -3299,76 +3545,7 @@
             "https://www.picknrg.com/en/zipCode/07001",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
-        },
-        {
-          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
-          "rateCentsPerKwh": 22.7,
-          "termMonths": 3,
-          "earlyTerminationFee": 0.0,
-          "monthlyFee": 0.0,
-          "renewablePercent": 0,
-          "rateType": "Variable",
-          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
-          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
-          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
-          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
-          "rateLastUpdated": "2026-02-04T12:00:00Z",
-          "offerDetailsText": "Supporting Big Brothers Big Sisters and get a variable electricity price\n$50 contribution to Big Brothers Big Sisters Independence after 1 month on this plan Annual contribution equal to 1% of the supply portion of your bill Introductory supply price for 3 months and variable price after 3 months",
-          "rawLinkTargets": [
-            "https://www.picknrg.com/en/zipCode/07001",
-            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
-          ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
-        },
-        {
-          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
-          "rateCentsPerKwh": 22.7,
-          "termMonths": 3,
-          "earlyTerminationFee": 0.0,
-          "monthlyFee": 0.0,
-          "renewablePercent": 0,
-          "rateType": "Variable",
-          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
-          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
-          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
-          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
-          "rateLastUpdated": "2026-02-04T12:00:00Z",
-          "offerDetailsText": "Supporting Children's Hospital of Philadelphia and get a variable electricity price\n$50 contribution to Children's Hospital of Philadelphia after 1 month on this plan Annual contribution equal to 1% of the supply portion of your bill Introductory supply price for 3 months and variable price after 3 months",
-          "rawLinkTargets": [
-            "https://www.picknrg.com/en/zipCode/07001",
-            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
-          ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
-        },
-        {
-          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
-          "rateCentsPerKwh": 22.7,
-          "termMonths": 3,
-          "earlyTerminationFee": 0.0,
-          "monthlyFee": 0.0,
-          "renewablePercent": 0,
-          "rateType": "Variable",
-          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
-          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
-          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
-          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
-          "rateLastUpdated": "2026-02-04T12:00:00Z",
-          "offerDetailsText": "Supporting Nemours Children\u2019s Health and get a variable electricity price\n$50 contribution to Nemours Children\u2019s Health after 1 month on this plan Annual contribution equal to 1% of the supply portion of your bill Introductory supply price for 3 months and variable price after 3 months",
-          "rawLinkTargets": [
-            "https://www.picknrg.com/en/zipCode/07001",
-            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
-          ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -3391,7 +3568,76 @@
             "https://www.picknrg.com/en/zipCode/07001",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 22.7,
+          "termMonths": 3,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Variable",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-02-04T12:00:00Z",
+          "offerDetailsText": "Supporting Big Brothers Big Sisters and get a variable electricity price\n$50 contribution to Big Brothers Big Sisters Independence after 1 month on this plan Annual contribution equal to 1% of the supply portion of your bill Introductory supply price for 3 months and variable price after 3 months",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/07001",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 22.7,
+          "termMonths": 3,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Variable",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-02-04T12:00:00Z",
+          "offerDetailsText": "Supporting Children's Hospital of Philadelphia and get a variable electricity price\n$50 contribution to Children's Hospital of Philadelphia after 1 month on this plan Annual contribution equal to 1% of the supply portion of your bill Introductory supply price for 3 months and variable price after 3 months",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/07001",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 22.7,
+          "termMonths": 3,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Variable",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-02-04T12:00:00Z",
+          "offerDetailsText": "Supporting Nemours Children\u2019s Health and get a variable electricity price\n$50 contribution to Nemours Children\u2019s Health after 1 month on this plan Annual contribution equal to 1% of the supply portion of your bill Introductory supply price for 3 months and variable price after 3 months",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/07001",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -3414,7 +3660,7 @@
             "https://www.picknrg.com/en/zipCode/07001",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -3437,7 +3683,7 @@
             "https://www.picknrg.com/en/zipCode/07001",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -3460,7 +3706,7 @@
             "https://www.picknrg.com/en/zipCode/07001",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -3483,7 +3729,7 @@
             "https://www.picknrg.com/en/zipCode/07001",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Eligo Energy NJ, LLC",
@@ -3500,13 +3746,13 @@
           "offerDetailsUrl": "https://eligoenergy.com/rates/utilities/pseg_nj",
           "cancellationFeeText": "Verify cancellation terms on Eligo's enrollment page before switching.",
           "monthlyFeeText": "$0 monthly fee shown on the public Eligo utility page.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "3 Month Fixed Rate\nPublic Eligo utility-specific New Jersey rate page.",
           "rawLinkTargets": [
             "https://eligoenergy.com/rates/utilities/pseg_nj",
             "https://eligoenergy.com/signup/standard_residential?lead%5Butility%5D=pseg_nj&lead%5Bzip%5D=&c=e&g=0&m=0&p=23780&s=NJ&t=3&z=pseg_nj"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Eligo Energy NJ, LLC",
@@ -3523,13 +3769,13 @@
           "offerDetailsUrl": "https://eligoenergy.com/rates/utilities/pseg_nj",
           "cancellationFeeText": "Verify cancellation terms on Eligo's enrollment page before switching.",
           "monthlyFeeText": "$0 monthly fee shown on the public Eligo utility page.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "3 Month Fixed Rate 100% Green\nPublic Eligo utility-specific New Jersey rate page.",
           "rawLinkTargets": [
             "https://eligoenergy.com/rates/utilities/pseg_nj",
             "https://eligoenergy.com/signup/standard_residential?lead%5Butility%5D=pseg_nj&lead%5Bzip%5D=&c=e&g=100&m=0&p=24180&s=NJ&t=3&z=pseg_nj"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Eligo Energy NJ, LLC",
@@ -3546,13 +3792,13 @@
           "offerDetailsUrl": "https://eligoenergy.com/rates/utilities/pseg_nj",
           "cancellationFeeText": "Verify cancellation terms on Eligo's enrollment page before switching.",
           "monthlyFeeText": "$0 monthly fee shown on the public Eligo utility page.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "6 Month Fixed Rate\nPublic Eligo utility-specific New Jersey rate page.",
           "rawLinkTargets": [
             "https://eligoenergy.com/rates/utilities/pseg_nj",
             "https://eligoenergy.com/signup/standard_residential?lead%5Butility%5D=pseg_nj&lead%5Bzip%5D=&c=e&g=0&m=0&p=28940&s=NJ&t=6&z=pseg_nj"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Eligo Energy NJ, LLC",
@@ -3569,13 +3815,13 @@
           "offerDetailsUrl": "https://eligoenergy.com/rates/utilities/pseg_nj",
           "cancellationFeeText": "Verify cancellation terms on Eligo's enrollment page before switching.",
           "monthlyFeeText": "$0 monthly fee shown on the public Eligo utility page.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "6 Month Fixed Rate 100% Green\nPublic Eligo utility-specific New Jersey rate page.",
           "rawLinkTargets": [
             "https://eligoenergy.com/rates/utilities/pseg_nj",
             "https://eligoenergy.com/signup/standard_residential?lead%5Butility%5D=pseg_nj&lead%5Bzip%5D=&c=e&g=100&m=0&p=29340&s=NJ&t=6&z=pseg_nj"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         }
       ],
       "contacts": [
@@ -3607,7 +3853,7 @@
         {
           "supplierName": "Choice Energy, LLC d/b/a 4 Choice Energy",
           "websiteUrl": "https://www.4choiceenergy.net/sign-up.html?utility_state=NJ",
-          "note": "The supplier pricing page for PSE&G could not be fetched reliably during this audit. Verify directly with the supplier before switching."
+          "note": "Verified supplier pricing page for PSE&G, but no machine-readable public residential rate was exposed."
         },
         {
           "supplierName": "CleanChoice Energy, Inc. d/b/a Clean Energy Opion f/k/a Ethical Electric Inc.",
@@ -3627,12 +3873,12 @@
         {
           "supplierName": "Discount Power Inc",
           "websiteUrl": "https://discountpowerinc.com/",
-          "note": "The supplier pricing page for PSE&G could not be fetched reliably during this audit. Verify directly with the supplier before switching."
+          "note": "Verified supplier pricing page for PSE&G, but no machine-readable public residential rate was exposed."
         },
         {
           "supplierName": "EcoPlus Power, LLC",
           "websiteUrl": "https://www.ecopluspower.com/newjersey",
-          "note": "Verified supplier pricing page for PSE&G. This supplier uses an interactive ZIP or utility quote flow, so a safe comparable public rate could not be normalized yet."
+          "note": "Verified supplier pricing page for PSE&G, but no machine-readable public residential rate was exposed."
         },
         {
           "supplierName": "Energy Plus Holdings LLC",
@@ -4417,8 +4663,8 @@
       "priceToCompareLastUpdated": "2026-03-01",
       "defaultUtilityRateSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
       "defaultUtilityRateNote": "Verified as the customer-facing New Jersey comparison benchmark shown consistently across five live supplier quote pages for Rockland Electric. This is the benchmark being used in supplier comparison flows, not only the raw utility energy line item.",
-      "rateSchedule": "46 residential suppliers listed \u00b7 19 verified offers",
-      "coverageNote": "Showing 19 verified live offers for Rockland Electric. 40 additional NJ Power Switch supplier links still require interactive quote flows or non-standard rate pages.",
+      "rateSchedule": "46 residential suppliers listed \u00b7 22 verified offers",
+      "coverageNote": "Showing 22 verified live offers for Rockland Electric. 40 additional NJ Power Switch supplier links still require interactive quote flows or non-standard rate pages.",
       "supplierCount": 51,
       "residentialSupplierCount": 46,
       "plans": [
@@ -4443,30 +4689,7 @@
             "https://www.picknrg.com/en/zipCode/07647",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
-        },
-        {
-          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
-          "rateCentsPerKwh": 18.2,
-          "termMonths": 3,
-          "earlyTerminationFee": 0.0,
-          "monthlyFee": 0.0,
-          "renewablePercent": 0,
-          "rateType": "Variable",
-          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
-          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
-          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
-          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
-          "rateLastUpdated": "2026-04-01T12:00:00Z",
-          "offerDetailsText": "Get a variable electricity price and earn Southwest Rapid Rewards\u00ae Points\n10,000 Southwest Rapid Rewards \u00ae bonus points after 2 months on this plan 2 points for every $1 spent on the supply portion of your electric bill Introductory supply price for 3 months and variable price after 3 months",
-          "rawLinkTargets": [
-            "https://www.picknrg.com/en/zipCode/07647",
-            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
-          ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -4489,7 +4712,30 @@
             "https://www.picknrg.com/en/zipCode/07647",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 18.2,
+          "termMonths": 3,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Variable",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-04-01T12:00:00Z",
+          "offerDetailsText": "Get a variable electricity price and earn Southwest Rapid Rewards\u00ae Points\n10,000 Southwest Rapid Rewards \u00ae bonus points after 2 months on this plan 2 points for every $1 spent on the supply portion of your electric bill Introductory supply price for 3 months and variable price after 3 months",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/07647",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -4512,7 +4758,7 @@
             "https://www.picknrg.com/en/zipCode/07647",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -4535,53 +4781,7 @@
             "https://www.picknrg.com/en/zipCode/07647",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
-        },
-        {
-          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
-          "rateCentsPerKwh": 18.2,
-          "termMonths": 3,
-          "earlyTerminationFee": 0.0,
-          "monthlyFee": 0.0,
-          "renewablePercent": 0,
-          "rateType": "Variable",
-          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
-          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
-          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
-          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
-          "rateLastUpdated": "2026-04-01T12:00:00Z",
-          "offerDetailsText": "Supporting Nemours Children\u2019s Health and get a variable electricity price\n$50 contribution to Nemours Children\u2019s Health after 1 month on this plan Annual contribution equal to 1% of the supply portion of your bill Introductory supply price for 3 months and variable price after 3 months",
-          "rawLinkTargets": [
-            "https://www.picknrg.com/en/zipCode/07647",
-            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
-          ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
-        },
-        {
-          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
-          "rateCentsPerKwh": 18.2,
-          "termMonths": 3,
-          "earlyTerminationFee": 0.0,
-          "monthlyFee": 0.0,
-          "renewablePercent": 0,
-          "rateType": "Variable",
-          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
-          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
-          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
-          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
-          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
-          "rateLastUpdated": "2026-04-01T12:00:00Z",
-          "offerDetailsText": "Supporting Philabundance and get a variable electricity price\n$50 contribution to Philabundance after 1 month on this plan Annual contribution equal to 1% of the supply portion of your bill Introductory supply price for 3 months and variable price after 3 months",
-          "rawLinkTargets": [
-            "https://www.picknrg.com/en/zipCode/07647",
-            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
-          ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -4604,7 +4804,30 @@
             "https://www.picknrg.com/en/zipCode/07647",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 18.2,
+          "termMonths": 3,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Variable",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-04-01T12:00:00Z",
+          "offerDetailsText": "Supporting Philabundance and get a variable electricity price\n$50 contribution to Philabundance after 1 month on this plan Annual contribution equal to 1% of the supply portion of your bill Introductory supply price for 3 months and variable price after 3 months",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/07647",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -4627,7 +4850,30 @@
             "https://www.picknrg.com/en/zipCode/07647",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 18.2,
+          "termMonths": 3,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Variable",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-04-01T12:00:00Z",
+          "offerDetailsText": "Supporting Nemours Children\u2019s Health and get a variable electricity price\n$50 contribution to Nemours Children\u2019s Health after 1 month on this plan Annual contribution equal to 1% of the supply portion of your bill Introductory supply price for 3 months and variable price after 3 months",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/07647",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -4650,7 +4896,7 @@
             "https://www.picknrg.com/en/zipCode/07647",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -4673,7 +4919,53 @@
             "https://www.picknrg.com/en/zipCode/07647",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 19.2,
+          "termMonths": 6,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Fixed",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-04-01T12:00:00Z",
+          "offerDetailsText": "Electricity Plan with United MileagePlus Mile\n10,000 United MileagePlus \u00ae bonus miles after 2 months on this plan 2 miles for every $1 spent on the supply portion of your natural gas bill",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/07647",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 19.2,
+          "termMonths": 6,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 0,
+          "rateType": "Fixed",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-04-01T12:00:00Z",
+          "offerDetailsText": "Electric Plan with Southwest Rapid Rewards bonus points\n10,000 Southwest Rapid Rewards \u00ae bonus points after 2 months on this plan 2 miles for every $1 spent on the supply portion of your electricity bill",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/07647",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "XOOM Energy New Jersey, LLC",
@@ -4687,18 +4979,41 @@
           "detailsSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
           "supplierWebsiteUrl": "https://xoomenergy.com/",
           "supplierEnrollmentUrl": "https://xoomenergy.com/en/residential/new-jersey",
-          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385445-en.pdf?_val=ef0a047",
+          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385445-en.pdf?_val=dce3502",
           "cancellationFeeText": "No long-term commitment or cost recovery fee.",
           "monthlyFeeText": "No monthly fee shown on the public XOOM product card.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "SimpleFlex\nSimpleFlex combines the freedom and flexibility you want in an energy plan with the added bonus of Cash Back*. With XOOM Energy's Cash Back program, you earn a 5% rebate for your everyday energy use. \u2022 No long-term commitment or cost recovery fee \u2022 5% Annual Cash Back on supply charges \u2022 Rate may vary monthly Rate above is only available to customers enrolling with XOOM Energy for the first time.\nRockland Electric Customers Charges & Rates Monthly kWh Usage 250 500 1000 2000 Rockland Electric Supply Charges $47.02 $94.05 $188.10 $376.20 Price to Compare $0.1881 $0.1881 $0.1881 $0.1881 XOOM Energy Supply Charges $48.47 $96.95 $193.90 $387.80 Price to Compare $0.1939 $0.1939 $0.1939 $0.1939 Our current and historical prices are not an indicator of our future prices and we do not guarantee any savings. Our prices may be higher than your utility's supply rate. You can call us to determine what your maximum supply price will be for your upcoming bill. Any electricity supply price comparisons we make are based on our promotional supply price and Rockland Electric Company's supply rate. Quoted utility supply rates are calculated from the utility tariff in effect 2026-03-01 for the Service Classification 1, Eastern Division, including BGS-FP Charges (inclusive of Service, Reconciliation, and Transmission Surcharge Charges) so we cannot guarantee their accuracy and they may change after the dates in which any price comparison is made.",
           "rawLinkTargets": [
             "https://xoomenergy.com/en/residential/new-jersey",
-            "https://xoomenergy.com/uploads/rates/terms/385445-en.pdf?_val=0724f76",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385445-en.pdf?_val=ef0a047",
-            "https://xoomenergy.com/uploads/rates/optional-1/83-rate-en.pdf?_val=1b775f0"
+            "https://xoomenergy.com/uploads/rates/terms/385445-en.pdf?_val=084229f",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385445-en.pdf?_val=dce3502",
+            "https://xoomenergy.com/uploads/rates/optional-1/83-rate-en.pdf?_val=f2f6057"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
+        },
+        {
+          "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
+          "rateCentsPerKwh": 20.0,
+          "termMonths": 6,
+          "earlyTerminationFee": 0.0,
+          "monthlyFee": 0.0,
+          "renewablePercent": 100,
+          "rateType": "Fixed",
+          "signupUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "detailsSourceUrl": "https://www.picknrg.com/en/electricity-and-gas/loadProductChart",
+          "supplierWebsiteUrl": "https://www.picknrg.com/en/",
+          "supplierEnrollmentUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "offerDetailsUrl": "https://www.picknrg.com/en/electricity-and-gas",
+          "cancellationFeeText": "No early termination fee shown on the public NRG quote flow.",
+          "monthlyFeeText": "No monthly fee was listed on the public NRG quote flow.",
+          "rateLastUpdated": "2026-04-01T12:00:00Z",
+          "offerDetailsText": "Electric Plan with Renewable Energy\n6-month plan with renewable energy",
+          "rawLinkTargets": [
+            "https://www.picknrg.com/en/zipCode/07647",
+            "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
+          ],
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -4721,7 +5036,7 @@
             "https://www.picknrg.com/en/zipCode/07647",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -4744,7 +5059,7 @@
             "https://www.picknrg.com/en/zipCode/07647",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "Reliant Energy Northeast LLC d/b/a NRG Business Solutions; NRG Home; NRG Retail Solutions d/b/a NRG Home; Business Solutions",
@@ -4767,7 +5082,7 @@
             "https://www.picknrg.com/en/zipCode/07647",
             "https://www.picknrg.com/en/electricity-and-gas/loadProductChart"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "XOOM Energy New Jersey, LLC",
@@ -4781,18 +5096,18 @@
           "detailsSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
           "supplierWebsiteUrl": "https://xoomenergy.com/",
           "supplierEnrollmentUrl": "https://xoomenergy.com/en/residential/new-jersey",
-          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385448-en.pdf?_val=086e073",
+          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385448-en.pdf?_val=dc8cc28",
           "cancellationFeeText": "cost recovery fee of $110",
           "monthlyFeeText": "No monthly fee shown on the public XOOM product card.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "SureLock 12\nGet the peace of mind you deserve with our SureLock 12 fixed rate plan! \u2022 Lock in your rate for 12 full months \u2022 Get stability for the duration of your term \u2022 Protect yourself from the uncertainty that you've come to expect with energy bills Rate above is available to customers enrolling with XOOM Energy for the first time.\nRockland Electric Customers Charges & Rates Monthly kWh Usage 250 500 1000 2000 Rockland Electric Supply Charges $47.02 $94.05 $188.10 $376.20 Price to Compare $0.1881 $0.1881 $0.1881 $0.1881 XOOM Energy Supply Charges $48.47 $96.95 $193.90 $387.80 Price to Compare $0.1939 $0.1939 $0.1939 $0.1939 Our current and historical prices are not an indicator of our future prices and we do not guarantee any savings. Our prices may be higher than your utility's supply rate. You can call us to determine what your maximum supply price will be for your upcoming bill. Any electricity supply price comparisons we make are based on our promotional supply price and Rockland Electric Company's supply rate. Quoted utility supply rates are calculated from the utility tariff in effect 2026-03-01 for the Service Classification 1, Eastern Division, including BGS-FP Charges (inclusive of Service, Reconciliation, and Transmission Surcharge Charges) so we cannot guarantee their accuracy and they may change after the dates in which any price comparison is made.",
           "rawLinkTargets": [
             "https://xoomenergy.com/en/residential/new-jersey",
-            "https://xoomenergy.com/uploads/rates/terms/385448-en.pdf?_val=fbf0e9f",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385448-en.pdf?_val=086e073",
-            "https://xoomenergy.com/uploads/rates/optional-1/83-rate-en.pdf?_val=4118978"
+            "https://xoomenergy.com/uploads/rates/terms/385448-en.pdf?_val=49ee9a1",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385448-en.pdf?_val=dc8cc28",
+            "https://xoomenergy.com/uploads/rates/optional-1/83-rate-en.pdf?_val=88aceee"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "XOOM Energy New Jersey, LLC",
@@ -4806,21 +5121,21 @@
           "detailsSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
           "supplierWebsiteUrl": "https://xoomenergy.com/",
           "supplierEnrollmentUrl": "https://xoomenergy.com/en/residential/new-jersey",
-          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385451-en.pdf?_val=f88a88b",
+          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385451-en.pdf?_val=2cfa592",
           "cancellationFeeText": "cost recovery fee of $110",
           "monthlyFeeText": "No monthly fee shown on the public XOOM product card.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "SimpleClean 12\nWith our fixed rate SimpleClean 12 Plan, lock in your green energy rate for 12 full months, guaranteed! This plan offers electricity price stability for the duration of your term. With SimpleClean 12, you protect yourself from the uncertainty that comes with energy bills. Rate above is available to customers enrolling with XOOM Energy for the first time.\nRockland Electric Customers Charges & Rates Monthly kWh Usage 250 500 1000 2000 Rockland Electric Supply Charges $47.02 $94.05 $188.10 $376.20 Price to Compare $0.1881 $0.1881 $0.1881 $0.1881 XOOM Energy Supply Charges $48.47 $96.95 $193.90 $387.80 Price to Compare $0.1939 $0.1939 $0.1939 $0.1939 Our current and historical prices are not an indicator of our future prices and we do not guarantee any savings. Our prices may be higher than your utility's supply rate. You can call us to determine what your maximum supply price will be for your upcoming bill. Any electricity supply price comparisons we make are based on our promotional supply price and Rockland Electric Company's supply rate. Quoted utility supply rates are calculated from the utility tariff in effect 2026-03-01 for the Service Classification 1, Eastern Division, including BGS-FP Charges (inclusive of Service, Reconciliation, and Transmission Surcharge Charges) so we cannot guarantee their accuracy and they may change after the dates in which any price comparison is made.",
           "rawLinkTargets": [
             "https://xoomenergy.com/en/residential/new-jersey",
-            "https://xoomenergy.com/uploads/rates/terms/385451-en.pdf?_val=71e6c73",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385451-en.pdf?_val=f88a88b",
-            "https://xoomenergy.com/uploads/rates/optional-1/83-rate-en.pdf?_val=e4bd2d3",
-            "https://xoomenergy.com/uploads/rates/terms/385451-en.pdf?_val=2f88141",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385451-en.pdf?_val=c31c745",
-            "https://xoomenergy.com/uploads/rates/optional-1/83-rate-en.pdf?_val=4d9f4f3"
+            "https://xoomenergy.com/uploads/rates/terms/385451-en.pdf?_val=1729961",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385451-en.pdf?_val=2cfa592",
+            "https://xoomenergy.com/uploads/rates/optional-1/83-rate-en.pdf?_val=22686b2",
+            "https://xoomenergy.com/uploads/rates/terms/385451-en.pdf?_val=21fa64f",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385451-en.pdf?_val=433656e",
+            "https://xoomenergy.com/uploads/rates/optional-1/83-rate-en.pdf?_val=abad10e"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "XOOM Energy New Jersey, LLC",
@@ -4834,18 +5149,18 @@
           "detailsSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
           "supplierWebsiteUrl": "https://xoomenergy.com/",
           "supplierEnrollmentUrl": "https://xoomenergy.com/en/residential/new-jersey",
-          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385456-en.pdf?_val=36dc1f4",
+          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385456-en.pdf?_val=b1e6ef5",
           "cancellationFeeText": "cost recovery fee of $200",
           "monthlyFeeText": "No monthly fee shown on the public XOOM product card.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "SureLock 24\nTake the uncertainty out of your energy bills with our SureLock 24 fixed rate plan! \u2022 Guaranteed rate for 24 months \u2022 Peace of mind knowing what your rate will be \u2022 Protection from the uncertainty that you've come to expect with energy bills\nRockland Electric Customers Charges & Rates Monthly kWh Usage 250 500 1000 2000 Rockland Electric Supply Charges $47.02 $94.05 $188.10 $376.20 Price to Compare $0.1881 $0.1881 $0.1881 $0.1881 XOOM Energy Supply Charges $48.47 $96.95 $193.90 $387.80 Price to Compare $0.1939 $0.1939 $0.1939 $0.1939 Our current and historical prices are not an indicator of our future prices and we do not guarantee any savings. Our prices may be higher than your utility's supply rate. You can call us to determine what your maximum supply price will be for your upcoming bill. Any electricity supply price comparisons we make are based on our promotional supply price and Rockland Electric Company's supply rate. Quoted utility supply rates are calculated from the utility tariff in effect 2026-03-01 for the Service Classification 1, Eastern Division, including BGS-FP Charges (inclusive of Service, Reconciliation, and Transmission Surcharge Charges) so we cannot guarantee their accuracy and they may change after the dates in which any price comparison is made.",
           "rawLinkTargets": [
             "https://xoomenergy.com/en/residential/new-jersey",
-            "https://xoomenergy.com/uploads/rates/terms/385456-en.pdf?_val=4bd618c",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385456-en.pdf?_val=36dc1f4",
-            "https://xoomenergy.com/uploads/rates/optional-1/83-rate-en.pdf?_val=3211a1b"
+            "https://xoomenergy.com/uploads/rates/terms/385456-en.pdf?_val=c89f2e7",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385456-en.pdf?_val=b1e6ef5",
+            "https://xoomenergy.com/uploads/rates/optional-1/83-rate-en.pdf?_val=b858964"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         },
         {
           "supplierName": "XOOM Energy New Jersey, LLC",
@@ -4859,18 +5174,18 @@
           "detailsSourceUrl": "https://xoomenergy.com/en/residential/new-jersey",
           "supplierWebsiteUrl": "https://xoomenergy.com/",
           "supplierEnrollmentUrl": "https://xoomenergy.com/en/residential/new-jersey",
-          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385453-en.pdf?_val=377a0fc",
+          "offerDetailsUrl": "https://xoomenergy.com/uploads/rates/contract-summary/385453-en.pdf?_val=b0f8ba7",
           "cancellationFeeText": "cost recovery fee of $110",
           "monthlyFeeText": "No monthly fee shown on the public XOOM product card.",
-          "rateLastUpdated": "2026-04-29T02:07:48Z",
+          "rateLastUpdated": "2026-04-30T21:44:54Z",
           "offerDetailsText": "RescueLock 12\nGet the peace of mind you deserve with our RescueLock 12 fixed rate plan! \u2022 Enroll on RescueLock 12 and 5% of your monthly energy charges will be donated to PetSmart Charities!* \u2022 Lock in your rate for 12 full months \u2022 Get stability for the duration of your term \u2022 Protect yourself from the uncertainty that you've come to expect with energy bills. Rate above is available to customers enrolling with XOOM Energy for the first time.\nRockland Electric Customers Charges & Rates Monthly kWh Usage 250 500 1000 2000 Rockland Electric Supply Charges $47.02 $94.05 $188.10 $376.20 Price to Compare $0.1881 $0.1881 $0.1881 $0.1881 XOOM Energy Supply Charges $48.47 $96.95 $193.90 $387.80 Price to Compare $0.1939 $0.1939 $0.1939 $0.1939 Our current and historical prices are not an indicator of our future prices and we do not guarantee any savings. Our prices may be higher than your utility's supply rate. You can call us to determine what your maximum supply price will be for your upcoming bill. Any electricity supply price comparisons we make are based on our promotional supply price and Rockland Electric Company's supply rate. Quoted utility supply rates are calculated from the utility tariff in effect 2026-03-01 for the Service Classification 1, Eastern Division, including BGS-FP Charges (inclusive of Service, Reconciliation, and Transmission Surcharge Charges) so we cannot guarantee their accuracy and they may change after the dates in which any price comparison is made.",
           "rawLinkTargets": [
             "https://xoomenergy.com/en/residential/new-jersey",
-            "https://xoomenergy.com/uploads/rates/terms/385453-en.pdf?_val=52fa6b6",
-            "https://xoomenergy.com/uploads/rates/contract-summary/385453-en.pdf?_val=377a0fc",
-            "https://xoomenergy.com/uploads/rates/optional-1/83-rate-en.pdf?_val=f01487c"
+            "https://xoomenergy.com/uploads/rates/terms/385453-en.pdf?_val=e2e4f82",
+            "https://xoomenergy.com/uploads/rates/contract-summary/385453-en.pdf?_val=b0f8ba7",
+            "https://xoomenergy.com/uploads/rates/optional-1/83-rate-en.pdf?_val=29f82a6"
           ],
-          "scrapedAt": "2026-04-29T02:07:48Z"
+          "scrapedAt": "2026-04-30T21:44:54Z"
         }
       ],
       "contacts": [
@@ -4907,7 +5222,7 @@
         {
           "supplierName": "Choice Energy, LLC d/b/a 4 Choice Energy",
           "websiteUrl": "https://www.4choiceenergy.net/sign-up.html?utility_state=NJ",
-          "note": "The supplier pricing page for Rockland Electric could not be fetched reliably during this audit. Verify directly with the supplier before switching."
+          "note": "Verified supplier pricing page for Rockland Electric, but no machine-readable public residential rate was exposed."
         },
         {
           "supplierName": "CleanChoice Energy, Inc. d/b/a CleanChoice Energy; Ethical Electric; Clean Energy Option",
@@ -4932,12 +5247,12 @@
         {
           "supplierName": "Discount Power Inc",
           "websiteUrl": "https://discountpowerinc.com/",
-          "note": "The supplier pricing page for Rockland Electric could not be fetched reliably during this audit. Verify directly with the supplier before switching."
+          "note": "Verified supplier pricing page for Rockland Electric, but no machine-readable public residential rate was exposed."
         },
         {
           "supplierName": "EcoPlus Power, LLC",
           "websiteUrl": "https://www.ecopluspower.com/newjersey",
-          "note": "Verified supplier pricing page for Rockland Electric. This supplier uses an interactive ZIP or utility quote flow, so a safe comparable public rate could not be normalized yet."
+          "note": "Verified supplier pricing page for Rockland Electric, but no machine-readable public residential rate was exposed."
         },
         {
           "supplierName": "Eligo Energy NJ, LLC",

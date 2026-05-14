@@ -29,6 +29,15 @@
   ],
   "headers": [
     {
+      "source": "/app",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
+    {
       "source": "/(.*)",
       "headers": [
         {
@@ -130,6 +139,10 @@
       "destination": "/illinois-electric-rates.html"
     },
     {
+      "source": "/illinois/chicago-electric-rates",
+      "destination": "/illinois/chicago-electric-rates.html"
+    },
+    {
       "source": "/new-york-electric-rates",
       "destination": "/new-york-electric-rates.html"
     },
@@ -216,6 +229,14 @@
     {
       "source": "/privacy",
       "destination": "/privacy.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/facebook",
+      "destination": "/facebook.html"
     }
   ]
 }
