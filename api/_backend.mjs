@@ -1,18 +1,20 @@
 const DEFAULT_APP_ID = "com.choosemyelectric.web";
 const DEFAULT_BILL_MODEL = "gpt-4o-mini";
 
-const PA_REGEX = /^1[5-9]\d{3}$/;
-const TX_REGEX = /^(?:733\d{2}|7[5-9]\d{3}|885\d{2})$/;
-const OH_REGEX = /^(?:43|44|45)\d{3}$/;
-const MD_REGEX = /^(?:206|207|208|209|210|211|212|214|215|216|217|218|219)\d{2}$/;
-const CT_REGEX = /^06\d{3}$/;
-const DC_REGEX = /^(?:200|202|203|204|205)\d{2}$/;
-const MA_REGEX = /^(?:0(?:1\d{3}|2[0-7]\d{2}|55\d{2}))$/;
-const ME_REGEX = /^(?:039\d{2}|04\d{3})$/;
-const NJ_REGEX = /^0[78]\d{3}$/;
-const RI_REGEX = /^(?:028|029)\d{2}$/;
-const IL_REGEX = /^6\d{4}$/;
-const NY_REGEX = /^(?:005(?:01|44)|06390|1\d{4})$/;
+const ZIP3_RANGES = {
+  CT: [[60, 69]],
+  DC: [[200, 205], [569, 569]],
+  IL: [[600, 629]],
+  MA: [[10, 27], [55, 55]],
+  MD: [[206, 219]],
+  ME: [[39, 49]],
+  NJ: [[70, 89]],
+  OH: [[430, 459]],
+  PA: [[150, 196]],
+  RI: [[28, 29]],
+  TX: [[750, 799], [885, 885]],
+  NY: [[100, 149]],
+};
 
 export function jsonResponse(body, status = 200, extraHeaders = {}) {
   return new Response(JSON.stringify(body), {
@@ -33,21 +35,28 @@ export function normalizeZip(zipCode) {
 export function detectRegion(zipCode, commodity = "electric") {
   const normalizedZip = normalizeZip(zipCode);
   if (!normalizedZip) return null;
-  if (PA_REGEX.test(normalizedZip)) return "PA";
-  if (TX_REGEX.test(normalizedZip)) return "TX";
-  if (OH_REGEX.test(normalizedZip)) {
+  if (normalizedZip === "00501" || normalizedZip === "00544" || normalizedZip === "06390") return "NY";
+  if (normalizedZip.startsWith("733") || zipInRanges(normalizedZip, ZIP3_RANGES.TX)) return "TX";
+  if (zipInRanges(normalizedZip, ZIP3_RANGES.OH)) {
     return commodity === "gas" ? "OH_G" : "OH_E";
   }
-  if (MD_REGEX.test(normalizedZip)) return "MD";
-  if (NY_REGEX.test(normalizedZip)) return "NY";
-  if (CT_REGEX.test(normalizedZip)) return "CT";
-  if (DC_REGEX.test(normalizedZip)) return "DC";
-  if (MA_REGEX.test(normalizedZip)) return "MA";
-  if (ME_REGEX.test(normalizedZip)) return "ME";
-  if (NJ_REGEX.test(normalizedZip)) return "NJ";
-  if (RI_REGEX.test(normalizedZip)) return "RI";
-  if (IL_REGEX.test(normalizedZip)) return "IL";
+  if (zipInRanges(normalizedZip, ZIP3_RANGES.MD)) return "MD";
+  if (zipInRanges(normalizedZip, ZIP3_RANGES.NY)) return "NY";
+  if (zipInRanges(normalizedZip, ZIP3_RANGES.CT)) return "CT";
+  if (zipInRanges(normalizedZip, ZIP3_RANGES.DC)) return "DC";
+  if (zipInRanges(normalizedZip, ZIP3_RANGES.MA)) return "MA";
+  if (zipInRanges(normalizedZip, ZIP3_RANGES.ME)) return "ME";
+  if (zipInRanges(normalizedZip, ZIP3_RANGES.NJ)) return "NJ";
+  if (zipInRanges(normalizedZip, ZIP3_RANGES.RI)) return "RI";
+  if (zipInRanges(normalizedZip, ZIP3_RANGES.IL)) return "IL";
+  if (zipInRanges(normalizedZip, ZIP3_RANGES.PA)) return "PA";
   return null;
+}
+
+function zipInRanges(zipCode, ranges) {
+  const prefix = Number.parseInt(String(zipCode ?? "").slice(0, 3), 10);
+  if (!Number.isInteger(prefix)) return false;
+  return ranges.some(([start, end]) => prefix >= start && prefix <= end);
 }
 
 export function regionUsageUnit(region) {

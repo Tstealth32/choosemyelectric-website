@@ -15,6 +15,75 @@ const estimateState = {
 
 const estimateElements = {};
 
+const STATE_ZIP3_RANGES = {
+  CT: [[60, 69]],
+  DC: [[200, 205], [569, 569]],
+  IL: [[600, 629]],
+  MA: [[10, 27], [55, 55]],
+  MD: [[206, 219]],
+  ME: [[39, 49]],
+  NJ: [[70, 89]],
+  OH: [[430, 459]],
+  PA: [[150, 196]],
+  RI: [[28, 29]],
+  TX: [[750, 799], [885, 885]],
+  NY: [[100, 149]],
+};
+
+const COMMUNITY_SOLAR_STATE_ZIP3_RANGES = {
+  CA: [[900, 961]],
+  CO: [[800, 816]],
+  CT: [[60, 69]],
+  DC: [[200, 205], [569, 569]],
+  DE: [[197, 199]],
+  FL: [[320, 349]],
+  GA: [[300, 319], [398, 399]],
+  HI: [[967, 968]],
+  IL: [[600, 629]],
+  MA: [[10, 27], [55, 55]],
+  MD: [[206, 219]],
+  ME: [[39, 49]],
+  MN: [[550, 567]],
+  NC: [[270, 289]],
+  NJ: [[70, 89]],
+  NM: [[870, 884]],
+  NY: [[100, 149]],
+  OR: [[970, 979]],
+  RI: [[28, 29]],
+  SC: [[290, 299]],
+  TX: [[750, 799], [885, 885]],
+  VA: [[201, 201], [220, 249]],
+  WA: [[980, 994]],
+  WI: [[530, 549]],
+};
+
+const COMMUNITY_SOLAR_STATE_LABELS = {
+  CA: "California",
+  CO: "Colorado",
+  CT: "Connecticut",
+  DC: "District of Columbia",
+  DE: "Delaware",
+  FL: "Florida",
+  GA: "Georgia",
+  HI: "Hawaii",
+  IL: "Illinois",
+  MA: "Massachusetts",
+  MD: "Maryland",
+  ME: "Maine",
+  MN: "Minnesota",
+  NC: "North Carolina",
+  NJ: "New Jersey",
+  NM: "New Mexico",
+  NY: "New York",
+  OR: "Oregon",
+  RI: "Rhode Island",
+  SC: "South Carolina",
+  TX: "Texas",
+  VA: "Virginia",
+  WA: "Washington",
+  WI: "Wisconsin",
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   cacheEstimateElements();
   bindEstimateEvents();
@@ -111,9 +180,21 @@ async function restoreQueryState() {
   syncCommodityVisibility();
 
   if (zipCode.length === 5) {
-    await refreshMarket({
-      preferredUtilityName: estimateState.manualInputs.utilityName,
-    });
+    const region = detectRegion(zipCode, estimateState.commodity);
+    if (region) {
+      await refreshMarket({
+        preferredUtilityName: estimateState.manualInputs.utilityName,
+      });
+      return;
+    }
+
+    const solarState = detectCommunitySolarState(zipCode);
+    if (solarState) {
+      showCommunitySolarOnlyEstimateResult(solarState, zipCode);
+      return;
+    }
+
+    showUnsupportedEstimateResult(zipCode);
   }
 }
 
@@ -131,6 +212,18 @@ async function handleEstimateSubmit(event) {
   }
 
   syncCommodityVisibility();
+  const region = detectRegion(normalizedZip, estimateState.commodity);
+  if (!region) {
+    const solarState = detectCommunitySolarState(normalizedZip);
+    if (solarState) {
+      showCommunitySolarOnlyEstimateResult(solarState, normalizedZip);
+      return;
+    }
+
+    showUnsupportedEstimateResult(normalizedZip);
+    return;
+  }
+
   await refreshMarket({
     preferredUtilityName: estimateState.manualInputs.utilityName,
   });
@@ -1369,21 +1462,112 @@ function normalizeZip(value) {
 
 function detectRegion(zipCode, commodity) {
   const zip = normalizeZip(zipCode);
-  if (/^1[5-9]\d{3}$/.test(zip)) return "PA";
-  if (/^(?:733\d{2}|7[5-9]\d{3}|885\d{2})$/.test(zip)) return "TX";
-  if (/^(?:206|207|208|209|210|211|212|214|215|216|217|218|219)\d{2}$/.test(zip)) return "MD";
-  if (/^(?:005(?:01|44)|06390|1\d{4})$/.test(zip)) return "NY";
-  if (/^06\d{3}$/.test(zip)) return "CT";
-  if (/^(?:200|202|203|204|205)\d{2}$/.test(zip)) return "DC";
-  if (/^(?:0(?:1\d{3}|2[0-7]\d{2}|55\d{2}))$/.test(zip)) return "MA";
-  if (/^(?:039\d{2}|04\d{3})$/.test(zip)) return "ME";
-  if (/^0[78]\d{3}$/.test(zip)) return "NJ";
-  if (/^(?:028|029)\d{2}$/.test(zip)) return "RI";
-  if (/^6\d{4}$/.test(zip)) return "IL";
+  if (!zip) return null;
+  if (zip === "00501" || zip === "00544" || zip === "06390") return "NY";
+  if (zip.startsWith("733") || zipInStateRanges(zip, STATE_ZIP3_RANGES.TX)) return "TX";
+  if (zipInStateRanges(zip, STATE_ZIP3_RANGES.MD)) return "MD";
+  if (zipInStateRanges(zip, STATE_ZIP3_RANGES.NY)) return "NY";
+  if (zipInStateRanges(zip, STATE_ZIP3_RANGES.CT)) return "CT";
+  if (zipInStateRanges(zip, STATE_ZIP3_RANGES.DC)) return "DC";
+  if (zipInStateRanges(zip, STATE_ZIP3_RANGES.MA)) return "MA";
+  if (zipInStateRanges(zip, STATE_ZIP3_RANGES.ME)) return "ME";
+  if (zipInStateRanges(zip, STATE_ZIP3_RANGES.NJ)) return "NJ";
+  if (zipInStateRanges(zip, STATE_ZIP3_RANGES.RI)) return "RI";
+  if (zipInStateRanges(zip, STATE_ZIP3_RANGES.IL)) return "IL";
   if (isOhioZip(zip)) {
     return commodity === "gas" ? "OH_G" : "OH_E";
   }
+  if (zipInStateRanges(zip, STATE_ZIP3_RANGES.PA)) return "PA";
   return null;
+}
+
+function detectCommunitySolarState(zipCode) {
+  const zip = normalizeZip(zipCode);
+  if (!zip) return null;
+  if (zip === "00501" || zip === "00544" || zip === "06390") return "NY";
+  if (zip.startsWith("733") || zipInStateRanges(zip, COMMUNITY_SOLAR_STATE_ZIP3_RANGES.TX)) return "TX";
+
+  return Object.entries(COMMUNITY_SOLAR_STATE_ZIP3_RANGES).find(([stateCode, ranges]) => {
+    if (stateCode === "TX") return false;
+    return zipInStateRanges(zip, ranges);
+  })?.[0] || null;
+}
+
+function showCommunitySolarOnlyEstimateResult(stateCode, zipCode) {
+  const stateLabel = COMMUNITY_SOLAR_STATE_LABELS[stateCode] || stateCode;
+  estimateState.market = null;
+  estimateState.recommendations = [];
+  estimateState.currentCost = null;
+  clearUtilityChoices();
+  renderResults();
+
+  if (estimateElements.quickWinPanel) {
+    estimateElements.quickWinPanel.hidden = true;
+    estimateElements.quickWinPanel.classList.remove("is-active");
+  }
+
+  setStatus(
+    `We do not compare supplier rates for ${stateLabel} on this web tool yet, but official community solar or shared-solar paths may still be available for that ZIP.`,
+    "warning",
+  );
+  estimateElements.resultsSubtitle.textContent = `${stateLabel} community solar may be available`;
+  estimateElements.sourceNote.textContent =
+    "We found community-solar coverage for this state. Use the solar guide for official utility or state-backed program paths.";
+  estimateElements.offerResults.innerHTML = `
+    <article class="offer-card offer-card-featured">
+      <div class="offer-head">
+        <div>
+          <p class="offer-kicker">Additional solar savings</p>
+          <h3>${escapeHtml(stateLabel)} community solar</h3>
+          <p class="offer-plan">Official utility or state-backed program paths for this ZIP’s state.</p>
+        </div>
+        <div class="offer-money">
+          <strong>Solar</strong>
+          <span>no supplier switch required in many programs</span>
+        </div>
+      </div>
+      <p class="offer-copy">
+        If you want a no-rooftop path that may stack with your energy setup, check the official community solar guide for ${escapeHtml(stateLabel)}. We keep the website honest by linking to official program paths instead of inventing live project cards.
+      </p>
+      <div class="button-row">
+        <a class="button button-primary" href="/community-solar?zip=${encodeURIComponent(zipCode)}">Check Community Solar</a>
+        <a class="button button-secondary" href="#download">Get the App</a>
+      </div>
+    </article>
+  `;
+}
+
+function showUnsupportedEstimateResult(zipCode) {
+  estimateState.market = null;
+  estimateState.recommendations = [];
+  estimateState.currentCost = null;
+  clearUtilityChoices();
+  renderResults();
+
+  if (estimateElements.quickWinPanel) {
+    estimateElements.quickWinPanel.hidden = true;
+    estimateElements.quickWinPanel.classList.remove("is-active");
+  }
+
+  setStatus(
+    "We do not support supplier comparison or official community-solar guidance for this ZIP on the website yet.",
+    "warning",
+  );
+  estimateElements.resultsSubtitle.textContent = "ZIP not supported on the website yet";
+  estimateElements.sourceNote.textContent =
+    "Use the app for bill scanning and alerts, or explore the state pages and community solar guide for the latest supported areas.";
+  estimateElements.offerResults.innerHTML = `
+    <p class="empty-state">
+      We could not map ZIP ${escapeHtml(zipCode)} to one of our current website comparison or official community-solar paths yet.
+      You can still explore the community solar guide or use the app for the fuller experience.
+    </p>
+  `;
+}
+
+function zipInStateRanges(zipCode, ranges) {
+  const prefix = Number.parseInt(String(zipCode || "").slice(0, 3), 10);
+  if (!Number.isInteger(prefix)) return false;
+  return ranges.some(([start, end]) => prefix >= start && prefix <= end);
 }
 
 function syncCommodityVisibility() {
@@ -1529,7 +1713,7 @@ function parseWholeNumber(value) {
 }
 
 function isOhioZip(zipCode) {
-  return /^(?:43|44|45)\d{3}$/.test(normalizeZip(zipCode));
+  return zipInStateRanges(normalizeZip(zipCode), STATE_ZIP3_RANGES.OH);
 }
 
 function updateUtilityChoiceLabel() {
