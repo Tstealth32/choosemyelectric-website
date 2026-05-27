@@ -103,6 +103,10 @@
       "destination": "/electric-rates-by-state.html"
     },
     {
+      "source": "/community-solar",
+      "destination": "/community-solar.html"
+    },
+    {
       "source": "/app",
       "destination": "/app.html"
     },
@@ -173,6 +177,10 @@
     {
       "source": "/texas/dallas-electricity-rates",
       "destination": "/texas/dallas-electricity-rates.html"
+    },
+    {
+      "source": "/texas/houston-electricity-rates",
+      "destination": "/texas/houston-electricity-rates.html"
     },
     {
       "source": "/rate-expiration-alerts",
