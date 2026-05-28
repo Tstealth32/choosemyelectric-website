@@ -587,7 +587,28 @@ function renderResults({ currentRateBasis = "" } = {}) {
 
   if (!visibleOffers.length && !additionalSupplierContacts.length && !market.errorMessage) {
     sections.push(
-      '<p class="empty-state">We found your market, but we do not have live offers to show yet for this exact setup.</p>',
+      `
+        <article class="offer-card">
+          <div class="offer-head">
+            <div>
+              <p class="offer-kicker">No live web rates yet</p>
+              <h3>We may not have live web rates for this ZIP yet</h3>
+              <p class="offer-plan">The app can still help you track your plan and check future options.</p>
+            </div>
+            <div class="offer-money">
+              <strong>Next step</strong>
+              <span>download the app or browse state guides</span>
+            </div>
+          </div>
+          <p class="offer-copy">
+            We found your market, but there are no live comparable offers showing right now. Use the app for bill upload, plan tracking, and rate expiration alerts, or browse the state guides to understand the market before you compare again.
+          </p>
+          <div class="button-row">
+            <a class="button button-primary" href="/app" data-app-download-link>Download the App</a>
+            <a class="button button-secondary" href="/electric-rates-by-state">Browse State Guides</a>
+          </div>
+        </article>
+      `,
     );
   }
 
@@ -1507,12 +1528,12 @@ function showCommunitySolarOnlyEstimateResult(stateCode, zipCode) {
   }
 
   setStatus(
-    `We do not compare supplier rates for ${stateLabel} on this web tool yet, but official community solar or shared-solar paths may still be available for that ZIP.`,
+    `We may not have live web supplier rates for this ZIP today, but official community solar or shared-solar paths may still be available in ${stateLabel}.`,
     "warning",
   );
   estimateElements.resultsSubtitle.textContent = `${stateLabel} community solar may be available`;
   estimateElements.sourceNote.textContent =
-    "We found community-solar coverage for this state. Use the solar guide for official utility or state-backed program paths.";
+    "We found community-solar coverage for this state. Use the solar guide for official utility or state-backed program paths, or download the app to track your current plan.";
   estimateElements.offerResults.innerHTML = `
     <article class="offer-card offer-card-featured">
       <div class="offer-head">
@@ -1527,11 +1548,11 @@ function showCommunitySolarOnlyEstimateResult(stateCode, zipCode) {
         </div>
       </div>
       <p class="offer-copy">
-        If you want a no-rooftop path that may stack with your energy setup, check the official community solar guide for ${escapeHtml(stateLabel)}. We keep the website honest by linking to official program paths instead of inventing live project cards.
+        We may not have live web supplier rates for this ZIP today, but official shared-solar or bill-credit programs may still be available. Use the guide for verified program paths, or use the app to track your plan and check future options.
       </p>
       <div class="button-row">
         <a class="button button-primary" href="/community-solar?zip=${encodeURIComponent(zipCode)}">Check Community Solar</a>
-        <a class="button button-secondary" href="#download">Get the App</a>
+        <a class="button button-secondary" href="/app" data-app-download-link>Download the App</a>
       </div>
     </article>
   `;
@@ -1550,17 +1571,33 @@ function showUnsupportedEstimateResult(zipCode) {
   }
 
   setStatus(
-    "We do not support supplier comparison or official community-solar guidance for this ZIP on the website yet.",
+    "We may not have live web rates for this ZIP yet, but the app can still help you track your plan and check future options.",
     "warning",
   );
   estimateElements.resultsSubtitle.textContent = "ZIP not supported on the website yet";
   estimateElements.sourceNote.textContent =
-    "Use the app for bill scanning and alerts, or explore the state pages and community solar guide for the latest supported areas.";
+    "Use the app for bill upload, plan tracking, and alerts, or explore the state guides for supported comparison markets.";
   estimateElements.offerResults.innerHTML = `
-    <p class="empty-state">
-      We could not map ZIP ${escapeHtml(zipCode)} to one of our current website comparison or official community-solar paths yet.
-      You can still explore the community solar guide or use the app for the fuller experience.
-    </p>
+    <article class="offer-card">
+      <div class="offer-head">
+        <div>
+          <p class="offer-kicker">Keep going</p>
+          <h3>We may not have live web rates for this ZIP yet</h3>
+          <p class="offer-plan">The app can still help you track your plan and check future options.</p>
+        </div>
+        <div class="offer-money">
+          <strong>App</strong>
+          <span>better follow-up after the first comparison</span>
+        </div>
+      </div>
+      <p class="offer-copy">
+        We could not map ZIP ${escapeHtml(zipCode)} to one of our current website comparison paths yet. You can still use the app to track your plan, upload your bill, and come back faster when it is time to compare again.
+      </p>
+      <div class="button-row">
+        <a class="button button-primary" href="/app" data-app-download-link>Download the App</a>
+        <a class="button button-secondary" href="/electric-rates-by-state">Browse State Guides</a>
+      </div>
+    </article>
   `;
 }
 

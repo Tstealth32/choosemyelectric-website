@@ -46,7 +46,7 @@
     }
   </script>
 </head>
-<body>
+<body data-page-type="home">
   <div class="page-shell">
     <header class="site-header">
       <a class="brand" href="/" aria-label="Choose My Electric home">
@@ -75,12 +75,12 @@
     <main id="top">
       <section class="hero section">
         <div class="hero-copy reveal">
-          <p class="eyebrow">Mobile-first comparison + app alerts</p>
-          <h1>Compare Electric Rates Across More Deregulated States</h1>
+          <p class="eyebrow">Compare on the web. Track in the app.</p>
+          <h1>Stop overpaying for electricity.</h1>
           <p class="hero-text">
-            Start with live ZIP-based comparison where it is strongest today, then use state guides and the app for
-            supplier benchmarks, utility-first markets, bill uploads, plan tracking, and alerts before a low rate changes.
+            Compare electric rates by ZIP code, then use the app to track your plan, upload your bill, and get alerts before your rate expires.
           </p>
+          <p class="hero-subtext">Compare rates on the web. Track your plan in the app before your rate jumps.</p>
 
           <form class="hero-form" action="/estimate" method="get" data-zip-form>
             <label class="field">
@@ -97,20 +97,19 @@
                 required
               >
             </label>
-            <button class="button button-primary" type="submit">Compare Rates</button>
+            <button class="button button-primary" type="submit">Compare Rates by ZIP</button>
           </form>
 
           <div class="cta-row">
-            <a class="button button-secondary" data-store-link="ios" href="https://apps.apple.com/us/app/choose-my-electric/id6762017797">
+            <a class="button button-secondary" href="/app" data-app-download-link>
               Download the App
             </a>
           </div>
-          <p class="hero-subtext">The website now covers 12 supported market guides. The app handles alerts, tracking, and smarter switching support.</p>
-
-          <div class="proof-strip">
-            <span>12 supported market guides</span>
-            <span>Live ZIP estimate for PA, TX, and OH</span>
-            <span>App alerts before rates expire</span>
+          <div class="trust-strip" aria-label="Trust highlights">
+            <span>No door-to-door sales</span>
+            <span>ZIP-based comparison</span>
+            <span>Bill upload in the app</span>
+            <span>Rate expiration alerts</span>
           </div>
         </div>
 
@@ -119,16 +118,16 @@
             <div class="phone-notch"></div>
             <div class="phone-screen">
               <div class="mini-card mini-card-accent">
-                <p class="mini-label">Electric rate alert</p>
-                <h2>Expires in 18 days</h2>
+                <p class="mini-label">Plan tracking</p>
+                <h2>Track before your rate jumps</h2>
                 <div class="mini-stat-grid">
                   <div>
-                    <span class="mini-stat-label">Current rate</span>
-                    <strong>10.8c / kWh</strong>
+                    <span class="mini-stat-label">Website</span>
+                    <strong>Compare by ZIP</strong>
                   </div>
                   <div>
-                    <span class="mini-stat-label">Next move</span>
-                    <strong>Compare before it expires</strong>
+                    <span class="mini-stat-label">App</span>
+                    <strong>Track + get alerts</strong>
                   </div>
                 </div>
               </div>
@@ -138,21 +137,21 @@
                   <span>1</span>
                   <div>
                     <strong>Enter your ZIP code</strong>
-                    <p>See electric suppliers and electricity plans that fit your market.</p>
+                    <p>See what the website can compare for your market today.</p>
                   </div>
                 </div>
                 <div class="mini-step">
                   <span>2</span>
                   <div>
                     <strong>Compare rates</strong>
-                    <p>Review plan terms, price differences, and live market options.</p>
+                    <p>Review plan terms, utility context, and live market options.</p>
                   </div>
                 </div>
                 <div class="mini-step">
                   <span>3</span>
                   <div>
                     <strong>Keep the app close</strong>
-                    <p>Use alerts and bill tracking so you know when to switch again.</p>
+                    <p>Upload your bill, track your plan, and get alerts before renewal pricing hits.</p>
                   </div>
                 </div>
               </div>
@@ -260,6 +259,18 @@
             </div>
           </div>
         </div>
+      </section>
+
+      <section class="section reveal">
+        <div data-web-app-comparison></div>
+      </section>
+
+      <section class="section reveal reveal-delay-1">
+        <div data-app-feature-preview></div>
+      </section>
+
+      <section class="section reveal">
+        <div data-trust-disclosure></div>
       </section>
 
       <section class="section section-grid">

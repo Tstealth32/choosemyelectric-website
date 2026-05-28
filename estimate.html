@@ -43,7 +43,7 @@
     }
   </script>
 </head>
-<body>
+<body data-page-type="estimate">
   <div class="page-shell">
     <header class="site-header">
       <a class="brand" href="/" aria-label="Choose My Electric home">
@@ -55,7 +55,7 @@
         </span>
         <span class="brand-copy">
           <strong>Choose My Electric</strong>
-          <span>Light web comparison + app alerts</span>
+          <span>Compare on the web. Track in the app.</span>
         </span>
       </a>
 
@@ -64,7 +64,7 @@
         <a href="/electric-rates-by-state">State pages</a>
         <a href="/rate-expiration-alerts">Rate alerts</a>
         <a href="/blog">Blog</a>
-        <a href="#download">Get the App</a>
+        <a href="/app" data-app-download-link>Download App</a>
       </nav>
     </header>
 
@@ -76,15 +76,14 @@
             <span aria-hidden="true">/</span>
             <span>Compare electric rates by ZIP code</span>
           </nav>
-          <p class="eyebrow">Limited web comparison. Full experience in the app.</p>
-          <h1 class="estimate-title">Find Electric Rates in Your Area</h1>
+          <p class="eyebrow">Compare first. Track after.</p>
+          <h1 class="estimate-title">Start with your ZIP code.</h1>
           <p class="content-intro">
-            Enter your ZIP code to compare electric suppliers, benchmark rates, and public market options across
-            Pennsylvania, Texas, Ohio, Maryland, Connecticut, DC, Massachusetts, Maine, New Jersey, Rhode Island,
-            Illinois, and New York. Some states show live plan cards right away, while others first ask for the utility
-            on the bill or show the official benchmark plus supplier directory when that market&apos;s public rate board is
-            limited. If supplier shopping is not live for your ZIP on the website, we may still route you to official
-            community solar options where we have clean utility or state-backed coverage.
+            We&rsquo;ll show what the website can compare today. For a better match, use the app to upload your bill and
+            track your current plan.
+          </p>
+          <p class="content-intro">
+            Compare rates on the web. Track your plan in the app before your rate jumps.
           </p>
         </div>
       </section>
@@ -94,9 +93,9 @@
           <div class="card-head">
             <div>
               <p class="eyebrow">Step 1</p>
-              <h2>Compare rates by ZIP code</h2>
+              <h2>Start with your ZIP code.</h2>
             </div>
-            <p class="card-subtext">Use the web for a light comparison. Use the app when you want bill scanning, tracking, and electric rate alerts.</p>
+            <p class="card-subtext">We&rsquo;ll show what the website can compare today. For a better match, use the app to upload your bill and track your current plan.</p>
           </div>
 
           <form id="estimate-form" class="stack-large" novalidate>
@@ -165,7 +164,7 @@
 
                 <div class="quick-win-actions">
                   <a class="button button-primary" href="#results">See More Options Below</a>
-                  <a class="button button-secondary" href="#download">Download the App</a>
+                  <a class="button button-secondary" href="/app" data-app-download-link>Download the App</a>
                 </div>
               </div>
 
@@ -179,7 +178,7 @@
             </section>
 
             <p class="helper-text">
-              Tip: Download the app to track your current rate and get alerts before it expires. Bill uploads, tracking, and alerting stay app-only by design.
+              Compare rates on the web. Track your plan in the app before your rate jumps.
             </p>
 
             <div class="button-row">
@@ -193,28 +192,22 @@
         </div>
 
         <aside class="control-card app-funnel-card reveal reveal-delay-1">
-          <p class="eyebrow">Get More Features in the App</p>
-          <h2>Use the website to compare rates, then use the app to stay ahead of renewals.</h2>
+          <p class="eyebrow">App follow-up</p>
+          <h2>Want a better match?</h2>
           <p>
-            The web version is intentionally limited so it stays fast and easy to use. The app is where Choose My Electric
-            helps you come back at the right time and compare again before you overpay.
+            Upload your electric bill in the app so Choose My Electric can identify your current supplier, rate, usage,
+            and possible expiration date.
           </p>
           <ul>
-            <li>Automatic rate expiration alerts</li>
-            <li>Track your electricity plan</li>
-            <li>Upload your bill for better matches</li>
-            <li>Faster switching when it is time to compare again</li>
-            <li>Community solar guidance in more states</li>
+            <li>Bill upload</li>
+            <li>Plan tracking</li>
+            <li>Rate expiration alerts</li>
+            <li>Easier repeat comparison</li>
           </ul>
           <div class="cta-row" id="download">
-            <a class="button button-primary" data-store-link="ios" href="https://apps.apple.com/us/app/choose-my-electric/id6762017797">
-              Download on the App Store
-            </a>
-            <a class="button button-secondary" data-store-link="android" href="#">
-              Android
-            </a>
+            <a class="button button-primary" href="/app" data-app-download-link>Download the App</a>
           </div>
-          <p class="supporting-note" data-store-status>Available now on iPhone.</p>
+          <p class="supporting-note" data-store-status>Available now on iPhone and Android.</p>
         </aside>
       </section>
 
@@ -288,6 +281,26 @@
             <p class="empty-state">Enter your ZIP code to start your first estimate.</p>
           </div>
         </div>
+      </section>
+
+      <section class="section section-tight">
+        <div data-estimate-upsell></div>
+      </section>
+
+      <section class="section section-tight">
+        <div
+          data-web-app-comparison
+          data-title="Use the website for a quick comparison. Use the app to stay ahead."
+          data-compare-button-label="Compare Rates"
+        ></div>
+      </section>
+
+      <section class="section section-tight">
+        <div data-app-feature-preview></div>
+      </section>
+
+      <section class="section section-tight">
+        <div data-trust-disclosure></div>
       </section>
 
       <section class="section section-grid">
