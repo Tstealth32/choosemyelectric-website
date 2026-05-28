@@ -74,9 +74,9 @@
 
     <main id="top">
       <section class="hero section">
-        <div class="hero-copy reveal">
+        <div class="hero-copy gradient-hero reveal">
           <p class="eyebrow">Compare on the web. Track in the app.</p>
-          <h1>Stop overpaying for electricity.</h1>
+          <h1>Stop your electric rate from sneaking up on you.</h1>
           <p class="hero-text">
             Compare electric rates by ZIP code, then use the app to track your plan, upload your bill, and get alerts before your rate expires.
           </p>
@@ -97,11 +97,11 @@
                 required
               >
             </label>
-            <button class="button button-primary" type="submit">Compare Rates by ZIP</button>
+            <button class="button button-primary premium-button" type="submit">Compare Rates by ZIP</button>
           </form>
 
           <div class="cta-row">
-            <a class="button button-secondary" href="/app" data-app-download-link>
+            <a class="button button-secondary secondary-glass-button" href="/app" data-app-download-link>
               Download the App
             </a>
           </div>
@@ -110,48 +110,56 @@
             <span>ZIP-based comparison</span>
             <span>Bill upload in the app</span>
             <span>Rate expiration alerts</span>
+            <span>Your utility still delivers power</span>
           </div>
         </div>
 
         <div class="hero-visual reveal reveal-delay-1" aria-hidden="true">
-          <div class="phone-shell">
+          <div class="hero-visual-stack">
+          <div class="floating-dashboard-card glass-card floating-dashboard-card-left">
+            <span class="floating-dashboard-chip">Smart bill assistant</span>
+            <strong>Upload bill for a better match</strong>
+            <p>Use your actual supplier, rate, and usage when it is time to compare more closely.</p>
+          </div>
+
+          <div class="phone-shell app-phone-mockup">
             <div class="phone-notch"></div>
             <div class="phone-screen">
               <div class="mini-card mini-card-accent">
-                <p class="mini-label">Plan tracking</p>
-                <h2>Track before your rate jumps</h2>
+                <p class="mini-label">Electric Rate Alert</p>
+                <h2>Expires in 18 days</h2>
                 <div class="mini-stat-grid">
                   <div>
-                    <span class="mini-stat-label">Website</span>
-                    <strong>Compare by ZIP</strong>
+                    <span class="mini-stat-label">Current rate</span>
+                    <strong>10.8&cent; / kWh</strong>
                   </div>
                   <div>
-                    <span class="mini-stat-label">App</span>
-                    <strong>Track + get alerts</strong>
+                    <span class="mini-stat-label">Next move</span>
+                    <strong>Compare before renewal</strong>
                   </div>
                 </div>
               </div>
 
               <div class="mini-card">
                 <div class="mini-step">
-                  <span>1</span>
+                  <span>+</span>
                   <div>
-                    <strong>Enter your ZIP code</strong>
-                    <p>See what the website can compare for your market today.</p>
+                    <strong>Upload bill</strong>
+                    <p>Use your real supplier, rate, and usage details for a better match.</p>
                   </div>
                 </div>
                 <div class="mini-step">
-                  <span>2</span>
+                  <span>•</span>
                   <div>
-                    <strong>Compare rates</strong>
-                    <p>Review plan terms, utility context, and live market options.</p>
+                    <strong>Track current plan</strong>
+                    <p>Keep your current supplier and contract timing in one place.</p>
                   </div>
                 </div>
                 <div class="mini-step">
-                  <span>3</span>
+                  <span>!</span>
                   <div>
-                    <strong>Keep the app close</strong>
-                    <p>Upload your bill, track your plan, and get alerts before renewal pricing hits.</p>
+                    <strong>Renewal alert</strong>
+                    <p>Get reminded before a low rate turns into a higher renewal.</p>
                   </div>
                 </div>
               </div>
@@ -166,57 +174,20 @@
               </div>
             </div>
           </div>
+          <div class="floating-dashboard-card glass-card floating-dashboard-card-right">
+            <span class="floating-dashboard-chip floating-dashboard-chip-emerald">Rate alert</span>
+            <strong>Track your plan in the app</strong>
+            <p>Keep the good rate in view before it turns into a more expensive renewal.</p>
+          </div>
           <div class="orb orb-one"></div>
           <div class="orb orb-two"></div>
+          </div>
         </div>
       </section>
 
       <section class="section section-grid" id="zip-search">
-        <div class="section-heading reveal">
-          <p class="eyebrow">ZIP code search</p>
-          <h2>Find Electric Rates in Your Area</h2>
-          <p class="section-text">
-            Enter your ZIP code to see available electricity suppliers and rates where the instant web estimate is live
-            today. The broader site now also includes state guides for Connecticut, Maryland, DC, Massachusetts, Maine,
-            New Jersey, Rhode Island, Illinois, and New York.
-          </p>
-          <form class="zip-start-form" action="/estimate" method="get" data-zip-form>
-            <label class="field">
-              <span>Service ZIP code</span>
-              <input
-                class="text-input"
-                type="text"
-                name="zip"
-                inputmode="numeric"
-                maxlength="5"
-                autocomplete="postal-code"
-                placeholder="17111"
-                data-zip-input
-                required
-              >
-            </label>
-            <button class="button button-primary" type="submit">Compare Rates by ZIP Code</button>
-          </form>
-          <p class="supporting-note">Tip: the instant web estimate is strongest in Pennsylvania, Texas, and Ohio today. The rest of the supported markets are linked below as state guides.</p>
-        </div>
-
-        <div class="bullet-grid">
-          <article class="bullet-card reveal">
-            <p class="eyebrow-link">Fast start</p>
-            <h3>Compare electric suppliers in minutes</h3>
-            <p>Use the web estimate for a quick first look at electric suppliers, electricity plans, and rate differences by ZIP code.</p>
-          </article>
-          <article class="bullet-card reveal reveal-delay-1">
-            <p class="eyebrow-link">App advantage</p>
-            <h3>Upload your bill for personalized rate matching</h3>
-            <p>When you want better plan matching, the app can pull in details from your real bill and compare them to live offers.</p>
-          </article>
-          <article class="bullet-card reveal reveal-delay-2">
-            <p class="eyebrow-link">Renewal protection</p>
-            <h3>Get alerts before promotional rates expire</h3>
-            <p>The app is built to warn you before a low electricity rate ends so you can switch suppliers before bills jump.</p>
-          </article>
-        </div>
+        <div data-home-how-it-works></div>
+        <p class="supporting-note reveal">Tip: the instant web estimate is strongest in Pennsylvania, Texas, and Ohio today. The rest of the supported markets are linked below as state guides.</p>
       </section>
 
       <section class="section split-section">
@@ -261,12 +232,12 @@
         </div>
       </section>
 
-      <section class="section reveal">
-        <div data-web-app-comparison></div>
-      </section>
-
       <section class="section reveal reveal-delay-1">
         <div data-app-feature-preview></div>
+      </section>
+
+      <section class="section reveal">
+        <div data-web-app-comparison></div>
       </section>
 
       <section class="section reveal">
@@ -459,12 +430,7 @@
           </p>
           <div class="cta-row">
             <a class="button button-secondary" href="/estimate">Compare Rates by ZIP Code</a>
-            <a class="button button-primary" data-store-link="ios" href="https://apps.apple.com/us/app/choose-my-electric/id6762017797">
-              Apple App Store
-            </a>
-            <a class="button button-secondary" data-store-link="android" href="https://play.google.com/store/apps/details?id=com.choosemyelectric.app&pcampaignid=web_share">
-              Google Play Store
-            </a>
+            <a class="button button-primary" href="/app" data-app-download-link>Download App</a>
           </div>
         </div>
       </section>

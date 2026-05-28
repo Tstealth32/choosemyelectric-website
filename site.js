@@ -35,7 +35,7 @@ function normalizedPathname() {
 }
 
 function routeMatches(pathname, route) {
-  return pathname === route || pathname.endsWith(route);
+  return pathname === route || pathname.endsWith(route) || pathname.endsWith(`${route}/`);
 }
 
 function inferredStateNameFromPath(pathname) {
@@ -110,6 +110,9 @@ function inferPageTypeFromPath() {
   if (routeMatches(path, "/estimate") || routeMatches(path, "/compare-electric-rates-by-zip")) return "estimate";
   if (routeMatches(path, "/upload-your-bill-to-compare-rates")) return "upload-bill";
   if (routeMatches(path, "/rate-expiration-alerts")) return "rate-alerts";
+  if (routeMatches(path, "/how-to-switch-electric-suppliers")) return "how-switch";
+  if (routeMatches(path, "/electricity-supplier-faq")) return "faq";
+  if (routeMatches(path, "/community-solar")) return "community-solar";
   if (routeMatches(path, "/blog")) return "blog-index";
   if (path.includes("/blog/")) return "blog-article";
   if (inferredStateNameFromPath(path)) return "state-guide";
@@ -294,24 +297,75 @@ function updateStoreStatus(iosReady, androidReady) {
   });
 }
 
-function ensureDownloadAppNavLink() {
+function standardizePrimaryNav() {
   const navs = document.querySelectorAll(".site-nav");
   navs.forEach((nav) => {
-    let appLink = Array.from(nav.querySelectorAll("a")).find((link) => {
-      const href = link.getAttribute("href") || "";
-      const text = (link.textContent || "").trim().toLowerCase();
-      return href === chooseSiteConfig.appLandingUrl || /download app|get the app|app store|google play/.test(text);
-    });
+    nav.innerHTML = `
+      <a href="/estimate">Compare Rates</a>
+      <a href="/electric-rates-by-state">States</a>
+      <a href="/community-solar">Community Solar</a>
+      <a href="/blog">Blog</a>
+      <a href="/electricity-supplier-faq">FAQ</a>
+      <a class="site-nav-app" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>Download App</a>
+    `;
+  });
+}
 
-    if (!appLink) {
-      appLink = document.createElement("a");
-      nav.appendChild(appLink);
+function enhanceMobileNav() {
+  const header = document.querySelector(".site-header");
+  const nav = document.querySelector(".site-nav");
+  if (!header || !nav || header.querySelector(".site-nav-toggle")) return;
+
+  if (!nav.id) {
+    nav.id = "site-primary-nav";
+  }
+
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "site-nav-toggle";
+  button.setAttribute("aria-expanded", "false");
+  button.setAttribute("aria-controls", nav.id);
+  button.setAttribute("aria-label", "Open navigation menu");
+  button.innerHTML = `
+    <span></span>
+    <span></span>
+    <span></span>
+  `;
+
+  header.insertBefore(button, nav);
+  header.classList.add("has-mobile-nav");
+
+  const closeNav = () => {
+    nav.classList.remove("is-open");
+    button.classList.remove("is-active");
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-label", "Open navigation menu");
+  };
+
+  button.addEventListener("click", () => {
+    const nextOpen = !nav.classList.contains("is-open");
+    nav.classList.toggle("is-open", nextOpen);
+    button.classList.toggle("is-active", nextOpen);
+    button.setAttribute("aria-expanded", String(nextOpen));
+    button.setAttribute("aria-label", nextOpen ? "Close navigation menu" : "Open navigation menu");
+  });
+
+  nav.addEventListener("click", (event) => {
+    if (event.target.closest("a")) {
+      closeNav();
     }
+  });
 
-    appLink.classList.add("site-nav-app");
-    appLink.setAttribute("href", chooseSiteConfig.appLandingUrl);
-    appLink.setAttribute("data-app-download-link", "");
-    appLink.textContent = "Download App";
+  document.addEventListener("click", (event) => {
+    if (!header.contains(event.target)) {
+      closeNav();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 720) {
+      closeNav();
+    }
   });
 }
 
@@ -329,8 +383,12 @@ function createWebsiteVsAppMarkup({
       </div>
       <div class="comparison-grid">
         <article class="comparison-card">
-          <p class="comparison-card-kicker">Website</p>
+          <div class="comparison-card-head">
+            <p class="comparison-card-kicker">Website</p>
+            <span class="comparison-card-badge">Fast start</span>
+          </div>
           <h3>Fast web comparison</h3>
+          <p class="comparison-card-copy">Use the website when you want a clean ZIP-first check without building out a full profile first.</p>
           <ul class="comparison-list">
             <li>Compare rates by ZIP</li>
             <li>Review basic supplier options</li>
@@ -338,12 +396,16 @@ function createWebsiteVsAppMarkup({
             <li>Learn what to watch before switching</li>
           </ul>
           <div class="cta-row cta-row-compact">
-            <a class="button button-secondary" href="/estimate" data-compare-cta>${compareButtonLabel}</a>
+            <a class="button button-secondary secondary-glass-button" href="/estimate" data-compare-cta>${compareButtonLabel}</a>
           </div>
         </article>
         <article class="comparison-card comparison-card-app">
-          <p class="comparison-card-kicker">App</p>
+          <div class="comparison-card-head">
+            <p class="comparison-card-kicker">App</p>
+            <span class="comparison-card-badge">Best follow-up</span>
+          </div>
           <h3>Stay ahead of renewals</h3>
+          <p class="comparison-card-copy">Keep the app after you compare so you remember the good rate before it becomes the expensive renewal.</p>
           <ul class="comparison-list">
             <li>Upload your electric bill</li>
             <li>Track your current supplier and rate</li>
@@ -351,7 +413,7 @@ function createWebsiteVsAppMarkup({
             <li>Recheck before renewal pricing kicks in</li>
           </ul>
           <div class="cta-row cta-row-compact">
-            <a class="button button-primary" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>${appButtonLabel}</a>
+            <a class="button button-primary premium-button" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>${appButtonLabel}</a>
           </div>
         </article>
       </div>
@@ -370,37 +432,88 @@ function createAppFeaturePreviewMarkup() {
       <div class="app-feature-grid">
         <article class="app-feature-card">
           <div class="app-feature-phone">
-            <span class="app-feature-pill">Bill upload</span>
+            <div class="app-feature-topline">
+              <span class="app-feature-pill">Bill upload</span>
+              <span class="app-feature-meta">Supplier • Rate • Usage</span>
+            </div>
             <strong>Upload your bill</strong>
             <p>Get a better match using your actual supplier, rate, and usage.</p>
+            <div class="app-feature-signal" aria-hidden="true"><span></span><span></span><span></span></div>
           </div>
         </article>
         <article class="app-feature-card">
           <div class="app-feature-phone">
-            <span class="app-feature-pill">Current plan</span>
+            <div class="app-feature-topline">
+              <span class="app-feature-pill">Current plan</span>
+              <span class="app-feature-meta">Saved in one place</span>
+            </div>
             <strong>Track your plan</strong>
             <p>Keep your current supplier, rate, and contract details in one place.</p>
+            <div class="app-feature-signal" aria-hidden="true"><span></span><span></span><span></span></div>
           </div>
         </article>
         <article class="app-feature-card">
           <div class="app-feature-phone">
-            <span class="app-feature-pill">Reminders</span>
+            <div class="app-feature-topline">
+              <span class="app-feature-pill">Reminders</span>
+              <span class="app-feature-meta">Before renewal</span>
+            </div>
             <strong>Get expiration alerts</strong>
             <p>Receive reminders before a low rate turns into a higher renewal.</p>
+            <div class="app-feature-signal" aria-hidden="true"><span></span><span></span><span></span></div>
           </div>
         </article>
         <article class="app-feature-card">
           <div class="app-feature-phone">
-            <span class="app-feature-pill">Next check-in</span>
+            <div class="app-feature-topline">
+              <span class="app-feature-pill">Next check-in</span>
+              <span class="app-feature-meta">Faster repeat compare</span>
+            </div>
             <strong>Compare again faster</strong>
             <p>Come back when it matters instead of starting from scratch.</p>
+            <div class="app-feature-signal" aria-hidden="true"><span></span><span></span><span></span></div>
           </div>
         </article>
       </div>
       <div class="store-cta-row">
-        <a class="button button-primary" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>Download the App</a>
-        <a class="button button-secondary" data-store-link="ios" href="${chooseSiteConfig.iosAppUrl}">Apple App Store</a>
-        <a class="button button-secondary" data-store-link="android" href="${chooseSiteConfig.androidAppUrl}">Google Play Store</a>
+        <a class="button button-primary premium-button" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>Download the App</a>
+        <a class="button button-secondary secondary-glass-button" data-store-link="ios" href="${chooseSiteConfig.iosAppUrl}">Apple App Store</a>
+        <a class="button button-secondary secondary-glass-button" data-store-link="android" href="${chooseSiteConfig.androidAppUrl}">Google Play Store</a>
+      </div>
+    </section>
+  `;
+}
+
+function createHowItWorksMarkup() {
+  return `
+    <section class="how-it-works">
+      <div class="comparison-section-head">
+        <p class="eyebrow">How it works</p>
+        <h2>Compare once. Stay ahead every month.</h2>
+        <p class="section-text">Compare rates on the web. Track your plan in the app before your rate jumps.</p>
+      </div>
+      <div class="steps-grid">
+        <article class="feature-card">
+          <div class="icon-pill" aria-hidden="true">01</div>
+          <p class="comparison-card-kicker">Web start</p>
+          <p class="card-number">Step 1</p>
+          <h3>Enter your ZIP</h3>
+          <p>Start with a fast web comparison where live rate data is available.</p>
+        </article>
+        <article class="feature-card">
+          <div class="icon-pill" aria-hidden="true">02</div>
+          <p class="comparison-card-kicker">Compare clearly</p>
+          <p class="card-number">Step 2</p>
+          <h3>Compare your options</h3>
+          <p>Review rates, plan terms, utility context, and supplier details before choosing.</p>
+        </article>
+        <article class="feature-card">
+          <div class="icon-pill" aria-hidden="true">03</div>
+          <p class="comparison-card-kicker">App follow-up</p>
+          <p class="card-number">Step 3</p>
+          <h3>Let the app remind you</h3>
+          <p>Track your plan and get alerts before a low rate turns into a higher renewal.</p>
+        </article>
       </div>
     </section>
   `;
@@ -424,24 +537,163 @@ function createTrustDisclosureMarkup({ compact = false } = {}) {
   `;
 }
 
+function createHeroPreviewMarkup(pageType) {
+  if (pageType === "rate-alerts") {
+    return `
+      <div class="phone-shell feature-hero-phone app-phone-mockup">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="mini-card mini-card-accent">
+            <p class="mini-label">Rate Expiration Alert</p>
+            <h2>Your plan may renew soon</h2>
+            <p class="hero-panel-copy">Compare before your next bill cycle.</p>
+          </div>
+          <div class="mini-card">
+            <div class="mini-step">
+              <span>!</span>
+              <div>
+                <strong>Track current rate</strong>
+                <p>Keep your current plan details in one place.</p>
+              </div>
+            </div>
+            <div class="mini-step">
+              <span>↻</span>
+              <div>
+                <strong>Know when to compare</strong>
+                <p>Get reminders before renewal pricing catches you late.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  if (pageType === "upload-bill") {
+    return `
+      <div class="phone-shell feature-hero-phone app-phone-mockup">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="mini-card mini-card-accent">
+            <p class="mini-label">Upload bill</p>
+            <h2>Prepare a better match</h2>
+            <p class="hero-panel-copy">Reading supplier, rate, usage, and utility details.</p>
+          </div>
+          <div class="mini-card">
+            <div class="mini-step">
+              <span>1</span>
+              <div>
+                <strong>Reading supplier</strong>
+                <p>Pull in the plan you are actually on.</p>
+              </div>
+            </div>
+            <div class="mini-step">
+              <span>2</span>
+              <div>
+                <strong>Checking rate details</strong>
+                <p>Use your real bill as the starting point.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  if (pageType === "how-switch") {
+    return `
+      <div class="phone-shell feature-hero-phone app-phone-mockup">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="mini-card mini-card-accent">
+            <p class="mini-label">Switching flow</p>
+            <h2>Compare, choose, track</h2>
+            <p class="hero-panel-copy">The app helps after the first rate check, not just during it.</p>
+          </div>
+          <div class="mini-card">
+            <div class="mini-step">
+              <span>1</span>
+              <div>
+                <strong>Compare by ZIP</strong>
+                <p>Start with the web when you need a fast check.</p>
+              </div>
+            </div>
+            <div class="mini-step">
+              <span>2</span>
+              <div>
+                <strong>Track what you picked</strong>
+                <p>Keep your next comparison from being a memory test.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  if (pageType === "faq") {
+    return `
+      <div class="phone-shell feature-hero-phone app-phone-mockup">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="mini-card mini-card-accent">
+            <p class="mini-label">Quick answers</p>
+            <h2>Before you switch</h2>
+            <p class="hero-panel-copy">Clear answers about rates, switching, and plan timing.</p>
+          </div>
+          <div class="mini-card">
+            <div class="mini-step">
+              <span>?</span>
+              <div>
+                <strong>Utility still delivers power</strong>
+                <p>Supplier shopping usually changes the supply side of the bill.</p>
+              </div>
+            </div>
+            <div class="mini-step">
+              <span>↗</span>
+              <div>
+                <strong>Use the app later</strong>
+                <p>Track your plan before renewal pricing shows up.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  return "";
+}
+
 function createEstimateUpsellMarkup() {
   return `
     <section class="estimate-app-upsell control-card reveal">
-      <div class="card-head">
+      <div class="app-cta-panel">
         <div>
-          <p class="eyebrow">Need a better match?</p>
-          <h2>Want a better match?</h2>
+          <div class="card-head">
+            <div>
+              <p class="eyebrow">Need a better match?</p>
+              <h2>Want a better match?</h2>
+            </div>
+            <p class="card-subtext">Upload your electric bill in the app so Choose My Electric can identify your current supplier, rate, usage, and possible expiration date.</p>
+          </div>
+          <ul class="comparison-list">
+            <li>Bill upload</li>
+            <li>Plan tracking</li>
+            <li>Rate expiration alerts</li>
+            <li>Easier repeat comparison</li>
+          </ul>
+          <div class="cta-row">
+            <a class="button button-primary premium-button" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>Download the App</a>
+          </div>
         </div>
-        <p class="card-subtext">Upload your electric bill in the app so Choose My Electric can identify your current supplier, rate, usage, and possible expiration date.</p>
-      </div>
-      <ul class="comparison-list">
-        <li>Bill upload</li>
-        <li>Plan tracking</li>
-        <li>Rate expiration alerts</li>
-        <li>Easier repeat comparison</li>
-      </ul>
-      <div class="cta-row">
-        <a class="button button-primary" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>Download the App</a>
+        <div class="app-cta-panel-visual">
+          <div class="floating-dashboard-card glossy-card app-cta-panel-preview">
+            <span class="floating-dashboard-chip floating-dashboard-chip-emerald">Bill upload</span>
+            <strong>Better match in the app</strong>
+            <p>Supplier, rate, utility, and usage are easier to identify from your actual bill.</p>
+          </div>
+        </div>
       </div>
     </section>
   `;
@@ -454,7 +706,7 @@ function createBlogCompareCtaMarkup() {
       <h3>Compare electric rates by ZIP code</h3>
       <p>Start with a quick web comparison, then move into the app when you want bill uploads, plan tracking, and alerts.</p>
       <div class="cta-row cta-row-compact">
-        <a class="button button-primary" href="/estimate" data-compare-cta>Compare Rates</a>
+        <a class="button button-primary premium-button" href="/estimate" data-compare-cta>Compare Rates</a>
       </div>
     </section>
   `;
@@ -467,7 +719,7 @@ function createBlogAppCtaMarkup() {
       <h3>Want alerts before your rate expires?</h3>
       <p>The app helps you track your plan and compare again before renewal pricing catches you off guard.</p>
       <div class="cta-row cta-row-compact">
-        <a class="button button-primary" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>Download App</a>
+        <a class="button button-primary premium-button" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>Download App</a>
       </div>
     </section>
   `;
@@ -475,13 +727,22 @@ function createBlogAppCtaMarkup() {
 
 function createBottomFunnelCtaMarkup() {
   return `
-    <section class="closing-panel closing-panel-app">
-      <p class="eyebrow">Keep going</p>
-      <h2>Use the website to compare. Use the app to track your plan.</h2>
-      <p>Compare rates on the web. Track your plan in the app before your rate jumps.</p>
-      <div class="cta-row">
-        <a class="button button-secondary" href="/estimate" data-compare-cta>Compare Rates</a>
-        <a class="button button-primary" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>Download App</a>
+    <section class="closing-panel closing-panel-app app-cta-panel">
+      <div>
+        <p class="eyebrow">Keep going</p>
+        <h2>Use the website to compare. Use the app to track your plan.</h2>
+        <p>Compare rates on the web. Track your plan in the app before your rate jumps.</p>
+        <div class="cta-row">
+          <a class="button button-secondary secondary-glass-button" href="/estimate" data-compare-cta>Compare Rates</a>
+          <a class="button button-primary premium-button" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>Download App</a>
+        </div>
+      </div>
+      <div class="app-cta-panel-visual">
+        <div class="floating-dashboard-card glossy-card app-cta-panel-preview">
+          <span class="floating-dashboard-chip">Renewal alert</span>
+          <strong>Compare before renewal</strong>
+          <p>Keep your current plan in one place, then compare again when timing matters.</p>
+        </div>
       </div>
     </section>
   `;
@@ -492,14 +753,14 @@ function createStateChecklistMarkup(stateName) {
     <article class="content-card state-check-card">
       <p class="eyebrow">Before you switch</p>
       <h2>What to check before switching</h2>
-      <ul class="comparison-list">
-        <li>Is the rate fixed or variable?</li>
-        <li>How long does the rate last?</li>
-        <li>Are there monthly fees?</li>
-        <li>Is there an early cancellation fee?</li>
-        <li>What happens after the intro term?</li>
-        <li>Does your utility still deliver the power?</li>
-      </ul>
+      <div class="state-watch-grid">
+        <div class="state-watch-item"><strong>Fixed vs variable</strong><span>Know how the rate can change.</span></div>
+        <div class="state-watch-item"><strong>Contract length</strong><span>Check how long the price lasts.</span></div>
+        <div class="state-watch-item"><strong>Monthly fees</strong><span>Do not compare the headline rate alone.</span></div>
+        <div class="state-watch-item"><strong>Cancellation fee</strong><span>Make sure timing does not erase savings.</span></div>
+        <div class="state-watch-item"><strong>Renewal pricing</strong><span>Look at what happens after the intro term.</span></div>
+        <div class="state-watch-item"><strong>Utility delivery</strong><span>Your utility still delivers the power.</span></div>
+      </div>
       <p class="trust-disclosure-note">
         ${stateName} shoppers should compare more than the headline rate and review renewal pricing before enrolling.
       </p>
@@ -512,10 +773,46 @@ function createStateAppCardMarkup(stateName) {
     <p class="eyebrow">Keep the app after you compare</p>
     <h3>Keep the app after you compare.</h3>
     <p>A low rate today can become a bad deal later. Use the app to track your current plan and get alerts before your rate expires in ${stateName}.</p>
+    <div class="floating-dashboard-card glossy-card app-cta-panel-preview">
+      <span class="floating-dashboard-chip">In the app</span>
+      <strong>${stateName} renewal reminder</strong>
+      <p>Track your current supplier and know when to compare again before the rate changes.</p>
+    </div>
     <div class="cta-row">
-      <a class="button button-primary" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>Download App</a>
+      <a class="button button-primary premium-button" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>Download App</a>
     </div>
     ${createTrustDisclosureMarkup({ compact: true })}
+  `;
+}
+
+function createStateHeroPreviewMarkup(stateName) {
+  return `
+    <div class="phone-shell feature-hero-phone app-phone-mockup">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="mini-card mini-card-accent">
+          <p class="mini-label">${stateName} snapshot</p>
+          <h2>Compare before renewal</h2>
+          <p class="hero-panel-copy">Use ZIP search on the web, then keep the plan details in the app.</p>
+        </div>
+        <div class="mini-card">
+          <div class="mini-step">
+            <span>ZIP</span>
+            <div>
+              <strong>Start with your ZIP</strong>
+              <p>See what the website can compare in ${stateName} today.</p>
+            </div>
+          </div>
+          <div class="mini-step">
+            <span>↺</span>
+            <div>
+              <strong>Track timing later</strong>
+              <p>Use the app when you want alerts before your plan renews.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   `;
 }
 
@@ -550,6 +847,7 @@ function enhanceStateGuidePage() {
 
   const stateName = currentStateName() || "this state";
   const heroHeading = document.querySelector(".content-hero .section-heading");
+  const hero = document.querySelector(".content-hero");
   const contentMain = document.querySelector(".content-main");
   const contentSidebar = document.querySelector(".content-sidebar");
 
@@ -585,11 +883,11 @@ function enhanceStateGuidePage() {
       ctaRow.className = "cta-row state-hero-cta-row";
       ctaRow.innerHTML = heroForm
         ? `
-            <a class="button button-secondary" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>Download App</a>
+            <a class="button button-secondary secondary-glass-button" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>Download App</a>
           `
         : `
-            <a class="button button-primary" href="/estimate" data-compare-cta>Compare by ZIP</a>
-            <a class="button button-secondary" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>Download App</a>
+            <a class="button button-primary premium-button" href="/estimate" data-compare-cta>Compare by ZIP</a>
+            <a class="button button-secondary secondary-glass-button" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>Download App</a>
           `;
 
       if (heroForm) {
@@ -598,6 +896,14 @@ function enhanceStateGuidePage() {
         heroHeading.appendChild(ctaRow);
       }
     }
+  }
+
+  if (hero && heroHeading && !hero.querySelector(".feature-hero-preview")) {
+    hero.classList.add("content-hero-split");
+    const preview = document.createElement("div");
+    preview.className = "feature-hero-preview reveal reveal-delay-1";
+    preview.innerHTML = createStateHeroPreviewMarkup(stateName);
+    hero.appendChild(preview);
   }
 
   if (contentMain && !contentMain.querySelector(".state-check-card")) {
@@ -621,6 +927,50 @@ function enhanceStateGuidePage() {
       compareButtonLabel: "Compare by ZIP",
     });
     contentMain.appendChild(comparisonWrapper);
+  }
+
+  if (contentMain && !contentMain.querySelector(".seo-accordion-section")) {
+    const cards = Array.from(contentMain.querySelectorAll(".content-card"))
+      .filter((card) => !card.classList.contains("state-check-card"))
+      .filter((card) => !card.classList.contains("content-card-plain"));
+
+    const cardsToCollapse = cards.slice(3);
+    if (cardsToCollapse.length) {
+      const section = document.createElement("section");
+      section.className = "content-card seo-accordion-section";
+      const heading = document.createElement("div");
+      heading.className = "comparison-section-head";
+      heading.innerHTML = `
+        <p class="eyebrow">Learn more about electric choice</p>
+        <h2>More details for ${stateName} shoppers</h2>
+        <p class="section-text">Keep the main comparison flow up top, then open the deeper market details when you want more context.</p>
+      `;
+      const list = document.createElement("div");
+      list.className = "faq-list seo-accordion-list";
+
+      cardsToCollapse.forEach((card, index) => {
+        const title = card.querySelector("h2, h3")?.textContent?.trim() || `More about ${stateName} electric choice`;
+        const body = card.cloneNode(true);
+        body.querySelector("h2, h3")?.remove();
+
+        const details = document.createElement("details");
+        details.className = "faq-item seo-accordion-item";
+        if (index === 0) {
+          details.open = true;
+        }
+        details.innerHTML = `<summary>${title}</summary>`;
+        const content = document.createElement("div");
+        content.className = "seo-accordion-body";
+        content.append(...Array.from(body.childNodes));
+        details.appendChild(content);
+        list.appendChild(details);
+        card.remove();
+      });
+
+      section.appendChild(heading);
+      section.appendChild(list);
+      contentMain.appendChild(section);
+    }
   }
 
   let appCard = contentSidebar?.querySelector(".app-funnel-card");
@@ -676,9 +1026,67 @@ function enhanceBlogPages() {
   }
 }
 
+function enhanceFaqPage() {
+  if (currentPageType() !== "faq") return;
+
+  const contentMain = document.querySelector(".content-main");
+  if (!contentMain || contentMain.querySelector(".faq-accordion-upgraded")) return;
+
+  const cards = Array.from(contentMain.querySelectorAll(".content-card"));
+  if (!cards.length) return;
+
+  const labels = [
+    "Basics",
+    "Comparing rates",
+    "Switching suppliers",
+    "App alerts",
+    "Supported states",
+  ];
+
+  const wrapper = document.createElement("section");
+  wrapper.className = "content-card faq-accordion-upgraded";
+  wrapper.innerHTML = `
+    <div class="comparison-section-head">
+      <p class="eyebrow">FAQ</p>
+      <h2>Clear answers before you compare rates, switch suppliers, or download the app.</h2>
+      <p class="section-text">Keep the answers short when you need the basics, then open each item for the deeper context.</p>
+    </div>
+  `;
+
+  const list = document.createElement("div");
+  list.className = "faq-list";
+
+  cards.forEach((card, index) => {
+    const title = card.querySelector("h2")?.textContent?.trim() || `Question ${index + 1}`;
+    const body = card.cloneNode(true);
+    body.querySelector("h2")?.remove();
+
+    const details = document.createElement("details");
+    details.className = "faq-item";
+    if (index === 0) {
+      details.open = true;
+    }
+    details.innerHTML = `
+      <summary>
+        <span class="faq-category-pill">${labels[index] || "More"}</span>
+        <span>${title}</span>
+      </summary>
+    `;
+    const content = document.createElement("div");
+    content.className = "seo-accordion-body";
+    content.append(...Array.from(body.childNodes));
+    details.appendChild(content);
+    list.appendChild(details);
+    card.remove();
+  });
+
+  wrapper.appendChild(list);
+  contentMain.prepend(wrapper);
+}
+
 function enhanceLandingFunnelPages() {
   const pageType = currentPageType();
-  if (pageType !== "upload-bill" && pageType !== "rate-alerts") return;
+  if (!["upload-bill", "rate-alerts", "how-switch", "faq"].includes(pageType)) return;
 
   const main = document.querySelector("main");
   if (!main) return;
@@ -709,6 +1117,48 @@ function enhanceLandingFunnelPages() {
   }
 }
 
+function enhanceCommunitySolarPage() {
+  if (currentPageType() !== "community-solar") return;
+
+  const main = document.querySelector("main");
+  if (!main || main.querySelector(".community-solar-app-panel")) return;
+
+  const section = document.createElement("section");
+  section.className = "section section-tight community-solar-app-panel";
+  section.innerHTML = createBottomFunnelCtaMarkup();
+  main.appendChild(section);
+}
+
+function enhanceFeaturePageHeroes() {
+  const pageType = currentPageType();
+  if (!["upload-bill", "rate-alerts", "how-switch", "faq"].includes(pageType)) return;
+
+  const hero = document.querySelector(".content-hero");
+  const heading = hero?.querySelector(".section-heading");
+  if (!hero || !heading) return;
+
+  if (!heading.querySelector(".feature-hero-actions")) {
+    const actions = document.createElement("div");
+    actions.className = "cta-row feature-hero-actions";
+    actions.innerHTML = `
+      <a class="button button-primary premium-button" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>Download the App</a>
+      <a class="button button-secondary secondary-glass-button" href="/estimate" data-compare-cta>Compare Rates</a>
+    `;
+    heading.appendChild(actions);
+  }
+
+  if (hero.querySelector(".feature-hero-preview")) return;
+
+  const previewMarkup = createHeroPreviewMarkup(pageType);
+  if (!previewMarkup) return;
+
+  hero.classList.add("content-hero-split");
+  const preview = document.createElement("div");
+  preview.className = "feature-hero-preview reveal reveal-delay-1";
+  preview.innerHTML = previewMarkup;
+  hero.appendChild(preview);
+}
+
 function injectStickyAppBar() {
   if (document.body.hasAttribute("data-no-sticky-bar")) return;
   if (document.querySelector(".sticky-app-bar")) return;
@@ -717,12 +1167,13 @@ function injectStickyAppBar() {
   wrapper.className = "sticky-app-bar";
   wrapper.innerHTML = `
     <div class="sticky-app-shell">
-      <button class="sticky-app-dismiss" type="button" aria-label="Dismiss app download bar">×</button>
+      <span class="sticky-app-icon" aria-hidden="true">CME</span>
       <div class="sticky-app-copy">
-        <strong>Choose My Electric app</strong>
-        <span>Track your rate and get alerts before it expires.</span>
+        <strong>Track your rate in the app.</strong>
+        <span>Get alerts before it expires.</span>
       </div>
-      <a class="button button-primary sticky-app-button" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link data-cta-event="sticky_app_cta_click">Download App</a>
+      <a class="button button-primary premium-button sticky-app-button" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link data-cta-event="sticky_app_cta_click">Download App</a>
+      <button class="sticky-app-dismiss" type="button" aria-label="Dismiss app download bar">×</button>
     </div>
   `;
 
@@ -732,7 +1183,7 @@ function injectStickyAppBar() {
 
   document.body.appendChild(wrapper);
   document.body.classList.add("has-sticky-app-cta");
-  wrapper.classList.toggle("is-hidden", hasVisibleModal());
+  wrapper.classList.add("is-hidden");
 
   const dismissButton = wrapper.querySelector(".sticky-app-dismiss");
   dismissButton?.addEventListener("click", () => {
@@ -747,10 +1198,21 @@ function injectStickyAppBar() {
     document.querySelectorAll("form[data-zip-form], .hero-form, .zip-start-form, #estimate-form, .zip-search-row"),
   );
   if (!("IntersectionObserver" in window) || !blockers.length) {
+    window.addEventListener("scroll", () => {
+      wrapper.classList.toggle("is-hidden", window.scrollY < 360 || hasVisibleModal());
+    }, { passive: true });
     return;
   }
 
   const activeBlockers = new Set();
+  const syncStickyVisibility = () => {
+    const shouldHide =
+      activeBlockers.size > 0 ||
+      hasFocusedFormField() ||
+      hasVisibleModal() ||
+      window.scrollY < 360;
+    wrapper.classList.toggle("is-hidden", shouldHide);
+  };
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -759,11 +1221,7 @@ function injectStickyAppBar() {
         activeBlockers.delete(entry.target);
       }
     });
-
-    wrapper.classList.toggle(
-      "is-hidden",
-      activeBlockers.size > 0 || hasFocusedFormField() || hasVisibleModal(),
-    );
+    syncStickyVisibility();
   }, {
     threshold: 0.2,
     rootMargin: "0px 0px -140px 0px",
@@ -772,19 +1230,15 @@ function injectStickyAppBar() {
   blockers.forEach((blocker) => observer.observe(blocker));
 
   document.addEventListener("focusin", () => {
-    wrapper.classList.toggle(
-      "is-hidden",
-      activeBlockers.size > 0 || hasFocusedFormField() || hasVisibleModal(),
-    );
+    syncStickyVisibility();
   });
   document.addEventListener("focusout", () => {
     window.setTimeout(() => {
-      wrapper.classList.toggle(
-        "is-hidden",
-        activeBlockers.size > 0 || hasFocusedFormField() || hasVisibleModal(),
-      );
+      syncStickyVisibility();
     }, 0);
   });
+  window.addEventListener("scroll", syncStickyVisibility, { passive: true });
+  syncStickyVisibility();
 }
 
 function hasFocusedFormField() {
@@ -974,10 +1428,18 @@ function configureSmartAppPage() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  ensureDownloadAppNavLink();
+  standardizePrimaryNav();
+  enhanceMobileNav();
   mountReusableSections();
+  const homeHowItWorks = document.querySelector("[data-home-how-it-works]");
+  if (homeHowItWorks) {
+    homeHowItWorks.innerHTML = createHowItWorksMarkup();
+  }
+  enhanceFeaturePageHeroes();
   enhanceStateGuidePage();
+  enhanceFaqPage();
   enhanceLandingFunnelPages();
+  enhanceCommunitySolarPage();
   enhanceBlogPages();
   configureAppDownloadLinks();
   addAndroidButtonsToStoreOnlyRows();

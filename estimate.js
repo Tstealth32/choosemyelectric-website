@@ -243,6 +243,7 @@ async function refreshMarket({
   };
 
   setStatus("Loading market data for your ZIP code...", "info");
+  showEstimateLoadingState();
 
   const response = await fetch("/api/market", {
     cache: "no-store",
@@ -316,6 +317,30 @@ async function refreshMarket({
 
   if (triggeredByUtilityChoice) {
     revealLoadedMarket();
+  }
+}
+
+function showEstimateLoadingState() {
+  if (estimateElements.quickWinPanel) {
+    estimateElements.quickWinPanel.hidden = true;
+    estimateElements.quickWinPanel.classList.remove("is-active");
+  }
+
+  if (estimateElements.resultsSubtitle) {
+    estimateElements.resultsSubtitle.textContent = "Loading live comparison data...";
+  }
+
+  if (estimateElements.sourceNote) {
+    estimateElements.sourceNote.textContent = "Checking utility context, benchmark data, and available live offers for this ZIP.";
+  }
+
+  if (estimateElements.offerResults) {
+    estimateElements.offerResults.innerHTML = `
+      <div class="estimate-skeleton-grid" aria-hidden="true">
+        <div class="estimate-skeleton-card"></div>
+        <div class="estimate-skeleton-card"></div>
+      </div>
+    `;
   }
 }
 
@@ -533,7 +558,22 @@ function renderResults({ currentRateBasis = "" } = {}) {
     estimateElements.sourceNote.textContent =
       "Choose My Electric compares live market data when it is available.";
     estimateElements.offerResults.innerHTML =
-      '<p class="empty-state">Enter your ZIP code to start your first estimate.</p>';
+      `
+        <article class="offer-card">
+          <div class="offer-head">
+            <div>
+              <p class="offer-kicker">Start here</p>
+              <h3>Enter your ZIP code to start your first estimate</h3>
+              <p class="offer-plan">We will load the correct market flow and show live web rates where available.</p>
+            </div>
+            <div class="offer-money">
+              <strong>ZIP first</strong>
+              <span>then compare</span>
+            </div>
+          </div>
+          <p class="offer-copy">The website is best for a fast comparison. The app is there when you want bill upload, plan tracking, and alerts before your rate expires.</p>
+        </article>
+      `;
     return;
   }
 
@@ -553,10 +593,24 @@ function renderResults({ currentRateBasis = "" } = {}) {
       market.errorMessage ||
       "This ZIP can map to more than one utility area, so we wait for your selection before showing plans.";
     estimateElements.offerResults.innerHTML =
-      `<p class="empty-state">${escapeHtml(
-        market.errorMessage ||
-          `Select ${selectionLabel} above, then we will load the correct supplier plans and savings.`,
-      )}</p>`;
+      `
+        <article class="offer-card">
+          <div class="offer-head">
+            <div>
+              <p class="offer-kicker">One more step</p>
+              <h3>Choose ${escapeHtml(selectionLabel)} to continue</h3>
+              <p class="offer-plan">${escapeHtml(
+                market.errorMessage ||
+                  `Select ${selectionLabel} above, then we will load the correct supplier plans and savings.`,
+              )}</p>
+            </div>
+            <div class="offer-money">
+              <strong>Utility first</strong>
+              <span>then live rates</span>
+            </div>
+          </div>
+        </article>
+      `;
     return;
   }
 
@@ -604,8 +658,8 @@ function renderResults({ currentRateBasis = "" } = {}) {
             We found your market, but there are no live comparable offers showing right now. Use the app for bill upload, plan tracking, and rate expiration alerts, or browse the state guides to understand the market before you compare again.
           </p>
           <div class="button-row">
-            <a class="button button-primary" href="/app" data-app-download-link>Download the App</a>
-            <a class="button button-secondary" href="/electric-rates-by-state">Browse State Guides</a>
+            <a class="button button-primary premium-button" href="/app" data-app-download-link>Download the App</a>
+            <a class="button button-secondary secondary-glass-button" href="/electric-rates-by-state">Browse State Guides</a>
           </div>
         </article>
       `,
@@ -755,12 +809,12 @@ function renderOfferCard(offer, isBestOffer) {
       <div class="button-row">
         ${
           offer.signupUrl
-            ? `<a class="button button-primary" href="${escapeAttribute(offer.signupUrl)}" target="_blank" rel="noreferrer">View Plan</a>`
+            ? `<a class="button button-primary premium-button" href="${escapeAttribute(offer.signupUrl)}" target="_blank" rel="noreferrer">View Plan</a>`
             : ""
         }
         ${
           offer.detailsUrl && offer.detailsUrl !== offer.signupUrl
-            ? `<a class="button button-secondary" href="${escapeAttribute(offer.detailsUrl)}" target="_blank" rel="noreferrer">Plan Details</a>`
+            ? `<a class="button button-secondary secondary-glass-button" href="${escapeAttribute(offer.detailsUrl)}" target="_blank" rel="noreferrer">Plan Details</a>`
             : ""
         }
       </div>
@@ -808,7 +862,7 @@ function renderSupplierContactCard(contact) {
       </p>
 
       <div class="button-row">
-        <a class="button button-primary" href="${escapeAttribute(contact.websiteUrl)}" target="_blank" rel="noreferrer">Visit Supplier</a>
+        <a class="button button-primary premium-button" href="${escapeAttribute(contact.websiteUrl)}" target="_blank" rel="noreferrer">Visit Supplier</a>
       </div>
     </article>
   `;
@@ -1551,8 +1605,8 @@ function showCommunitySolarOnlyEstimateResult(stateCode, zipCode) {
         We may not have live web supplier rates for this ZIP today, but official shared-solar or bill-credit programs may still be available. Use the guide for verified program paths, or use the app to track your plan and check future options.
       </p>
       <div class="button-row">
-        <a class="button button-primary" href="/community-solar?zip=${encodeURIComponent(zipCode)}">Check Community Solar</a>
-        <a class="button button-secondary" href="/app" data-app-download-link>Download the App</a>
+        <a class="button button-primary premium-button" href="/community-solar?zip=${encodeURIComponent(zipCode)}">Check Community Solar</a>
+        <a class="button button-secondary secondary-glass-button" href="/app" data-app-download-link>Download the App</a>
       </div>
     </article>
   `;
@@ -1594,8 +1648,8 @@ function showUnsupportedEstimateResult(zipCode) {
         We could not map ZIP ${escapeHtml(zipCode)} to one of our current website comparison paths yet. You can still use the app to track your plan, upload your bill, and come back faster when it is time to compare again.
       </p>
       <div class="button-row">
-        <a class="button button-primary" href="/app" data-app-download-link>Download the App</a>
-        <a class="button button-secondary" href="/electric-rates-by-state">Browse State Guides</a>
+        <a class="button button-primary premium-button" href="/app" data-app-download-link>Download the App</a>
+        <a class="button button-secondary secondary-glass-button" href="/electric-rates-by-state">Browse State Guides</a>
       </div>
     </article>
   `;
