@@ -302,9 +302,9 @@ function standardizePrimaryNav() {
   navs.forEach((nav) => {
     nav.innerHTML = `
       <a href="/estimate">Compare Rates</a>
-      <a href="/electric-rates-by-state">States</a>
+      <a href="/electric-rates-by-state">State Pages</a>
       <a href="/community-solar">Community Solar</a>
-      <a href="/blog">Blog</a>
+      <a href="/rate-expiration-alerts">Rate Alerts</a>
       <a href="/electricity-supplier-faq">FAQ</a>
       <a class="site-nav-app" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>Download App</a>
     `;
@@ -388,7 +388,7 @@ function createWebsiteVsAppMarkup({
             <span class="comparison-card-badge">Fast start</span>
           </div>
           <h3>Fast web comparison</h3>
-          <p class="comparison-card-copy">Use the website when you want a clean ZIP-first check without building out a full profile first.</p>
+          <p class="comparison-card-copy">Use the website when you want a clear ZIP-first check without building a full profile first.</p>
           <ul class="comparison-list">
             <li>Compare rates by ZIP</li>
             <li>Review basic supplier options</li>
@@ -730,8 +730,8 @@ function createBottomFunnelCtaMarkup() {
     <section class="closing-panel closing-panel-app app-cta-panel">
       <div>
         <p class="eyebrow">Keep going</p>
-        <h2>Use the website to compare. Use the app to track your plan.</h2>
-        <p>Compare rates on the web. Track your plan in the app before your rate jumps.</p>
+        <h2>Keep the app after you compare.</h2>
+        <p>Compare rates on the web, then keep your plan details and reminders in the app before renewal pricing catches you late.</p>
         <div class="cta-row">
           <a class="button button-secondary secondary-glass-button" href="/estimate" data-compare-cta>Compare Rates</a>
           <a class="button button-primary premium-button" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>Download App</a>

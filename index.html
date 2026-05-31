@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Compare Electric Rates by State and ZIP Code | ChooseMyElectric</title>
+  <title>Compare Electric Rates by ZIP | Track Your Plan in the App | Choose My Electric</title>
   <meta
     name="description"
-    content="Compare electric rates, supplier benchmarks, and switching guidance across Pennsylvania, Texas, Ohio, Maryland, Connecticut, DC, Massachusetts, Maine, New Jersey, Rhode Island, Illinois, and New York."
+    content="Compare electric supplier rates by ZIP, track your current plan in the app, get rate expiration alerts, and explore community solar savings with Choose My Electric."
   >
   <meta name="theme-color" content="#0f172a">
   <link rel="canonical" href="https://www.choosemyelectric.com/">
   <link rel="me" href="https://www.facebook.com/choose.my.electric">
-  <meta property="og:title" content="Compare Electric Rates by State and ZIP Code | ChooseMyElectric">
-  <meta property="og:description" content="Compare electric rates, supplier benchmarks, and deregulated market guides across 12 supported electricity markets.">
+  <meta property="og:title" content="Compare Electric Rates by ZIP | Track Your Plan in the App | Choose My Electric">
+  <meta property="og:description" content="Compare rates on the web, track your plan in the app, get bill upload matching, and stay ahead of rate expiration.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.choosemyelectric.com/">
   <meta property="og:site_name" content="Choose My Electric">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Compare Electric Rates by State and ZIP Code | ChooseMyElectric">
-  <meta name="twitter:description" content="Compare electricity plans by ZIP where available, then use expanded state guides and the app for alerts before your rate expires.">
+  <meta name="twitter:title" content="Compare Electric Rates by ZIP | Track Your Plan in the App | Choose My Electric">
+  <meta name="twitter:description" content="Compare rates on the web, track your plan in the app, get bill upload matching, and stay ahead of rate expiration.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
@@ -68,21 +68,22 @@
         <a href="/community-solar">Community Solar</a>
         <a href="/rate-expiration-alerts">Rate Alerts</a>
         <a href="/electricity-supplier-faq">FAQ</a>
-        <a href="/blog">Blog</a>
       </nav>
     </header>
 
-    <main id="top">
-      <section class="hero section">
-        <div class="hero-copy gradient-hero reveal">
-          <p class="eyebrow">Compare on the web. Track in the app.</p>
-          <h1>Stop your electric rate from sneaking up on you.</h1>
-          <p class="hero-text">
-            Compare electric rates by ZIP code, then use the app to track your plan, upload your bill, and get alerts before your rate expires.
+    <main id="top" class="home-main">
+      <section class="section hero home-hero">
+        <div class="hero-copy gradient-hero home-hero-copy reveal">
+          <p class="eyebrow">Save smarter. Live cleaner.</p>
+          <h1 class="home-hero-title">
+            <span>Compare on the web.</span>
+            <span class="accent-line">Track in the app.</span>
+          </h1>
+          <p class="hero-text home-hero-text">
+            Compare electric rates by ZIP code, track your current supplier, get bill-upload-based matches, and receive rate expiration alerts so you never overpay.
           </p>
-          <p class="hero-subtext">Compare rates on the web. Track your plan in the app before your rate jumps.</p>
 
-          <form class="hero-form" action="/estimate" method="get" data-zip-form>
+          <form class="hero-form home-zip-form" action="/estimate" method="get" data-zip-form>
             <label class="field">
               <span>Enter your ZIP code</span>
               <input
@@ -92,345 +93,439 @@
                 inputmode="numeric"
                 maxlength="5"
                 autocomplete="postal-code"
-                placeholder="17111"
+                placeholder="18347"
                 data-zip-input
                 required
               >
             </label>
-            <button class="button button-primary premium-button" type="submit">Compare Rates by ZIP</button>
+            <button class="button button-primary premium-button" type="submit">Compare Rates</button>
           </form>
 
-          <div class="cta-row">
-            <a class="button button-secondary secondary-glass-button" href="/app" data-app-download-link>
-              Download the App
-            </a>
+          <div class="cta-row home-hero-cta">
+            <a class="button button-secondary secondary-glass-button" href="/app" data-app-download-link>Download App</a>
+            <a class="button button-secondary secondary-glass-button" href="/community-solar">Explore Community Solar</a>
           </div>
-          <div class="trust-strip" aria-label="Trust highlights">
-            <span>No door-to-door sales</span>
-            <span>ZIP-based comparison</span>
-            <span>Bill upload in the app</span>
-            <span>Rate expiration alerts</span>
+
+          <div class="home-store-row">
+            <a class="home-store-button" data-store-link="ios" href="https://apps.apple.com/us/app/choose-my-electric/id6762017797">Apple App Store</a>
+            <a class="home-store-button" data-store-link="android" href="https://play.google.com/store/apps/details?id=com.choosemyelectric.app&pcampaignid=web_share">Google Play</a>
+          </div>
+
+          <div class="trust-strip home-hero-trust" aria-label="Trust highlights">
+            <span>No spam or calls</span>
+            <span>100% free to use</span>
+            <span>Trusted by thousands</span>
             <span>Your utility still delivers power</span>
           </div>
         </div>
 
         <div class="hero-visual reveal reveal-delay-1" aria-hidden="true">
-          <div class="hero-visual-stack">
-          <div class="floating-dashboard-card glass-card floating-dashboard-card-left">
-            <span class="floating-dashboard-chip">Smart bill assistant</span>
-            <strong>Upload bill for a better match</strong>
-            <p>Use your actual supplier, rate, and usage when it is time to compare more closely.</p>
-          </div>
-
-          <div class="phone-shell app-phone-mockup">
-            <div class="phone-notch"></div>
-            <div class="phone-screen">
-              <div class="mini-card mini-card-accent">
-                <p class="mini-label">Electric Rate Alert</p>
-                <h2>Expires in 18 days</h2>
-                <div class="mini-stat-grid">
-                  <div>
-                    <span class="mini-stat-label">Current rate</span>
-                    <strong>10.8&cent; / kWh</strong>
+          <div class="home-phone-lineup">
+            <article class="phone-shell app-phone-mockup home-phone home-phone-alert">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="mini-card mini-card-accent">
+                  <p class="mini-label">Rate Alerts</p>
+                  <h2>Stay ahead of your rate</h2>
+                  <p class="hero-panel-copy">We track your current plan and remind you before your contract expires.</p>
+                </div>
+                <div class="mini-card">
+                  <div class="mini-step">
+                    <span>30</span>
+                    <div>
+                      <strong>30 days before expiration</strong>
+                      <p>Get enough time to compare again before a low rate turns into a higher renewal.</p>
+                    </div>
                   </div>
-                  <div>
-                    <span class="mini-stat-label">Next move</span>
-                    <strong>Compare before renewal</strong>
+                  <div class="mini-step">
+                    <span>↺</span>
+                    <div>
+                      <strong>Manage alerts in the app</strong>
+                      <p>Push notification, email, or in-app reminders depending on your preference.</p>
+                    </div>
                   </div>
                 </div>
               </div>
+            </article>
 
-              <div class="mini-card">
-                <div class="mini-step">
-                  <span>+</span>
-                  <div>
-                    <strong>Upload bill</strong>
-                    <p>Use your real supplier, rate, and usage details for a better match.</p>
+            <article class="phone-shell app-phone-mockup home-phone home-phone-center">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="mini-card mini-card-accent">
+                  <p class="mini-label">Current Supplier Snapshot</p>
+                  <h2>City Power &amp; Gas PA</h2>
+                  <div class="mini-stat-grid">
+                    <div>
+                      <span class="mini-stat-label">Savings vs default</span>
+                      <strong>$6.09 / mo</strong>
+                    </div>
+                    <div>
+                      <span class="mini-stat-label">Service ZIP</span>
+                      <strong>18347</strong>
+                    </div>
                   </div>
                 </div>
-                <div class="mini-step">
-                  <span>•</span>
-                  <div>
-                    <strong>Track current plan</strong>
-                    <p>Keep your current supplier and contract timing in one place.</p>
+                <div class="mini-card">
+                  <div class="mini-stat-grid">
+                    <div>
+                      <span class="mini-stat-label">Rate</span>
+                      <strong>11.51&cent; / kWh</strong>
+                    </div>
+                    <div>
+                      <span class="mini-stat-label">Utility</span>
+                      <strong>PPL Electric Utilities</strong>
+                    </div>
+                  </div>
+                  <div class="mini-step">
+                    <span>6</span>
+                    <div>
+                      <strong>6 months remaining</strong>
+                      <p>Track your contract timing and know when to compare again.</p>
+                    </div>
                   </div>
                 </div>
-                <div class="mini-step">
-                  <span>!</span>
-                  <div>
-                    <strong>Renewal alert</strong>
-                    <p>Get reminded before a low rate turns into a higher renewal.</p>
-                  </div>
+                <div class="mini-card mini-card-emerald">
+                  <p class="mini-label">Additional Solar Savings</p>
+                  <strong>North Jersey Community Solar Match</strong>
+                  <p>$172–$258 per year</p>
                 </div>
               </div>
+            </article>
 
-              <div class="ticker">
-                <span>Pennsylvania</span>
-                <span>Texas</span>
-                <span>Ohio</span>
-                <span>Maryland</span>
-                <span>Connecticut</span>
-                <span>New York</span>
+            <article class="phone-shell app-phone-mockup home-phone home-phone-compare">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="mini-card mini-card-accent">
+                  <p class="mini-label">Supplier Comparison</p>
+                  <h2>Top recommended plan</h2>
+                  <p class="hero-panel-copy">Compare suppliers, contract terms, and long-game savings before you switch.</p>
+                </div>
+                <div class="mini-card">
+                  <p class="mini-label">#1 Recommended Plan</p>
+                  <strong>Clearview Electric, Inc.</strong>
+                  <div class="mini-stat-grid">
+                    <div>
+                      <span class="mini-stat-label">Rate</span>
+                      <strong>18.06&cent; / kWh</strong>
+                    </div>
+                    <div>
+                      <span class="mini-stat-label">Term</span>
+                      <strong>6 months</strong>
+                    </div>
+                  </div>
+                  <div class="mini-step">
+                    <span>$</span>
+                    <div>
+                      <strong>Est. savings $158.42 / yr</strong>
+                      <p>Useful annual math and monthly savings context before you pick a new supplier.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="mini-card mini-card-emerald">
+                  <p class="mini-label">Community Solar</p>
+                  <strong>Stack extra savings without switching</strong>
+                  <p>Bill credits may add more savings on top of a better supply rate.</p>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="floating-dashboard-card glass-card floating-dashboard-card-right">
-            <span class="floating-dashboard-chip floating-dashboard-chip-emerald">Rate alert</span>
-            <strong>Track your plan in the app</strong>
-            <p>Keep the good rate in view before it turns into a more expensive renewal.</p>
-          </div>
-          <div class="orb orb-one"></div>
-          <div class="orb orb-two"></div>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="section section-grid" id="zip-search">
-        <div data-home-how-it-works></div>
-        <p class="supporting-note reveal">Tip: the instant web estimate is strongest in Pennsylvania, Texas, and Ohio today. The rest of the supported markets are linked below as state guides.</p>
-      </section>
-
-      <section class="section split-section">
-        <div class="split-card reveal">
-          <p class="eyebrow">Get more in the app</p>
-          <h2>Get More Features in the App</h2>
-          <p>
-            The website is intentionally limited to ZIP-based comparison. The app is where Choose My Electric becomes
-            more useful day to day.
-          </p>
-          <ul>
-            <li>Automatic rate expiration alerts</li>
-            <li>Track your electricity plan</li>
-            <li>Upload your bill for better matches</li>
-            <li>Faster switching when it is time to compare again</li>
-          </ul>
-          <div class="cta-row">
-            <a class="button button-primary" data-store-link="ios" href="https://apps.apple.com/us/app/choose-my-electric/id6762017797">
-              Download on the App Store
-            </a>
-          </div>
-          <p class="supporting-note" data-store-status>Available now on iPhone.</p>
-        </div>
-
-        <div class="split-card split-card-accent reveal reveal-delay-1">
-          <p class="eyebrow">How It Works</p>
-          <h2>Compare rates on the web, then switch and stay ahead in the app.</h2>
-          <div class="faq-support-grid">
+      <section class="section home-dashboard-section reveal">
+        <div class="home-dashboard-strip">
+          <article class="home-dashboard-stat home-dashboard-current">
+            <span class="home-dashboard-icon" aria-hidden="true">⚡</span>
             <div>
-              <strong>1. Enter your ZIP code or upload your bill</strong>
-              <p>Use the web estimate for a fast start, or move into the app when you want bill-level detail.</p>
+              <span class="home-dashboard-label">Current supplier</span>
+              <strong>City Power &amp; Gas PA</strong>
+              <p>Rate: 11.51&cent; / kWh &nbsp;|&nbsp; Utility: PPL Electric Utilities</p>
+              <span class="home-dashboard-accent">6 months remaining</span>
             </div>
-            <div>
-              <strong>2. Compare electricity plans</strong>
-              <p>Review electricity suppliers, rate levels, utility context, and plan details for your market.</p>
-            </div>
-            <div>
-              <strong>3. Switch providers and save money</strong>
-              <p>Choose a better fit, avoid high renewal rates, and keep the app installed for future rate alerts.</p>
-            </div>
+          </article>
+          <article class="home-dashboard-stat">
+            <span class="home-dashboard-label">Est. monthly savings</span>
+            <strong>$6.09</strong>
+            <p>vs utility default</p>
+          </article>
+          <article class="home-dashboard-stat">
+            <span class="home-dashboard-label">Service ZIP</span>
+            <strong>18347</strong>
+            <p>Pennsylvania</p>
+          </article>
+          <div class="home-dashboard-action">
+            <a class="button button-secondary secondary-glass-button" href="/estimate">See Supplier Offers</a>
           </div>
         </div>
+
+        <div class="home-dashboard-grid">
+          <article class="home-dashboard-card home-dashboard-card-primary reveal">
+            <div class="home-dashboard-card-top">
+              <div>
+                <span class="home-dashboard-label">Top recommended</span>
+                <strong>Clearview Electric, Inc.</strong>
+              </div>
+              <span class="home-dashboard-chip">Top pick</span>
+            </div>
+            <p class="home-dashboard-rate">18.09&cent; / kWh <span>| 6 months</span></p>
+            <p>Estimated savings <strong>$158.42 / yr</strong></p>
+            <p>Save vs utility default $12.78 / mo</p>
+            <a class="button button-secondary secondary-glass-button" href="/estimate">View Plan Details</a>
+          </article>
+
+          <article class="home-dashboard-card reveal reveal-delay-1">
+            <div class="home-dashboard-card-top">
+              <div>
+                <span class="home-dashboard-label">Community solar savings</span>
+                <strong>North Jersey Community Solar Match</strong>
+              </div>
+              <span class="home-dashboard-icon-badge" aria-hidden="true">☀</span>
+            </div>
+            <p class="home-dashboard-savings">$172–$258 <span>/ year</span></p>
+            <div class="home-dashboard-tags">
+              <span>No switch required</span>
+              <span>Bill credits</span>
+            </div>
+            <a class="button button-secondary secondary-glass-button" href="/community-solar">Learn More</a>
+          </article>
+
+          <article class="home-dashboard-card reveal reveal-delay-2">
+            <div class="home-dashboard-card-top">
+              <div>
+                <span class="home-dashboard-label">Rate expiration alerts</span>
+                <strong>Stay ahead of your renewal</strong>
+              </div>
+              <span class="home-dashboard-icon-badge" aria-hidden="true">⏰</span>
+            </div>
+            <p>We track your current supplier and notify you before your deal ends so you have time to compare again.</p>
+            <a class="button button-secondary secondary-glass-button" href="/rate-expiration-alerts">Set Rate Alerts</a>
+          </article>
+
+          <article class="home-dashboard-card reveal">
+            <div class="home-dashboard-card-top">
+              <div>
+                <span class="home-dashboard-label">Bill upload matching</span>
+                <strong>Upload a recent bill</strong>
+              </div>
+              <span class="home-dashboard-icon-badge" aria-hidden="true">▣</span>
+            </div>
+            <p>Use your actual utility, supplier, and usage to get more accurate comparisons when it matters.</p>
+            <a class="button button-secondary secondary-glass-button" href="/upload-your-bill-to-compare-rates">Upload a Bill</a>
+          </article>
+        </div>
       </section>
 
-      <section class="section reveal reveal-delay-1">
-        <div data-app-feature-preview></div>
+      <section class="section home-proof-section reveal">
+        <div class="home-proof-bar">
+          <article class="home-proof-card">
+            <strong>10,000+</strong>
+            <span>Homeowners and renters using Choose My Electric tools</span>
+          </article>
+          <article class="home-proof-card">
+            <strong>Independent</strong>
+            <span>Unbiased supplier comparison with no door-to-door sales angle</span>
+          </article>
+          <article class="home-proof-card">
+            <strong>App + web</strong>
+            <span>Compare rates on the site, then track your plan in the app</span>
+          </article>
+          <article class="home-proof-card">
+            <strong>12 states</strong>
+            <span>Supported deregulated electricity markets and growing</span>
+          </article>
+        </div>
       </section>
 
-      <section class="section reveal">
-        <div data-web-app-comparison></div>
-      </section>
-
-      <section class="section reveal">
-        <div data-trust-disclosure></div>
-      </section>
-
-      <section class="section section-grid">
+      <section class="section home-feature-band">
         <div class="section-heading reveal">
-          <p class="eyebrow">Compare rates by state</p>
-          <h2>Use state-specific pages to compare electricity markets faster</h2>
+          <p class="eyebrow">What you get</p>
+          <h2>Stay ahead of your bill with tools that actually fit the way people shop.</h2>
+          <p class="section-text">Compare on the web, track in the app, and keep your next move clear before your contract ends.</p>
         </div>
 
-        <div class="link-card-grid">
-          <article class="link-card reveal">
-            <p class="eyebrow-link">Pennsylvania</p>
-            <h3>Compare Pennsylvania electric rates</h3>
-            <p>Review Pennsylvania electric rates, compare suppliers, and move into the app for alerts before your rate expires.</p>
-            <a class="text-link" href="/pennsylvania-electric-rates">Pennsylvania electric rates</a>
+        <div class="home-feature-grid">
+          <article class="home-feature-card reveal">
+            <div class="home-feature-icon" aria-hidden="true">↑</div>
+            <h3>Upload. Match. Save.</h3>
+            <p>Upload a recent bill and use your actual supplier, rate, utility, and usage to get a better comparison when it matters.</p>
+            <a class="text-link" href="/upload-your-bill-to-compare-rates">Learn about bill matching</a>
           </article>
-
-          <article class="link-card reveal reveal-delay-1">
-            <p class="eyebrow-link">Ohio</p>
-            <h3>Compare Ohio electric rates</h3>
-            <p>Shop Ohio electricity suppliers, understand plan terms, and use the app to stay ahead of rate expiration.</p>
-            <a class="text-link" href="/ohio-electric-rates">Ohio electric rates</a>
-          </article>
-
-          <article class="link-card reveal reveal-delay-2">
-            <p class="eyebrow-link">Texas</p>
-            <h3>Compare Texas electricity plans</h3>
-            <p>See Texas electricity plans, compare suppliers by ZIP code, and keep the app ready for tracking and alerts.</p>
-            <a class="text-link" href="/texas-electricity-plans">Texas electricity plans</a>
-          </article>
-
-          <article class="link-card reveal">
-            <p class="eyebrow-link">Maryland</p>
-            <h3>Compare Maryland electric rates</h3>
-            <p>Use the Maryland guide to understand utility-first supplier shopping across BGE, Pepco, Delmarva, SMECO, and more.</p>
-            <a class="text-link" href="/maryland-electric-rates">Maryland electric rates</a>
-          </article>
-
-          <article class="link-card reveal reveal-delay-1">
-            <p class="eyebrow-link">Connecticut</p>
-            <h3>Compare Connecticut electric rates</h3>
-            <p>Review Connecticut benchmarks, billed supplier snapshots, and Eversource versus UI territory differences.</p>
-            <a class="text-link" href="/connecticut-electric-rates">Connecticut electric rates</a>
-          </article>
-
-          <article class="link-card reveal reveal-delay-2">
-            <p class="eyebrow-link">District of Columbia</p>
-            <h3>Compare DC electric rates</h3>
-            <p>Use the District of Columbia guide to understand Pepco delivery and official DC Power Connect offers.</p>
-            <a class="text-link" href="/district-of-columbia-electric-rates">District of Columbia electric rates</a>
-          </article>
-
-          <article class="link-card reveal">
-            <p class="eyebrow-link">Massachusetts</p>
-            <h3>Compare Massachusetts electric rates</h3>
-            <p>See how utility selection and municipal light plant carve-outs affect Massachusetts supplier shopping.</p>
-            <a class="text-link" href="/massachusetts-electric-rates">Massachusetts electric rates</a>
-          </article>
-
-          <article class="link-card reveal reveal-delay-1">
-            <p class="eyebrow-link">Maine</p>
-            <h3>Compare Maine electric rates</h3>
-            <p>Review Maine utility-district context and published supplier samples before assuming one statewide answer.</p>
-            <a class="text-link" href="/maine-electric-rates">Maine electric rates</a>
-          </article>
-
-          <article class="link-card reveal reveal-delay-2">
-            <p class="eyebrow-link">New Jersey</p>
-            <h3>Compare New Jersey electric rates</h3>
-            <p>Understand how PSE&amp;G, JCP&amp;L, ACE, and Rockland territories shape New Jersey supplier boards.</p>
-            <a class="text-link" href="/new-jersey-electric-rates">New Jersey electric rates</a>
-          </article>
-
-          <article class="link-card reveal">
-            <p class="eyebrow-link">Rhode Island</p>
-            <h3>Compare Rhode Island electric rates</h3>
-            <p>See Rhode Island Energy competitive supply context and why this market is narrower than many others.</p>
-            <a class="text-link" href="/rhode-island-electric-rates">Rhode Island electric rates</a>
-          </article>
-
-          <article class="link-card reveal reveal-delay-1">
-            <p class="eyebrow-link">Illinois</p>
-            <h3>Compare Illinois electric rates</h3>
-            <p>Use the Illinois guide to compare by service area across ComEd, Ameren Illinois, and MidAmerican.</p>
-            <a class="text-link" href="/illinois-electric-rates">Illinois electric rates</a>
-          </article>
-
-          <article class="link-card reveal reveal-delay-2">
-            <p class="eyebrow-link">New York</p>
-            <h3>Compare New York electric rates</h3>
-            <p>Review New York utility benchmarks and supplier directory context while the public offer board is offline.</p>
-            <a class="text-link" href="/new-york-electric-rates">New York electric rates</a>
-          </article>
-          <article class="link-card reveal">
-            <p class="eyebrow-link">Big city guide</p>
-            <h3>Houston electricity rates</h3>
-            <p>Follow CenterPoint territory context and compare Houston-area plan timing before a current rate goes stale.</p>
-            <a class="text-link" href="/texas/houston-electricity-rates">Houston electricity rates</a>
-          </article>
-          <article class="link-card reveal reveal-delay-1">
-            <p class="eyebrow-link">Community solar</p>
-            <h3>Community solar near me</h3>
-            <p>Learn how community solar for renters and homeowners may work, how solar bill credits show up, and what to check before you sign up.</p>
-            <a class="text-link" href="/community-solar">Community solar near me</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section section-grid">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Learn more</p>
-          <h2>Build confidence before you switch electric suppliers</h2>
-        </div>
-
-        <div class="link-card-grid">
-          <article class="link-card reveal">
-            <h3>How to switch electric suppliers</h3>
-            <p>Learn the switching process, what changes, and why comparing regularly matters.</p>
-            <a class="text-link" href="/how-to-switch-electric-suppliers">Read the switching guide</a>
-          </article>
-
-          <article class="link-card reveal reveal-delay-1">
-            <h3>Electric rate expiration alerts</h3>
-            <p>Understand why promotional electricity rates jump and how the app helps you avoid overpaying.</p>
+          <article class="home-feature-card reveal reveal-delay-1">
+            <div class="home-feature-icon" aria-hidden="true">!</div>
+            <h3>Rate alerts that work for you</h3>
+            <p>Get notified before your contract ends so you have time to compare again instead of getting caught by renewal pricing.</p>
             <a class="text-link" href="/rate-expiration-alerts">Explore rate alerts</a>
           </article>
-
-          <article class="link-card reveal reveal-delay-2">
-            <h3>Upload your bill to compare rates</h3>
-            <p>See how bill uploads in the app help match your real usage to better electricity plans.</p>
-            <a class="text-link" href="/upload-your-bill-to-compare-rates">Learn about bill uploads</a>
+          <article class="home-feature-card reveal reveal-delay-2">
+            <div class="home-feature-icon" aria-hidden="true">◎</div>
+            <h3>Track your plan in real time</h3>
+            <p>Keep your current supplier snapshot, contract timing, and expected savings together instead of starting over from memory.</p>
+            <a class="text-link" href="/app" data-app-download-link>See the app</a>
           </article>
-
-          <article class="link-card reveal">
-            <h3>Compare electric rates by ZIP code</h3>
-            <p>Use ZIP-first shopping to review suppliers near you before you commit to a new plan.</p>
-            <a class="text-link" href="/compare-electric-rates-by-zip">Explore ZIP-based comparison</a>
-          </article>
-
-          <article class="link-card reveal reveal-delay-1">
-            <h3>Electricity supplier FAQ</h3>
-            <p>Get quick answers about electricity suppliers, rate comparisons, switching, and supported states.</p>
-            <a class="text-link" href="/electricity-supplier-faq">Read the FAQ</a>
-          </article>
-
-          <article class="link-card reveal reveal-delay-2">
-            <h3>Electricity tips and guides</h3>
-            <p>Read blog articles about fixed vs. variable rates, when to switch, and how to avoid high electric bills.</p>
-            <a class="text-link" href="/blog">Visit the blog</a>
-          </article>
-          <article class="link-card reveal">
-            <h3>Community solar near me</h3>
-            <p>See how solar without rooftop panels differs from supplier switching, and what to check before you enroll with a local solar farm project.</p>
+          <article class="home-feature-card reveal">
+            <div class="home-feature-icon" aria-hidden="true">☼</div>
+            <h3>Community solar without switching</h3>
+            <p>Check for bill-credit solar savings that may stack on top of your electric supply plan, with no rooftop panels required.</p>
             <a class="text-link" href="/community-solar">Explore community solar</a>
           </article>
         </div>
       </section>
 
-      <section class="section faq-section">
+      <section class="section home-ecosystem-section">
+        <div class="home-ecosystem-card reveal">
+          <div class="home-browser-mockup" aria-hidden="true">
+            <div class="home-browser-topbar">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="home-browser-canvas">
+              <div class="home-browser-panel home-browser-panel-primary">
+                <p class="mini-label">Compare on the web</p>
+                <strong>Find the right plan. Save every month.</strong>
+                <span>ZIP-first shopping with supplier comparisons and state-aware context.</span>
+              </div>
+              <div class="home-browser-panel">
+                <p class="mini-label">Track in the app</p>
+                <strong>Current supplier snapshot</strong>
+                <span>Rate, utility, months remaining, and reminders before expiration.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="home-ecosystem-copy">
+            <p class="eyebrow">Web + app. Better together.</p>
+            <h2>Compare on the web. Track in the app.</h2>
+            <p>
+              The website helps you compare electric supplier rates and explore state guides quickly. The app helps you
+              keep the good rate in sight with bill upload matching, current plan tracking, and expiration reminders.
+            </p>
+            <div class="home-ecosystem-list">
+              <div>
+                <strong>Start on the web</strong>
+                <p>Enter your ZIP code, compare plans, and learn your local market without friction.</p>
+              </div>
+              <div>
+                <strong>Manage in the app</strong>
+                <p>Track your current supplier, upload your bill, and know when it is time to compare again.</p>
+              </div>
+              <div>
+                <strong>Save every month</strong>
+                <p>Use rate alerts, supplier comparisons, and solar bill-credit opportunities to avoid overpaying.</p>
+              </div>
+            </div>
+            <div class="cta-row">
+              <a class="button button-primary premium-button" href="/estimate">Compare Rates</a>
+              <a class="button button-secondary secondary-glass-button" href="/app" data-app-download-link>Download App</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section home-states-section">
         <div class="section-heading reveal">
-          <p class="eyebrow">FAQ</p>
-          <h2>Quick answers before you compare electric rates</h2>
+          <p class="eyebrow">State pages</p>
+          <h2>Better electricity starts locally.</h2>
+          <p class="section-text">Compare rates where live ZIP shopping is strongest today, then move deeper with utility-aware guides across every supported market.</p>
         </div>
 
-        <div class="faq-list">
-          <details class="faq-item reveal" open>
-            <summary>Can I compare electric rates on the website?</summary>
-            <p>Yes. The website now includes live ZIP-based comparison where it is strongest today in Pennsylvania, Ohio, and Texas, plus expanded state guides across Maryland, Connecticut, DC, Massachusetts, Maine, New Jersey, Rhode Island, Illinois, and New York.</p>
-          </details>
-          <details class="faq-item reveal reveal-delay-1">
-            <summary>Do I need the app to switch electric suppliers?</summary>
-            <p>No, but the app is where you get rate expiration alerts, bill uploads, and ongoing tracking after the first comparison.</p>
-          </details>
-          <details class="faq-item reveal reveal-delay-2">
-            <summary>What happens when my electric rate expires?</summary>
-            <p>Many plans roll into higher pricing after a contract ends. That is why Choose My Electric focuses so much on comparing early and using alerts in the app.</p>
-          </details>
+        <div class="home-states-header reveal reveal-delay-1">
+          <div class="home-states-summary">
+            <strong>12 supported states</strong>
+            <p>Pennsylvania, Texas, Ohio, Maryland, Connecticut, District of Columbia, Massachusetts, Maine, New Jersey, Rhode Island, Illinois, and New York.</p>
+          </div>
+          <div class="cta-row home-states-cta">
+            <a class="button button-primary premium-button" href="/compare-electric-rates-by-zip">Compare by ZIP Code</a>
+            <a class="button button-secondary secondary-glass-button" href="/electric-rates-by-state">View State Pages</a>
+          </div>
+        </div>
+
+        <div class="home-state-grid">
+          <a class="home-state-card reveal" href="/pennsylvania-electric-rates"><span class="home-state-abbr">PA</span><strong>Pennsylvania</strong><span>Live ZIP comparison</span></a>
+          <a class="home-state-card reveal reveal-delay-1" href="/texas-electricity-plans"><span class="home-state-abbr">TX</span><strong>Texas</strong><span>Retail plan shopping</span></a>
+          <a class="home-state-card reveal reveal-delay-2" href="/ohio-electric-rates"><span class="home-state-abbr">OH</span><strong>Ohio</strong><span>Electric + gas guidance</span></a>
+          <a class="home-state-card reveal" href="/maryland-electric-rates"><span class="home-state-abbr">MD</span><strong>Maryland</strong><span>Utility-first comparison</span></a>
+          <a class="home-state-card reveal reveal-delay-1" href="/connecticut-electric-rates"><span class="home-state-abbr">CT</span><strong>Connecticut</strong><span>Benchmark + billed suppliers</span></a>
+          <a class="home-state-card reveal reveal-delay-2" href="/district-of-columbia-electric-rates"><span class="home-state-abbr">DC</span><strong>District of Columbia</strong><span>Pepco + DC Power Connect</span></a>
+          <a class="home-state-card reveal" href="/massachusetts-electric-rates"><span class="home-state-abbr">MA</span><strong>Massachusetts</strong><span>Utility-area market guide</span></a>
+          <a class="home-state-card reveal reveal-delay-1" href="/maine-electric-rates"><span class="home-state-abbr">ME</span><strong>Maine</strong><span>District-aware supplier guide</span></a>
+          <a class="home-state-card reveal reveal-delay-2" href="/new-jersey-electric-rates"><span class="home-state-abbr">NJ</span><strong>New Jersey</strong><span>PSE&amp;G, JCP&amp;L, ACE, RECO</span></a>
+          <a class="home-state-card reveal" href="/rhode-island-electric-rates"><span class="home-state-abbr">RI</span><strong>Rhode Island</strong><span>Competitive supply guidance</span></a>
+          <a class="home-state-card reveal reveal-delay-1" href="/illinois-electric-rates"><span class="home-state-abbr">IL</span><strong>Illinois</strong><span>ComEd + Ameren + MidAmerican</span></a>
+          <a class="home-state-card reveal reveal-delay-2" href="/new-york-electric-rates"><span class="home-state-abbr">NY</span><strong>New York</strong><span>Utility benchmark + supplier directory</span></a>
+        </div>
+      </section>
+
+      <section class="section home-solar-section">
+        <div class="home-solar-card reveal">
+          <div class="home-solar-copy">
+            <p class="eyebrow">Community solar</p>
+            <h2>Stack extra savings without switching.</h2>
+            <p>
+              Community solar may help you save with solar bill credits without putting panels on your roof. It can be a good fit for renters, condo owners, and households that do not want rooftop solar equipment.
+            </p>
+            <div class="home-solar-pill-row">
+              <span>No supplier switch required</span>
+              <span>Credits on your utility bill</span>
+              <span>Good for renters and homeowners</span>
+            </div>
+            <div class="cta-row">
+              <a class="button button-primary premium-button" href="/community-solar">Explore Community Solar</a>
+              <a class="button button-secondary secondary-glass-button" href="/estimate">Compare Electric Rates Instead</a>
+            </div>
+          </div>
+          <div class="home-solar-visual" aria-hidden="true">
+            <div class="home-solar-orb"></div>
+            <div class="home-solar-panel-array"></div>
+            <div class="home-solar-card-mini">
+              <p class="mini-label">Potential solar bill credits</p>
+              <strong>$172–$258 / yr</strong>
+              <span>Depends on the project, utility, and contract terms.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section home-how-section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">How it works</p>
+          <h2>Clear, simple steps from first search to long-term savings.</h2>
+        </div>
+
+        <div class="home-how-grid">
+          <article class="home-how-card reveal">
+            <span class="home-step-number">1</span>
+            <h3>Enter your ZIP or compare on the web</h3>
+            <p>Start with quick electric rate comparison where live shopping is available today.</p>
+          </article>
+          <article class="home-how-card reveal reveal-delay-1">
+            <span class="home-step-number">2</span>
+            <h3>Review suppliers and plan details</h3>
+            <p>Compare contract length, rate type, fees, renewal timing, and supplier context before you choose.</p>
+          </article>
+          <article class="home-how-card reveal reveal-delay-2">
+            <span class="home-step-number">3</span>
+            <h3>Track your current plan in the app</h3>
+            <p>Keep your current supplier snapshot, upload your bill, and stay ahead of expiration with reminders.</p>
+          </article>
+          <article class="home-how-card reveal">
+            <span class="home-step-number">4</span>
+            <h3>Check solar and save again later</h3>
+            <p>See whether community solar may add more savings, then compare again before your current rate expires.</p>
+          </article>
         </div>
       </section>
 
       <section class="section closing-cta reveal">
-        <div class="closing-panel">
-          <p class="eyebrow">Start on the web. Stay ahead in the app.</p>
-          <h2>Compare electricity plans now, then keep the app for alerts before your rate expires.</h2>
+        <div class="closing-panel home-closing-panel">
+          <p class="eyebrow">Stay ahead of your electric bill.</p>
+          <h2>Find the right plan now. Keep the app when it is time to compare again.</h2>
           <p>
-            Use the web for a fast comparison. Use the app for bill scanning, plan tracking, and reminders before it is time to switch electric suppliers again.
+            Choose My Electric helps you compare rates by ZIP, keep your current supplier in sight, avoid rate expiration surprises, and explore extra community solar savings without the hype.
           </p>
           <div class="cta-row">
-            <a class="button button-secondary" href="/estimate">Compare Rates by ZIP Code</a>
-            <a class="button button-primary" href="/app" data-app-download-link>Download App</a>
+            <a class="button button-primary premium-button" href="/estimate">Compare Rates</a>
+            <a class="button button-secondary secondary-glass-button" href="/app" data-app-download-link>Download App</a>
           </div>
         </div>
       </section>
@@ -439,7 +534,7 @@
     <footer class="site-footer">
       <div>
         <strong>Choose My Electric</strong>
-        <p>Website for electric rate comparison and state guides. App for alerts, plan tracking, bill uploads, and smarter supplier switching across a broader deregulated-state footprint.</p>
+        <p>Compare electric supplier rates on the web. Track your current plan, bill uploads, rate alerts, and community solar opportunities in the app.</p>
       </div>
       <div class="footer-nav-grid">
         <div class="footer-group">
@@ -479,10 +574,11 @@
           <a href="/electricity-supplier-faq">FAQ</a>
         </div>
         <div class="footer-group">
-          <strong>Blog &amp; legal</strong>
+          <strong>Blog, legal &amp; app</strong>
           <a href="/blog">Blog</a>
           <a href="/terms">Terms</a>
           <a href="/privacy">Privacy</a>
+          <a href="/app" data-app-download-link>Download app</a>
           <a href="mailto:contact@choosemyelectric.com">contact@choosemyelectric.com</a>
         </div>
       </div>
