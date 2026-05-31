@@ -4,6 +4,8 @@ const chooseSiteConfig = {
   iosAppDeepLink: "itms-apps://apps.apple.com/us/app/choose-my-electric/id6762017797",
   androidAppUrl: "https://play.google.com/store/apps/details?id=com.choosemyelectric.app&pcampaignid=web_share",
   androidAppDeepLink: "market://details?id=com.choosemyelectric.app",
+  iosBadgeAsset: "/assets/app-store-badge.svg",
+  androidBadgeAsset: "/assets/google-play-badge.svg",
   androidComingSoonLabel: "Android Coming April 2026",
   contactEmail: "contact@choosemyelectric.com",
 };
@@ -200,6 +202,19 @@ function createStoreLinkElement(platform, templateLink) {
   return link;
 }
 
+function createStoreBadgeRowMarkup({ className = "store-badge-row" } = {}) {
+  return `
+    <div class="${className}" data-store-badge-row>
+      <a class="store-badge-link" data-store-link="ios" href="${chooseSiteConfig.iosAppUrl}" aria-label="Download on the App Store">
+        <img class="store-badge" src="${chooseSiteConfig.iosBadgeAsset}" alt="Download on the App Store">
+      </a>
+      <a class="store-badge-link" data-store-link="android" href="${chooseSiteConfig.androidAppUrl}" aria-label="Get it on Google Play">
+        <img class="store-badge" src="${chooseSiteConfig.androidBadgeAsset}" alt="Get it on Google Play">
+      </a>
+    </div>
+  `;
+}
+
 function addAndroidButtonsToStoreOnlyRows() {
   if (!chooseSiteConfig.androidAppUrl.trim()) return;
 
@@ -254,10 +269,12 @@ function addMissingAndroidLinksNearIosLinks() {
 
 function standardizeStoreLinkLabels() {
   document.querySelectorAll('[data-store-link="ios"]').forEach((link) => {
+    if (link.querySelector("img, svg")) return;
     link.textContent = "Apple App Store";
   });
 
   document.querySelectorAll('[data-store-link="android"]').forEach((link) => {
+    if (link.querySelector("img, svg")) return;
     link.textContent = "Google Play Store";
   });
 }
@@ -477,9 +494,8 @@ function createAppFeaturePreviewMarkup() {
       </div>
       <div class="store-cta-row">
         <a class="button button-primary premium-button" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>Download the App</a>
-        <a class="button button-secondary secondary-glass-button" data-store-link="ios" href="${chooseSiteConfig.iosAppUrl}">Apple App Store</a>
-        <a class="button button-secondary secondary-glass-button" data-store-link="android" href="${chooseSiteConfig.androidAppUrl}">Google Play Store</a>
       </div>
+      ${createStoreBadgeRowMarkup({ className: "store-badge-row store-badge-row-inline" })}
     </section>
   `;
 }
@@ -736,6 +752,7 @@ function createBottomFunnelCtaMarkup() {
           <a class="button button-secondary secondary-glass-button" href="/estimate" data-compare-cta>Compare Rates</a>
           <a class="button button-primary premium-button" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>Download App</a>
         </div>
+        ${createStoreBadgeRowMarkup({ className: "store-badge-row store-badge-row-inline" })}
       </div>
       <div class="app-cta-panel-visual">
         <div class="floating-dashboard-card glossy-card app-cta-panel-preview">
@@ -781,6 +798,7 @@ function createStateAppCardMarkup(stateName) {
     <div class="cta-row">
       <a class="button button-primary premium-button" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link>Download App</a>
     </div>
+    ${createStoreBadgeRowMarkup({ className: "store-badge-row store-badge-row-inline" })}
     ${createTrustDisclosureMarkup({ compact: true })}
   `;
 }
@@ -1241,6 +1259,40 @@ function injectStickyAppBar() {
   syncStickyVisibility();
 }
 
+function ensurePageStoreBadges() {
+  if (document.querySelector(".home-store-row")) return;
+
+  const appHandoffGrid = document.querySelector(".app-handoff-store-grid");
+  if (appHandoffGrid && !appHandoffGrid.querySelector("img.store-badge")) {
+    appHandoffGrid.innerHTML = createStoreBadgeRowMarkup({ className: "store-badge-row store-badge-row-app-handoff" });
+  }
+
+  if (document.querySelector("[data-store-badge-row]")) return;
+
+  const heroActions =
+    document.querySelector(".feature-hero-actions") ||
+    document.querySelector(".state-hero-cta-row") ||
+    document.querySelector(".community-solar-hero .cta-row") ||
+    document.querySelector(".app-handoff-actions");
+
+  if (heroActions) {
+    heroActions.insertAdjacentHTML("afterend", createStoreBadgeRowMarkup({ className: "store-badge-row store-badge-row-inline" }));
+    return;
+  }
+
+  const heroHeading =
+    document.querySelector(".content-hero .section-heading") ||
+    document.querySelector(".app-handoff-card") ||
+    document.querySelector("main");
+
+  if (!heroHeading) return;
+
+  const wrapper = document.createElement("div");
+  wrapper.className = "page-store-badges";
+  wrapper.innerHTML = createStoreBadgeRowMarkup({ className: "store-badge-row store-badge-row-page" });
+  heroHeading.appendChild(wrapper);
+}
+
 function hasFocusedFormField() {
   const activeElement = document.activeElement;
   return Boolean(activeElement && activeElement.matches("input, select, textarea"));
@@ -1441,6 +1493,7 @@ document.addEventListener("DOMContentLoaded", () => {
   enhanceLandingFunnelPages();
   enhanceCommunitySolarPage();
   enhanceBlogPages();
+  ensurePageStoreBadges();
   configureAppDownloadLinks();
   addAndroidButtonsToStoreOnlyRows();
   addMissingAndroidLinksNearIosLinks();

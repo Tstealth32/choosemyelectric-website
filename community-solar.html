@@ -139,84 +139,52 @@
 
     <main>
       <section class="section content-hero premium-hero premium-hero-split community-solar-hero">
-        <div class="section-heading reveal">
+        <div class="section-heading reveal community-solar-hero-copy">
           <nav class="breadcrumb" aria-label="Breadcrumb">
             <a href="/">Home</a>
             <span aria-hidden="true">/</span>
             <span>Community solar</span>
           </nav>
-          <p class="eyebrow">Community solar guide</p>
+          <p class="eyebrow">Community solar</p>
           <h1>Community Solar Near Me</h1>
+          <p class="solar-display-headline">Stack extra savings <span>without switching.</span></p>
           <p class="solar-subheadline">Solar bill credits without roof panels, installation, or equipment at home.</p>
           <p class="content-intro">
             Community solar lets you subscribe to a local solar project and receive credits on your electric bill. It can
             be a good option if you rent, live in a condo, have a shaded roof, or simply do not want rooftop solar panels.
           </p>
-          <p class="content-intro">
-            In plain English, this is often solar without rooftop panels. Community solar for renters, condo owners, and
-            homeowners with a difficult roof can be a practical way to look for possible savings without installing
-            equipment at home.
-          </p>
+          <details class="solar-hero-more">
+            <summary>Why people like community solar</summary>
+            <p>
+              In plain English, this is often solar without rooftop panels. Community solar for renters, condo owners, and
+              homeowners with a difficult roof can be a practical way to look for possible savings without installing
+              equipment at home.
+            </p>
+          </details>
+          <div class="solar-hero-pill-row" aria-label="Community solar highlights">
+            <span>No supplier switch required</span>
+            <span>Credits on your utility bill</span>
+            <span>No rooftop panels</span>
+          </div>
+          <div class="cta-row">
+            <a class="button button-primary premium-button" href="#community-solar-search" data-community-solar-cta="check-availability-hero">See If You Qualify</a>
+            <a class="button button-secondary secondary-glass-button" href="#featured-program-paths" data-community-solar-cta="explore-programs-hero">Explore Programs</a>
+          </div>
+          <p class="solar-hero-trustline">Secure. Independent. Utility-aware. No pressure.</p>
         </div>
 
         <div class="solar-hero-grid reveal reveal-delay-1">
-          <div class="control-card solar-cta-card">
-            <p class="solar-card-kicker">Start here</p>
-            <h2>See what may be available in your area</h2>
-            <p>
-              Community solar may help lower your electric bill, depending on your utility, the project, and the contract
-              terms. Read the agreement carefully, and avoid any pitch that makes savings sound automatic or guaranteed.
-            </p>
-            <div class="solar-hero-pill-row" aria-label="Community solar highlights">
-              <span>No supplier switch required</span>
-              <span>Credits on your utility bill</span>
-              <span>Good for renters and homeowners</span>
-            </div>
-            <div class="cta-row">
-              <a class="button button-primary premium-button" href="#community-solar-search" data-community-solar-cta="check-availability-hero">Check Availability by ZIP</a>
-              <a class="button button-secondary secondary-glass-button" href="/compare-electric-rates-by-zip" data-community-solar-compare-link="hero">Compare Electric Rates Instead</a>
-            </div>
-            <p class="solar-state-note">
-              We now track official utility or state-backed community solar paths across 23 states, including New York,
-              Illinois, Maryland, Massachusetts, New Jersey, Rhode Island, Florida, Georgia, North Carolina, and Wisconsin.
-            </p>
-          </div>
-
-          <aside class="control-card solar-trust-card" aria-label="Community solar example">
-            <div class="phone-shell solar-phone-shell">
-              <div class="phone-notch"></div>
-              <div class="phone-screen">
-                <div class="mini-card mini-card-accent">
-                  <p class="mini-label">Solar Credit Example</p>
-                  <h2>$100 credit</h2>
-                  <div class="mini-stat-grid">
-                    <div>
-                      <span class="mini-stat-label">Amount paid</span>
-                      <strong>$90</strong>
-                    </div>
-                    <div>
-                      <span class="mini-stat-label">Estimated savings</span>
-                      <strong>$10</strong>
-                    </div>
-                  </div>
-                </div>
-                <div class="mini-card">
-                  <div class="mini-step">
-                    <span>✓</span>
-                    <div>
-                      <strong>No roof panels</strong>
-                      <p>No installation or equipment at home.</p>
-                    </div>
-                  </div>
-                  <div class="mini-step">
-                    <span>↻</span>
-                    <div>
-                      <strong>Bill credits</strong>
-                      <p>Your utility still delivers power while credits may reduce cost.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <aside class="control-card solar-trust-card solar-visual-card" aria-label="Community solar example">
+            <div class="solar-visual-stage">
+              <span class="solar-floating-chip solar-floating-chip-top">Local solar farm</span>
+              <img
+                src="./assets/community-solar-hero-art.png"
+                alt="Illustration of a community solar farm sending solar bill credits to a nearby home."
+                loading="eager"
+                width="760"
+                height="430"
+              >
+              <span class="solar-floating-chip solar-floating-chip-bottom">Credits on your utility bill</span>
             </div>
             <p class="solar-state-note">Actual savings vary by project, utility, billing method, and contract terms.</p>
           </aside>
@@ -262,72 +230,6 @@
             <strong>23 states with tracked program paths</strong>
             <p>We surface official state and utility-backed next steps where they exist, then fall back honestly when they do not.</p>
           </article>
-        </div>
-
-        <div class="solar-program-showcase reveal">
-          <div class="solar-program-showcase-head">
-            <div>
-              <p class="eyebrow">Official program paths</p>
-              <h2>Featured Community Solar Program Paths</h2>
-            </div>
-            <a class="text-link" href="#community-solar-search" data-community-solar-cta="featured-programs-zip-check">Check your ZIP first</a>
-          </div>
-
-          <div class="solar-program-showcase-grid">
-            <article class="solar-program-card">
-              <div class="solar-program-card-top">
-                <div>
-                  <span class="solar-program-pill">Top pick</span>
-                  <h3>New Jersey Project Finder</h3>
-                </div>
-                <strong class="solar-program-savings">15%-25%</strong>
-              </div>
-              <p class="solar-program-meta">Official NJ Clean Energy path | PSE&amp;G, JCP&amp;L, ACE, RECO</p>
-              <p>One of the clearest public project finders for checking active community-solar projects and live contract details by utility area.</p>
-              <div class="home-dashboard-tags solar-program-tags">
-                <span>No supplier switch</span>
-                <span>Utility bill credits</span>
-                <span>Official source</span>
-              </div>
-              <a class="button button-primary premium-button" href="https://cleanenergy.nj.gov/support/solar/project-finder" data-community-solar-cta="featured-program-nj">View Program Details</a>
-            </article>
-
-            <article class="solar-program-card">
-              <div class="solar-program-card-top">
-                <div>
-                  <span class="solar-program-pill">Official list</span>
-                  <h3>Maryland Project List</h3>
-                </div>
-                <strong class="solar-program-savings">Utility-based</strong>
-              </div>
-              <p class="solar-program-meta">Official Maryland project list | BGE, Pepco, Potomac Edison, Delmarva</p>
-              <p>Maryland has one of the better public project lists for checking utility territory, open status, and subscriber-management information.</p>
-              <div class="home-dashboard-tags solar-program-tags">
-                <span>Project list</span>
-                <span>Bill credits</span>
-                <span>Official source</span>
-              </div>
-              <a class="button button-primary premium-button" href="https://energy.maryland.gov/Pages/MarylandCommunitySolar.aspx" data-community-solar-cta="featured-program-md">View Program Details</a>
-            </article>
-
-            <article class="solar-program-card">
-              <div class="solar-program-card-top">
-                <div>
-                  <span class="solar-program-pill">State finder</span>
-                  <h3>Massachusetts Project Finder</h3>
-                </div>
-                <strong class="solar-program-savings">5%-20%</strong>
-              </div>
-              <p class="solar-program-meta">Official finder path | Eversource, National Grid, Unitil</p>
-              <p>Massachusetts can be a strong shared-solar market, but project availability and contract terms still need a careful read before enrolling.</p>
-              <div class="home-dashboard-tags solar-program-tags">
-                <span>Shared solar</span>
-                <span>Utility-specific</span>
-                <span>Official source</span>
-              </div>
-              <a class="button button-primary premium-button" href="https://goclean.masscec.com/dev_articles/how-to-find-a-community-solar-project-in-massachusetts/" data-community-solar-cta="featured-program-ma">View Program Details</a>
-            </article>
-          </div>
         </div>
       </section>
 
@@ -413,49 +315,124 @@
         </aside>
       </section>
 
-      <section class="section section-grid" id="how-community-solar-works">
-        <div class="section-heading reveal">
-          <p class="eyebrow">How it works</p>
-          <h2>How Community Solar Works</h2>
-          <p class="section-text">
-            Shared solar is usually simple on the customer side. The solar panels are located somewhere else, and the value
-            shows up through solar bill credits or electric bill credits tied to your utility account.
-          </p>
-        </div>
+      <section class="section solar-story-layout" id="how-community-solar-works">
+        <article class="content-card solar-story-panel reveal">
+          <div class="section-heading">
+            <p class="eyebrow">How it works</p>
+            <h2>How Community Solar Works</h2>
+            <p class="section-text">
+              Shared solar is usually simple on the customer side. The solar panels are located somewhere else, and the value
+              shows up through solar bill credits or electric bill credits tied to your utility account.
+            </p>
+          </div>
+          <div class="solar-journey-list">
+            <article class="solar-journey-step">
+              <span class="solar-journey-number">1</span>
+              <span class="solar-icon-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3.5a1 1 0 0 1 1 1v1.2a1 1 0 1 1-2 0V4.5a1 1 0 0 1 1-1Zm0 13.8a5.3 5.3 0 1 0 0-10.6 5.3 5.3 0 0 0 0 10.6Zm7.1-4.3a1 1 0 0 1 0-2h1.2a1 1 0 1 1 0 2h-1.2Zm-15.4 0a1 1 0 1 1 0-2h1.2a1 1 0 1 1 0 2H3.7Z" fill="currentColor"/></svg>
+              </span>
+              <div>
+                <h3>A solar farm produces electricity</h3>
+                <p>The panels are located off-site, not on your home, usually at a local solar farm serving many customers.</p>
+              </div>
+            </article>
+            <article class="solar-journey-step">
+              <span class="solar-journey-number">2</span>
+              <span class="solar-icon-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M3 10.4 12 3l9 7.4V20a1 1 0 0 1-1 1h-5.5v-6.2a1 1 0 0 0-1-1h-3a1 1 0 0 0-1 1V21H4a1 1 0 0 1-1-1v-9.6Z" fill="currentColor"/></svg>
+              </span>
+              <div>
+                <h3>You subscribe to a share</h3>
+                <p>Your subscription is usually tied to your utility account or service address.</p>
+              </div>
+            </article>
+            <article class="solar-journey-step">
+              <span class="solar-journey-number">3</span>
+              <span class="solar-icon-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M6 3.8h12a2 2 0 0 1 2 2v12.4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5.8a2 2 0 0 1 2-2Zm2.2 4.1a1 1 0 1 0 0 2h7.6a1 1 0 1 0 0-2H8.2Zm0 4a1 1 0 1 0 0 2h5.2a1 1 0 1 0 0-2H8.2Z" fill="currentColor"/></svg>
+              </span>
+              <div>
+                <h3>Credits appear on your electric bill</h3>
+                <p>As the project produces energy, your share may show up as bill credits.</p>
+              </div>
+            </article>
+            <article class="solar-journey-step">
+              <span class="solar-journey-number">4</span>
+              <span class="solar-icon-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9.2 16.6 5.6 13a1 1 0 0 1 1.4-1.4l2.2 2.2 7-7a1 1 0 1 1 1.4 1.4l-8.4 8.4Z" fill="currentColor"/></svg>
+              </span>
+              <div>
+                <h3>You may save on your bill</h3>
+                <p>Many programs charge you for those credits at a discount, creating potential savings.</p>
+              </div>
+            </article>
+          </div>
+        </article>
 
-        <div class="solar-steps-grid">
-          <article class="feature-card solar-step-card reveal">
-            <span class="solar-icon-badge" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 3.5a1 1 0 0 1 1 1v1.2a1 1 0 1 1-2 0V4.5a1 1 0 0 1 1-1Zm0 13.8a5.3 5.3 0 1 0 0-10.6 5.3 5.3 0 0 0 0 10.6Zm7.1-4.3a1 1 0 0 1 0-2h1.2a1 1 0 1 1 0 2h-1.2Zm-15.4 0a1 1 0 1 1 0-2h1.2a1 1 0 1 1 0 2H3.7Z" fill="currentColor"/></svg>
-            </span>
-            <p class="card-number">Step 1</p>
-            <h3>A solar farm produces electricity</h3>
-            <p>The panels are located off-site, not on your home, usually at a local solar farm serving many customers.</p>
-          </article>
-          <article class="feature-card solar-step-card reveal reveal-delay-1">
-            <span class="solar-icon-badge" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M3 10.4 12 3l9 7.4V20a1 1 0 0 1-1 1h-5.5v-6.2a1 1 0 0 0-1-1h-3a1 1 0 0 0-1 1V21H4a1 1 0 0 1-1-1v-9.6Z" fill="currentColor"/></svg>
-            </span>
-            <p class="card-number">Step 2</p>
-            <h3>You subscribe to a share</h3>
-            <p>Your subscription is usually tied to your utility account or service address.</p>
-          </article>
-          <article class="feature-card solar-step-card reveal reveal-delay-2">
-            <span class="solar-icon-badge" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M6 3.8h12a2 2 0 0 1 2 2v12.4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5.8a2 2 0 0 1 2-2Zm2.2 4.1a1 1 0 1 0 0 2h7.6a1 1 0 1 0 0-2H8.2Zm0 4a1 1 0 1 0 0 2h5.2a1 1 0 1 0 0-2H8.2Z" fill="currentColor"/></svg>
-            </span>
-            <p class="card-number">Step 3</p>
-            <h3>Credits appear on your electric bill</h3>
-            <p>As the project produces energy, your share may show up as bill credits.</p>
-          </article>
-          <article class="feature-card solar-step-card reveal reveal-delay-2">
-            <span class="solar-icon-badge" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M9.2 16.6 5.6 13a1 1 0 0 1 1.4-1.4l2.2 2.2 7-7a1 1 0 1 1 1.4 1.4l-8.4 8.4Z" fill="currentColor"/></svg>
-            </span>
-            <p class="card-number">Step 4</p>
-            <h3>You may save on your bill</h3>
-            <p>Many programs charge you for those credits at a discount, creating potential savings.</p>
-          </article>
+        <div class="solar-program-showcase reveal" id="featured-program-paths">
+          <div class="solar-program-showcase-head">
+            <div>
+              <p class="eyebrow">Official program paths</p>
+              <h2>Featured Community Solar Program Paths</h2>
+            </div>
+            <a class="text-link" href="#community-solar-search" data-community-solar-cta="featured-programs-zip-check">Check your ZIP first</a>
+          </div>
+
+          <div class="solar-program-showcase-grid">
+            <article class="solar-program-card">
+              <div class="solar-program-card-top">
+                <div>
+                  <span class="solar-program-pill">Top pick</span>
+                  <h3>New Jersey Project Finder</h3>
+                </div>
+                <strong class="solar-program-savings">15%-25%</strong>
+              </div>
+              <p class="solar-program-meta">Official state-backed path</p>
+              <p>One of the clearest public project finders for checking active community-solar projects and live contract details by utility area.</p>
+              <div class="home-dashboard-tags solar-program-tags">
+                <span>No supplier switch</span>
+                <span>Utility bill credits</span>
+                <span>Official source</span>
+              </div>
+              <a class="button button-primary premium-button" href="https://cleanenergy.nj.gov/support/solar/project-finder" data-community-solar-cta="featured-program-nj">View Program Details</a>
+            </article>
+
+            <article class="solar-program-card">
+              <div class="solar-program-card-top">
+                <div>
+                  <span class="solar-program-pill">Official list</span>
+                  <h3>Maryland Project List</h3>
+                </div>
+                <strong class="solar-program-savings">Utility-based</strong>
+              </div>
+              <p class="solar-program-meta">Official state-backed path</p>
+              <p>Maryland has one of the better public project lists for checking utility territory, open status, and subscriber-management information.</p>
+              <div class="home-dashboard-tags solar-program-tags">
+                <span>Project list</span>
+                <span>Bill credits</span>
+                <span>Official source</span>
+              </div>
+              <a class="button button-primary premium-button" href="https://energy.maryland.gov/Pages/MarylandCommunitySolar.aspx" data-community-solar-cta="featured-program-md">View Program Details</a>
+            </article>
+
+            <article class="solar-program-card">
+              <div class="solar-program-card-top">
+                <div>
+                  <span class="solar-program-pill">State finder</span>
+                  <h3>Massachusetts Shared Solar Finder</h3>
+                </div>
+                <strong class="solar-program-savings">5%-20%</strong>
+              </div>
+              <p class="solar-program-meta">Official state-backed path</p>
+              <p>Massachusetts can be a strong shared-solar market, but project availability and contract terms still need a careful read before enrolling.</p>
+              <div class="home-dashboard-tags solar-program-tags">
+                <span>Shared solar</span>
+                <span>Utility-specific</span>
+                <span>Official source</span>
+              </div>
+              <a class="button button-primary premium-button" href="https://goclean.masscec.com/dev_articles/how-to-find-a-community-solar-project-in-massachusetts/" data-community-solar-cta="featured-program-ma">View Program Details</a>
+            </article>
+          </div>
         </div>
       </section>
 
