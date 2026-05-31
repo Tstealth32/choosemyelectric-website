@@ -3345,7 +3345,7 @@ body[data-page-type="home"] .home-main {
 body[data-page-type="home"] .hero.home-hero {
   grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr);
   gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
+  align-items: start;
   padding: clamp(2rem, 4vw, 3.2rem);
   border: 1px solid rgba(120, 223, 189, 0.12);
   border-radius: 2.2rem;
@@ -3488,9 +3488,10 @@ body[data-page-type="home"] .home-hero-links {
 
 body[data-page-type="home"] .hero-visual {
   position: relative;
-  min-height: 36rem;
+  min-height: 31rem;
   display: grid;
-  place-items: center;
+  place-items: start end;
+  align-self: start;
 }
 
 body[data-page-type="home"] .hero-visual::before {
@@ -3506,8 +3507,10 @@ body[data-page-type="home"] .home-hero-device-frame {
   position: relative;
   z-index: 2;
   display: grid;
-  place-items: center;
+  place-items: start end;
   width: min(100%, 36rem);
+  justify-self: end;
+  align-self: start;
 }
 
 body[data-page-type="home"] .home-hero-device-art {
@@ -4914,10 +4917,10 @@ body:not([data-page-type="home"]) .home-browser-panel strong {
 body:not([data-page-type="home"]) .state-hub-map {
   position: relative;
   width: 100%;
-  min-height: 26rem;
+  min-height: 24rem;
   display: grid;
   place-items: center;
-  padding: 1.2rem;
+  padding: 0;
   overflow: hidden;
   border-radius: 1.8rem;
   background:
@@ -4955,6 +4958,13 @@ body:not([data-page-type="home"]) .state-hub-map-image {
   filter:
     drop-shadow(0 0 32px rgba(88, 221, 198, 0.18))
     drop-shadow(0 26px 40px rgba(0, 0, 0, 0.28));
+}
+
+body:not([data-page-type="home"]) .state-hub-map-composite {
+  width: 100%;
+  filter:
+    drop-shadow(0 18px 36px rgba(0, 0, 0, 0.24))
+    drop-shadow(0 0 28px rgba(88, 221, 198, 0.1));
 }
 
 body:not([data-page-type="home"]) .state-hub-sidecard {
@@ -5788,12 +5798,6 @@ body[data-page-type="community-solar"] .solar-journey-step:hover {
     grid-template-columns: 1fr;
   }
 
-  body:not([data-page-type="home"]) .state-hub-sidecard {
-    position: static;
-    max-width: 18rem;
-    margin-top: 1rem;
-  }
-
   body:not([data-page-type="home"]) .state-guide-browser-head {
     align-items: start;
     flex-direction: column;
@@ -5912,7 +5916,6 @@ body[data-page-type="community-solar"] .solar-journey-step:hover {
 
   body:not([data-page-type="home"]) .state-hub-map {
     min-height: 20rem;
-    padding: 0.85rem;
   }
 
   body:not([data-page-type="home"]) .state-hub-map-image {
