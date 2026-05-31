@@ -1,0 +1,68 @@
+<svg width="820" height="500" viewBox="0 0 820 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.35 0 0 0 0 0.95 0 0 0 0 0.82 0 0 0 0.7 0" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="baseFill" x1="100" y1="90" x2="720" y2="380" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F2732"/>
+      <stop offset="1" stop-color="#08151E"/>
+    </linearGradient>
+    <linearGradient id="supportFill" x1="480" y1="140" x2="710" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#86FFE5"/>
+      <stop offset="1" stop-color="#43E2C3"/>
+    </linearGradient>
+  </defs>
+
+  <g opacity="0.95">
+    <path d="M95 142L126 116L178 101L232 104L287 119L334 110L388 114L434 106L490 111L546 98L603 104L661 97L710 104L742 122L760 149L754 171L770 189L764 213L753 236L739 256L730 285L739 320L716 339L681 335L657 346L648 367L622 375L590 372L554 384L525 373L492 389L453 389L420 372L397 355L364 346L326 343L286 336L254 324L223 332L194 347L163 353L145 336L131 311L112 291L96 271L80 244L69 214L72 186L87 162L95 142Z" fill="url(#baseFill)" stroke="#3A5966" stroke-width="3"/>
+    <path d="M74 389L101 380L123 392L116 412L90 417L69 407L74 389Z" fill="url(#baseFill)" stroke="#3A5966" stroke-width="2"/>
+    <path d="M156 408L172 402L187 409L180 422L162 423L151 415L156 408Z" fill="url(#baseFill)" stroke="#3A5966" stroke-width="2"/>
+
+    <g opacity="0.35" stroke="#456775" stroke-width="2">
+      <path d="M177 102L176 352"/>
+      <path d="M257 106L257 333"/>
+      <path d="M341 112L341 345"/>
+      <path d="M431 109L431 387"/>
+      <path d="M520 110L520 377"/>
+      <path d="M606 103L606 376"/>
+      <path d="M698 103L698 333"/>
+      <path d="M118 171H754"/>
+      <path d="M90 234H744"/>
+      <path d="M126 296H737"/>
+    </g>
+  </g>
+
+  <g filter="url(#glow)">
+    <path d="M252 282L318 277L349 305L338 364L266 368L226 341L221 304L252 282Z" fill="url(#supportFill)" opacity="0.95" stroke="#9BFFF0" stroke-width="2"/>
+    <path d="M505 216L529 214L532 274L512 279L502 246L505 216Z" fill="url(#supportFill)" opacity="0.95" stroke="#9BFFF0" stroke-width="2"/>
+    <path d="M551 220L590 223L588 255L558 257L548 237L551 220Z" fill="url(#supportFill)" opacity="0.95" stroke="#9BFFF0" stroke-width="2"/>
+    <path d="M609 219L649 221L649 249L615 251L603 234L609 219Z" fill="url(#supportFill)" opacity="0.95" stroke="#9BFFF0" stroke-width="2"/>
+    <path d="M599 186L659 185L676 203L664 222L606 216L594 199L599 186Z" fill="url(#supportFill)" opacity="0.95" stroke="#9BFFF0" stroke-width="2"/>
+    <path d="M648 232L692 232L692 244L650 245L648 232Z" fill="url(#supportFill)" opacity="0.95" stroke="#9BFFF0" stroke-width="2"/>
+    <path d="M659 246L675 246L675 257L660 257L659 246Z" fill="url(#supportFill)" opacity="0.95" stroke="#9BFFF0" stroke-width="2"/>
+    <path d="M677 248L684 248L684 257L677 257L677 248Z" fill="url(#supportFill)" opacity="0.95" stroke="#9BFFF0" stroke-width="2"/>
+    <path d="M649 252L657 252L655 269L647 267L649 252Z" fill="url(#supportFill)" opacity="0.95" stroke="#9BFFF0" stroke-width="2"/>
+    <path d="M608 251L633 256L629 268L609 266L603 259L608 251Z" fill="url(#supportFill)" opacity="0.95" stroke="#9BFFF0" stroke-width="2"/>
+    <circle cx="635" cy="261" r="4" fill="#A8FFF4"/>
+    <path d="M686 142L719 136L738 152L735 186L716 208L686 197L677 172L686 142Z" fill="url(#supportFill)" opacity="0.95" stroke="#9BFFF0" stroke-width="2"/>
+  </g>
+
+  <g opacity="0.85" fill="#D9FDF6" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16" font-weight="600">
+    <text x="258" y="330">TX</text>
+    <text x="506" y="250">IL</text>
+    <text x="560" y="243">OH</text>
+    <text x="613" y="239">PA</text>
+    <text x="613" y="205">NY</text>
+    <text x="652" y="242">NJ</text>
+    <text x="663" y="255">CT</text>
+    <text x="678" y="255">RI</text>
+    <text x="658" y="242">MA</text>
+    <text x="697" y="181">ME</text>
+    <text x="608" y="266">MD</text>
+  </g>
+</svg>

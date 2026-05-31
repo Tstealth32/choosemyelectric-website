@@ -4,8 +4,8 @@ const chooseSiteConfig = {
   iosAppDeepLink: "itms-apps://apps.apple.com/us/app/choose-my-electric/id6762017797",
   androidAppUrl: "https://play.google.com/store/apps/details?id=com.choosemyelectric.app&pcampaignid=web_share",
   androidAppDeepLink: "market://details?id=com.choosemyelectric.app",
-  iosBadgeAsset: "/assets/app-store-badge.svg",
-  androidBadgeAsset: "/assets/google-play-badge.svg",
+  iosBadgeAsset: "assets/app-store-badge.svg",
+  androidBadgeAsset: "assets/google-play-badge.svg",
   androidComingSoonLabel: "Android Coming April 2026",
   contactEmail: "contact@choosemyelectric.com",
 };
