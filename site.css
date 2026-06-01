@@ -5284,13 +5284,14 @@ body:not([data-page-type="home"]) .solar-proof-card,
 body:not([data-page-type="home"]) .solar-program-card {
   padding: 1.35rem;
   border-radius: 1.45rem;
-  border: 1px solid rgba(115, 215, 188, 0.1);
+  border: 1px solid rgba(115, 215, 188, 0.06);
   background:
-    radial-gradient(circle at top right, rgba(88, 221, 198, 0.08), transparent 34%),
-    linear-gradient(180deg, rgba(10, 20, 34, 0.92), rgba(7, 15, 25, 0.92));
+    radial-gradient(circle at top right, rgba(88, 221, 198, 0.07), transparent 34%),
+    linear-gradient(180deg, rgba(10, 20, 34, 0.7), rgba(7, 15, 25, 0.62));
   box-shadow:
-    0 18px 42px rgba(0, 0, 0, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    0 12px 28px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(12px);
 }
 
 body:not([data-page-type="home"]) .solar-proof-card strong,
@@ -5308,10 +5309,10 @@ body:not([data-page-type="home"]) .solar-program-meta {
 }
 
 body:not([data-page-type="home"]) .solar-proof-card-emphasis {
-  border-color: rgba(88, 221, 198, 0.22);
+  border-color: rgba(88, 221, 198, 0.14);
   box-shadow:
-    0 22px 58px rgba(0, 0, 0, 0.24),
-    0 0 0 1px rgba(88, 221, 198, 0.08);
+    0 18px 38px rgba(0, 0, 0, 0.16),
+    0 0 0 1px rgba(88, 221, 198, 0.04);
 }
 
 body:not([data-page-type="home"]) .solar-program-showcase {
@@ -5588,27 +5589,42 @@ body[data-page-type="community-solar"] .solar-hero-trustline::before {
 
 body[data-page-type="community-solar"] .solar-visual-card {
   padding: 1rem;
-  border-color: rgba(107, 234, 209, 0.12);
+  border-color: rgba(107, 234, 209, 0.06);
   background:
-    radial-gradient(circle at top right, rgba(107, 234, 209, 0.14), transparent 24%),
-    linear-gradient(180deg, rgba(11, 23, 39, 0.88), rgba(7, 15, 25, 0.94));
+    radial-gradient(circle at 80% 18%, rgba(107, 234, 209, 0.12), transparent 26%),
+    linear-gradient(180deg, rgba(11, 23, 39, 0.56), rgba(7, 15, 25, 0.34));
   align-self: start;
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(12px);
 }
 
 body[data-page-type="community-solar"] .solar-visual-stage {
   position: relative;
   overflow: hidden;
   border-radius: 1.9rem;
-  border: 1px solid rgba(107, 234, 209, 0.1);
+  border: 1px solid rgba(107, 234, 209, 0.05);
   box-shadow:
-    0 28px 60px rgba(0, 0, 0, 0.26),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    0 20px 44px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+body[data-page-type="community-solar"] .solar-visual-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 62% 48%, transparent 34%, rgba(7, 15, 25, 0.08) 62%, rgba(7, 15, 25, 0.28) 100%),
+    linear-gradient(180deg, rgba(7, 15, 25, 0.06), rgba(7, 15, 25, 0.18));
+  pointer-events: none;
 }
 
 body[data-page-type="community-solar"] .solar-visual-stage img {
   width: 100%;
   height: auto;
   display: block;
+  filter: saturate(1.03) brightness(0.98);
 }
 
 body[data-page-type="community-solar"] .solar-floating-chip {
@@ -5648,12 +5664,14 @@ body[data-page-type="community-solar"] .solar-benefit-grid {
 body[data-page-type="community-solar"] .solar-benefit-card {
   padding: 1.2rem;
   border-radius: 1.35rem;
-  border: 1px solid rgba(107, 234, 209, 0.08);
+  border: 1px solid rgba(107, 234, 209, 0.05);
   background:
-    linear-gradient(180deg, rgba(10, 19, 33, 0.85), rgba(8, 15, 26, 0.94));
+    radial-gradient(circle at 82% 18%, rgba(103, 234, 209, 0.05), transparent 28%),
+    linear-gradient(180deg, rgba(10, 19, 33, 0.56), rgba(8, 15, 26, 0.42));
   box-shadow:
-    0 18px 42px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    0 12px 28px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(12px);
 }
 
 body[data-page-type="community-solar"] .solar-benefit-card strong {
