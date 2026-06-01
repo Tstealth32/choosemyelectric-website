@@ -5411,7 +5411,9 @@ body[data-page-type="community-solar"] .site-nav .site-nav-app {
 
 body[data-page-type="community-solar"] .community-solar-hero {
   display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(340px, 0.98fr);
   gap: 1.35rem;
+  align-items: start;
   margin-top: 1.5rem;
   padding: clamp(1.5rem, 3vw, 2.4rem);
   border-radius: 2.2rem;
@@ -5461,6 +5463,13 @@ body[data-page-type="community-solar"] .community-solar-hero h1 {
 
 body[data-page-type="community-solar"] .community-solar-hero-copy {
   gap: 0.9rem;
+  align-self: start;
+}
+
+body[data-page-type="community-solar"] .community-solar-hero-actions {
+  display: grid;
+  gap: 0.95rem;
+  align-self: start;
 }
 
 body[data-page-type="community-solar"] .solar-display-headline {
@@ -5534,6 +5543,14 @@ body[data-page-type="community-solar"] .community-solar-hero .cta-row {
   margin-top: 0.25rem;
 }
 
+body[data-page-type="community-solar"] .solar-hero-grid {
+  align-self: start;
+  justify-self: end;
+  max-width: 36rem;
+  width: 100%;
+  margin-top: 0.1rem;
+}
+
 body[data-page-type="community-solar"] .community-solar-hero .button-primary {
   background: linear-gradient(135deg, #9af4e2, #67ead1 48%, #79f1b9);
   color: #07202a;
@@ -5575,6 +5592,7 @@ body[data-page-type="community-solar"] .solar-visual-card {
   background:
     radial-gradient(circle at top right, rgba(107, 234, 209, 0.14), transparent 24%),
     linear-gradient(180deg, rgba(11, 23, 39, 0.88), rgba(7, 15, 25, 0.94));
+  align-self: start;
 }
 
 body[data-page-type="community-solar"] .solar-visual-stage {
@@ -5623,7 +5641,8 @@ body[data-page-type="community-solar"] .solar-floating-chip-bottom {
 }
 
 body[data-page-type="community-solar"] .solar-benefit-grid {
-  margin-top: 0.45rem;
+  margin-top: 0.3rem;
+  grid-column: 1 / -1;
 }
 
 body[data-page-type="community-solar"] .solar-benefit-card {
@@ -5652,6 +5671,7 @@ body[data-page-type="community-solar"] .solar-benefit-card .eyebrow-link {
 
 body[data-page-type="community-solar"] .solar-proof-strip {
   margin-top: 0.2rem;
+  grid-column: 1 / -1;
 }
 
 body[data-page-type="community-solar"] .solar-story-layout {
@@ -5774,6 +5794,39 @@ body[data-page-type="community-solar"] .solar-journey-step:hover {
 }
 
 @media (max-width: 1100px) {
+  body[data-page-type="community-solar"] .community-solar-hero {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+  }
+
+  body[data-page-type="community-solar"] .community-solar-hero-copy {
+    order: 1;
+  }
+
+  body[data-page-type="community-solar"] .solar-hero-grid {
+    order: 2;
+    justify-self: stretch;
+    max-width: none;
+    margin-top: -0.1rem;
+  }
+
+  body[data-page-type="community-solar"] .community-solar-hero-actions {
+    order: 3;
+  }
+
+  body[data-page-type="community-solar"] .solar-benefit-grid {
+    order: 4;
+  }
+
+  body[data-page-type="community-solar"] .solar-proof-strip {
+    order: 5;
+  }
+
+  body[data-page-type="community-solar"] .solar-benefit-grid,
+  body[data-page-type="community-solar"] .solar-proof-strip {
+    grid-column: auto;
+  }
+
   body[data-page-type="community-solar"] .solar-story-layout {
     grid-template-columns: 1fr;
   }
@@ -5829,6 +5882,14 @@ body[data-page-type="community-solar"] .solar-journey-step:hover {
     border-radius: 1.6rem;
   }
 
+  body[data-page-type="community-solar"] .community-solar-hero-copy {
+    gap: 0.8rem;
+  }
+
+  body[data-page-type="community-solar"] .community-solar-hero-actions {
+    gap: 0.85rem;
+  }
+
   body[data-page-type="community-solar"] .community-solar-hero h1 {
     font-size: 0.92rem;
   }
@@ -5840,6 +5901,61 @@ body[data-page-type="community-solar"] .solar-journey-step:hover {
 
   body[data-page-type="community-solar"] .community-solar-hero .solar-subheadline {
     max-width: none;
+  }
+
+  body[data-page-type="community-solar"] .community-solar-hero .content-intro {
+    max-width: none;
+    font-size: 0.98rem;
+  }
+
+  body[data-page-type="community-solar"] .community-solar-hero .cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  body[data-page-type="community-solar"] .community-solar-hero .cta-row .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  body[data-page-type="community-solar"] .solar-hero-more {
+    max-width: none;
+  }
+
+  body[data-page-type="community-solar"] .solar-hero-pill-row {
+    gap: 0.6rem;
+  }
+
+  body[data-page-type="community-solar"] .solar-hero-pill-row span {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  body[data-page-type="community-solar"] .solar-visual-stage {
+    border-radius: 1.35rem;
+  }
+
+  body[data-page-type="community-solar"] .solar-floating-chip {
+    max-width: calc(100% - 1.4rem);
+    min-height: 2rem;
+    padding: 0.45rem 0.75rem;
+    font-size: 0.8rem;
+    white-space: normal;
+    line-height: 1.2;
+  }
+
+  body[data-page-type="community-solar"] .solar-floating-chip-top {
+    top: 0.75rem;
+    left: 0.7rem;
+  }
+
+  body[data-page-type="community-solar"] .solar-floating-chip-bottom {
+    right: 0.7rem;
+    bottom: 0.75rem;
+  }
+
+  body[data-page-type="community-solar"] .solar-proof-strip {
+    gap: 0.85rem;
   }
 
   body[data-page-type="community-solar"] .solar-visual-card,
@@ -5857,6 +5973,11 @@ body[data-page-type="community-solar"] .solar-journey-step:hover {
   body[data-page-type="community-solar"] .split-card {
     padding: 1rem;
     border-radius: 1.15rem;
+  }
+
+  body[data-page-type="community-solar"] .solar-benefit-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
   }
 
   body[data-page-type="community-solar"] .solar-journey-step {
