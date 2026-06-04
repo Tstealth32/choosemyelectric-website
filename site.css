@@ -4545,10 +4545,34 @@ body[data-page-type="estimate"] .control-card {
   box-shadow:
     0 20px 44px rgba(15, 23, 42, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  color: #173d36;
 }
 
 body[data-page-type="estimate"] .field span {
   color: rgba(16, 52, 47, 0.82);
+}
+
+body[data-page-type="estimate"] .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+body[data-page-type="estimate"] .card-head h2,
+body[data-page-type="estimate"] .control-card h3,
+body[data-page-type="estimate"] .control-card strong {
+  color: #12342f;
+}
+
+body[data-page-type="estimate"] .control-card p,
+body[data-page-type="estimate"] .control-card li,
+body[data-page-type="estimate"] .control-card .supporting-note {
+  color: #436660;
+}
+
+body[data-page-type="estimate"] .control-card .eyebrow {
+  color: #27a587;
+  background: rgba(39, 165, 135, 0.1);
+  border-color: rgba(39, 165, 135, 0.14);
 }
 
 body[data-page-type="estimate"] .helper-text,
@@ -4580,6 +4604,43 @@ body[data-page-type="estimate"] select {
 
 body[data-page-type="estimate"] .text-input::placeholder {
   color: rgba(60, 89, 84, 0.52);
+}
+
+body[data-page-type="estimate"] .app-funnel-card {
+  color: var(--white);
+  border-color: var(--line-bright);
+  background:
+    radial-gradient(circle at top right, rgba(98, 196, 154, 0.16), transparent 30%),
+    linear-gradient(155deg, var(--midnight), #183a34 68%, #2c6b53);
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.18);
+}
+
+body[data-page-type="estimate"] .app-funnel-card h2,
+body[data-page-type="estimate"] .app-funnel-card strong {
+  color: rgba(255, 255, 255, 0.98);
+}
+
+body[data-page-type="estimate"] .app-funnel-card p,
+body[data-page-type="estimate"] .app-funnel-card li,
+body[data-page-type="estimate"] .app-funnel-card .eyebrow,
+body[data-page-type="estimate"] .app-funnel-card .supporting-note {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+body[data-page-type="estimate"] .app-funnel-card .floating-dashboard-card,
+body[data-page-type="estimate"] .app-funnel-card .app-funnel-preview {
+  border: 1px solid rgba(120, 222, 191, 0.16);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
+  box-shadow:
+    0 14px 28px rgba(4, 10, 18, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+body[data-page-type="estimate"] .app-funnel-card .floating-dashboard-card strong,
+body[data-page-type="estimate"] .app-funnel-card .floating-dashboard-card p,
+body[data-page-type="estimate"] .app-funnel-card .floating-dashboard-card span {
+  color: rgba(255, 255, 255, 0.92);
 }
 
 body[data-page-type="estimate"] .status-panel,
