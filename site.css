@@ -4557,6 +4557,32 @@ body[data-page-type="estimate"] .reveal {
   transform: none;
 }
 
+body[data-page-type="estimate"] .estimate-note-accordion {
+  border: 1px solid rgba(27, 116, 96, 0.14);
+  background:
+    radial-gradient(circle at top left, rgba(98, 196, 154, 0.12), transparent 36%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.985), rgba(239, 248, 244, 0.95));
+  box-shadow:
+    0 14px 30px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.78);
+  backdrop-filter: none;
+}
+
+body[data-page-type="estimate"] .estimate-note-accordion summary {
+  color: #173d36;
+}
+
+body[data-page-type="estimate"] .estimate-note-accordion summary::after {
+  background: rgba(19, 52, 47, 0.08);
+  color: #173d36;
+}
+
+body[data-page-type="estimate"] .estimate-note-accordion p,
+body[data-page-type="estimate"] .estimate-note-accordion .helper-text,
+body[data-page-type="estimate"] .estimate-note-accordion li {
+  color: #446861;
+}
+
 body[data-page-type="estimate"] .card-head h2,
 body[data-page-type="estimate"] .control-card h3,
 body[data-page-type="estimate"] .control-card strong {
@@ -4864,6 +4890,14 @@ body[data-page-type="estimate"] .quick-win-panel {
 
 body[data-page-type="estimate"] .quick-win-kicker {
   color: #1d7a63;
+}
+
+body[data-page-type="estimate"] .quick-win-rate {
+  color: rgba(247, 252, 249, 0.98);
+}
+
+body[data-page-type="estimate"] .quick-win-rate-label {
+  color: rgba(233, 245, 240, 0.76);
 }
 
 body[data-page-type="estimate"] .quick-win-savings {
