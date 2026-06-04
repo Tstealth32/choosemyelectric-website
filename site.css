@@ -4552,6 +4552,21 @@ body[data-page-type="estimate"] .field span {
   color: rgba(16, 52, 47, 0.82);
 }
 
+body[data-page-type="estimate"] .pill-option > span {
+  color: #31544d;
+  border-color: rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+body[data-page-type="estimate"] .pill-option input:checked + span {
+  color: rgba(248, 255, 252, 0.98);
+  border-color: rgba(27, 116, 96, 0.56);
+  background: linear-gradient(135deg, #18332f, #24544a 72%, #2f6f5a);
+  box-shadow:
+    0 10px 24px rgba(18, 57, 51, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
 body[data-page-type="estimate"] .reveal {
   opacity: 1;
   transform: none;
@@ -4892,11 +4907,12 @@ body[data-page-type="estimate"] .quick-win-kicker {
   color: #1d7a63;
 }
 
-body[data-page-type="estimate"] .quick-win-rate {
+body[data-page-type="estimate"] .quick-win-rate-ring .quick-win-rate {
   color: rgba(247, 252, 249, 0.98);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.16);
 }
 
-body[data-page-type="estimate"] .quick-win-rate-label {
+body[data-page-type="estimate"] .quick-win-rate-ring .quick-win-rate-label {
   color: rgba(233, 245, 240, 0.76);
 }
 
