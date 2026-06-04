@@ -4809,6 +4809,11 @@ body[data-page-type="estimate"] .offer-card {
     inset 0 1px 0 rgba(255, 255, 255, 0.82);
 }
 
+body[data-page-type="estimate"] .offer-results {
+  grid-template-columns: repeat(auto-fit, minmax(18.5rem, 1fr));
+  align-items: start;
+}
+
 body[data-page-type="estimate"] .offer-card::before {
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.34), transparent 42%),
@@ -4816,6 +4821,7 @@ body[data-page-type="estimate"] .offer-card::before {
 }
 
 body[data-page-type="estimate"] .offer-card-featured {
+  grid-column: 1 / -1;
   border-color: rgba(30, 122, 96, 0.28);
   background:
     radial-gradient(circle at top left, rgba(98, 196, 154, 0.2), transparent 32%),
@@ -4829,6 +4835,29 @@ body[data-page-type="estimate"] .offer-card-featured {
 body[data-page-type="estimate"] .offer-kicker,
 body[data-page-type="estimate"] .offer-label {
   color: #1b7460;
+}
+
+body[data-page-type="estimate"] .offer-card-compact {
+  padding: 1rem;
+  display: grid;
+  gap: 0.8rem;
+  align-content: start;
+}
+
+body[data-page-type="estimate"] .offer-card-compact .offer-head {
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+body[data-page-type="estimate"] .offer-card-compact .offer-head h3 {
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  line-height: 1.1;
+}
+
+body[data-page-type="estimate"] .offer-card-compact .offer-plan {
+  margin-top: 0.2rem;
+  font-size: 0.9rem;
+  line-height: 1.35;
 }
 
 body[data-page-type="estimate"] .offer-plan,
@@ -4862,6 +4891,25 @@ body[data-page-type="estimate"] .offer-money span {
   opacity: 0.82;
 }
 
+body[data-page-type="estimate"] .offer-card-compact .offer-money {
+  width: 100%;
+  min-width: 0;
+  justify-items: start;
+  text-align: left;
+  padding: 0.8rem 0.95rem;
+  border-radius: 1rem;
+}
+
+body[data-page-type="estimate"] .offer-card-compact .offer-money strong {
+  font-size: 1.15rem;
+}
+
+body[data-page-type="estimate"] .offer-card-compact .offer-money span {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 body[data-page-type="estimate"] .offer-meta {
   gap: 0.8rem;
 }
@@ -4874,6 +4922,25 @@ body[data-page-type="estimate"] .offer-meta > div {
     linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(235, 245, 241, 0.86));
 }
 
+body[data-page-type="estimate"] .offer-card-compact .offer-meta {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin-top: 0;
+}
+
+body[data-page-type="estimate"] .offer-card-compact .offer-meta > div {
+  padding: 0.8rem 0.85rem;
+}
+
+body[data-page-type="estimate"] .offer-card-compact .offer-meta > div:last-child {
+  grid-column: 1 / -1;
+}
+
+body[data-page-type="estimate"] .offer-card-compact .offer-meta strong {
+  font-size: 0.98rem;
+  line-height: 1.15;
+}
+
 body[data-page-type="estimate"] .offer-badges .badge {
   background: rgba(16, 52, 47, 0.08);
   border: 1px solid rgba(23, 69, 61, 0.1);
@@ -4883,6 +4950,24 @@ body[data-page-type="estimate"] .offer-badges .badge {
 body[data-page-type="estimate"] .offer-badges .badge-accent {
   border-color: transparent;
   color: var(--white);
+}
+
+body[data-page-type="estimate"] .offer-card-compact .offer-details-compact {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+body[data-page-type="estimate"] .offer-card-compact .button-row-compact {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin-top: 0.15rem;
+}
+
+body[data-page-type="estimate"] .offer-card-compact .button-row-compact .button {
+  width: 100%;
+  padding: 0.82rem 0.9rem;
 }
 
 body[data-page-type="estimate"] .empty-state {
@@ -4918,6 +5003,13 @@ body[data-page-type="estimate"] .quick-win-rate-ring .quick-win-rate-label {
 
 body[data-page-type="estimate"] .quick-win-savings {
   color: #164f43;
+}
+
+@media (max-width: 720px) {
+  body[data-page-type="estimate"] .offer-card-compact .offer-meta,
+  body[data-page-type="estimate"] .offer-card-compact .button-row-compact {
+    grid-template-columns: 1fr;
+  }
 }
 
 body:not([data-page-type="home"]) .solar-supported-chip {

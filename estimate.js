@@ -751,6 +751,7 @@ function renderQuickWin(bestOffer, rawBestOffer, market, currentRateBasis) {
 }
 
 function renderOfferCard(offer, isBestOffer) {
+  const isCompactCard = !isBestOffer;
   const hasSavings =
     Number.isFinite(offer.estimatedMonthlySavings) &&
     Number.isFinite(offer.estimatedMonthlyCost) &&
@@ -769,13 +770,28 @@ function renderOfferCard(offer, isBestOffer) {
     offer.cancellationFeeText || (offer.earlyTerminationFee ? `${formatMoney(offer.earlyTerminationFee)} early termination fee` : ""),
   ].filter(Boolean);
 
+  const compactSummary = [
+    offer.termMonths ? `${offer.termMonths} month term` : "",
+    offer.rateType || "",
+    offer.monthlyFeeText || (offer.monthlyFee ? `${formatMoney(offer.monthlyFee)} fee` : ""),
+  ]
+    .filter(Boolean)
+    .slice(0, 3)
+    .join(" • ");
+
+  const compactCardClass = isCompactCard ? "offer-card-compact" : "";
+
   return `
-    <article class="offer-card ${isBestOffer ? "offer-card-featured" : ""}">
+    <article class="offer-card ${isBestOffer ? "offer-card-featured" : ""} ${compactCardClass}">
       <div class="offer-head">
         <div>
           <p class="offer-kicker">${isBestOffer ? "Best savings match" : "Live option"}</p>
           <h3>${escapeHtml(offer.supplierName)}</h3>
-          <p class="offer-plan">${escapeHtml(offer.planName || "")}</p>
+          ${
+            isCompactCard
+              ? (offer.planName ? `<p class="offer-plan">${escapeHtml(offer.planName)}</p>` : "")
+              : `<p class="offer-plan">${escapeHtml(offer.planName || "")}</p>`
+          }
         </div>
         <div class="offer-money">
           <strong>${hasSavings ? formatMoney(offer.estimatedMonthlySavings) : formatRate(offer.rateCentsPerKwh, estimateState.market?.region)}</strong>
@@ -798,15 +814,19 @@ function renderOfferCard(offer, isBestOffer) {
         </div>
       </div>
 
-      ${badges ? `<div class="offer-badges">${badges}</div>` : ""}
-      ${details.length ? `<p class="offer-details">${details.map(escapeHtml).join(" • ")}</p>` : ""}
+      ${!isCompactCard && badges ? `<div class="offer-badges">${badges}</div>` : ""}
       ${
-        offer.offerDetailsText
+        isCompactCard
+          ? (compactSummary ? `<p class="offer-details offer-details-compact">${escapeHtml(compactSummary)}</p>` : "")
+          : (details.length ? `<p class="offer-details">${details.map(escapeHtml).join(" • ")}</p>` : "")
+      }
+      ${
+        !isCompactCard && offer.offerDetailsText
           ? `<p class="offer-copy">${escapeHtml(offer.offerDetailsText).slice(0, 260)}</p>`
           : ""
       }
 
-      <div class="button-row">
+      <div class="button-row ${isCompactCard ? "button-row-compact" : ""}">
         ${
           offer.signupUrl
             ? `<a class="button button-primary premium-button" href="${escapeAttribute(offer.signupUrl)}" target="_blank" rel="noreferrer">View Plan</a>`
@@ -814,7 +834,7 @@ function renderOfferCard(offer, isBestOffer) {
         }
         ${
           offer.detailsUrl && offer.detailsUrl !== offer.signupUrl
-            ? `<a class="button button-secondary secondary-glass-button" href="${escapeAttribute(offer.detailsUrl)}" target="_blank" rel="noreferrer">Plan Details</a>`
+            ? `<a class="button button-secondary secondary-glass-button" href="${escapeAttribute(offer.detailsUrl)}" target="_blank" rel="noreferrer">${isCompactCard ? "Details" : "Plan Details"}</a>`
             : ""
         }
       </div>
