@@ -1185,10 +1185,15 @@ function injectStickyAppBar() {
   wrapper.className = "sticky-app-bar";
   wrapper.innerHTML = `
     <div class="sticky-app-shell">
-      <span class="sticky-app-icon" aria-hidden="true">CME</span>
+      <span class="sticky-app-icon" aria-hidden="true">
+        <svg viewBox="0 0 108 108" role="img" aria-hidden="true">
+          <rect x="12" y="12" width="84" height="84" rx="6" fill="#0F172A"></rect>
+          <path d="M60.8 25L36 59.5h15.4L47.2 83 72 48.4H56.6z" fill="#62C49A"></path>
+        </svg>
+      </span>
       <div class="sticky-app-copy">
-        <strong>Track your rate in the app.</strong>
-        <span>Get alerts before it expires.</span>
+        <strong>Track your rate in the app</strong>
+        <span>Get alerts before it expires</span>
       </div>
       <a class="button button-primary premium-button sticky-app-button" href="${chooseSiteConfig.appLandingUrl}" data-app-download-link data-cta-event="sticky_app_cta_click">Download App</a>
       <button class="sticky-app-dismiss" type="button" aria-label="Dismiss app download bar">×</button>

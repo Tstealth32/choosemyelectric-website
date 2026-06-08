@@ -2635,30 +2635,39 @@ body[data-page-type="home"] .ticker span {
   justify-content: center;
   width: 2.8rem;
   height: 2.8rem;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--midnight), #183a34 72%, #2c6b53);
-  color: var(--white);
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: -0.05em;
+  border-radius: 0.95rem;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+  overflow: hidden;
+}
+
+.sticky-app-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .sticky-app-copy {
   grid-area: copy;
-  display: grid;
-  gap: 0.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+  white-space: nowrap;
 }
 
 .sticky-app-copy strong {
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.98rem;
   letter-spacing: -0.03em;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .sticky-app-copy span {
   color: var(--ink-soft);
   font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .sticky-app-dismiss {
@@ -3094,16 +3103,45 @@ body[data-page-type="home"] .ticker span {
 
 @media (max-width: 720px) {
   .site-header {
-    gap: 0.9rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .brand-copy {
+    min-width: 0;
+  }
+
+  .brand-copy strong {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .brand-copy span {
+    display: none;
   }
 
   .site-header.has-mobile-nav .site-nav-toggle {
     display: inline-flex;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  .site-header .site-nav {
+    display: none;
   }
 
   .site-header.has-mobile-nav .site-nav {
-    display: none;
     width: 100%;
+    grid-column: 1 / -1;
     justify-content: flex-start;
     flex-wrap: wrap;
     gap: 0.75rem;
@@ -3197,15 +3235,38 @@ body[data-page-type="home"] .ticker span {
   }
 
   .sticky-app-shell {
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    grid-template-areas:
-      "icon copy dismiss"
-      "button button button";
-    justify-items: stretch;
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    grid-template-areas: "icon copy button dismiss";
+    gap: 0.65rem;
+    align-items: center;
+  }
+
+  .sticky-app-copy {
+    gap: 0.3rem;
+  }
+
+  .sticky-app-copy strong {
+    font-size: 0.88rem;
+  }
+
+  .sticky-app-copy span {
+    font-size: 0.78rem;
+  }
+
+  .sticky-app-button {
+    width: auto;
+    min-width: 0;
+    padding-inline: 0.95rem;
+    min-height: 2.6rem;
+    font-size: 0.82rem;
+    white-space: nowrap;
   }
 
   .sticky-app-dismiss {
     justify-self: end;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.15rem;
   }
 
   .store-cta-row,
