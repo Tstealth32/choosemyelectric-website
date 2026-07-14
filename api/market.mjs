@@ -1391,6 +1391,13 @@ function extractFirstDecimal(value) {
   return match ? Number(match[1]) : null;
 }
 
+function parseWholeNumber(value) {
+  const match = String(value ?? "").match(/-?\d+/);
+  if (!match) return null;
+  const parsed = Number.parseInt(match[0], 10);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
 const WEBSITE_USER_AGENT = "ChooseMyElectricWebsite/1.0";
 const MARYLAND_BASE_URL = "https://www.mdelectricchoice.com/shop/";
 const MASSACHUSETTS_SOURCE_URL = "https://energyswitchma.gov/";
