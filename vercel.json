@@ -175,6 +175,18 @@
       "destination": "/ohio/columbus-electric-rates.html"
     },
     {
+      "source": "/ohio/cincinnati-electric-rates",
+      "destination": "/ohio/cincinnati-electric-rates.html"
+    },
+    {
+      "source": "/new-jersey/jersey-city-electric-rates",
+      "destination": "/new-jersey/jersey-city-electric-rates.html"
+    },
+    {
+      "source": "/new-york/buffalo-electric-rates",
+      "destination": "/new-york/buffalo-electric-rates.html"
+    },
+    {
       "source": "/texas/dallas-electricity-rates",
       "destination": "/texas/dallas-electricity-rates.html"
     },
