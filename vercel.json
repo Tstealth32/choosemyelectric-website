@@ -3,6 +3,11 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/privacy",
+      "destination": "/privacy-policy",
+      "permanent": true
+    },
+    {
       "source": "/app",
       "has": [
         {
@@ -207,6 +212,10 @@
       "destination": "/upload-your-bill-to-compare-rates.html"
     },
     {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
       "source": "/electricity-supplier-faq",
       "destination": "/electricity-supplier-faq.html"
     },
@@ -245,10 +254,6 @@
     {
       "source": "/privacy-policy",
       "destination": "/privacy-policy.html"
-    },
-    {
-      "source": "/privacy",
-      "destination": "/privacy.html"
     },
     {
       "source": "/terms",

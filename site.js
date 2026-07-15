@@ -419,7 +419,7 @@ function createWebsiteVsAppMarkup({
         <article class="comparison-card comparison-card-app">
           <div class="comparison-card-head">
             <p class="comparison-card-kicker">App</p>
-            <span class="comparison-card-badge">Best follow-up</span>
+            <span class="comparison-card-badge">Helpful follow-up</span>
           </div>
           <h3>Stay ahead of renewals</h3>
           <p class="comparison-card-copy">Keep the app after you compare so you remember the good rate before it becomes the expensive renewal.</p>

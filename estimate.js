@@ -121,6 +121,7 @@ function cacheEstimateElements() {
   estimateElements.quickWinDetail = document.getElementById("quick-win-detail");
   estimateElements.quickWinRate = document.getElementById("quick-win-rate");
   estimateElements.quickWinSavings = document.getElementById("quick-win-savings");
+  estimateElements.resultsSection = document.getElementById("results");
 }
 
 function bindEstimateEvents() {
@@ -321,6 +322,8 @@ async function refreshMarket({
 }
 
 function showEstimateLoadingState() {
+  setResultsVisibility(true);
+
   if (estimateElements.quickWinPanel) {
     estimateElements.quickWinPanel.hidden = true;
     estimateElements.quickWinPanel.classList.remove("is-active");
@@ -553,6 +556,7 @@ function renderResults({ currentRateBasis = "" } = {}) {
   renderQuickWin(bestOffer, rawBestOffer, market, currentRateBasis);
 
   if (!market) {
+    setResultsVisibility(false);
     estimateElements.resultsSubtitle.textContent =
       "We will compare offers after we know your ZIP code.";
     estimateElements.sourceNote.textContent =
@@ -571,11 +575,13 @@ function renderResults({ currentRateBasis = "" } = {}) {
               <span>then compare</span>
             </div>
           </div>
-          <p class="offer-copy">The website is best for a fast comparison. The app is there when you want bill upload, plan tracking, and alerts before your rate expires.</p>
+          <p class="offer-copy">The website works well for a fast comparison. The app is there when you want bill upload, plan tracking, and alerts before your rate expires.</p>
         </article>
       `;
     return;
   }
+
+  setResultsVisibility(true);
 
   estimateElements.resultsSubtitle.textContent =
     market.sourceLabel || `Live offers for ${market.zipCode}`;
@@ -677,9 +683,9 @@ function renderQuickWin(bestOffer, rawBestOffer, market, currentRateBasis) {
     estimateElements.quickWinPanel.classList.remove("is-active");
     estimateElements.quickWinHeadline.textContent = "We found a lower live rate for your ZIP.";
     estimateElements.quickWinMeta.textContent =
-      "Compare your area's best live plan before you scroll into the full list.";
+      "We check the live offers available for your ZIP and utility area before showing a featured match.";
     estimateElements.quickWinDetail.textContent =
-      "Enter your ZIP code to see if there is a cheaper electric supplier plan available.";
+      "Enter your ZIP code to load the correct comparison flow and review the plans we can verify.";
     estimateElements.quickWinRate.textContent = "--";
     estimateElements.quickWinSavings.textContent = "--";
     return;
@@ -702,7 +708,7 @@ function renderQuickWin(bestOffer, rawBestOffer, market, currentRateBasis) {
     estimateElements.quickWinPanel.classList.remove("is-active");
     void estimateElements.quickWinPanel.offsetWidth;
     estimateElements.quickWinPanel.classList.add("is-active");
-    estimateElements.quickWinHeadline.textContent = planLabel || "We found a lower live rate for your ZIP.";
+    estimateElements.quickWinHeadline.textContent = planLabel || "We found a lower live rate in the offers we checked for your ZIP.";
     estimateElements.quickWinMeta.textContent =
       metaParts.join(" • ") || "Recommended electric supplier plan for your ZIP.";
     estimateElements.quickWinDetail.textContent = comparisonDetail;
@@ -717,9 +723,9 @@ function renderQuickWin(bestOffer, rawBestOffer, market, currentRateBasis) {
     estimateElements.quickWinPanel.classList.remove("is-active");
     estimateElements.quickWinHeadline.textContent = "We found a lower live rate for your ZIP.";
     estimateElements.quickWinMeta.textContent =
-      "Compare your area's best live plan before you scroll into the full list.";
+      "We check the live offers available for your ZIP and utility area before showing a featured match.";
     estimateElements.quickWinDetail.textContent =
-      "Enter your ZIP code to see if there is a cheaper electric supplier plan available.";
+      "Enter your ZIP code to load the correct comparison flow and review the plans we can verify.";
     estimateElements.quickWinRate.textContent = "--";
     estimateElements.quickWinSavings.textContent = "--";
     return;
@@ -738,9 +744,9 @@ function renderQuickWin(bestOffer, rawBestOffer, market, currentRateBasis) {
   estimateElements.quickWinPanel.classList.remove("is-active");
   void estimateElements.quickWinPanel.offsetWidth;
   estimateElements.quickWinPanel.classList.add("is-active");
-  estimateElements.quickWinHeadline.textContent = rawPlanLabel || "We found a live rate for your ZIP.";
+  estimateElements.quickWinHeadline.textContent = rawPlanLabel || "We found a live rate in the offers we checked for your ZIP.";
   estimateElements.quickWinMeta.textContent =
-    rawMetaParts.join(" • ") || "Lowest live electric supplier rate loaded for your ZIP.";
+    rawMetaParts.join(" • ") || "A live electric supplier rate was loaded for your ZIP.";
   estimateElements.quickWinDetail.textContent =
     "We loaded live supplier rates for this utility area. Scroll lower for the full list, or use the app for bill scans and alerts.";
   estimateElements.quickWinRate.textContent = formatRate(rawBestOffer.rateCentsPerKwh, market.region);
@@ -785,7 +791,7 @@ function renderOfferCard(offer, isBestOffer) {
     <article class="offer-card ${isBestOffer ? "offer-card-featured" : ""} ${compactCardClass}">
       <div class="offer-head">
         <div>
-          <p class="offer-kicker">${isBestOffer ? "Best savings match" : "Live option"}</p>
+          <p class="offer-kicker">${isBestOffer ? "Potential savings match" : "Live option"}</p>
           <h3>${escapeHtml(offer.supplierName)}</h3>
           ${
             isCompactCard
@@ -864,6 +870,11 @@ function revealLoadedMarket() {
     ? estimateElements.quickWinPanel
     : document.getElementById("results");
   target?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function setResultsVisibility(visible) {
+  if (!estimateElements.resultsSection) return;
+  estimateElements.resultsSection.hidden = !visible;
 }
 
 function renderSupplierContactCard(contact) {
@@ -1595,6 +1606,7 @@ function showCommunitySolarOnlyEstimateResult(stateCode, zipCode) {
   estimateState.currentCost = null;
   clearUtilityChoices();
   renderResults();
+  setResultsVisibility(true);
 
   if (estimateElements.quickWinPanel) {
     estimateElements.quickWinPanel.hidden = true;
@@ -1638,6 +1650,7 @@ function showUnsupportedEstimateResult(zipCode) {
   estimateState.currentCost = null;
   clearUtilityChoices();
   renderResults();
+  setResultsVisibility(true);
 
   if (estimateElements.quickWinPanel) {
     estimateElements.quickWinPanel.hidden = true;
