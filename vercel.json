@@ -192,6 +192,14 @@
       "destination": "/new-york/buffalo-electric-rates.html"
     },
     {
+      "source": "/connecticut/hartford-electric-rates",
+      "destination": "/connecticut/hartford-electric-rates.html"
+    },
+    {
+      "source": "/rhode-island/providence-electric-rates",
+      "destination": "/rhode-island/providence-electric-rates.html"
+    },
+    {
       "source": "/texas/dallas-electricity-rates",
       "destination": "/texas/dallas-electricity-rates.html"
     },

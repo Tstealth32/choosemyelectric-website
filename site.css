@@ -4443,6 +4443,44 @@ body:not([data-page-type="home"]) .button.button-primary {
   box-shadow: 0 20px 40px rgba(66, 229, 194, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.32);
 }
 
+body:not([data-page-type="home"]) .button.button-secondary,
+body:not([data-page-type="home"]) .secondary-glass-button,
+body[data-page-type="estimate"] .control-card,
+body[data-page-type="estimate"] .estimate-note-accordion,
+body[data-page-type="estimate"] .status-panel,
+body[data-page-type="estimate"] .scan-summary,
+body[data-page-type="estimate"] .source-note,
+body[data-page-type="estimate"] .offer-card,
+body[data-page-type="estimate"] .metric-card,
+body[data-page-type="estimate"] .utility-choice-panel,
+body[data-page-type="estimate"] .quick-win-panel,
+body[data-page-type="estimate"] .empty-state {
+  color: #12342f;
+}
+
+body:not([data-page-type="home"]) .button.button-secondary span,
+body:not([data-page-type="home"]) .secondary-glass-button span,
+body[data-page-type="estimate"] .control-card h2,
+body[data-page-type="estimate"] .control-card h3,
+body[data-page-type="estimate"] .control-card strong,
+body[data-page-type="estimate"] .control-card label,
+body[data-page-type="estimate"] .control-card span,
+body[data-page-type="estimate"] .control-card p,
+body[data-page-type="estimate"] .control-card li,
+body[data-page-type="estimate"] .estimate-note-accordion span,
+body[data-page-type="estimate"] .estimate-note-accordion p,
+body[data-page-type="estimate"] .estimate-note-accordion li,
+body[data-page-type="estimate"] .status-panel span,
+body[data-page-type="estimate"] .scan-summary span,
+body[data-page-type="estimate"] .source-note span,
+body[data-page-type="estimate"] .offer-card span,
+body[data-page-type="estimate"] .metric-card span,
+body[data-page-type="estimate"] .utility-choice-panel span,
+body[data-page-type="estimate"] .quick-win-panel span,
+body[data-page-type="estimate"] .empty-state span {
+  color: inherit;
+}
+
 body:not([data-page-type="home"]) .button.button-primary:hover,
 body:not([data-page-type="home"]) .button.button-primary:focus-visible {
   box-shadow: 0 24px 46px rgba(66, 229, 194, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.38);
