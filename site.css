@@ -3896,7 +3896,7 @@ body[data-page-type="home"] .home-how-grid {
 }
 
 body[data-page-type="home"] .home-feature-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 body[data-page-type="home"] .home-feature-card,
@@ -3993,27 +3993,52 @@ body[data-page-type="home"] .home-browser-canvas {
 body[data-page-type="home"] .home-browser-panel {
   padding: 1rem;
   border-radius: 1.1rem;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(142, 219, 196, 0.14);
+  background:
+    radial-gradient(circle at top left, rgba(98, 196, 154, 0.08), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(239, 247, 242, 0.94));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.78),
+    0 12px 28px rgba(0, 0, 0, 0.12);
+  color: #12342f;
 }
 
 body[data-page-type="home"] .home-browser-panel-primary {
   background:
-    radial-gradient(circle at 80% 20%, rgba(88, 221, 198, 0.16), transparent 28%),
-    linear-gradient(160deg, rgba(9, 21, 35, 0.98), rgba(11, 33, 47, 0.96));
-  border-color: rgba(88, 221, 198, 0.16);
+    radial-gradient(circle at 80% 20%, rgba(88, 221, 198, 0.18), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(236, 247, 241, 0.95));
+  border-color: rgba(88, 221, 198, 0.14);
 }
 
 body[data-page-type="home"] .home-browser-panel strong {
   display: block;
   margin-bottom: 0.35rem;
-  color: var(--white);
+  color: #102e2a;
   font-family: "Space Grotesk", sans-serif;
   font-size: 1.1rem;
 }
 
+body[data-page-type="home"] .home-browser-panel p,
+body[data-page-type="home"] .home-browser-panel li,
 body[data-page-type="home"] .home-browser-panel span {
-  color: rgba(196, 213, 228, 0.74);
+  color: rgba(28, 70, 64, 0.82);
+}
+
+body[data-page-type="home"] .home-browser-panel .mini-label {
+  color: rgba(22, 64, 59, 0.58);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+body[data-page-type="home"] .home-browser-points {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0.9rem 0 0;
+  padding-left: 1.15rem;
+}
+
+body[data-page-type="home"] .home-browser-points li::marker {
+  color: rgba(39, 165, 135, 0.72);
 }
 
 body[data-page-type="home"] .home-ecosystem-copy {
@@ -4025,6 +4050,11 @@ body[data-page-type="home"] .home-ecosystem-copy {
 body[data-page-type="home"] .home-ecosystem-list {
   display: grid;
   gap: 1rem;
+}
+
+body[data-page-type="home"] .home-ecosystem-list > div {
+  padding-left: 0.85rem;
+  border-left: 2px solid rgba(88, 221, 198, 0.16);
 }
 
 body[data-page-type="home"] .home-ecosystem-list strong {
