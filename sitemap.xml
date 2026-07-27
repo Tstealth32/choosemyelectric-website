@@ -73,6 +73,9 @@
     <loc>https://www.choosemyelectric.com/texas/houston-electricity-rates</loc>
   </url>
   <url>
+    <loc>https://www.choosemyelectric.com/texas/fort-worth-electricity-rates</loc>
+  </url>
+  <url>
     <loc>https://www.choosemyelectric.com/illinois/chicago-electric-rates</loc>
   </url>
   <url>
@@ -97,7 +100,13 @@
     <loc>https://www.choosemyelectric.com/connecticut/hartford-electric-rates</loc>
   </url>
   <url>
+    <loc>https://www.choosemyelectric.com/connecticut/new-haven-electric-rates</loc>
+  </url>
+  <url>
     <loc>https://www.choosemyelectric.com/rhode-island/providence-electric-rates</loc>
+  </url>
+  <url>
+    <loc>https://www.choosemyelectric.com/new-york/rochester-electric-rates</loc>
   </url>
   <url>
     <loc>https://www.choosemyelectric.com/rate-expiration-alerts</loc>
