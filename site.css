@@ -4273,7 +4273,7 @@ body[data-page-type="home"] .site-footer a:focus-visible {
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   body[data-page-type="home"] .site-header {
     border-radius: 1.3rem;
     padding: 0.9rem 1rem;
@@ -4290,11 +4290,31 @@ body[data-page-type="home"] .site-footer a:focus-visible {
   }
 
   body[data-page-type="home"] .hero-visual {
-    min-height: 20rem;
+    min-height: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    place-items: unset;
+    justify-self: stretch;
+    align-self: start;
+    margin-top: 0.65rem;
   }
 
   body[data-page-type="home"] .home-hero-device-frame {
-    width: min(100%, 22rem);
+    width: min(95%, 28rem);
+    max-width: 28rem;
+    justify-self: center;
+    align-self: start;
+    place-items: start center;
+    margin-inline: auto;
+  }
+
+  body[data-page-type="home"] .home-hero-device-art {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-inline: auto;
   }
 
   body[data-page-type="home"] .home-phone-lineup {
