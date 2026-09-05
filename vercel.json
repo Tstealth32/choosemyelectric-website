@@ -270,6 +270,22 @@
     {
       "source": "/facebook",
       "destination": "/facebook.html"
+    },
+    {
+      "source": "/maine/portland-electric-rates",
+      "destination": "/maine/portland-electric-rates.html"
+    },
+    {
+      "source": "/illinois/aurora-electric-rates",
+      "destination": "/illinois/aurora-electric-rates.html"
+    },
+    {
+      "source": "/ohio/toledo-electric-rates",
+      "destination": "/ohio/toledo-electric-rates.html"
+    },
+    {
+      "source": "/pennsylvania/allentown-electric-rates",
+      "destination": "/pennsylvania/allentown-electric-rates.html"
     }
   ]
 }
