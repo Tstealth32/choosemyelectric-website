@@ -500,17 +500,17 @@ function recomputeRecommendations() {
 }
 
 function buildRecommendation(offer, monthlyUsage, referenceRate, referenceAdjustment) {
-  const termMonths = Math.max(1, Math.round(toNumber(offer.termMonths) || 1));
+  const suppliedTerm = toNumber(offer.termMonths);
+  const termMonths = suppliedTerm > 0 ? Math.max(1, Math.round(suppliedTerm)) : 12;
   const monthlyFee = toNumber(offer.monthlyFee) || 0;
   const enrollmentFeeAmount = toNumber(offer.enrollmentFeeAmount) || 0;
   const monthlyCost =
     (monthlyUsage * offer.rateCentsPerKwh) / 100 +
     monthlyFee +
     enrollmentFeeAmount / termMonths;
-  const annualCost =
-    (monthlyUsage * 12 * offer.rateCentsPerKwh) / 100 +
-    monthlyFee * 12 +
-    enrollmentFeeAmount;
+  // Annualize the same monthly estimate, including the fee spread over the offer term.
+  // This is a comparison projection, not a promise of a rate beyond its contract.
+  const annualCost = monthlyCost * 12;
   const referenceMonthlyCost = (monthlyUsage * referenceRate) / 100 + referenceAdjustment;
   const referenceAnnualCost =
     (monthlyUsage * 12 * referenceRate) / 100 + referenceAdjustment * 12;
@@ -559,7 +559,7 @@ function renderResults({ currentRateBasis = "" } = {}) {
     bestOffer ? formatMoney(bestOffer.estimatedMonthlySavings) : "--";
   estimateElements.savingsNote.textContent =
     bestOffer
-      ? `${formatMoney(bestOffer.annualSavings)} per year before taxes and utility delivery charges.`
+      ? `${formatMoney(bestOffer.annualSavings)} annualized, using the same monthly usage, rate and fee assumptions. Excludes taxes and utility delivery charges; rates after the offer term may change.`
       : rawBestOffer
         ? "Live rates are loaded. Add or confirm usage and benchmark details for personalized savings math."
       : additionalSupplierContacts.length
@@ -727,7 +727,7 @@ function renderQuickWin(bestOffer, rawBestOffer, market, currentRateBasis) {
     estimateElements.quickWinDetail.textContent = comparisonDetail;
     estimateElements.quickWinRate.textContent = formatRate(bestOffer.rateCentsPerKwh, market.region);
     estimateElements.quickWinSavings.textContent =
-      `${formatMoney(bestOffer.estimatedMonthlySavings)}/mo less • ${formatMoney(bestOffer.annualSavings)}/year`;
+      `${formatMoney(bestOffer.estimatedMonthlySavings)}/mo less • ${formatMoney(bestOffer.annualSavings)} annualized`;
     return;
   }
 
@@ -828,7 +828,7 @@ function renderOfferCard(offer, isBestOffer) {
           <strong>${hasSavings ? formatMoney(offer.estimatedMonthlyCost) : `${offer.termMonths || 1} months`}</strong>
         </div>
         <div>
-          <span class="offer-label">${hasSavings ? "Annual savings" : "Rate type"}</span>
+          <span class="offer-label">${hasSavings ? "Annualized savings" : "Rate type"}</span>
           <strong>${hasSavings ? formatMoney(offer.annualSavings) : escapeHtml(offer.rateType || "Unknown")}</strong>
         </div>
       </div>
