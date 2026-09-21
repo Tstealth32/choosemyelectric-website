@@ -1,14 +1,14 @@
 {
   "finishedAtUtc": "2026-04-28T00:00:00Z",
   "sourceUrl": "https://www.energizect.com/rate-board-residential-standard-service-generation-rates",
-  "sourceLabel": "Official Connecticut billed supplier rates",
+  "sourceLabel": "Historical Connecticut billed supplier rates",
   "utilities": {
     "ct-eversource": {
       "key": "ct-eversource",
       "utilityName": "Eversource Energy",
       "utilityPhone": null,
-      "standardServiceRateCentsPerKwh": 12.641,
-      "standardServiceUpdatedText": "Jan-Jun 2026 standard service",
+      "standardServiceRateCentsPerKwh": 11.577,
+      "standardServiceUpdatedText": "Jul-Dec 2026 standard service",
       "billedRateUpdatedText": "March 2026 billed rate board",
       "billedRateWorkbookUrl": "https://www.energizect.com/sites/default/files/documents/Supplier%20Billed%20Rates%20-%20March%20ER.xlsx",
       "planSummaries": [
@@ -76,14 +76,15 @@
           "supplierWebsiteUrl": "https://www.xoomenergy.com",
           "supplierPhone": "(877) 815-1531"
         }
-      ]
+      ],
+      "standardServiceValidThrough": "2026-12-31"
     },
     "ct-ui": {
       "key": "ct-ui",
       "utilityName": "United Illuminating",
       "utilityPhone": null,
-      "standardServiceRateCentsPerKwh": 13.096,
-      "standardServiceUpdatedText": "Jan-Jun 2026 standard service",
+      "standardServiceRateCentsPerKwh": 11.9865,
+      "standardServiceUpdatedText": "Jul-Dec 2026 standard service",
       "billedRateUpdatedText": "March 2026 billed rate board",
       "billedRateWorkbookUrl": "https://www.energizect.com/sites/default/files/documents/March%202026%20UR.xlsx",
       "planSummaries": [
@@ -151,7 +152,9 @@
           "supplierWebsiteUrl": "https://www.xoomenergy.com",
           "supplierPhone": "(877) 815-1531"
         }
-      ]
+      ],
+      "standardServiceValidThrough": "2026-12-31"
     }
-  }
+  },
+  "benchmarkVerifiedAtUtc": "2026-09-10T13:55:59.806354+00:00"
 }

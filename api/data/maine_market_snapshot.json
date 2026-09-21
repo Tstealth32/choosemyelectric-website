@@ -1,6 +1,6 @@
 {
-  "startedAtUtc": "2026-04-30T21:43:52Z",
-  "finishedAtUtc": "2026-04-30T21:44:29Z",
+  "startedAtUtc": "2026-09-10T13:52:56Z",
+  "finishedAtUtc": "2026-09-10T13:53:42Z",
   "sourceUrls": {
     "determineCustomerType": "https://www.maine.gov/mpuc/regulated-utilities/electricity/maine-retail-electricity-suppliers/determine-customer-type",
     "cmpResidentialRoster": "https://www.maine.gov/mpuc/regulated-utilities/electricity/maine-retail-electricity-suppliers/cmp-residential",
@@ -9531,7 +9531,7 @@
   ],
   "rateCoverage": {
     "cmp": {
-      "rosterSupplierCount": 21,
+      "rosterSupplierCount": 23,
       "rosterSuppliers": [
         "Electricity Maine, LLC",
         "Energy Rewards, LLC",
@@ -9553,7 +9553,9 @@
         "Nordic Energy Services, LLC",
         "Octopus Energy LLC",
         "Fanfare Energy, LLC",
-        "New England Power and Light ME, LLC"
+        "New England Power and Light ME, LLC",
+        "CleanChoice Energy, Inc.",
+        "National Gas & Electric, LLC"
       ],
       "rosterSupplierLinks": {
         "Electricity Maine, LLC": "http://www.electricityme.com",
@@ -9576,7 +9578,9 @@
         "Nordic Energy Services, LLC": "https://www.nordicenergy-us.com",
         "Octopus Energy LLC": "https://www.octopusenergy.com",
         "Fanfare Energy, LLC": "www.Fanfare.energy",
-        "New England Power and Light ME, LLC": "https://www.newenglandpowerandlight.com/"
+        "New England Power and Light ME, LLC": "https://www.newenglandpowerandlight.com/",
+        "CleanChoice Energy, Inc.": "www.cleanchoiceenergy.com",
+        "National Gas & Electric, LLC": "https://ngande.com"
       },
       "currentRateProviderCount": 10,
       "currentRateProviders": [
@@ -9586,9 +9590,9 @@
         "Clearview Energy",
         "Electricity Maine",
         "Major Energy",
-        "North American Power",
         "SmartEnergy",
         "Think Energy",
+        "Town Square Energy",
         "XOOM Energy"
       ],
       "currentRateProviderLinks": {
@@ -9598,40 +9602,44 @@
         "Clearview Energy": "https://www.clearviewenergy.com/",
         "Electricity Maine": "https://providerpower.com/maine/",
         "Major Energy": "https://www.majorenergy.com/",
-        "North American Power": "https://napower.com/#gref",
         "SmartEnergy": "https://account.smartenergy.com/cmp-web-only?&utm_source=PUC_Site_CMPCO_ME&utm_medium=referral&utm_campaign=exclusive_online_rate+",
         "Think Energy": "https://www.thinkenergy.com/?utm_source=rateboard&utm_medium=referral&utm_campaign=maine",
+        "Town Square Energy": "https://townsquareenergy.com/",
         "XOOM Energy": "http://xoomenergy.com/"
       },
       "standardOfferRateCentsPerKwh": "12.721",
       "standardOfferTerm": "1/1/26 - 12/31/26",
       "rosterSuppliersMissingCurrentRates": [
         "Champion Energy Services, LLC",
+        "CleanChoice Energy, Inc.",
         "Energy Rewards, LLC",
         "Fanfare Energy, LLC",
         "First Point Power, LLC",
         "Great American Gas & Electric, LLC",
         "Massachusetts Gas & Electric, Inc.",
         "Mega Energy of Maine, LLC",
+        "National Gas & Electric, LLC",
         "New England Power and Light ME, LLC",
         "Nordic Energy Services, LLC",
+        "North American Power and Gas LLC",
         "Octopus Energy LLC",
-        "Reliant Energy Northeast LLC",
-        "Town Square Energy, LLC"
+        "Reliant Energy Northeast LLC"
       ],
       "missingCurrentRateSupplierLinks": {
         "Champion Energy Services, LLC": "http://www.championenergyservices.com",
+        "CleanChoice Energy, Inc.": "www.cleanchoiceenergy.com",
         "Energy Rewards, LLC": "http://www.comcastenergyrewards.com",
         "Fanfare Energy, LLC": "www.Fanfare.energy",
         "First Point Power, LLC": "http://www.firstpointpower.com",
         "Great American Gas & Electric, LLC": "http://www.www.ga-ge.com",
         "Massachusetts Gas & Electric, Inc.": "http://www.megande.com",
         "Mega Energy of Maine, LLC": "http://www.MegaEnergyLLC.com",
+        "National Gas & Electric, LLC": "https://ngande.com",
         "New England Power and Light ME, LLC": "https://www.newenglandpowerandlight.com/",
         "Nordic Energy Services, LLC": "https://www.nordicenergy-us.com",
+        "North American Power and Gas LLC": "http://www.napower.com",
         "Octopus Energy LLC": "https://www.octopusenergy.com",
-        "Reliant Energy Northeast LLC": "http://www.nrghomepower.com",
-        "Town Square Energy, LLC": "https://townsquareenergy.com"
+        "Reliant Energy Northeast LLC": "http://www.nrghomepower.com"
       },
       "currentRateProvidersMissingFromRoster": [
         "CleanSky Energy"
@@ -9639,150 +9647,120 @@
       "currentOfferPlansByProvider": {
         "Ambit Energy": [
           {
-            "rateCentsPerKwh": "14.00",
-            "term": "12 Months",
+            "rateCentsPerKwh": "14.50",
+            "term": "Maine State Select 12",
             "earlyTerminationFee": "No"
           },
           {
-            "rateCentsPerKwh": "14.50",
+            "rateCentsPerKwh": "15.00",
             "term": "Ultimate Perks 12",
             "earlyTerminationFee": null
           },
           {
-            "rateCentsPerKwh": "18.50",
+            "rateCentsPerKwh": "19.00",
             "term": "Winter Break 12",
             "earlyTerminationFee": null
           },
           {
-            "rateCentsPerKwh": "19.00",
+            "rateCentsPerKwh": "19.50",
             "term": "Winter Break 24",
             "earlyTerminationFee": null
           }
         ],
         "C.N. Brown Electricity": [
           {
-            "rateCentsPerKwh": "11.40",
-            "term": "7 Months",
+            "rateCentsPerKwh": "14.40",
+            "term": "12 Months",
             "earlyTerminationFee": "No"
           },
           {
-            "rateCentsPerKwh": "12.40 (100% Green)",
-            "term": "7 Months GreenChoice",
-            "earlyTerminationFee": null
-          },
-          {
-            "rateCentsPerKwh": "13.40",
-            "term": "19 Months",
-            "earlyTerminationFee": null
-          },
-          {
-            "rateCentsPerKwh": "14.40 (100% Green)",
-            "term": "19 Months GreenChoice",
+            "rateCentsPerKwh": "15.40 (100% Green)",
+            "term": "12 Months GreenChoice",
             "earlyTerminationFee": null
           }
         ],
         "CleanSky Energy": [
           {
-            "rateCentsPerKwh": "11.49 (100% Green)",
-            "term": "6 Months GreenChoice",
+            "rateCentsPerKwh": "NA",
+            "term": "NA",
             "earlyTerminationFee": "No"
           },
           {
-            "rateCentsPerKwh": "14.99 (100% Green)",
+            "rateCentsPerKwh": "13.99 (100% Green)",
             "term": "12 Months GreenChoice",
             "earlyTerminationFee": null
           },
           {
-            "rateCentsPerKwh": "14.49 (100% Green)",
+            "rateCentsPerKwh": "13.99 (100% Green)",
             "term": "24 Months GreenChoice",
             "earlyTerminationFee": null
           }
         ],
         "Clearview Energy": [
           {
-            "rateCentsPerKwh": "15.79",
-            "term": "6 Months",
+            "rateCentsPerKwh": "17.99",
+            "term": "12 Months",
             "earlyTerminationFee": "No"
           },
           {
-            "rateCentsPerKwh": "19.59",
-            "term": "12 Months",
-            "earlyTerminationFee": null
-          },
-          {
-            "rateCentsPerKwh": "19.59",
+            "rateCentsPerKwh": "17.69",
             "term": "24 Months",
             "earlyTerminationFee": null
           }
         ],
         "Electricity Maine": [
           {
-            "rateCentsPerKwh": "16.49",
+            "rateCentsPerKwh": "17.49",
             "term": "12 Months",
             "earlyTerminationFee": "No"
           },
           {
-            "rateCentsPerKwh": "16.99 (100% Green)",
+            "rateCentsPerKwh": "17.99 (100% Green)",
             "term": "12 Months GreenChoice",
             "earlyTerminationFee": null
           }
         ],
         "Major Energy": [
           {
-            "rateCentsPerKwh": "13.99",
+            "rateCentsPerKwh": "15.68",
             "term": "15 Months",
             "earlyTerminationFee": "No"
           },
           {
-            "rateCentsPerKwh": "14.49",
+            "rateCentsPerKwh": "15.79",
             "term": "23 Months",
-            "earlyTerminationFee": null
-          }
-        ],
-        "North American Power": [
-          {
-            "rateCentsPerKwh": "13.69",
-            "term": "6 Months",
-            "earlyTerminationFee": "No"
-          },
-          {
-            "rateCentsPerKwh": "14.49",
-            "term": "14 Months",
             "earlyTerminationFee": null
           }
         ],
         "SmartEnergy": [
           {
-            "rateCentsPerKwh": "14.50 (100% Green)",
-            "term": "12 Months GreenChoice",
+            "rateCentsPerKwh": "16.80",
+            "term": "12 Months",
             "earlyTerminationFee": "No"
           }
         ],
         "Think Energy": [
           {
-            "rateCentsPerKwh": "11.20",
-            "term": "5 Months",
-            "earlyTerminationFee": "No"
-          },
-          {
-            "rateCentsPerKwh": "16.40 (100% Green)",
+            "rateCentsPerKwh": "17.20 (100% Green)",
             "term": "12 Months GreenChoice",
-            "earlyTerminationFee": null
-          },
+            "earlyTerminationFee": "No"
+          }
+        ],
+        "Town Square Energy": [
           {
-            "rateCentsPerKwh": "16.60 (100% Green)",
-            "term": "24 Months GreenChoice",
-            "earlyTerminationFee": null
+            "rateCentsPerKwh": "17.57",
+            "term": "16 Months",
+            "earlyTerminationFee": "No"
           }
         ],
         "XOOM Energy": [
           {
-            "rateCentsPerKwh": "13.99",
+            "rateCentsPerKwh": "15.99",
             "term": "12 Months",
             "earlyTerminationFee": "No"
           },
           {
-            "rateCentsPerKwh": "14.49",
+            "rateCentsPerKwh": "15.99",
             "term": "24 Months",
             "earlyTerminationFee": null
           },
@@ -9797,7 +9775,7 @@
       "note": null
     },
     "bhe": {
-      "rosterSupplierCount": 21,
+      "rosterSupplierCount": 23,
       "rosterSuppliers": [
         "Electricity Maine, LLC",
         "Energy Rewards, LLC",
@@ -9819,7 +9797,9 @@
         "Nordic Energy Services, LLC",
         "Octopus Energy LLC",
         "Fanfare Energy, LLC",
-        "New England Power and Light ME, LLC"
+        "New England Power and Light ME, LLC",
+        "CleanChoice Energy, Inc.",
+        "National Gas & Electric, LLC"
       ],
       "rosterSupplierLinks": {
         "Electricity Maine, LLC": "http://www.electricityme.com",
@@ -9842,7 +9822,9 @@
         "Nordic Energy Services, LLC": "https://www.nordicenergy-us.com",
         "Octopus Energy LLC": "https://www.octopusenergy.com",
         "Fanfare Energy, LLC": "www.Fanfare.energy",
-        "New England Power and Light ME, LLC": "https://www.newenglandpowerandlight.com/"
+        "New England Power and Light ME, LLC": "https://www.newenglandpowerandlight.com/",
+        "CleanChoice Energy, Inc.": "www.cleanchoiceenergy.com",
+        "National Gas & Electric, LLC": "https://ngande.com"
       },
       "currentRateProviderCount": 9,
       "currentRateProviders": [
@@ -9851,9 +9833,9 @@
         "Clearview Energy",
         "Electricity Maine",
         "Major Energy",
-        "North American Power",
         "SmartEnergy",
         "Think Energy",
+        "Town Square Energy",
         "XOOM Energy"
       ],
       "currentRateProviderLinks": {
@@ -9862,172 +9844,146 @@
         "Clearview Energy": "https://www.clearviewenergy.com/",
         "Electricity Maine": "https://providerpower.com/maine/",
         "Major Energy": "https://www.majorenergy.com/",
-        "North American Power": "https://napower.com/#gref",
         "SmartEnergy": "https://account.smartenergy.com/versant-web-only?&utm_source=PUC_Site_VERSANT_ME&utm_medium=referral&utm_campaign=exclusive_online_rate+",
         "Think Energy": "https://www.thinkenergy.com/?utm_source=rateboard&utm_medium=referral&utm_campaign=maine",
+        "Town Square Energy": "https://townsquareenergy.com/",
         "XOOM Energy": "http://xoomenergy.com/"
       },
       "standardOfferRateCentsPerKwh": "12.954",
       "standardOfferTerm": "1/1/26 - 12/31/26",
       "rosterSuppliersMissingCurrentRates": [
         "Champion Energy Services, LLC",
+        "CleanChoice Energy, Inc.",
         "Energy Rewards, LLC",
         "Fanfare Energy, LLC",
         "First Point Power, LLC",
         "Great American Gas & Electric, LLC",
         "Massachusetts Gas & Electric, Inc.",
         "Mega Energy of Maine, LLC",
+        "National Gas & Electric, LLC",
         "New England Power and Light ME, LLC",
         "Nordic Energy Services, LLC",
+        "North American Power and Gas LLC",
         "Octopus Energy LLC",
-        "Reliant Energy Northeast LLC",
-        "Town Square Energy, LLC"
+        "Reliant Energy Northeast LLC"
       ],
       "missingCurrentRateSupplierLinks": {
         "Champion Energy Services, LLC": "http://www.championenergyservices.com",
+        "CleanChoice Energy, Inc.": "www.cleanchoiceenergy.com",
         "Energy Rewards, LLC": "http://www.comcastenergyrewards.com",
         "Fanfare Energy, LLC": "www.Fanfare.energy",
         "First Point Power, LLC": "http://www.firstpointpower.com",
         "Great American Gas & Electric, LLC": "http://www.www.ga-ge.com",
         "Massachusetts Gas & Electric, Inc.": "http://www.megande.com",
         "Mega Energy of Maine, LLC": "http://www.MegaEnergyLLC.com",
+        "National Gas & Electric, LLC": "https://ngande.com",
         "New England Power and Light ME, LLC": "https://www.newenglandpowerandlight.com/",
         "Nordic Energy Services, LLC": "https://www.nordicenergy-us.com",
+        "North American Power and Gas LLC": "http://www.napower.com",
         "Octopus Energy LLC": "https://www.octopusenergy.com",
-        "Reliant Energy Northeast LLC": "http://www.nrghomepower.com",
-        "Town Square Energy, LLC": "https://townsquareenergy.com"
+        "Reliant Energy Northeast LLC": "http://www.nrghomepower.com"
       },
       "currentRateProvidersMissingFromRoster": [],
       "currentOfferPlansByProvider": {
         "Ambit Energy": [
           {
-            "rateCentsPerKwh": "14.00",
-            "term": "12 Months",
+            "rateCentsPerKwh": "14.50",
+            "term": "Maine State Select 12",
             "earlyTerminationFee": "No"
           },
           {
-            "rateCentsPerKwh": "14.50",
+            "rateCentsPerKwh": "15.00",
             "term": "Ultimate Perks 12",
             "earlyTerminationFee": null
           },
           {
-            "rateCentsPerKwh": "18.25",
+            "rateCentsPerKwh": "18.75",
             "term": "Winter Break 12",
             "earlyTerminationFee": null
           },
           {
-            "rateCentsPerKwh": "18.75",
+            "rateCentsPerKwh": "19.25",
             "term": "Winter Break 24",
             "earlyTerminationFee": null
           }
         ],
         "C.N. Brown Electricity": [
           {
-            "rateCentsPerKwh": "11.40",
-            "term": "7 Months",
+            "rateCentsPerKwh": "14.40",
+            "term": "12 Months",
             "earlyTerminationFee": "No"
           },
           {
-            "rateCentsPerKwh": "12.40 (100% Green)",
-            "term": "7 Months GreenChoice",
-            "earlyTerminationFee": null
-          },
-          {
-            "rateCentsPerKwh": "13.40",
-            "term": "19 Months",
-            "earlyTerminationFee": null
-          },
-          {
-            "rateCentsPerKwh": "14.40 (100% Green)",
-            "term": "19 Months GreenChoice",
+            "rateCentsPerKwh": "15.40 (100% Green)",
+            "term": "12 Months GreenChoice",
             "earlyTerminationFee": null
           }
         ],
         "Clearview Energy": [
           {
-            "rateCentsPerKwh": "13.29",
-            "term": "6 Months",
+            "rateCentsPerKwh": "16.59",
+            "term": "12 Months",
             "earlyTerminationFee": "No"
           },
           {
-            "rateCentsPerKwh": "16.69",
-            "term": "12 Months",
-            "earlyTerminationFee": null
-          },
-          {
-            "rateCentsPerKwh": "16.59",
+            "rateCentsPerKwh": "16.39",
             "term": "24 Months",
             "earlyTerminationFee": null
           }
         ],
         "Electricity Maine": [
           {
-            "rateCentsPerKwh": "18.29",
+            "rateCentsPerKwh": "19.79",
             "term": "12 Months",
             "earlyTerminationFee": "No"
           },
           {
-            "rateCentsPerKwh": "18.49 (100% Green)",
+            "rateCentsPerKwh": "19.79 (100% Green)",
             "term": "12 Months GreenChoice",
             "earlyTerminationFee": null
           }
         ],
         "Major Energy": [
           {
-            "rateCentsPerKwh": "14.49",
+            "rateCentsPerKwh": "15.89",
             "term": "15 Months",
             "earlyTerminationFee": "No"
           },
           {
-            "rateCentsPerKwh": "14.75",
+            "rateCentsPerKwh": "15.99",
             "term": "23 Months",
-            "earlyTerminationFee": null
-          }
-        ],
-        "North American Power": [
-          {
-            "rateCentsPerKwh": "13.69",
-            "term": "6 Months",
-            "earlyTerminationFee": "No"
-          },
-          {
-            "rateCentsPerKwh": "14.59",
-            "term": "14 Months",
             "earlyTerminationFee": null
           }
         ],
         "SmartEnergy": [
           {
-            "rateCentsPerKwh": "13.00 (100% Green)",
-            "term": "12 Months GreenChoice",
+            "rateCentsPerKwh": "16.00",
+            "term": "12 Months",
             "earlyTerminationFee": "No"
           }
         ],
         "Think Energy": [
           {
-            "rateCentsPerKwh": "11.20",
-            "term": "5 Months",
-            "earlyTerminationFee": "No"
-          },
-          {
-            "rateCentsPerKwh": "16.40 (100% Green)",
+            "rateCentsPerKwh": "17.20 (100% Green)",
             "term": "12 Months GreenChoice",
-            "earlyTerminationFee": null
-          },
+            "earlyTerminationFee": "No"
+          }
+        ],
+        "Town Square Energy": [
           {
-            "rateCentsPerKwh": "16.60 (100% Green)",
-            "term": "24 Months GreenChoice",
-            "earlyTerminationFee": null
+            "rateCentsPerKwh": "NA",
+            "term": "NA",
+            "earlyTerminationFee": "No"
           }
         ],
         "XOOM Energy": [
           {
-            "rateCentsPerKwh": "13.99",
+            "rateCentsPerKwh": "15.99",
             "term": "12 Months",
             "earlyTerminationFee": "No"
           },
           {
-            "rateCentsPerKwh": "13.99",
+            "rateCentsPerKwh": "16.49",
             "term": "24 Months",
             "earlyTerminationFee": null
           },
@@ -10042,7 +9998,7 @@
       "note": null
     },
     "mps": {
-      "rosterSupplierCount": 13,
+      "rosterSupplierCount": 14,
       "rosterSuppliers": [
         "Electricity Maine, LLC",
         "Energy Rewards, LLC",
@@ -10056,7 +10012,8 @@
         "Nordic Energy Services, LLC",
         "Octopus Energy LLC",
         "Fanfare Energy, LLC",
-        "New England Power and Light ME, LLC"
+        "New England Power and Light ME, LLC",
+        "National Gas & Electric, LLC"
       ],
       "rosterSupplierLinks": {
         "Electricity Maine, LLC": "http://www.electricityme.com",
@@ -10071,7 +10028,8 @@
         "Nordic Energy Services, LLC": "https://www.nordicenergy-us.com",
         "Octopus Energy LLC": "https://www.octopusenergy.com",
         "Fanfare Energy, LLC": "www.Fanfare.energy",
-        "New England Power and Light ME, LLC": "https://www.newenglandpowerandlight.com/"
+        "New England Power and Light ME, LLC": "https://www.newenglandpowerandlight.com/",
+        "National Gas & Electric, LLC": "https://ngande.com"
       },
       "currentRateProviderCount": 0,
       "currentRateProviders": [],
@@ -10085,6 +10043,7 @@
         "Fanfare Energy, LLC",
         "Major Energy Electric Services, LLC",
         "Massachusetts Gas & Electric, Inc.",
+        "National Gas & Electric, LLC",
         "New England Power and Light ME, LLC",
         "Nordic Energy Services, LLC",
         "North American Power and Gas LLC",
@@ -10100,6 +10059,7 @@
         "Fanfare Energy, LLC": "www.Fanfare.energy",
         "Major Energy Electric Services, LLC": "http://www.majorenergy.com",
         "Massachusetts Gas & Electric, Inc.": "http://www.megande.com",
+        "National Gas & Electric, LLC": "https://ngande.com",
         "New England Power and Light ME, LLC": "https://www.newenglandpowerandlight.com/",
         "Nordic Energy Services, LLC": "https://www.nordicenergy-us.com",
         "North American Power and Gas LLC": "http://www.napower.com",
@@ -10119,31 +10079,35 @@
     "missingCurrentRateSuppliers": {
       "cmp": [
         "Champion Energy Services, LLC",
+        "CleanChoice Energy, Inc.",
         "Energy Rewards, LLC",
         "Fanfare Energy, LLC",
         "First Point Power, LLC",
         "Great American Gas & Electric, LLC",
         "Massachusetts Gas & Electric, Inc.",
         "Mega Energy of Maine, LLC",
+        "National Gas & Electric, LLC",
         "New England Power and Light ME, LLC",
         "Nordic Energy Services, LLC",
+        "North American Power and Gas LLC",
         "Octopus Energy LLC",
-        "Reliant Energy Northeast LLC",
-        "Town Square Energy, LLC"
+        "Reliant Energy Northeast LLC"
       ],
       "bhe": [
         "Champion Energy Services, LLC",
+        "CleanChoice Energy, Inc.",
         "Energy Rewards, LLC",
         "Fanfare Energy, LLC",
         "First Point Power, LLC",
         "Great American Gas & Electric, LLC",
         "Massachusetts Gas & Electric, Inc.",
         "Mega Energy of Maine, LLC",
+        "National Gas & Electric, LLC",
         "New England Power and Light ME, LLC",
         "Nordic Energy Services, LLC",
+        "North American Power and Gas LLC",
         "Octopus Energy LLC",
-        "Reliant Energy Northeast LLC",
-        "Town Square Energy, LLC"
+        "Reliant Energy Northeast LLC"
       ],
       "mps": [
         "Clearview Electric, Inc",
@@ -10152,6 +10116,7 @@
         "Fanfare Energy, LLC",
         "Major Energy Electric Services, LLC",
         "Massachusetts Gas & Electric, Inc.",
+        "National Gas & Electric, LLC",
         "New England Power and Light ME, LLC",
         "Nordic Energy Services, LLC",
         "North American Power and Gas LLC",

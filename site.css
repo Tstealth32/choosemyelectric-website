@@ -1757,8 +1757,9 @@ body[data-page-type="home"] .ticker span {
 }
 
 .reveal {
-  opacity: 0;
-  transform: translateY(18px);
+  /* Reading and navigation must work even if JavaScript is unavailable. */
+  opacity: 1;
+  transform: none;
   transition: opacity 720ms ease, transform 720ms ease;
 }
 
@@ -4959,7 +4960,7 @@ body[data-page-type="estimate"] .offer-card {
 }
 
 body[data-page-type="estimate"] .offer-results {
-  grid-template-columns: repeat(auto-fit, minmax(18.5rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18.5rem), 1fr));
   align-items: start;
 }
 
@@ -6579,5 +6580,72 @@ body[data-page-type="community-solar"] .solar-journey-step:hover {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* Keep image proportions stable and keyboard shortcuts easy to find. */
+img { max-width: 100%; height: auto; }
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1000;
+  padding: 0.8rem 1rem;
+  border-radius: 0.6rem;
+  color: #0f172a;
+  background: #b8efd7;
+  transform: translateY(-180%);
+}
+.skip-link:focus { transform: none; }
+:focus-visible { outline: 3px solid #62c49a; outline-offset: 4px; }
+
+/* These shared components retain light surfaces within the dark site theme. */
+body:not([data-page-type="home"]) :is(
+  .comparison-card:not(.comparison-card-app),
+  .app-feature-card,
+  .trust-disclosure,
+  .inline-cta-card:not(.inline-cta-card-app),
+  .mini-card:not(.mini-card-accent)
+) {
+  color: #132c35;
+}
+
+body:not([data-page-type="home"]) :is(
+  .comparison-card:not(.comparison-card-app),
+  .app-feature-card,
+  .trust-disclosure,
+  .inline-cta-card:not(.inline-cta-card-app),
+  .mini-card:not(.mini-card-accent)
+) :is(.eyebrow, .app-feature-pill, .mini-label) {
+  color: #15563f;
+}
+
+body[data-page-type="estimate"] .control-card:not(.app-funnel-card) .eyebrow {
+  color: #15563f;
+}
+
+body:not([data-page-type="home"]) .article-meta {
+  color: #afc4d5;
+}
+
+@media (max-width: 720px) {
+  .page-shell :where(section, article, aside, div, form) { min-width: 0; }
+  .content-hero-split,
+  .solar-story-layout,
+  .estimate-grid,
+  .manual-grid,
+  .summary-strip {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .app-handoff-card { width: 100%; min-width: 0; }
+  .page-shell .button { white-space: normal; text-align: center; }
+  .page-shell :is(h1, h2, h3, p, a) { overflow-wrap: anywhere; }
+}
+
+@media (max-width: 480px) {
+  body:not([data-page-type="home"]) .content-hero h1,
+  body:not([data-page-type="home"]) .app-handoff-card h1 {
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1.08;
   }
 }

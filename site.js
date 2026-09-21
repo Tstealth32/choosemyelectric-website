@@ -4,8 +4,8 @@ const chooseSiteConfig = {
   iosAppDeepLink: "itms-apps://apps.apple.com/us/app/choose-my-electric/id6762017797",
   androidAppUrl: "https://play.google.com/store/apps/details?id=com.choosemyelectric.app&pcampaignid=web_share",
   androidAppDeepLink: "market://details?id=com.choosemyelectric.app",
-  iosBadgeAsset: "assets/app-store-badge.svg",
-  androidBadgeAsset: "assets/google-play-badge.svg",
+  iosBadgeAsset: "/assets/app-store-badge.svg",
+  androidBadgeAsset: "/assets/google-play-badge.svg",
   androidComingSoonLabel: "Android Coming April 2026",
   contactEmail: "contact@choosemyelectric.com",
 };
@@ -206,10 +206,10 @@ function createStoreBadgeRowMarkup({ className = "store-badge-row" } = {}) {
   return `
     <div class="${className}" data-store-badge-row>
       <a class="store-badge-link" data-store-link="ios" href="${chooseSiteConfig.iosAppUrl}" aria-label="Download on the App Store">
-        <img class="store-badge" src="${chooseSiteConfig.iosBadgeAsset}" alt="Download on the App Store">
+        <img class="store-badge" width="180" height="53" src="${chooseSiteConfig.iosBadgeAsset}" alt="Download on the App Store">
       </a>
       <a class="store-badge-link" data-store-link="android" href="${chooseSiteConfig.androidAppUrl}" aria-label="Get it on Google Play">
-        <img class="store-badge" src="${chooseSiteConfig.androidBadgeAsset}" alt="Get it on Google Play">
+        <img class="store-badge" width="180" height="53" src="${chooseSiteConfig.androidBadgeAsset}" alt="Get it on Google Play">
       </a>
     </div>
   `;
@@ -376,6 +376,13 @@ function enhanceMobileNav() {
   document.addEventListener("click", (event) => {
     if (!header.contains(event.target)) {
       closeNav();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && nav.classList.contains("is-open")) {
+      closeNav();
+      button.focus();
     }
   });
 
@@ -1022,7 +1029,7 @@ function enhanceBlogPages() {
 
   if (articleBody) {
     const heroHeading = document.querySelector(".content-hero .section-heading");
-    if (heroHeading && !document.querySelector(".blog-intro-cta")) {
+    if (heroHeading && !heroHeading.querySelector(".cta-row") && !document.querySelector(".blog-intro-cta")) {
       const introCard = document.createElement("div");
       introCard.className = "blog-intro-cta";
       introCard.innerHTML = createBlogCompareCtaMarkup();
@@ -1365,7 +1372,7 @@ function startRevealObserver() {
       });
     },
     {
-      threshold: 0.15,
+      threshold: 0.01,
       rootMargin: "0px 0px -40px 0px",
     },
   );

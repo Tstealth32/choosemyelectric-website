@@ -47,15 +47,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "no-store, no-cache, must-revalidate, max-age=0"
-        },
-        {
-          "key": "Pragma",
-          "value": "no-cache"
-        },
-        {
-          "key": "Expires",
-          "value": "0"
+          "value": "public, max-age=0, must-revalidate"
         },
         {
           "key": "Strict-Transport-Security",
@@ -90,6 +82,24 @@
         {
           "key": "Cache-Control",
           "value": "no-store, no-cache, must-revalidate, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
         }
       ]
     }
@@ -286,6 +296,22 @@
     {
       "source": "/pennsylvania/allentown-electric-rates",
       "destination": "/pennsylvania/allentown-electric-rates.html"
+    },
+    {
+      "source": "/pennsylvania/reading-electric-rates",
+      "destination": "/pennsylvania/reading-electric-rates.html"
+    },
+    {
+      "source": "/ohio/akron-electric-rates",
+      "destination": "/ohio/akron-electric-rates.html"
+    },
+    {
+      "source": "/illinois/rockford-electric-rates",
+      "destination": "/illinois/rockford-electric-rates.html"
+    },
+    {
+      "source": "/connecticut/stamford-electric-rates",
+      "destination": "/connecticut/stamford-electric-rates.html"
     }
   ]
 }

@@ -230,7 +230,19 @@ async function handleEstimateSubmit(event) {
   });
 }
 
-async function refreshMarket({
+async function refreshMarket(options = {}) {
+  try {
+    await loadMarketResponse(options);
+  } catch {
+    estimateState.market = null;
+    estimateState.currentCost = null;
+    estimateState.recommendations = [];
+    renderResults();
+    setStatus("We couldn’t load rates right now. Please try again or browse the state guides below.", "error");
+  }
+}
+
+async function loadMarketResponse({
   preferredUtilityName = "",
   triggeredByUtilityChoice = false,
   utilityChoiceKey = "",
@@ -258,6 +270,7 @@ async function refreshMarket({
 
   if (!response.ok) {
     estimateState.market = null;
+    estimateState.currentCost = null;
     estimateState.recommendations = [];
     renderResults();
     setStatus(payload.error || "The market estimate could not load right now.", "error");
@@ -1834,6 +1847,11 @@ function toNumber(value) {
 function parseWholeNumber(value) {
   const match = String(value ?? "").match(/(\d+)/);
   return match ? Number(match[1]) : null;
+}
+
+function extractFirstDecimal(value) {
+  const match = String(value ?? "").match(/(\d+(?:\.\d+)?|\.\d+)/);
+  return match ? Number(match[0]) : null;
 }
 
 function isOhioZip(zipCode) {
