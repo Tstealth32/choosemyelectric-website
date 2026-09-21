@@ -6649,3 +6649,15 @@ body:not([data-page-type="home"]) .article-meta {
     line-height: 1.08;
   }
 }
+
+/* Light checklist tiles and the app bar need their own text colors. */
+.state-watch-item,
+.sticky-app-copy { color: #132c35; }
+.state-watch-item span,
+.sticky-app-copy span { color: #3b535f; }
+
+@media (max-width: 720px) {
+  .sticky-app-copy { flex-direction: column; align-items: flex-start; gap: 0.15rem; }
+  .sticky-app-copy strong,
+  .sticky-app-copy span { max-width: 100%; }
+}

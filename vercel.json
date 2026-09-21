@@ -3,6 +3,16 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/sign-up-now",
+      "destination": "/estimate",
+      "permanent": true
+    },
+    {
+      "source": "/cancel",
+      "destination": "/contact#cancellations",
+      "permanent": true
+    },
+    {
       "source": "/privacy",
       "destination": "/privacy-policy",
       "permanent": true
